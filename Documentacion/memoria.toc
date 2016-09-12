@@ -2,18 +2,3 @@
 \select@language {spanish}
 \contentsline {chapter}{\'{I}ndice general}{\es@scroman {iii}}{section*.1}
 \contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {iv}}{section*.2}
-\contentsline {chapter}{Introducci\IeC {\'o}n}{1}{chapter*.3}
-\contentsline {chapter}{Objetivos del proyecto}{2}{chapter*.4}
-\contentsline {chapter}{Conceptos te\IeC {\'o}ricos}{3}{chapter*.5}
-\contentsline {section}{\numberline {3.1}Secciones}{3}{section.3.1}
-\contentsline {subsection}{Subsecciones}{3}{section*.6}
-\contentsline {subsubsection}{Subsubsecciones}{3}{section*.7}
-\contentsline {section}{\numberline {3.2}Referencias}{3}{section.3.2}
-\contentsline {section}{\numberline {3.3}Im\IeC {\'a}genes}{3}{section.3.3}
-\contentsline {section}{\numberline {3.4}Listas de items}{4}{section.3.4}
-\contentsline {section}{\numberline {3.5}Tablas}{4}{section.3.5}
-\contentsline {chapter}{T\IeC {\'e}cnicas y herramientas}{6}{chapter*.8}
-\contentsline {chapter}{Aspectos relevantes del desarrollo del proyecto}{7}{chapter*.9}
-\contentsline {chapter}{Trabajos relacionados}{8}{chapter*.10}
-\contentsline {chapter}{Conclusiones y L\IeC {\'\i }neas de trabajo futuras}{9}{chapter*.11}
-\contentsline {chapter}{Bibliograf\'{\i }a}{10}{section*.13}

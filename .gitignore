@@ -8,6 +8,14 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+.aux
+.bbl
+.blg
+.lof
+.log
+.out
+.gz
+.toc
 env/
 build/
 develop-eggs/

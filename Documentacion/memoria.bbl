@@ -1,0 +1,14 @@
+\begin{thebibliography}{1}
+
+\bibitem{koza92}
+John~R. Koza.
+\newblock {\em Genetic Programming: On the Programming of Computers by Means of
+  Natural Selection}.
+\newblock MIT Press, 1992.
+
+\bibitem{wiki:latex}
+Wikipedia.
+\newblock Latex --- wikipedia{,} la enciclopedia libre, 2015.
+\newblock [Internet; descargado 30-septiembre-2015].
+
+\end{thebibliography}

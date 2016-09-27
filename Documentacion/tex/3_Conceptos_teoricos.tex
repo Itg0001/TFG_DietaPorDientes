@@ -1,57 +1,103 @@
 \capitulo{3}{Conceptos teóricos}
 
-En aquellos proyectos que necesiten para su comprensión y desarrollo de unos conceptos teóricos de una determinada materia o de un determinado dominio de conocimiento, debe existir un apartado que sintetice dichos conceptos.
+\section{Espacios de color }
+El color que percibimos en los objetos que nos rodean depende de la radiación reflejada en ellos.Según los estudios nosotros como humanos tenemos un rango "de luz visible" ese rango son en verdad 3 frecuencias diferentes dentro del rango 769THz a 384THz.
+Por lo que en verdad una imagen que percibimos es la unión de las 3 frecuencias diferentes y para poder simular este hecho las maquinas simulan esta capacidad innata de los humanos creando los espacios de color que son modelos matemáticos para representar en una maquina lo que veríamos.
 
-Algunos conceptos teóricos de \LaTeX \footnote{Créditos a los proyectos de Álvaro López Cantero: Configurador de Presupuestos y Roberto Izquierdo Amo: PLQuiz}.
+\imagen{EspacioDeColor}{Frecuencias de luz visible}
 
-\section{Secciones}
-
-Las secciones se incluyen con el comando section.
-
-\subsection{Subsecciones}
-
-Además de secciones tenemos subsecciones.
-
-\subsubsection{Subsubsecciones}
-
-Y subsecciones. 
-
-
-\section{Referencias}
-
-Las referencias se incluyen en el texto usando cite \cite{wiki:latex}. Para citar webs, artículos o libros \cite{koza92}.
-
-
-\section{Imágenes}
-
-Se pueden incluir imágenes con los comandos standard de \LaTeX, pero esta plantilla dispone de comandos propios como por ejemplo el siguiente:
-
-\imagen{thompson-vacio}{Autómata para una expresión vacía}
-
-
-
-\section{Listas de items}
-
-Existen tres posibilidades:
-
+\subsection{RGB}
+El modelo RGB es usado por todos los sistemas digitales para la representación y captura de imágenes.\\
+Se divide en tres canales:\\
 \begin{itemize}
-	\item primer item.
-	\item segundo item.
+	\item R: canal del rojo (RED) contiene la intensidad de rojo de cada pixel\\
+	\item G: canal del verde (GREEN)contiene la intensidad de verde de cada pixel\\
+	\item B: canal del azul (BLUE)contiene la intensidad de azul de cada pixel\\
 \end{itemize}
 
-\begin{enumerate}
-	\item primer item.
-	\item segundo item.
-\end{enumerate}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.75]{RGB_Canales}
+\caption{Los tres canales del espacio RGB}
+\end{figure}
 
-\begin{description}
-	\item[Primer item] más información sobre el primer item.
-	\item[Segundo item] más información sobre el segundo item.
-\end{description}
-	
+La combinación de estos colores crea todas la gama de colores representable.
+El valor de la intensidad de cada canal depende de la codificación usada para su representación (8bits dan 16millones de colores)
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.95]{RGB}
+\caption{Representación del modelo RGB}
+\end{figure}
+
+\subsection{HSV}
+El modelo HSV \cite{modelo:hsv} esta orientado a la descripción de los colores en términos mas prácticos para el ser humano que el RGB.\\
+Ya que los canales significan algo por si solos no solo la cantidad de un color que no nos informa de mucho.
+ 
 \begin{itemize}
-\item 
+	\item H: (Matiz) que representa el tono o color.\\
+	\item S: (Saturación) representa el nivel de saturación de un color.\\
+	\item V: (Brillo) representa la intensidad lumínica.\\
 \end{itemize}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.95]{HSV}
+\caption{Representación del modelo HSV}
+\end{figure}
+Una ventaja con otros espacios de color parecidos es que este permite representar todas las combinaciones del espacio RGB.
+
+\section{Transformada de hough }
+
+\subsection{Introducción}
+
+Uno de los puntos relevantes del proyecto es la detección de las lineas pintadas o detectadas por el algoritmo (modo automático) para ello vamos a usar una técnica que sirve para detectar formas dentro de imágenes en visión artificial siempre que puedan ser expresadas de forma matemática.
+
+Esta tecnica fue inventada por Richard Duda y Peter Hart en 1972 pero 10 años antes Paul Hough propuso y patento \cite{pat:patHough} la idea inicial de detectar lineas en la imagen. Mas tarde se generalizo para detectar cualquier figura.
+
+\subsection{Teoría}
+
+Normalmente para detectar figuras sencillas en una imagen primero hay que usar algún algoritmo de detección de bordes o una binarización de la imagen, quedándonos con la región de interés apropiada (los pixeles que forman las rectas) pero normalmente faltan pixeles por el ruido en la imagen.
+
+Para ello el metodo de hough propone solucionar el problema detectando grupos de puntos que forman los bordes de la misma figura y asi conseguir unirlos creando la recta real a la que pertenecen.
+
+\subsection{Psudocódigo \cite{wiki:hough} Transformada de Hough}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{PsudocodigoHough}
+\caption{Imagen de Wikipedia del psudocódigo de Hough}
+\end{figure}
+
+\subsection{Limitaciones}
+Para que este proceso sea exitoso los bordes del objeto deben ser detectados bien con un buen pre-procesado de la imagen y aparecer claramente las nubes de puntos que forman las rectas.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.75]{hough}
+\caption{Lineas de hough}
+\end{figure}
+
+\subsection{Transformada probabilística  \cite{Kiryati20001157} de Hough}
+Es una version que se basa en que la detección de bordes o la producción de la imagen binaria que contiene el objeto, podría tener ruido y por lo tanto los pixeles que corresponden al ruido con la transformada normal podrían ser considerados como una recta, cuando en verdad es ruido.\\
+Para que unos puntos sean considerados recta en la probabilística el numero necesario de ellos es menor que en la normal. Pero penalizando a los puntos que se consideran la nube de puntos aleatoria a aquellos que estén en duda de donde se colocan.\\
+Un exceso de ruido en la imagen también haría este método inservible pero para pequeñas cantidades lo hacen mas preciso que el método normal.
+Otra ventaja es que con este método obtenemos el segmento que necesitamos no la prolongación de el hasta el infinito.
+
+
+\section{Skeletonize \cite{scik:skeleton}}
+Dentro del pre-procesado de la imagen uno de los puntos clave para que nuestro método funcione es que después de su binarización y la detección de los bordes de la imagen a procesar debemos reducir la región sobre la que aplicar la transformada de hough para que esta sea mas rápida y detecte menos número de lineas imaginarias por cada linea real.
+
+Esto lo conseguiremos usando una función de esqueletonizado que nos devuelve lo que su nombre indica el esqueleto de los bordes de la imagen reducidos a 1 pixel \cite{scik:skeleton}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.55]{skeletonize}
+\caption{Ejemplo de skeletonize}
+\end{figure}
+
+
+
+
+
+
 
 \section{Tablas}
 

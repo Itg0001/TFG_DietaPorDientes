@@ -1,14 +1,19 @@
 \capitulo{3}{Conceptos teóricos}
 
 \section{Espacios de color }
-El color que percibimos en los objetos que nos rodean depende de la radiación reflejada en ellos.Según los estudios nosotros como humanos tenemos un rango "de luz visible" ese rango son en verdad 3 frecuencias diferentes dentro del rango 769THz a 384THz.
-Por lo que en verdad una imagen que percibimos es la unión de las 3 frecuencias diferentes y para poder simular este hecho las maquinas simulan esta capacidad innata de los humanos creando los espacios de color que son modelos matemáticos para representar en una maquina lo que veríamos.
+El color que percibimos en los objetos que nos rodean depende de la radiación reflejada en ellos.Según los estudios nosotros como humanos tenemos un rango ``de luz visible'' ese rango son en verdad tres frecuencias diferentes dentro del rango 769THz a 384THz.\\
+Por lo que en verdad una imagen que percibimos es la unión de las tres frecuencias diferentes y para poder simular este hecho las maquinas simulan esta capacidad innata de los humanos creando los espacios de color que son modelos matemáticos para representar en una maquina lo que veríamos.\ref{fig:3.1}
 
-\imagen{EspacioDeColor}{Frecuencias de luz visible}
+\begin{figure}[h]
+\centering
+\includegraphics[width=.9\textwidth]{EspacioDeColor}
+\caption{Frecuencias de luz visible \cite{Manual:HAE}}
+\label{fig:3.1}
+\end{figure}
 
 \subsection{RGB}
 El modelo RGB es usado por todos los sistemas digitales para la representación y captura de imágenes.\\
-Se divide en tres canales:\\
+Se divide en tres canales:\ref{fig:3.2}\\
 \begin{itemize}
 	\item R: canal del rojo (RED) contiene la intensidad de rojo de cada pixel\\
 	\item G: canal del verde (GREEN)contiene la intensidad de verde de cada pixel\\
@@ -17,22 +22,23 @@ Se divide en tres canales:\\
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.75]{RGB_Canales}
-\caption{Los tres canales del espacio RGB}
+\includegraphics[width=.3\textwidth]{RGB_Canales}
+\caption{Los tres canales del espacio RGB \cite{Manual:HAE}}
+\label{fig:3.2}
 \end{figure}
-
 La combinación de estos colores crea todas la gama de colores representable.
-El valor de la intensidad de cada canal depende de la codificación usada para su representación (8bits dan 16millones de colores)
+El valor de la intensidad de cada canal depende de la codificación usada para su representación (8bits dan 16millones de colores)\ref{fig:3.3}
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.95]{RGB}
-\caption{Representación del modelo RGB}
+\includegraphics[width=.3\textwidth]{RGB}
+\caption{Representación del modelo RGB\cite{Manual:HAE}}
+\label{fig:3.3}
 \end{figure}
 
 \subsection{HSV}
 El modelo HSV \cite{modelo:hsv} esta orientado a la descripción de los colores en términos mas prácticos para el ser humano que el RGB.\\
-Ya que los canales significan algo por si solos no solo la cantidad de un color que no nos informa de mucho.
+Ya que los canales significan algo por si solos no solo la cantidad de un color que no nos informa de mucho.\ref{fig:3.4}
  
 \begin{itemize}
 	\item H: (Matiz) que representa el tono o color.\\
@@ -41,8 +47,9 @@ Ya que los canales significan algo por si solos no solo la cantidad de un color 
 \end{itemize}
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.95]{HSV}
-\caption{Representación del modelo HSV}
+\includegraphics[width=.35\textwidth]{HSV}
+\caption{Representación del modelo HSV\cite{Manual:HAE}}
+\label{fig:3.4}
 \end{figure}
 Una ventaja con otros espacios de color parecidos es que este permite representar todas las combinaciones del espacio RGB.
 
@@ -60,37 +67,65 @@ Normalmente para detectar figuras sencillas en una imagen primero hay que usar a
 
 Para ello el metodo de hough propone solucionar el problema detectando grupos de puntos que forman los bordes de la misma figura y asi conseguir unirlos creando la recta real a la que pertenecen.
 
-\subsection{Psudocódigo \cite{wiki:hough} Transformada de Hough}
-\begin{figure}[h]
-\centering
-\includegraphics[scale=1]{PsudocodigoHough}
-\caption{Imagen de Wikipedia del psudocódigo de Hough}
-\end{figure}
+\subsection{Psudocódigo Transformada de Hough}
+\ref{alg:Hough}
+
+%Hough
+\begin{algorithm*}
+\DontPrintSemicolon
+\KwIn{Imagen}
+\KwOut{(list) de segmentos encontrados }
+
+%$ S = \varnothing $
+
+\ForEach {punto en la imagen}{
+		\If {punto \textbf{(x,y)} esta en un borde:}{
+			\ForEach {angulo en angulos $\Theta$ }{
+				Calcular $\rho$  para el punto (x,y) con angulo $\Theta$ \;
+				Incrementar la posicion ($\rho$ , $\Theta$ ) en el acumulador\;
+			}
+		}
+}
+Buscar las posiciones con mayores valores en el acumulador\;	
+
+\Return {$Las rectas cuyos valores son los mayores en el acumulador$}
+\label{alg:Hough}
+\end{algorithm*}
 
 \subsection{Limitaciones}
-Para que este proceso sea exitoso los bordes del objeto deben ser detectados bien con un buen pre-procesado de la imagen y aparecer claramente las nubes de puntos que forman las rectas.
+Para que este proceso sea exitoso los bordes del objeto deben ser detectados bien con un buen pre-procesado de la imagen y aparecer claramente las nubes de puntos que forman las rectas.\ref{fig:3.5}
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.75]{hough}
-\caption{Lineas de hough}
+\includegraphics[width=.3\textwidth]{hough}
+\caption{Lineas de hough\cite{opencv:houghIm}}
+\label{fig:3.5}
 \end{figure}
+\subsection{Transformada probabilística de Hough}
 
-\subsection{Transformada probabilística  \cite{Kiryati20001157} de Hough}
-Es una version que se basa en que la detección de bordes o la producción de la imagen binaria que contiene el objeto, podría tener ruido y por lo tanto los pixeles que corresponden al ruido con la transformada normal podrían ser considerados como una recta, cuando en verdad es ruido.\\
+
+
+\cite{Kiryati20001157}Es una version que se basa en que la detección de bordes o la producción de la imagen binaria que contiene el objeto, podría tener ruido y por lo tanto los pixeles que corresponden al ruido con la transformada normal podrían ser considerados como una recta, cuando en verdad es ruido.\\
 Para que unos puntos sean considerados recta en la probabilística el numero necesario de ellos es menor que en la normal. Pero penalizando a los puntos que se consideran la nube de puntos aleatoria a aquellos que estén en duda de donde se colocan.\\
 Un exceso de ruido en la imagen también haría este método inservible pero para pequeñas cantidades lo hacen mas preciso que el método normal.
 Otra ventaja es que con este método obtenemos el segmento que necesitamos no la prolongación de el hasta el infinito.
 
+\section{Skeletonize }
+\cite{scik:skeleton} Dentro del pre-procesado de la imagen uno de los puntos clave para que nuestro método funcione es que después de su binarización y la detección de los bordes de la imagen a procesar debemos reducir la región sobre la que aplicar la transformada de hough para que esta sea mas rápida y detecte menos número de lineas imaginarias por cada linea real.
 
-\section{Skeletonize \cite{scik:skeleton}}
-Dentro del pre-procesado de la imagen uno de los puntos clave para que nuestro método funcione es que después de su binarización y la detección de los bordes de la imagen a procesar debemos reducir la región sobre la que aplicar la transformada de hough para que esta sea mas rápida y detecte menos número de lineas imaginarias por cada linea real.
+Esto lo conseguiremos usando una función de esqueletonizado que nos devuelve lo que su nombre indica el esqueleto de los bordes de la imagen reducidos a 1 pixel.\ref{fig:3.6}
 
-Esto lo conseguiremos usando una función de esqueletonizado que nos devuelve lo que su nombre indica el esqueleto de los bordes de la imagen reducidos a 1 pixel \cite{scik:skeleton}
-\begin{figure}[h]
-\centering
-\includegraphics[scale=0.55]{skeletonize}
-\caption{Ejemplo de skeletonize}
+
+\begin{figure}
+\begin{subfigure}[b]{.5\linewidth}
+\centering\large \includegraphics[width=.9\textwidth]{skeletonizeA}
+\caption{Original}
+\end{subfigure}%
+\begin{subfigure}[b]{.5\linewidth}
+\centering\large \includegraphics[width=.9\textwidth]{skeletonizeB}
+\caption{Skeletonizada}
+\end{subfigure}
+\caption{Ejemplo de eskeletonize.}\label{fig:3.6}
 \end{figure}
 
 
@@ -98,35 +133,3 @@ Esto lo conseguiremos usando una función de esqueletonizado que nos devuelve lo
 	
 \subsection{Introducción}
 \subsection{K-componentes}
-gg\\
-
-
-
-\section{Tablas}
-
-Igualmente se pueden usar los comandos específicos de \LaTeX o bien usar alguno de los comandos de la plantilla.
-
-\tablaSmall{Herramientas y tecnologías utilizadas en cada parte del proyecto}{l c c c c}{herramientasportipodeuso}
-{ \multicolumn{1}{l}{Herramientas} & App AngularJS & API REST & BD & Memoria \\}{ 
-HTML5 & X & & &\\
-CSS3 & X & & &\\
-BOOTSTRAP & X & & &\\
-JavaScript & X & & &\\
-AngularJS & X & & &\\
-Bower & X & & &\\
-PHP & & X & &\\
-Karma + Jasmine & X & & &\\
-Slim framework & & X & &\\
-Idiorm & & X & &\\
-Composer & & X & &\\
-JSON & X & X & &\\
-PhpStorm & X & X & &\\
-MySQL & & & X &\\
-PhpMyAdmin & & & X &\\
-Git + BitBucket & X & X & X & X\\
-Mik\TeX{} & & & & X\\
-\TeX{}Maker & & & & X\\
-Astah & & & & X\\
-Balsamiq Mockups & X & & &\\
-VersionOne & X & X & X & X\\
-} 

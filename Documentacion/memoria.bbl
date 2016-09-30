@@ -1,14 +1,43 @@
 \begin{thebibliography}{1}
 
-\bibitem{koza92}
-John~R. Koza.
-\newblock {\em Genetic Programming: On the Programming of Computers by Means of
-  Natural Selection}.
-\newblock MIT Press, 1992.
+\bibitem{opencv:houghIm}
+G.~Bradski.
+\newblock Transformada de hough, 2000.
+\newblock [imagen de la documentacion de OpenCv].
 
-\bibitem{wiki:latex}
-Wikipedia.
-\newblock Latex --- wikipedia{,} la enciclopedia libre, 2015.
-\newblock [Internet; descargado 30-septiembre-2015].
+\bibitem{pat:patHough}
+Paul Hough.
+\newblock Patente de paul hough line transform, 1962.
+\newblock [Internet; descargado 26-septiembre-2016].
+
+\bibitem{Kiryati20001157}
+Nahum Kiryati, Heikki Kälviäinen, and Satu Alaoutinen.
+\newblock Randomized or probabilistic hough transform: unified performance
+  evaluation.
+\newblock {\em Pattern Recognition Letters}, 21(13–14):1157 -- 1164, 2000.
+\newblock Selected Papers from The 11th Scandinavian Conference on Image.
+
+\bibitem{Manual:HAE}
+Cesar Represa.
+\newblock Manual de hardware de aplicacion especifica, 2015.
+\newblock [imágenes del manual].
+
+\bibitem{Numpy}
+Scypi.org.
+\newblock Biblioteca de funciones python, 2013.
+\newblock [ Biblioteca de funciones].
+
+\bibitem{modelo:hsv}
+Alvy~Ray Smith.
+\newblock Modelo hsv, 1978.
+\newblock [HSV es lo mismo que HSB pero no que HSB NI HSL].
+
+\bibitem{scik:skeleton}
+{S}t\'efan van~der Walt, {J}ohannes~{L}. {S}ch\"onberger, {J}uan
+  {Nunez-Iglesias}, {F}ran\c{c}ois {B}oulogne, {J}oshua~{D}. {W}arner, {N}eil
+  {Y}ager, {E}mmanuelle {G}ouillart, {T}ony {Y}u, and the scikit-image
+  contributors.
+\newblock scikit-image: image processing in {P}ython, 2014.
+\newblock [Internet; descargado 26-septiembre-2016].
 
 \end{thebibliography}

@@ -1,0 +1,7 @@
+Tareas de la semana 2:
+
+ Documentación: aspectos relevantes / técnicas y herramientas / planificación temporal
+
+ Listas en la interfaz gráfica
+
+ Cargar imágenes con el file choser

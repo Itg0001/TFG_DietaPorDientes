@@ -45,31 +45,82 @@ Es una librería basada en otra importante que veremos mas adelante , también e
 \end{itemize}
 
 \subsection{Pyqt}
-Es más difícil de usar que Wxpython y wxwidget pero da más control sobre los elementos gráficos y muchas librerías se basan en ello por lo que se puede encontrar bastante información sobre esta librería.
+Es más difícil de usar que WxPython y WxWidget pero da más control sobre los elementos gráficos y muchas librerías se basan en ello por lo que se puede encontrar bastante información sobre esta librería.
 \\
 
 \textbf{Ventajas:}
 
 \begin{itemize}
-\item Al ser tan usada si instalamos Python desde anaconda que es un cojunto de librerías y aplicaciones de Python ya tendríamos pyqt4 por defecto instalado.
-
+\item Al ser tan usada si instalamos Python desde Anaconda que es un cojunto de librerías y aplicaciones de Python ya tendríamos pyqt4 por defecto instalado.
 \end{itemize}
 
 \textbf{Desventajas:}
 
 \begin{itemize}
 \item Es mas difícil de entender y comprender que los anteriores pero queda mas limpias las interfaces.
-\item Si somos puristas e instalamos Python solo sin ide ni nada no vendría instalado pero si usamos anaconda si que vendría instalado
+\item Si somos puristas e instalamos Python solo sin ide ni nada no vendría instalado pero si usamos Anaconda si que vendría instalado
 \end{itemize}
 
 \subsection{WxWidgets:}
-Como hemos mencionado anteriormente es muy parecido a wxpython por lo que no vamos a entrar en detalle también está programado en C/C++ y es multiplataforma da un aspecto de comportamiento nativo.
+Como hemos mencionado anteriormente es muy parecido a WxPython por lo que no vamos a entrar en detalle también está programado en C/C++ y es multiplataforma da un aspecto de comportamiento nativo.
 \\
 
 
+\section{Plantillas}
+Las plantillas sirven para generar código con la sustitución de los valores dentro de sus variables y así tener siempre un código con los valores en la ejecución.\\
+Nosotros las vamos a usar en combinación con LaTex para generar el pdf con el informe de las estadísticas de la ejecución del algoritmo que detecta las líneas.\\
+Como podemos observar hay muchos frameworks para usar las plantillas pero hemos elegido comparar varios usados otros años por compañeros.
+\subsection{Mustache}
+Pystache es una implementación de Mustache en Python para el diseño de plantillas, está inspirado en Ctemplate y et.
+En estos tipos de lenguaje no se puede aplicar lógica de aplicación simplemente son para una presentación más fluida.
+
+\textbf{Ventajas:}
+
+\begin{itemize}
+\item Tiene documentación online.
+\item Está disponible para una gran variedad de lenguajes de programación.
+\item Si necesitásemos hacer documentos xml seria la herramienta perfecta.
+\end{itemize}
+
+\textbf{Desventajas:}
+\begin{itemize}
+\item Carece de ejemplos o tutoriales de cómo usarlo con LaTex en su versión de Python.
+\end{itemize}
 
 
+\subsection{Jinja2}
+
+El nombre de la librería viene del templo Japonés Jinja.\\
+Es una librería para escribir plantillas, para Python, funciona con las últimas versiones de Python, también es una de las más usadas librerías está inspirada en Django.
 
 
+\textbf{Ventajas:}
+\begin{itemize}
+\item Viene preinstalado con Anaconda ya que es uno de los más utilizados.
+\item Fácil de usar y de pasar los parámetros.
+\item Fue creada para Python2 pero también funciona en Python3
+\end{itemize}
+\textbf{Desventajas:}
+\begin{itemize}
+\item No esta implementado más que para Python.
+\end{itemize}
+
+\subsection{Comparación de las herramientas}
+Esta comparación son dos columnas\ref{tb:1} sacada de la tabla comparativa de herramientas obtenida en wikipedia.
+
+
+\begin{table}[]
+\centering
+\caption{Tabla comparativa de herramientas}
+\label{tb:1}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+Biblioteca & Lenguaje & Licencia & Variables & Funciones & Include & \begin{tabular}[c]{@{}l@{}}Inclusiones\\ condicionales\end{tabular} & Bucles & Evaluacion & Asignaciones & Errores y excepciones & \begin{tabular}[c]{@{}l@{}}Plantillas\\ naturales\end{tabular} & Herencia \\ \hline
+Jinja2     & Python   & BSD      & SI        & SI        & SI      & SI                                                                  & SI     & SI         & SI           & SI                    & SI                                                             & SI       \\ \hline
+Mustache   & +30      & MIT      & SI        & SI        & SI      & SI                                                                  & SI     & NO         & NO           & SI                    & SI                                                             & NO       \\ \hline
+\end{tabular}
+}
+\end{table}
 
 

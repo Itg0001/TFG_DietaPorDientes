@@ -1,0 +1,27 @@
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{graphicx}
+
+\begin{document}
+%holaa
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{@{}lllllllllllllllllllll@{}}
+\toprule
+ &  & \multicolumn{3}{l}{\textbf{DM}} &  & \multicolumn{3}{l}{\textbf{HORIZONTAL}} &  & \multicolumn{3}{l}{\textbf{MD}} &  & \multicolumn{3}{l}{\textbf{VERTICAL}} &  & \multicolumn{3}{l}{\textbf{TOTAL}} \\ \midrule
+ &  & \textbf{N} & \textbf{X} & \textbf{STD} &  & \textbf{N} & \textbf{X} & \textbf{STD} &  & \textbf{N} & \textbf{X} & \textbf{STD} &  & \textbf{N} & \textbf{X} & \textbf{STD} &  & \textbf{N} & \textbf{X} & \textbf{STD} \\ \midrule
+DereOizq &  & \VAR{dm1} & \VAR{dm2} & \VAR{dm3} &  & \VAR{h1} & \VAR{h2} & \VAR{h3} &  & \VAR{md1} & \VAR{md2} & \VAR{md3} &  & \VAR{v1} & \VAR{v2} & \VAR{v3} &  & \VAR{t1} & \VAR{t2} & \VAR{t3} \\ \bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\end{document}

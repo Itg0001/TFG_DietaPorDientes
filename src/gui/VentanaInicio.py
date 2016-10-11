@@ -18,9 +18,9 @@ class VentanaInicio(QtWidgets.QMainWindow):
         openFile.setStatusTip('Abrir imagen')
         openFile.triggered.connect(self.file_open)     
 
-        self.saveFile = QtWidgets.QAction("&Save File", self)
-        self.saveFile.setShortcut("Ctrl+S")
-        self.saveFile.setStatusTip('Save File')
+        self.saveFile = QtWidgets.QAction("&Guardar", self)
+        self.saveFile.setShortcut("Ctrl+G")
+        self.saveFile.setStatusTip('Guardar csv y .tex')
         self.saveFile.triggered.connect(self.file_save)
         self.saveFile.setDisabled(True)
         
@@ -45,13 +45,18 @@ class VentanaInicio(QtWidgets.QMainWindow):
         central_widget.setLayout(laoutPrincipal)
         self.setCentralWidget(central_widget)
     def file_open(self):
-        self.path = QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', 
+        try:
+            self.path = QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', 
          'c:\\',"Image files (*.jpg *.gif)")
-        #self.styleChoice.close() 
-        self.form_widget = Window(self.path[0],self) 
-        self.setCentralWidget(self.form_widget)
+                        #self.styleChoice.close() 
+            self.ventana = Window(self.path[0],self) 
+            self.setCentralWidget(self.ventana)
+        except FileNotFoundError as fnf:
+            print(fnf)
+          
+
        
     def file_save(self):
-        self.form_widget.guardarTabla()
-        self.form_widget.button7.setEnabled(False)
+        self.ventana.pestañas.guardarTabla()
+        self.ventana.pestañas.button7.setEnabled(False)
         self.saveFile.setEnabled(False)

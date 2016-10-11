@@ -28,7 +28,7 @@ class Informe():
         autoescape = False,
         loader = jinja2.FileSystemLoader(self.path+'codigo\\informes\\')
         ) 
-        print(self.path)
+        #print(self.path)
         template = latex_jinja_env.get_template('jinja-test.tex')
         
         #template = latex_jinja_env.get_template("C:/Users/Ismael/Desktop/TFG_DietaPorDientes/TrabajosPasadosPorJose/dietaJose/Interfaces/jinja-test.tex")
@@ -63,7 +63,7 @@ class Informe():
             f = open('cover.tex','w')
             f.write(tex)
             f.close()
-            print(os.getcwd())
+            #print(os.getcwd())
             
             proc=subprocess.Popen(['pdflatex','cover.tex'])
             #proc=subprocess.Popen(['pdflatex',tex])

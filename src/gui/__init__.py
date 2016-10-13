@@ -1,3 +1,3 @@
 from .Window import Window
 from .VentanaInicio import VentanaInicio
-from gui.PanelDePestañas import PanelDePestañas
+from gui.PanelDePestannas import PanelDePestannas

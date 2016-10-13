@@ -1,6 +1,5 @@
 from PyQt5 import QtWidgets
 from gui import VentanaInicio
-#from src.gui.VentanaInicio import VentanaInicio 
 
 import sys
 if __name__ == '__main__':
@@ -8,3 +7,4 @@ if __name__ == '__main__':
     main = VentanaInicio()
     main.show()
     sys.exit(app.exec_())
+

@@ -1,1 +1,2 @@
-from .Procesado import Procesado
+from codigo.procesado import ProcesadoImagen
+from .ProcesadoDeLineas import ProcesadoDeLineas

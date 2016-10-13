@@ -1,74 +1,73 @@
-
 class Estadistica():
-    
-    def clasificar(self,segmentos,angulos,longSegmento):
+    @classmethod    
+    def clasificar(self,segmentos,angulos,long_segmento):
         v,h,md,dm,total=[],[],[],[],[]  
         #CLASIFICAR LAS RECTAS POR SUS ANGULOS
         for i in segmentos:
             if 67.5< angulos[i] <112.5: 
-                v.append((i,str(round(angulos[i],2)).replace('.',','),str(round(longSegmento[i],2)).replace('.',','),'v'))
+                v.append((i,str(round(angulos[i],2)).replace('.',','),str(round(long_segmento[i],2)).replace('.',','),'v'))
                 #print("linea",i,"angulo",self.angulos[i],"= vertical" )
             elif 22.5< angulos[i] <67.5:
-                md.append((i,str(round(angulos[i],2)).replace('.',','),str(round(longSegmento[i],2)).replace('.',','),'md'))
+                md.append((i,str(round(angulos[i],2)).replace('.',','),str(round(long_segmento[i],2)).replace('.',','),'md'))
                 
             elif 112.5< angulos[i] <157.5:
-                dm.append((i,str(round(angulos[i],2)).replace('.',','),str(round(longSegmento[i],2)).replace('.',','),'dm'))
+                dm.append((i,str(round(angulos[i],2)).replace('.',','),str(round(long_segmento[i],2)).replace('.',','),'dm'))
                 
             elif (0< angulos[i] <22.5) or (157.5< angulos[i] <180):                
-                h.append((i,str(round(angulos[i],2)).replace('.',','),str(round(longSegmento[i],2)).replace('.',','),'h'))
+                h.append((i,str(round(angulos[i],2)).replace('.',','),str(round(long_segmento[i],2)).replace('.',','),'h'))
         total.extend(v)
         total.extend(h)
         total.extend(md)
         total.extend(dm)
         return v,h,md,dm,total
-    
-    def stadisticas(self,tipo,numero,mediaLon,desviacionTip):
+    @classmethod       
+    def stadisticas(self,tipo,numero,media_lon,desviacion_tip):
         lista=[]
         lista.append(tipo)
         lista.append(numero)
-        lista.append(str(round(mediaLon,2)).replace(',','.'))
-        lista.append(str(round(desviacionTip,2)).replace(',','.'))
+        lista.append(str(round(media_lon,2)).replace(',','.'))
+        lista.append(str(round(desviacion_tip,2)).replace(',','.'))
         return lista
-    
-    def desviacionTipica(self,listaDistancias):
-        media=self.mediaLongSegmentos(listaDistancias)
+    @classmethod        
+    def desviacion_tipica(self,lista_distancias):
+        media=self.media_long_segmentos(lista_distancias)
         acumulador=0
-        for i in listaDistancias:
-            acumulador+=((float(str(i[2]).replace(',','.'))-media)**2)
-        return ((acumulador/len(listaDistancias))**(1/2))
-    
-    def mediaLongSegmentos(self,listaDistancias):
+        for i in lista_distancias:
+            acumulador+=(float(str(i[2]).replace(',','.'))-media)**2
+        return (acumulador/len(lista_distancias))**(1/2)
+    @classmethod        
+    def media_long_segmentos(self,lista_distancias):
         media=0
-        for i in listaDistancias:
+        for i in lista_distancias:
             media+=float(str(i[2]).replace(',','.'))
-        return media/len(listaDistancias)
-        
-    def longitudSegemento(self,p):
+        return media/len(lista_distancias)
+    @classmethod            
+    def longitud_segemento(self,p):
         return (((p[1][0]-p[0][0])**2)+((p[1][1]-p[0][1])**2))**(1/2)
-
-    def calcularEstadisticas(self,v,h,md,dm,total):
-        stV,stH,stMD,stDM=[],[],[],[] 
-        variablesTabla=[]
+    @classmethod    
+    def calcular_estadisticas(self,v,h,md,dm,total):
+        st_v,st_h,st_md,st_dm=[],[],[],[] 
+        variables_tabla=[]
         if len(v)>0:
-            stV=self.stadisticas('v',len(v),self.mediaLongSegmentos(v),self.desviacionTipica(v))
-            variablesTabla.extend(stV[1:4])
+            st_v=self.stadisticas('v',len(v),self.media_long_segmentos(v),self.desviacion_tipica(v))
+            variables_tabla.extend(st_v[1:4])
         else:
-            variablesTabla.extend([0,0,0])       
+            variables_tabla.extend([0,0,0])       
         if len(h)>0:
-            stH=self.stadisticas('h',len(h),self.mediaLongSegmentos(h),self.desviacionTipica(h))
-            variablesTabla.extend(stH[1:4])
+            st_h=self.stadisticas('h',len(h),self.media_long_segmentos(h),self.desviacion_tipica(h))
+            variables_tabla.extend(st_h[1:4])
         else:
-            variablesTabla.extend([0,0,0])
+            variables_tabla.extend([0,0,0])
         if len(md)>0:
-            stMD=self.stadisticas('md',len(md),self.mediaLongSegmentos(md),self.desviacionTipica(md))
-            variablesTabla.extend(stMD[1:4])
+            st_md=self.stadisticas('md',len(md),self.media_long_segmentos(md),self.desviacion_tipica(md))
+            variables_tabla.extend(st_md[1:4])
         else:
-            variablesTabla.extend([0,0,0])        
+            variables_tabla.extend([0,0,0])        
         if len(dm)>0:
-            stDM=self.stadisticas('dm',len(dm),self.mediaLongSegmentos(dm),self.desviacionTipica(dm))
-            variablesTabla.extend(stDM[1:4])
+            st_dm=self.stadisticas('dm',len(dm),self.media_long_segmentos(dm),self.desviacion_tipica(dm))
+            variables_tabla.extend(st_dm[1:4])
         else:
-            variablesTabla.extend([0,0,0])
-        stTot=self.stadisticas('totales',len(total),self.mediaLongSegmentos(total),self.desviacionTipica(total))        
-        variablesTabla.extend(stTot[1:4])
-        return stV,stH,stMD,stDM,stTot,variablesTabla
+            variables_tabla.extend([0,0,0])
+        st_tot=self.stadisticas('totales',len(total),self.media_long_segmentos(total),self.desviacion_tipica(total))        
+        variables_tabla.extend(st_tot[1:4])
+        return st_v,st_h,st_md,st_dm,st_tot,variables_tabla

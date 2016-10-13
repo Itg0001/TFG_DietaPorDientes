@@ -1,4 +1,5 @@
-from .procesado import Procesado
+from codigo.procesado import ProcesadoImagen
+from .procesado import ProcesadoDeLineas
 from .informes import Informe
-from .informes import DatosToCs
+from codigo.informes import DatosToCsv
 from .estadisticas import Estadistica

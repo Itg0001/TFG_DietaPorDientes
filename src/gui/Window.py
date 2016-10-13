@@ -9,7 +9,7 @@ from matplotlib.figure import Figure
 import networkx as nx
 from networkx.algorithms import approximation as apxa
 
-from codigo.procesado import Procesado
+from codigo.procesado import ProcesadoDeImagen
 from gui.PanelDePestannas import PanelDePestannas
 from codigo.procesado.ProcesadoDeLineas import ProcesadoDeLineas
 ##Clase Ventana 
@@ -32,7 +32,7 @@ class Window(QtWidgets.QWidget):
         self.tam_segmen_verdad=-1
         
         self.pestannas=PanelDePestannas(self)
-        self.procesado=Procesado()
+        self.procesado=ProcesadoDeImagen()
         self.procesado_de_lineas=ProcesadoDeLineas()
 
         #Guardamso las lineas pintadas para poder acceder desde otros metodos

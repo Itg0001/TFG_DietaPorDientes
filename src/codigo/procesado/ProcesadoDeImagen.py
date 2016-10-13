@@ -6,7 +6,7 @@ from skimage.morphology import  skeletonize
 from skimage.transform import probabilistic_hough_line
 import numpy as np
 
-class Procesado():
+class ProcesadoDeImagen():
 
     #PASO 1
     ##Funcion Para leer una imagen a traves de scikit-Image (skimage)

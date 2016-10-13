@@ -15,17 +15,17 @@ class Informe():
   
     def cargar_plantilla(self):
         latex_jinja_env = jinja2.Environment(
-        block_start_string = '\BLOCK{',
+        block_start_string = '/BLOCK{',
         block_end_string = '}',
-        variable_start_string = '\VAR{',
+        variable_start_string = '/VAR{',
         variable_end_string = '}',
-        comment_start_string = '\#{',
+        comment_start_string = '/#{',
         comment_end_string = '}',
         line_statement_prefix = '%%',
         line_comment_prefix = '%#',
         trim_blocks = True,
         autoescape = False,
-        loader = jinja2.FileSystemLoader(self.path+'codigo\\informes\\')
+        loader = jinja2.FileSystemLoader(self.path.replace('\\','/')+'codigo/informes/')
         ) 
         template = latex_jinja_env.get_template('jinja-test.tex')
         

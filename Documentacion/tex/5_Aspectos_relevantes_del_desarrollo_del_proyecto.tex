@@ -1,12 +1,13 @@
 \capitulo{5}{Aspectos relevantes del desarrollo del proyecto}
 
 \section{Entorno de desarrollo}
-Como entorno de desarrollo de los prototipos hemos designado Jupyter ya que en sus notebooks interactivos puedes ejecutar directamente código Python como si fuese un interprete.
+Como entorno de desarrollo de los prototipos hemos utilizado Jupyter, para los prototipos, ya que en sus notebooks interactivos puedes ejecutar directamente código Python como si fuese un interprete.
+Y Eclipse mas PyDev, como IDE, para programar en clases y paquetes de forma mas cómoda. 
 
 \subsection{Ventajas}
 \begin{itemize}
 \item He podido añadir widgets para calibrar en buen grado las funciones que hemos utilizado.\\
-Gracias a estos widgets podemos dar valores e ir viendo como cambia la salida de la función de forma interactiva.\ref{fig:5.1}
+Gracias a estos widgets podemos dar valores e ir viendo como cambia la salida de la función de forma interactiva. Como podemos observar en la imagen:\ref{fig:5.1}
 
 \begin{figure}[h]
 \centering
@@ -15,7 +16,7 @@ Gracias a estos widgets podemos dar valores e ir viendo como cambia la salida de
 \label{fig:5.1}
 \end{figure}
 
-\item Su rápida visualización sin tener grandes conocimientos de interfaz gráfica ha sido un gran apoyo para poder visualizar desde el principio las imágenes procesadas y como quedaban.\ref{fig:5.2} 
+\item Su rápida visualización sin tener grandes conocimientos de interfaz gráfica ha sido un gran apoyo para poder visualizar desde el principio las imágenes procesadas y como quedaban. Como podemos observar en la imagen:\ref{fig:5.2} 
 
 \begin{figure}
 \begin{subfigure}[b]{.5\linewidth}
@@ -30,7 +31,7 @@ Gracias a estos widgets podemos dar valores e ir viendo como cambia la salida de
 \end{figure}
 
 
-\item Desde el propio entorno puedes ejecutar no solo código estructurado en script sino también código estructurado en clases y llamadas a métodos es como un IDE pero con limitaciones.\ref{fig:5.3}
+\item Desde el propio entorno puedes ejecutar no solo código estructurado en script sino también código estructurado en clases y llamadas a métodos es como un IDE pero con limitaciones. Como podemos observar en la imagen:\ref{fig:5.3}
 
 \begin{figure}[h]
 \centering
@@ -47,7 +48,7 @@ Para llegar a conseguir calcular las lineas que había pintadas en las imágenes
 \subsection{Binarización}
 Partiendo de una imagen que solo tenia lineas en rojo pintadas encima de las estrías producidas por el desgaste y lo demás de la imagen en escala de grises, lo primero fue leer la imagen a trabes de las funciones ya programadas en la librería de Scikit-Image(skimage).\\
 Una vez que tenemos la imagen guardada en el espacio de color RGB podemos empezar el procesado quedándonos con el canal Rojo.\\
-Calculamos la distancia de cada pixel de la imagen al color rojo restando, uno menos el valor absoluto del pixel en el canal S (saturación) del espacio de color HSV , (restando el valor absoluto a la unidad conseguimos normalizar entre [0-1])y pasamos la imagen de distancias a blanco y negro y así tendremos un valor entre 0 y 256 en cada pixel correspondiente a la distancia al rojo cuanto mas alejado mas negro y los que sean rojos en blanco.\\
+Calculamos la distancia de cada pixel de la imagen al color rojo restando, uno menos el valor absoluto del pixel en el canal S (saturación) del espacio de color HSV,(restando el valor absoluto a la unidad conseguimos normalizar entre [0-1])y pasamos la imagen de distancias a blanco y negro y así tendremos un valor entre 0 y 256 en cada pixel correspondiente a la distancia al rojo cuanto mas alejado mas negro y los que sean rojos en blanco.\\
 Para que la diferencia sea blanco o negro binarizamos la imagen con un valor umbral calculado como threshold otsu y así la imagen los valores de la distancia que sean mayores que el umbral pasaran a valer máximo y los que no consigan pasar el umbral serán los bordes(blanco).\ref{fig:5.4}
 
 
@@ -70,7 +71,7 @@ Para que la diferencia sea blanco o negro binarizamos la imagen con un valor umb
 
 \subsection{Obtener segmentos}
 Partimos de la imagen binarizada y lo primero es reducir el grosor de las lineas detectadas a un pixel eso lo conseguimos llamando a la función skeletonize que nos devuelve la imagen con las lineas de un pixel (así no acumulamos errores y es mas rápida la búsqueda de rectas).\\
-Seguidamente llamamos a la función "probabilistic hough line" que nos va a encontrar segmentos que formaran las lineas el funcionamiento ha sido explicado en el apartado (conceptos teóricos).\ref{fig:5.5}
+Seguidamente llamamos a la función <<probabilistic hough line>> que nos va a encontrar segmentos que formaran las lineas el funcionamiento ha sido explicado en el apartado (conceptos teóricos). Como podemos observar en la figura:\ref{fig:5.5}
 
 
 \begin{figure}

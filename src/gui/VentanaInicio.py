@@ -2,6 +2,7 @@ from PyQt5 import QtWidgets
 from PyQt5 import QtGui
 from PyQt5 import QtCore
 from .Window import Window
+
 class VentanaInicio(QtWidgets.QMainWindow):
 
     def __init__(self, parent=None):
@@ -31,27 +32,25 @@ class VentanaInicio(QtWidgets.QMainWindow):
 
         laout_principal = QtWidgets.QHBoxLayout()
         laout_principal.addWidget(self.styleChoice)
-        #self.styleChoice.move(10,100)
+        # self.styleChoice.move(10,100)
         self.styleChoice.setStyleSheet('color: red')
-        #self.styleChoice.setGeometry(30, 100, 600, 50)
-        font = QtGui.QFont("Times",35,QtGui.QFont.Bold,True)
+        # self.styleChoice.setGeometry(30, 100, 600, 50)
+        font = QtGui.QFont("Times", 35, QtGui.QFont.Bold, True)
         self.styleChoice.setFont(font)
-        #self.setLayout(laout_principal)#Asignamos como principal el principal
+        # self.setLayout(laout_principal)#Asignamos como principal el principal
         central_widget = QtWidgets.QWidget()
         central_widget.setLayout(laout_principal)
         self.setCentralWidget(central_widget)
     def file_open(self):
         try:
-            self.path = QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', 
-         'c:\\',"Image files (*.jpg *.gif)")
-                        #self.styleChoice.close() 
-            self.ventana = Window(self.path[0],self) 
+            self.path = QtWidgets.QFileDialog.getOpenFileName(self, 'Open file',
+         'c:/', "Image files (*.jpg *.gif)")
+                        # self.styleChoice.close() 
+            self.ventana = Window(self.path[0], self) 
             self.setCentralWidget(self.ventana)
         except FileNotFoundError as fnf:
             print(fnf)
-          
-
-       
+            
     def file_save(self):
         self.ventana.pestannas.guardar_tabla()
         self.ventana.pestannas.button7.setEnabled(False)

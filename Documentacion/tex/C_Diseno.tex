@@ -16,21 +16,26 @@ En este punto vamos a hacer el diseño inicial de las clases de la aplicación y
 En esta parte vamos a hacer una breve descripción del contenido de cada clase y su función.
 
 \begin{itemize}
-\item Window:
+	\item VentanaInicio: 
+Esta clase simplemente hará de fachada entre la ejecución y el acceso a la aplicación real cuando hayamos elegido una imagen que procesar
+	\item Window:
 Esta clase contendrá la ventana principal, menús, el panel de pestañas y la imagen sobre la que dibujar.
-\item PanelDePestannas:
+	\item PanelDePestannas:
 Esta clase contendrá la botonería y la interacción con la imagen a evaluar.
-\item ProcesadoDeImagen:
+	\item MediadorPestannas:
+Esta clase va a ser un mediador para las pestañas para deslocalizar código y complejidad.
+	\item MediadorVentana:
+En esta clase va ser un mediador entre la ventana principal y sus métodos para así reducir complejidad en la clase de ventana.
+	\item ProcesadoDeImagen:
 Esta clase contendrá el tratamiento que tiene que llevar la imagen para la extracción de características a evaluar.
-\item ProcesadoDeLineas:
+	\item ProcesadoDeLineas:
 Esta clase contendrá el procesado de las lineas obtenidas por el procesado de la imagen y el resultado final que obtendremos.
-\item Informe: 
+	\item Informe: 
 Esta clase contendrá la generación del informe (Tabla) de estadísticas en formato LaTex para poder exportar fácilmente a un documento PDF.
-\item DatosToCsv:
+	\item DatosToCsv:
 Esta clase contendrá el paso de los datos que contiene la tabla a un documento en formato csv del que desde Excel podemos extraer fácilmente los datos.
-\item Estadistica: 
-Esta clase contendrá el calculo de los datos estadísticos y la clasificación de las lineas según su orientación.
-
+	\item Estadistica: 
+Esta clase contendrá el cálculo de los datos estadísticos y la clasificación de las lineas según su orientación.
 \end{itemize}
 
 \subsection{Paquetes}
@@ -39,10 +44,14 @@ En este punto vamos a hacer una breve descripción de cada paquete y de su conte
 \begin{itemize}
 \item Gui:
 Este paquete contendrá todos los elementos gráficos de la aplicación y todos lo que se corresponde con interacción con el usuario.
-\item Código: Este paquete contendrá todas las clases de calculo que necesitara la aplicación:
+	\begin{itemize}
+	\item Mediadores:
+	Este paquete va a contener los mediadores de la interfaz para deslocalizar código y complejidad en esta.
+	\end{itemize}
+\item Código: Este paquete contendrá todas las clases de cálculo que necesitara la aplicación:
 	\begin{itemize}
 	\item Estadísticas:
-	Este paquete contendrá las clases del calculo de estadísticas.
+	Este paquete contendrá las clases del cálculo de estadísticas.
 	\item Informes:
 	Este paquete contendrá la generación del informe LaTex
 	\item Procesado:
@@ -59,9 +68,42 @@ Este paquete contendrá todos los elementos gráficos de la aplicación y todos 
 
 
 \section{Diseño de datos}
+\subsection{Introducción}
+\subsection{Patrones de diseño}
+En este apartado vamos a usar de los patrones de diseño que hemos utilizado en nuestra aplicaron.\\
+El patrón más importante y con el que vamos a empezar es el Medidor que consigue hacer que la interfaz este limpia simplemente con las declaraciones de las variables que más adelante va a utilizar.
+La base de los patrones de diseño su libro más significativo es: \cite{Hunt2013}
+\begin{itemize}
+\item \underline{Mediador} \cite{wiki:Mediador}: Se utiliza para encapsulas las interacciones entre los objetos de la interfaz por lo que se clasifica como patrón de comportamiento.
+Como dato curioso, es de los pocos patrones que permiten la bidireccionalidad de comunicación entre las clases, por eso es el patrón idóneo para la interacción de las clases de la interfaz gráfica.
+Aplicando este patrón reducimos la dependencia del código por lo que de esta forma las interfaces no ven lo que tienen por debajo y reduce la complejidad.\\\\
+\textbf{Obtenemos:}
+\begin{itemize}
+\item Conseguir desacoplamiento.
+\item Simplificar y aclarar la comunicación.
+\item Centralizar el control.
+\item Interfaz simple para un sistema complejo.
+\end{itemize}
+
+\item \underline{Comando} \cite{wiki:Comando}: Se utiliza para encapsular el contenido de una función, así ni el emisor de la operación ni el receptor saber que hay por debajo, pero si poder acceder a las funciones que hay.\\\\
+\textbf{Obtenemos:}
+\begin{itemize}
+\item Permitir la parametrización.
+\item Visualizar que ordenes se ejecutan en cada paso.
+\item Construir operaciones complicadas a partir de otras más sencillas.
+\item Permitir saber que habría que hacer para deshacer una operación.
+\end{itemize}
+\item \underline{Fachada} \cite{wiki:Fachada}: Es un patrón de diseño estructural, sirve para reducir la complejidad con la división en clases más pequeñas y reduciendo sus dependencias.\\\\
+\textbf{Obtenemos:}
+\begin{itemize}
+\item Separar en niveles la aplicación.
+\item Reducir su complejidad.
+\item Desacoplar el código.
+\item Interfaz simple para un sistema complejo.
+\item Potable y reutilizable.
+\end{itemize}
+\end{itemize}
 
 \section{Diseño procedimental}
 
 \section{Diseño arquitectónico}
-
-

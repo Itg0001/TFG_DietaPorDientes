@@ -4,14 +4,13 @@
 
 \section{Planificación temporal}
 
-\subsection{Sprint 0 ( 9/9/2016 - 16/9/2016 )}
+\subsection{Sprint 0 (9/9/2016 - 16/9/2016)}
 Se ha hablado del problema a resolver.
 
 Se va a hacer un mini prototipo para evaluar las herramientas, librerías y algoritmos necesarios. Posteriormente a la reunión con el cliente (Rebeca) se decidirá el lenguaje y librerías a utilizar.
 
-En esta primera iteración se ha hablado de evaluar las distintas herramientas de gestión, documentación y de programación.
+En esta primera iteración se ha hablado de evaluar las distintas herramientas de gestión, documentación y de programación y las tareas son:
 
-\subsubsection{Tareas:}
 
 \begin{itemize}
 	\item probar LaTex 
@@ -35,9 +34,9 @@ Esta semana como aun no sabía muy bien cómo usar el repositorio pues las gráf
 
 Todos los puntos han sido realizados y destacar que la implementación para el algoritmo ha sido amena y ha funcionado aunque aun tiene cosas que otras semanas mejoraremos.
 
-\subsection{Sprint 1 ( 16/9/2016 - 22/9/2016 )}
- En esta semana vamos a tener tareas de interfaz gráfica , de documentación y de codificación.
-\subsubsection{Tareas:}
+\subsection{Sprint 1 (16/9/2016 - 22/9/2016)}
+ En esta semana vamos a tener tareas de interfaz gráfica , de documentación y de codificación y las tareas son:
+
 \begin{itemize}
 \item Mejora de la detección de las lineas que quedas solapadas. 
 \item Analizar herramientas de interfaces gráficas y comparativa.
@@ -54,7 +53,7 @@ Todos los puntos han sido realizados y destacar que la implementación para el a
 Esta semana hemos hecho algunos de los puntos mas relevantes del proyecto ya que la interfaz ha sido realizada correctamente con uso de layouts para facilitar el re escalado de las pantallas sin que se oculten o descoloquen botones.\\
 hemos ampliado el rango de frameworks de interfaces con Tkinter y WxPython porque al investigar vimos que también eran muy relevantes en este campo.\\
 En cuanto a la mejora de la detección de lineas también mejoramos el algoritmo ajustando los parámetros y cambiando algunas propiedades.\\
-También al aveces fallar y como aun no sabemos si es posible dejar pasar el fallo hemos implementado por recomendación de los tutores un modo manual para encontrar las lineas que no encontraba el algoritmo, a su vez también valdrá para pintar una imagen vacía manualmente.\\
+También al aveces fallar y como aun no sabemos si es posible dejar pasar el fallo hemos implementado por recomendación de los tutores un modo manual para encontrar las lineas que no encontraba el algoritmo, a su vez también valdrá para pintar una imagen vacía manualmente.\\\\
 Gráfico del sprint 1:\ref{fig:A.2.1}
 \begin{figure}[h]
 \centering
@@ -63,10 +62,9 @@ Gráfico del sprint 1:\ref{fig:A.2.1}
 \label{fig:A.2.1}
 \end{figure}
 
-\subsection{Sprint 2 ( 22/9/2016 - 30/9/2016 )}
-En la semana dos vamos a abarcar puntos de la interfaz y puntos de la documentación del proyecto.
+\subsection{Sprint 2 (22/9/2016 - 30/9/2016)}
+En la semana dos vamos a abarcar puntos de la interfaz y puntos de la documentación del proyecto y las tareas son:
  
-\subsubsection{Tareas:}
 \begin{itemize}
 \item Documentación. 
 \begin{itemize}
@@ -81,7 +79,7 @@ En la semana dos vamos a abarcar puntos de la interfaz y puntos de la documentac
 \subsubsection{Cumplido:}
 Hemos cumplido los objetivos aunque mas adelante y después de una revisión seguramente tengamos que modificar algunas cosas y añadir mas ya que es la primera semana de documentación del proyecto.\\
 Respecto al punto de la tabla donde aparezcan las listas de lineas que vamos añadiendo queda preguntar si vendría bien añadir tres botones mas al modo manual cosa que en la reunión con el Cliente (Rebeca) voy a exponer y posteriormente si parece bien desarrollar.\\
-En cuanto al punto de cargar las imágenes con un file chooser de paso como me sobro algo de tiempo añadí una pantalla de inicio con un mensaje para así la primera vez que abramos la herramienta no se muestren tablas vacías ni una imagen predefinida opte por hacer usar una pagina de inicia a modo de fachada y cuando se cargue la imagen ya iniciar todas las funcionalidades de la aplicación.
+En cuanto al punto de cargar las imágenes con un file chooser de paso como me sobro algo de tiempo añadí una pantalla de inicio con un mensaje para así la primera vez que abramos la herramienta no se muestren tablas vacías ni una imagen predefinida opte por hacer usar una pagina de inicia a modo de fachada y cuando se cargue la imagen ya iniciar todas las funcionalidades de la aplicación.\\\\
 Gráfico del sprint 2:\ref{fig:A.2.2}
 \begin{figure}[h]
 \centering
@@ -89,6 +87,73 @@ Gráfico del sprint 2:\ref{fig:A.2.2}
 \caption{Burndown de la semana 2}
 \label{fig:A.2.2}
 \end{figure}
+
+\subsection{Sprint 3 (30/9/2016 - 7/10/2016)}
+En la semana tres vamos a abarcar puntos de la interfaz GUI , generar el informe, y pasar actualizar  el código de PyQt4 a PyQt5 y las tareas son:
+
+\begin{itemize}
+	\item Acabar la GUI.
+		\begin{itemize}
+			\item Mostrar todas las lineas en la tabla.
+			\item Poder borrar la linea seleccionada.
+		\end{itemize} 
+	\item Informe.
+		\begin{itemize}
+			\item Calcular estadísticas.
+			\item Mirar documentación Python.
+		\end{itemize}
+	\item Pasar código de PyQt4 a PyQt5.
+\end{itemize}
+\subsubsection{Cumplido:}
+Hemos cumplido los objetivos de esta semana y hemos generado funcionalidad a la tabla para agregar las lineas, también añadido que se ilumine la linea seleccionada dentro de la imagen en color amarillo. Hemos añadido funcionalidad para borrar la linea que tenemos seleccionada y también para poder limpiar la tabla completa.\\
+Respecto a la tarea del informe, hemos Calculado los estadísticos de todas las lineas, también su clasificación y escritura dentro de un fichero CSV, también la generación de una tabla latex que se actualiza a cada ejecución con los datos que han salido para poder pegarla fácilmente a un informe.\\
+Como nos dimos cuenta que la versión de PyQt se había actualizado de la cuatro a la cinco pues hemos pasado el código a la nueva version y no ha sido muy difícil.
+
+Gráfico del sprint 3:\ref{fig:A.2.3}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.99\textwidth]{Semana3}
+\caption{Burndown de la semana 3}
+\label{fig:A.2.3}
+\end{figure}
+
+
+\subsection{Sprint 4 (7/10/2016 - 14/10/2016)}
+En esta semana vamos a abarcar el diseño software de la aplicación así como sacarlo de los NoteBooks y pasarlo a un IDE en condiciones con su subdivisión en clases y paquetes y las tareas son:
+\begin{itemize}
+	\item Diseño de la aplicación.
+		\begin{itemize}
+			\item Diagrama de clases.
+			\item Diagrama de paquetes.
+		\end{itemize}
+		
+	\item Implementación del código.
+		
+	\item Corrección de las memorias.
+	
+	\item Herramienta SonarQube.
+	\begin{itemize}
+		\item Ejecutar la aplicación.
+		\item Corregir las horas de débito.
+	\end{itemize}
+\end{itemize}
+\subsubsection{Cumplido:}
+Hemos cumplido los objetivos de la semana.
+En paralelo hemos implementado el diseño y el código a medida que teníamos una parte del diseño, de forma incremental, por lo que no se queda del todo reflejado cuando cerramos las tareas.\\
+Hemos elegido Eclipse como IDE junto con su plugin PyDev para Python.
+La división en clases hemos conseguido tener una primera estimación de como estaba la aplicación.
+Respecto a la herramienta SonarQube hemos corregido todos los errores y defectos que salían, a mencionar que no había código repetido ni errores graves.\\
+También detectamos un Bug y fue corregido.\\\\
+Gráfico del sprint 4:\ref{fig:A.2.4}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.99\textwidth]{Semana4}
+\caption{Burndown de la semana 4}
+\label{fig:A.2.4}
+\end{figure}
+
+\subsection{Sprint 5 (14/10/2016 - 21/10/2016)}
+
 
 \section{Estudio de viabilidad}
 

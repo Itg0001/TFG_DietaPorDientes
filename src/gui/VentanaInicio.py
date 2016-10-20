@@ -44,7 +44,7 @@ class VentanaInicio(QtWidgets.QMainWindow):
     def file_open(self):
         try:
             self.path = QtWidgets.QFileDialog.getOpenFileName(self, 'Open file',
-         'c:/', "Image files (*.jpg *.gif)")
+         'c:/', "Image files (*.jpg )")
                         # self.styleChoice.close() 
             self.ventana = Window(self.path[0], self) 
             self.setCentralWidget(self.ventana)
@@ -53,5 +53,3 @@ class VentanaInicio(QtWidgets.QMainWindow):
             
     def file_save(self):
         self.ventana.pestannas.guardar_tabla()
-        self.ventana.pestannas.button7.setEnabled(False)
-        self.save_file.setEnabled(False)

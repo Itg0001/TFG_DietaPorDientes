@@ -33,7 +33,7 @@ class Window(QtWidgets.QWidget):
         self.row_actual = -1
         # Guardamos la linea seleccionada para poder borrarla mas adelante
         self.selec_ante = None
-        self.inicializa_pestaña_1()
+        self.inicializa_pestanna_1()
           
      
     def inicializa_figura_y_widgets(self):        
@@ -45,8 +45,8 @@ class Window(QtWidgets.QWidget):
         self.canvas = FigureCanvas(self.fig)
         self.toolbar = NavigationToolbar(self.canvas, self)
            
-    def inicializa_pestaña_1(self):
-        self.mediador_ventana.inicializa_pestaña_1()
+    def inicializa_pestanna_1(self):
+        self.mediador_ventana.inicializa_pestanna_1()
 
     def calcular_lineas(self):        
         self.mediador_ventana.calcular_lineas()

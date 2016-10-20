@@ -1,16 +1,19 @@
 import math
 import numpy as np
 class ProcesadoDeLineas():
-    # Entrada:
-    #        epsilon1: Distancia que si superan dos rectas no une
-    #        epsilon2: Angulo que si superan dos rectas no une
-    #        lines: Lineas producidas al aplicar la transformada
-    #        G: Grafo donde anadir los nodos que tengamso que unir
-    # Funcion que combina las lineas cercanas producidas por la Transformada probabilistica
-    # de hough que cumplen ciertos parametros y las anade a un grafo. 
-    # RETURN: devolvemos el Grafo completo donde estan los nodos que hemso fusionado.
+    
     @classmethod
     def combina(self, epsilon1, epsilon2, lines, g): 
+        """
+        Entrada:
+               epsilon1: Distancia que si superan dos rectas no une
+               epsilon2: Angulo que si superan dos rectas no une
+               lines: Lineas producidas al aplicar la transformada
+               G: Grafo donde anadir los nodos que tengamso que unir
+        Funcion que combina las lineas cercanas producidas por la Transformada probabilistica
+        de hough que cumplen ciertos parametros y las anade a un grafo. 
+        RETURN: devolvemos el Grafo completo donde estan los nodos que hemso fusionado.
+        """
         for i in range(len(lines)):
             g.add_node(i)
 
@@ -30,24 +33,21 @@ class ProcesadoDeLineas():
                         g.add_edge(i, j) 
                         
     
-    # Entrada:
-    #        x11: Segmento 1 Punto 1 coordedana x
-    #        y11: Segmento 1 Punto 1 coordedana y
-    #        x12: Segmento 1 Punto 2 coordedana x
-    #        y12: Segmento 1 Punto 2 coordedana y 
-    #        x21: Segmento 2 Punto 1 coordedana x
-    #        y21: Segmento 2 Punto 1 coordedana y
-    #        x22: Segmento 2 Punto 2 coordedana x
-    #        y22: Segmento 2 Punto 2 coordedana y
-    # Funcion que calcula la distancia entre dos segmentos que no se cruzan 
-    # RETURN: min(distances) la distancia minima de todas las posibles distancias
-    @classmethod
     
+    @classmethod 
     def segments_distance(self, x, y):
-    # def segments_distance(self,x,y):
-        """distance between two segments in the plane:
-        one segment is (x11, y11) to (x12, y12)
-        the other is   (x21, y21) to (x22, y22)
+        """
+        Entrada:
+               x11: Segmento 1 Punto 1 coordedana x
+               y11: Segmento 1 Punto 1 coordedana y
+               x12: Segmento 1 Punto 2 coordedana x
+               y12: Segmento 1 Punto 2 coordedana y 
+               x21: Segmento 2 Punto 1 coordedana x
+               y21: Segmento 2 Punto 1 coordedana y
+               x22: Segmento 2 Punto 2 coordedana x
+               y22: Segmento 2 Punto 2 coordedana y
+        Funcion que calcula la distancia entre dos segmentos que no se cruzan 
+        RETURN: min(distances) la distancia minima de todas las posibles distancias
         """
         x11 = x[0][0]
         y11 = x[0][1]
@@ -70,22 +70,21 @@ class ProcesadoDeLineas():
         distances.append(self.point_segment_distance(x22, y22, x11, y11, x12, y12))
         return min(distances)
     
-    # Entrada:
-    #        x11: Segmento 1 Punto 1 coordedana x
-    #        y11: Segmento 1 Punto 1 coordedana y
-    #        x12: Segmento 1 Punto 2 coordedana x
-    #        y12: Segmento 1 Punto 2 coordedana y 
-    #        x21: Segmento 2 Punto 1 coordedana x
-    #        y21: Segmento 2 Punto 1 coordedana y
-    #        x22: Segmento 2 Punto 2 coordedana x
-    #        y22: Segmento 2 Punto 2 coordedana y
-    # Funcion boleana que calcula si dos segmentos se cruzan o no
-    # RETURN: true/false si se cruzan o no 
+    
     @classmethod
     def segments_intersect(self, x, y):
-        """ whether two segments in the plane intersect:
-          one segment is (x11, y11) to (x12, y12)
-          the other is   (x21, y21) to (x22, y22)
+        """ 
+        Entrada:
+               x11: Segmento 1 Punto 1 coordedana x
+               y11: Segmento 1 Punto 1 coordedana y
+               x12: Segmento 1 Punto 2 coordedana x
+               y12: Segmento 1 Punto 2 coordedana y 
+               x21: Segmento 2 Punto 1 coordedana x
+               y21: Segmento 2 Punto 1 coordedana y
+               x22: Segmento 2 Punto 2 coordedana x
+               y22: Segmento 2 Punto 2 coordedana y
+        Funcion boleana que calcula si dos segmentos se cruzan o no
+        RETURN: true/false si se cruzan o no 
         """
         x11 = x[0][0]
         y11 = x[0][1]
@@ -108,17 +107,20 @@ class ProcesadoDeLineas():
         t = (dx2 * (y11 - y21) + dy2 * (x21 - x11)) / (-delta)
         return (0 <= s <= 1) and (0 <= t <= 1)
     
-        # Entrada:
-    #        px: Punto coordenada x 
-    #        py: Punto coordenada y
-    #        x1: Punto 1 coordenada x 
-    #        y1: Punto 1 coordenada y
-    #        x2: Punto 2 coordenada x 
-    #        y2: Punto 2 coordenada y
-    # Funcion que calcula la distancia desde un punto dado a un segmento.
-    # RETURN: DIstancia desde el punto al segmento
+     
     @classmethod
     def point_segment_distance(self, px, py, x1, y1, x2, y2):
+        """
+        Entrada:
+               px: Punto coordenada x 
+               py: Punto coordenada y
+               x1: Punto 1 coordenada x 
+               y1: Punto 1 coordenada y
+               x2: Punto 2 coordenada x 
+               y2: Punto 2 coordenada y
+        Funcion que calcula la distancia desde un punto dado a un segmento.
+        RETURN: DIstancia desde el punto al segmento
+        """
         dx = x2 - x1
         dy = y2 - y1
         if dx == dy == 0:  # the segment's just a point
@@ -142,13 +144,16 @@ class ProcesadoDeLineas():
             dy = py - near_y
 
         return math.hypot(dx, dy)
-    # Entrada:
-    #        lineA:linea o segmento A
-    #        lineB:linea o segmento A
-    # Funcion que dadas dos rectas calcula el angulo que forman entre ellas.
-    # Return ang_deg: Devuelve el angulo que forman dichas rectas en grados.
+    
     @classmethod
     def ang(self, line_a, line_b):
+        """
+        Entrada:
+               lineA:linea o segmento A
+               lineB:linea o segmento A
+        Funcion que dadas dos rectas calcula el angulo que forman entre ellas.
+        Return ang_deg: Devuelve el angulo que forman dichas rectas en grados.
+        """
         # Get nicer vector form
         v_a = [line_a[0][0] - line_a[1][0], line_a[0][1] - line_a[1][1]]
         v_b = [line_b[0][0] - line_b[1][0], line_b[0][1] - line_b[1][1]]
@@ -172,23 +177,29 @@ class ProcesadoDeLineas():
         else: 
             return ang_deg
     
-    # Entrada:
-    #        vA: Punto A
-    #        vB: Punto B
-    # Funcion que devuelve la multiplicacion de las coordenadas x de los dos puntos 
-    # mas la multiplicacion de las coordenadas y de los dos puntos
-    # Return: la multiplicacion de las coordenadas x de los dos puntos 
-    #        mas la multiplicacion de las coordenadas y de los dos puntos
+    
     @classmethod
     def dot(self, v_a, v_b):
+        """
+        Entrada:
+               vA: Punto A
+               vB: Punto B
+        Funcion que devuelve la multiplicacion de las coordenadas x de los dos puntos 
+        mas la multiplicacion de las coordenadas y de los dos puntos
+        Return: la multiplicacion de las coordenadas x de los dos puntos 
+               mas la multiplicacion de las coordenadas y de los dos puntos
+        """
         return v_a[0] * v_b[0] + v_a[1] * v_b[1]
     
     
-    # Entrada: segmentosList lista con todos los segmentos a combinar
-    # Combinamos los segmentos
-    # Lista con los segmentos combinados que calculamos con la teoria de grafos.
+    
     @classmethod
     def combina_segmentos(self, segmentos_list):
+        """
+        Entrada: segmentosList lista con todos los segmentos a combinar
+        Combinamos los segmentos
+        Lista con los segmentos combinados que calculamos con la teoria de grafos.
+        """
         # print("combina",segmentos_list)
         xs = list(map(lambda x:[x[0][0], x[1][0]], segmentos_list))
         ys = list(map(lambda x:[x[0][1], x[1][1]], segmentos_list))
@@ -203,13 +214,16 @@ class ProcesadoDeLineas():
             # print("devuelvo",((x_max,y_min),(x_min,y_max)))
             return (x_max, y_min), (x_min, y_max)
         
-    # Entrada.
-    #        k_components K_componentes del grafo en el que decimos que rectas tenemos que unir
-    #        lines lineas calculadas por la tranformada de hough
-    # Funcion que dadas las lineas calculadas y las que nos marca el grafo que tenemso que unir
-    # devuelve lso segmentos que de verdad ha detectado el algoritmo
+   
     @classmethod
     def segmentos_verdad(self, k_components, lines):
+        """
+        Entrada.
+               k_components K_componentes del grafo en el que decimos que rectas tenemos que unir
+               lines lineas calculadas por la tranformada de hough
+        Funcion que dadas las lineas calculadas y las que nos marca el grafo que tenemso que unir
+        devuelve lso segmentos que de verdad ha detectado el algoritmo
+        """
         segmentos_de_verdad = []
         for i in range(len(k_components[1])):
             segmentos = list(map(lambda x:lines[x], k_components[1][i]))

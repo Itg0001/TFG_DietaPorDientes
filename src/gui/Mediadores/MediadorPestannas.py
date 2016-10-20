@@ -1,18 +1,20 @@
 import numpy as np
 from PyQt5 import QtWidgets, QtCore
+import os
+import shutil
 from codigo  import Informe
 from codigo.estadisticas import Estadistica
 from codigo.informes.DatosToCsv import DatosToCsv
-# from codigo.procesado.ProcesadoDeLineas import ProcesadoDeLineas
+from codigo.informes.ConfiguracionToXML import ConfiguracionToXML
 class MediadorPestannas():
     
     def __init__(self, pestannas):
         self.pestannas = pestannas
-#         self.procesado_de_lineas=ProcesadoDeLineas()
         self.estad = Estadistica()
         self.escribeCSV = DatosToCsv()
-#         self.pestannas.addTab(self.pestannas.tab2,"Corregir lineas")
-#         self.pestannas.addTab(self.pestannas.tab3,"Automatico")
+        self.escribeXML = ConfiguracionToXML()
+        self.existe=False
+        self.borrar=False
    
     def inicia_paneles(self):
         self.pestannas.tab1 = QtWidgets.QWidget()
@@ -234,33 +236,79 @@ class MediadorPestannas():
             self.mostrar_tabla()
             self.pestannas.button7.setEnabled(True)
             self.pestannas.ventana.padre.save_file.setEnabled(True)
-             
-    def guardar_tabla(self):
+    
+    def msgbtn(self,i):
+        if i.text() == "OK":                      
+            self.borrar=True
+        else:
+            self.borrar=False
+                
+    def showdialog(self,path):
+        msg = QtWidgets.QMessageBox()
+        msg.adjustSize()
+        msg.setIcon(QtWidgets.QMessageBox.Warning)    
+        msg.setText("La carpeta ya existe")
+        msg.setInformativeText("Esta seguro de sobreescribir")
+        msg.setWindowTitle("Aviso")
+        msg.setStandardButtons(QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel )
+        msg.buttonClicked.connect(self.msgbtn)
+        retval = msg.exec_()#@UnusedVariable
+
+            
+    def comprobar_si_existe(self):
         # Clase PARA LAS estadisticas
         path = QtWidgets.QFileDialog.getExistingDirectory(self.pestannas, "openFolder")
-        row = self.pestannas.table.rowCount()
-        segmentos = []
-        angulos = {}
-        long_segmento = {}
-        lista = []
-        x1, x2, y1, y2 = 0, 0, 0, 0
-        for i in range(row):            
-            x1 = int(self.pestannas.table.item(i, 0).text())
-            x2 = int(self.pestannas.table.item(i, 1).text())
-            y1 = int(self.pestannas.table.item(i, 2).text())
-            y2 = int(self.pestannas.table.item(i, 3).text())
-            # print(x1,x2,y1,y2)
-            segmentos.append(((x1, x2), (y1, y2)))
-            angulos[((x1, x2), (y1, y2))] = self.estad.angu(((x1, x2), (y1, y2)))
-            long_segmento[((x1, x2), (y1, y2))] = self.estad.longitud_segemento(((x1, x2), (y1, y2)))   
-             
-        v, h, md, dm, total = self.estad.clasificar(segmentos, angulos, long_segmento)
+        path=path+"/Proyecto" 
+
+        if os.path.exists(path):
+            self.existe=True
+            self.showdialog(path)
+        else:
+            self.existe=False
+        return path
+            
+    def guardar_tabla(self):
+
+        path=self.comprobar_si_existe()
+        
+        if self.existe==True and self.borrar==True:
+            shutil.rmtree(path)
+            self.existe=False            
+            
+        if self.borrar==True or self.existe==False:
+            os.mkdir(path)                    
+            row = self.pestannas.table.rowCount()
+            segmentos = []
+            angulos = {}
+            long_segmento = {}
+            lista = []
+            x1, x2, y1, y2 = 0, 0, 0, 0
     
-        st_v, st_h, st_md, st_dm, st_tot, variables_tabla = self.estad.calcular_estadisticas(v, h, md, dm, total)
-   
-        informe = Informe(variables_tabla, path)  # @UnusedVariable
- 
-        lista.extend([v, h, md, dm, st_v, st_h, st_md, st_dm, st_tot])
-        self.escribeCSV.escribe_csv(path, lista)               
-        self.pestannas.button7.setEnabled(False)
-        self.pestannas.ventana.padre.save_file.setEnabled(False)
+            for i in range(row):            
+                x1 = int(self.pestannas.table.item(i, 0).text())
+                x2 = int(self.pestannas.table.item(i, 1).text())
+                y1 = int(self.pestannas.table.item(i, 2).text())
+                y2 = int(self.pestannas.table.item(i, 3).text())
+                segmentos.append(((x1, x2), (y1, y2)))
+                angulos[((x1, x2), (y1, y2))] = self.estad.angu(((x1, x2), (y1, y2)))
+                long_segmento[((x1, x2), (y1, y2))] = self.estad.longitud_segemento(((x1, x2), (y1, y2)))   
+                 
+            v, h, md, dm, total = self.estad.clasificar(segmentos, angulos, long_segmento)
+        
+            st_v, st_h, st_md, st_dm, st_tot, variables_tabla = self.estad.calcular_estadisticas(v, h, md, dm, total)
+       
+            informe = Informe(variables_tabla, path)  # @UnusedVariable
+     
+            lista.extend([v, h, md, dm, st_v, st_h, st_md, st_dm, st_tot])
+            self.escribeCSV.guardar(path, lista)
+            self.escribeXML.guardar(path) 
+            self.pestannas.button7.setEnabled(False)
+            shutil.copy(self.pestannas.ventana.mediador_ventana.ventana.path, path+'/Original.jpg')
+            
+            self.pestannas.ventana.mediador_ventana.procesado.guardar_y_pintar(path,segmentos)
+            
+            self.pestannas.ventana.padre.save_file.setEnabled(False)
+            self.borrar=False
+            
+    
+    

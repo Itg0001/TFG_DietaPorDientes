@@ -36,7 +36,7 @@ class Informe():
                               md1=variables[6], md2=variables[7], md3=variables[8],
                               v1=variables[9], v2=variables[10], v3=variables[11],
                               t1=variables[12], t2=variables[13], t3=variables[14])
-        latex_salida = open(self.dir_to_guardar + 'latex_salida.tex', 'w', newline='')
+        latex_salida = open(self.dir_to_guardar + 'Tabla.tex', 'w', newline='')
         latex_salida.write(latex)
         latex_salida.close()
         

@@ -5,6 +5,7 @@ from networkx.algorithms import approximation as apxa
 from codigo.procesado import ProcesadoDeImagen
 from codigo.procesado.ProcesadoDeLineas import ProcesadoDeLineas
 
+
 class MediadorVentana():
     def __init__(self, ventana):
         self.ventana = ventana
@@ -19,9 +20,9 @@ class MediadorVentana():
         self.ventana.ax.set_title('Figura sin lineas')
         self.ventana.ax.set_xlim([0, self.img.shape[1]])
         self.ventana.ax.set_ylim([self.img.shape[0], 0])
-        self.ventana.ax.imshow(self.img , origin='upper', vmax=1, interpolation='nearest')
+        self.ventana.ax.imshow(self.img , interpolation='nearest')
      
-    def inicializa_pestaña_1(self):
+    def inicializa_pestanna_1(self):
         #------Asignamos los componentes a un layout----------
         self.ventana.layout_tabs = QtWidgets.QHBoxLayout()
         # layout principal - - 
@@ -43,7 +44,7 @@ class MediadorVentana():
         self.ventana.setLayout(self.ventana.laout_principal)  # Asignamos como principal el principal  
         self.ventana.padre.save_file.setEnabled(False)
                   
-    def calcular_lineas(self):        
+    def calcular_lineas(self): 
         sin_ruido = self.procesado.reducir_grosor(self.img_bin)
         lines = self.procesado.pro_hough(10, 5, 11, sin_ruido)        
         G = nx.Graph()
@@ -64,12 +65,15 @@ class MediadorVentana():
         self.ventana.ax.set_ylim([self.img.shape[0], 0])
         self.ventana.ax.imshow(self.img , origin='upper', vmax=1, interpolation='nearest')
         self.ventana.ax.hold(True)
+        final=[]
         for line in segmentos:
             p0, p1 = line
             # print(ang((p0,p1),((10, 0), (500, 0))))
             self.ventana.ax.set_title('Figura con lineas')
             self.ventana.ax.set_xlim([0, self.img.shape[1]])
             self.ventana.ax.set_ylim([self.img.shape[0], 0])
-            self.ventana.ax.plot((p0[0], p1[0]), (p0[1], p1[1]), 'b', linewidth=2.0)
-            # print(type(p0[0]))
+            l,= self.ventana.ax.plot((p0[0], p1[0]), (p0[1], p1[1]), 'b', linewidth=2)
+            final.append(l)
         self.ventana.ax.hold(False)
+        self.ventana.canvas.draw()             
+

@@ -1,7 +1,9 @@
 import numpy as np
 from PyQt5 import QtWidgets, QtCore
-import os
+import os, sys
 import shutil
+import tempfile
+
 from codigo  import Informe
 from codigo.estadisticas import Estadistica
 from codigo.informes.DatosToCsv import DatosToCsv
@@ -13,9 +15,10 @@ class MediadorPestannas():
         self.estad = Estadistica()
         self.escribeCSV = DatosToCsv()
         self.escribeXML = ConfiguracionToXML()
-        self.existe=False
-        self.borrar=False
-   
+        self.existe = False
+        self.borrar = False
+        self.cargado = False
+
     def inicia_paneles(self):
         self.pestannas.tab1 = QtWidgets.QWidget()
         self.pestannas.tab2 = QtWidgets.QWidget()
@@ -237,78 +240,125 @@ class MediadorPestannas():
             self.pestannas.button7.setEnabled(True)
             self.pestannas.ventana.padre.save_file.setEnabled(True)
     
-    def msgbtn(self,i):
+    def msgbtn(self, i):
         if i.text() == "OK":                      
-            self.borrar=True
+            self.borrar = True
         else:
-            self.borrar=False
+            self.borrar = False
                 
-    def showdialog(self,path):
+    def showdialog(self, path):
         msg = QtWidgets.QMessageBox()
         msg.adjustSize()
         msg.setIcon(QtWidgets.QMessageBox.Warning)    
         msg.setText("La carpeta ya existe")
         msg.setInformativeText("Esta seguro de sobreescribir")
         msg.setWindowTitle("Aviso")
-        msg.setStandardButtons(QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel )
+        msg.setStandardButtons(QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel)
         msg.buttonClicked.connect(self.msgbtn)
-        retval = msg.exec_()#@UnusedVariable
+        retval = msg.exec_()  # @UnusedVariable
 
             
     def comprobar_si_existe(self):
         # Clase PARA LAS estadisticas
         path = QtWidgets.QFileDialog.getExistingDirectory(self.pestannas, "openFolder")
-        path=path+"/Proyecto" 
-
-        if os.path.exists(path):
-            self.existe=True
+        path = path + "/Proyecto" 
+        if os.path.exists(path)and path != '/Proyecto':
+            self.existe = True
             self.showdialog(path)
         else:
-            self.existe=False
+            self.existe = False
         return path
             
     def guardar_tabla(self):
-
-        path=self.comprobar_si_existe()
-        
-        if self.existe==True and self.borrar==True:
-            shutil.rmtree(path)
-            self.existe=False            
+        try:
             
-        if self.borrar==True or self.existe==False:
-            os.mkdir(path)                    
-            row = self.pestannas.table.rowCount()
-            segmentos = []
-            angulos = {}
-            long_segmento = {}
-            lista = []
-            x1, x2, y1, y2 = 0, 0, 0, 0
-    
-            for i in range(row):            
-                x1 = int(self.pestannas.table.item(i, 0).text())
-                x2 = int(self.pestannas.table.item(i, 1).text())
-                y1 = int(self.pestannas.table.item(i, 2).text())
-                y2 = int(self.pestannas.table.item(i, 3).text())
-                segmentos.append(((x1, x2), (y1, y2)))
-                angulos[((x1, x2), (y1, y2))] = self.estad.angu(((x1, x2), (y1, y2)))
-                long_segmento[((x1, x2), (y1, y2))] = self.estad.longitud_segemento(((x1, x2), (y1, y2)))   
+            path = self.comprobar_si_existe()
+            temp = tempfile.mkdtemp()
+            if self.cargado == True:
+                self.segur_undo(temp, path)
+            else:
+                shutil.copy(self.pestannas.ventana.mediador_ventana.ventana.path, temp + '/Original.jpg')
+            if path != '/Proyecto':    
                  
-            v, h, md, dm, total = self.estad.clasificar(segmentos, angulos, long_segmento)
+                if self.existe == True and self.borrar == True:
+                    shutil.rmtree(path)
+                    self.existe = False            
+                 
+                if self.borrar == True or self.existe == False:
+                    os.mkdir(path)                    
+                    row = self.pestannas.table.rowCount()
+                    segmentos = []
+                    angulos = {}
+                    long_segmento = {}
+                    lista = []
+                    x1, x2, y1, y2 = 0, 0, 0, 0
+             
+                    for i in range(row):            
+                        x1 = int(self.pestannas.table.item(i, 0).text())
+                        x2 = int(self.pestannas.table.item(i, 1).text())
+                        y1 = int(self.pestannas.table.item(i, 2).text())
+                        y2 = int(self.pestannas.table.item(i, 3).text())
+                        segmentos.append(((x1, x2), (y1, y2)))
+                        angulos[((x1, x2), (y1, y2))] = self.estad.angu(((x1, x2), (y1, y2)))
+                        long_segmento[((x1, x2), (y1, y2))] = self.estad.longitud_segemento(((x1, x2), (y1, y2)))   
+                          
+                    v, h, md, dm, total = self.estad.clasificar(segmentos, angulos, long_segmento)
+                 
+                    st_v, st_h, st_md, st_dm, st_tot, variables_tabla = self.estad.calcular_estadisticas(v, h, md, dm, total)
+                
+                    informe = Informe(variables_tabla, path)  # @UnusedVariable
+              
+                    lista.extend([v, h, md, dm, st_v, st_h, st_md, st_dm, st_tot])
+                    self.escribeCSV.guardar(path, lista)
+                    self.escribeXML.guardar(path) 
+                    shutil.copy(temp + '/Original.jpg', path + '/Original.jpg')
+                    shutil.rmtree(temp)
+                    self.pestannas.button7.setEnabled(False)
+                    self.pestannas.ventana.mediador_ventana.procesado.guardar_y_pintar(path, segmentos)                     
+                    self.pestannas.ventana.padre.save_file.setEnabled(False)
+                    self.borrar = False
+        except:
+                self.segur_undo(path, temp)
+                print("Error:", sys.exc_info()[0],sys.exc_info()[1])
+
+    def segur_undo(self, temp, path):
+        try:
+            shutil.copy(path + '/Original.jpg', temp + '/Original.jpg')
+            shutil.copy(path + '/Pintada.jpg', temp + '/Pintada.jpg')
+            shutil.copy(path + '/Proyecto.xml', temp + '/Proyecto.xml')
+            shutil.copy(path + '/Salida_Estadisticas.csv', temp + '/Salida_Estadisticas.csv')
+            shutil.copy(path + '/Salida_Lineas.csv', temp + '/Salida_Lineas.csv')
+            shutil.copy(path + '/Tabla.tex', temp + '/Tabla.tex')
+        except:
+            print("El que de error no se copia",sys.exc_info()[0],sys.exc_info()[1])
+    def cargar_proyec(self, path):
+        self.cargado = True
+        self.pestannas.ventana.mediador_ventana.ventana.path = path + '/Original.jpg'
+        segmentos = self.escribeCSV.leer(path + '/Salida_Lineas.csv')
+        segmentos_procesa = []
+        segmentos_pintar = []
+        for i in segmentos:
+            i = i.replace(' ', '')
+            i = i.replace('(', '')
+            i = i.replace(')', '')
+            i = i.replace(',', ' ')
+            segmentos_procesa.append(i.split())
+        row = self.pestannas.table.rowCount()
+        if len(segmentos_procesa) != 0:
+            for i in segmentos_procesa:
+                l1, l2 = 0, 0 
+                l1 = (i[0], i[1])
+                l2 = (i[2], i[3])
+                segmentos_pintar.append((l1, l2))                
+                self.pestannas.table.insertRow(row)
+                self.pestannas.table.setItem(row, 0, QtWidgets.QTableWidgetItem(str(int(i[0]))))
+                self.pestannas.table.setItem(row, 1, QtWidgets.QTableWidgetItem(str(int(i[1]))))
+                self.pestannas.table.setItem(row, 2, QtWidgets.QTableWidgetItem(str(int(i[2]))))
+                self.pestannas.table.setItem(row, 3, QtWidgets.QTableWidgetItem(str(int(i[3]))))
+                row += 1
+                
+            self.pestannas.ventana.pintar_imagen_y_segmentos(segmentos_pintar)
+            self.pestannas.ventana.selec_ante = None
+            self.pestannas.ventana.canvas.draw()
         
-            st_v, st_h, st_md, st_dm, st_tot, variables_tabla = self.estad.calcular_estadisticas(v, h, md, dm, total)
-       
-            informe = Informe(variables_tabla, path)  # @UnusedVariable
-     
-            lista.extend([v, h, md, dm, st_v, st_h, st_md, st_dm, st_tot])
-            self.escribeCSV.guardar(path, lista)
-            self.escribeXML.guardar(path) 
-            self.pestannas.button7.setEnabled(False)
-            shutil.copy(self.pestannas.ventana.mediador_ventana.ventana.path, path+'/Original.jpg')
-            
-            self.pestannas.ventana.mediador_ventana.procesado.guardar_y_pintar(path,segmentos)
-            
-            self.pestannas.ventana.padre.save_file.setEnabled(False)
-            self.borrar=False
-            
-    
     

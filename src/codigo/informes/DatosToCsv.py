@@ -10,7 +10,7 @@ class DatosToCsv(InGuardarDatos):
         salida = csv.writer(csvsalida_lin, escapechar=' ', quoting=csv.QUOTE_NONE, delimiter=';')
         salida.writerow(['linea', 'angulo', 'tamano', 'tipo'])  
         if len(lista[0]) > 0:
-            salida.writerows(lista[0])       
+            salida.writerows(lista[0])
         if len(lista[1]) > 0:
             salida.writerows(lista[1])        
         if len(lista[2]) > 0:
@@ -33,7 +33,6 @@ class DatosToCsv(InGuardarDatos):
     @classmethod    
     def leer(self,path):
         segmentos=[]
-
         with open(path, 'rt') as csvfile:
             reader = csv.reader(csvfile, escapechar=' ', quoting=csv.QUOTE_NONE, delimiter=';')
             flag=0
@@ -43,4 +42,5 @@ class DatosToCsv(InGuardarDatos):
                 else:
                     segmentos.append(row[0])
         return segmentos
+    
     

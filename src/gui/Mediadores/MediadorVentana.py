@@ -51,7 +51,6 @@ class MediadorVentana():
         G = self.procesado_de_lineas.combina(8, 4, lines, G)
         k_components = apxa.k_components(G)
         segmentos_de_verdad = self.procesado_de_lineas.segmentos_verdad(k_components, lines)
-        # print(sys.version_info)
         self.pintar_imagen_y_segmentos(segmentos_de_verdad)
         self.ventana.lineas = segmentos_de_verdad
         self.ventana.tam_segmen_verdad = len(self.ventana.lineas)
@@ -68,7 +67,6 @@ class MediadorVentana():
         final=[]
         for line in segmentos:
             p0, p1 = line
-            # print(ang((p0,p1),((10, 0), (500, 0))))
             self.ventana.ax.set_title('Figura con lineas')
             self.ventana.ax.set_xlim([0, self.img.shape[1]])
             self.ventana.ax.set_ylim([self.img.shape[0], 0])

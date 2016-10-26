@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module src.codigo.estadisticas.Estadistica</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="src.html"><font color="#ffffff">src</font></a>.<a href="src.codigo.html"><font color="#ffffff">codigo</font></a>.<a href="src.codigo.estadisticas.html"><font color="#ffffff">estadisticas</font></a>.Estadistica</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ctobar%5Cdesktop%5Cworkespace%5Ctfg2%5Csrc%5Ccodigo%5Cestadisticas%5Cestadistica.py">c:\users\tobar\desktop\workespace\tfg2\src\codigo\estadisticas\estadistica.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="math.html">math</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="src.codigo.estadisticas.Estadistica.html#Estadistica">Estadistica</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Estadistica">class <strong>Estadistica</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Clase&nbsp;que&nbsp;se&nbsp;encargara&nbsp;de&nbsp;calcular&nbsp;las&nbsp;estadisticas&nbsp;de&nbsp;una&nbsp;conjunto&nbsp;de&nbsp;rectas&nbsp;dadas<br>
+dependiendo&nbsp;de&nbsp;esto&nbsp;las&nbsp;agrupara&nbsp;y&nbsp;calculara&nbsp;sus&nbsp;atributos&nbsp;como&nbsp;distancia&nbsp;,&nbsp;numero&nbsp;de&nbsp;cada<br>
+tipo&nbsp;o&nbsp;angulo&nbsp;de&nbsp;cada&nbsp;recta&nbsp;para&nbsp;tener&nbsp;una&nbsp;informacion&nbsp;mas&nbsp;especifica&nbsp;de&nbsp;lo&nbsp;detectado.<br>
+&nbsp;<br>
+@author:&nbsp;Ismael&nbsp;Tobar&nbsp;Garcia<br>
+@version:&nbsp;1.0<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Class methods defined here:<br>
+<dl><dt><a name="Estadistica-angu"><strong>angu</strong></a>(line_a)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Funcion&nbsp;que&nbsp;calcula&nbsp;el&nbsp;angulo&nbsp;de&nbsp;una&nbsp;recta&nbsp;con&nbsp;respecto&nbsp;el&nbsp;eje&nbsp;x<br>
+&nbsp;<br>
+@param&nbsp;line_a:&nbsp;Una&nbsp;linea&nbsp;(2puntos)<br>
+&nbsp;<br>
+@Return&nbsp;Angulo&nbsp;en&nbsp;grados.</tt></dd></dl>
+
+<dl><dt><a name="Estadistica-calcular_estadisticas"><strong>calcular_estadisticas</strong></a>(v, h, md, dm, total)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Metodo&nbsp;que&nbsp;llamara&nbsp;a&nbsp;los&nbsp;anteriorres&nbsp;y&nbsp;calculara<br>
+los&nbsp;datos&nbsp;estadisticos&nbsp;de&nbsp;todas&nbsp;las&nbsp;rectas&nbsp;en&nbsp;su&nbsp;clasificacion.<br>
+&nbsp;<br>
+@param&nbsp;v:&nbsp;Rectas&nbsp;o&nbsp;segmentos&nbsp;en&nbsp;vertical.<br>
+@param&nbsp;h:&nbsp;Rectas&nbsp;o&nbsp;segmentos&nbsp;en&nbsp;horizontal.<br>
+@param&nbsp;md:&nbsp;Rectas&nbsp;o&nbsp;segmentos&nbsp;en&nbsp;diagonal&nbsp;md.<br>
+@param&nbsp;dm:&nbsp;Rectas&nbsp;o&nbsp;segmentos&nbsp;en&nbsp;diagonal&nbsp;dm.<br>
+@param&nbsp;total:&nbsp;todas&nbsp;las&nbsp;Rectas&nbsp;o&nbsp;segmentos.<br>
+&nbsp;<br>
+@Return&nbsp;st_v:&nbsp;estadisticas&nbsp;de&nbsp;segmentos&nbsp;en&nbsp;vertical.<br>
+@Return&nbsp;st_h:&nbsp;estadisticas&nbsp;de&nbsp;segmentos&nbsp;en&nbsp;horizontal.<br>
+@Return&nbsp;st_md:&nbsp;estadisticas&nbsp;de&nbsp;segmentos&nbsp;en&nbsp;diagonal&nbsp;md.<br>
+@Return&nbsp;st_dm:&nbsp;estadisticas&nbsp;de&nbsp;segmentos&nbsp;en&nbsp;diagonal&nbsp;dm.<br>
+@Return&nbsp;st_tot:&nbsp;estadisticas&nbsp;de&nbsp;segmentos&nbsp;totales.<br>
+@Return&nbsp;variables_tabla:&nbsp;estadisticas&nbsp;de&nbsp;segmentos&nbsp;totales&nbsp;sin&nbsp;el&nbsp;tipo.</tt></dd></dl>
+
+<dl><dt><a name="Estadistica-clasificar"><strong>clasificar</strong></a>(segmentos, angulos, long_segmento)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Guardado&nbsp;como&nbsp;matriz&nbsp;de&nbsp;adyacencia.<br>
+En&nbsp;esta&nbsp;funcion&nbsp;lo&nbsp;que&nbsp;vamso&nbsp;a&nbsp;hacer&nbsp;es&nbsp;a&nbsp;partir&nbsp;de&nbsp;los&nbsp;datos&nbsp;de&nbsp;las&nbsp;lineas&nbsp;dados<br>
+clasificar&nbsp;en&nbsp;las&nbsp;direcciones&nbsp;apropiadas.<br>
+&nbsp;<br>
+@param&nbsp;segmentos:&nbsp;Lista&nbsp;con&nbsp;las&nbsp;lineas&nbsp;que&nbsp;hemso&nbsp;encontrado.<br>
+@param&nbsp;angulos:&nbsp;diccionario&nbsp;clave(linea)&nbsp;valor(angulo)&nbsp;de&nbsp;todas&nbsp;las&nbsp;lineasGuardado&nbsp;como&nbsp;matriz&nbsp;de&nbsp;adyacencia.<br>
+@param&nbsp;long_segmento:&nbsp;diccionario&nbsp;clave(linea)&nbsp;valor(longitud)&nbsp;de&nbsp;todas&nbsp;las&nbsp;lineas.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+@Return&nbsp;v:&nbsp;Lineas&nbsp;en&nbsp;vertical.<br>
+@Return&nbsp;h:&nbsp;Lineas&nbsp;en&nbsp;horizontal.<br>
+@Return&nbsp;md:&nbsp;Lineas&nbsp;en&nbsp;diagonal&nbsp;md.<br>
+@Return&nbsp;dm:Lineas&nbsp;en&nbsp;diagonal&nbsp;dm.<br>
+@Return&nbsp;total:&nbsp;todas&nbsp;las&nbsp;lioneas&nbsp;con&nbsp;sus&nbsp;valores.</tt></dd></dl>
+
+<dl><dt><a name="Estadistica-desviacion_tipica"><strong>desviacion_tipica</strong></a>(lista_distancias)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Funcion&nbsp;que&nbsp;calcula&nbsp;la&nbsp;desviacion&nbsp;tipica&nbsp;de&nbsp;ladistacia.<br>
+&nbsp;<br>
+@param&nbsp;lista_distancias:&nbsp;lista&nbsp;con&nbsp;las&nbsp;distancias&nbsp;de&nbsp;cada&nbsp;recta.<br>
+&nbsp;<br>
+@Return&nbsp;Desviacion&nbsp;tipica.</tt></dd></dl>
+
+<dl><dt><a name="Estadistica-longitud_segemento"><strong>longitud_segemento</strong></a>(p)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Funcion&nbsp;que&nbsp;calcula&nbsp;la&nbsp;longitud&nbsp;de&nbsp;un&nbsp;segmento.<br>
+&nbsp;<br>
+@param&nbsp;p:&nbsp;segmento&nbsp;del&nbsp;que&nbsp;calcular&nbsp;su&nbsp;distancia.<br>
+&nbsp;<br>
+@Return&nbsp;distancia&nbsp;del&nbsp;segmento</tt></dd></dl>
+
+<dl><dt><a name="Estadistica-media_long_segmentos"><strong>media_long_segmentos</strong></a>(lista_distancias)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Funcion&nbsp;que&nbsp;calcula&nbsp;la&nbsp;media&nbsp;de&nbsp;la&nbsp;longitud&nbsp;de&nbsp;los&nbsp;segmentos.<br>
+&nbsp;<br>
+@param&nbsp;lista_distancias:&nbsp;lsita&nbsp;de&nbsp;rectas&nbsp;con&nbsp;sus&nbsp;distancias.<br>
+&nbsp;<br>
+@Return&nbsp;meida&nbsp;de&nbsp;la&nbsp;longitud&nbsp;de&nbsp;la&nbsp;lista&nbsp;que&nbsp;entra.</tt></dd></dl>
+
+<dl><dt><a name="Estadistica-stadisticas"><strong>stadisticas</strong></a>(tipo, numero, media_lon, desviacion_tip)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Metodo&nbsp;que&nbsp;va&nbsp;a&nbsp;llamar&nbsp;a&nbsp;las&nbsp;funcines&nbsp;de&nbsp;calculo&nbsp;de&nbsp;las&nbsp;estadisticas&nbsp;para<br>
+poder&nbsp;mostrarlas&nbsp;mas&nbsp;adelante&nbsp;en&nbsp;el&nbsp;csv&nbsp;y&nbsp;poder&nbsp;guardarlas&nbsp;para&nbsp;el&nbsp;informe.<br>
+&nbsp;<br>
+@param&nbsp;tipo:&nbsp;tipo&nbsp;de&nbsp;recta&nbsp;entre&nbsp;los&nbsp;4&nbsp;posibles&nbsp;+total.<br>
+@param&nbsp;numero:&nbsp;numero&nbsp;de&nbsp;ellas&nbsp;que&nbsp;hay.<br>
+@param&nbsp;media_lon:&nbsp;media&nbsp;de&nbsp;la&nbsp;longitud.<br>
+@param&nbsp;desviacion_tip:&nbsp;desviacion&nbsp;tipica&nbsp;de&nbsp;la&nbsp;longitud.<br>
+&nbsp;<br>
+@Return&nbsp;lista:&nbsp;Con&nbsp;toda&nbsp;la&nbsp;informacion.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

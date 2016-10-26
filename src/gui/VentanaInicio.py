@@ -3,19 +3,35 @@ from PyQt5 import QtGui
 from PyQt5 import QtCore
 import sys
 from .Window import Window
+import logging
 
 class VentanaInicio(QtWidgets.QMainWindow):
+    """
+    Clase que implementa la interfaz de la ventana principal donde estaran todos los 
+    componentes.
+
+    @var cont_cargar: contador que nos avisara de la primera vex que cargamos 
+        la gui.
+        
+    @author: Ismael Tobar Garcia
+    @version: 1.0    
+    """
 
     def __init__(self, parent=None):
         """
         Constructor de la clase ventana de inicio en el cual 
         inicializaremos las variabel snecsarias para sus futuros usos.
+        
+        @param parent: padre que llama al panel de pestannas 
         """
+
 
         super(VentanaInicio, self).__init__(parent)
         self.resize(900, 700)
+        logging.basicConfig(filename='logger.log',level=logging.DEBUG)
+
         self.cont_cargar=0
-        open_file = QtWidgets.QAction("&Abrir imagen", self)
+        open_file = QtWidgets.QAction("&Nuevo proyecto", self)
         open_file.setShortcut("Ctrl+O")
         open_file.setStatusTip('Abrir imagen')
         open_file.triggered.connect(self.file_open) 
@@ -25,7 +41,7 @@ class VentanaInicio(QtWidgets.QMainWindow):
         cargar_proye.setStatusTip('Abrir Proyecto')
         cargar_proye.triggered.connect(self.file_cargar)     
 
-        self.save_file = QtWidgets.QAction("&Guardar", self)
+        self.save_file = QtWidgets.QAction("&Guardar proyecto", self)
         self.save_file.setShortcut("Ctrl+G")
         self.save_file.setStatusTip('Guardar csv y .tex')
         self.save_file.triggered.connect(self.file_save)
@@ -43,7 +59,7 @@ class VentanaInicio(QtWidgets.QMainWindow):
         self.statusBar()
 
         main_menu = self.menuBar()
-        file_menu = main_menu.addMenu('&Cargar')
+        file_menu = main_menu.addMenu('&Archivo')
         help_menu = main_menu.addMenu('&Ayuda')
         help_menu.addAction(self.help_f)
         help_menu.addAction(self.ayuda_f)
@@ -62,8 +78,11 @@ class VentanaInicio(QtWidgets.QMainWindow):
         central_widget = QtWidgets.QWidget()
         central_widget.setLayout(laout_principal)
         self.setCentralWidget(central_widget)
-        
+    @classmethod   
     def acerca_de(self):
+        """
+        Metodo que nos mostrara el acerca de como cuadro de dialogo.
+        """
         msg = QtWidgets.QMessageBox()
         msg.adjustSize()
         msg.setText("Autores: \n\tIsmael Tobar García \n\tAlvar Gonzalez Arnaiz\n\tJose Francisco Diez Pastor\nVersion: \n\t1.0 ")
@@ -71,10 +90,17 @@ class VentanaInicio(QtWidgets.QMainWindow):
         retval = msg.exec_()  # @UnusedVariable
         
     def ayuda(self):
+        """
+        Metodo que implementara la ayuda.
+        """
         pass
     
     def cargar_inicializacion_open(self):
-        self.path = QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', 'c:/', "Image files (*.jpg )")
+        """
+        Metodo que va a mostrar la pantalla de dialogo para elegir las iamgenes 
+        a abrir.
+        """
+        self.path = QtWidgets.QFileDialog.getOpenFileName(self, 'Abrir imagen', 'c:/', "Image files (*.jpg )")
         self.ventana = Window(self.path[0], self) 
         self.setCentralWidget(self.ventana)    
         
@@ -91,17 +117,30 @@ class VentanaInicio(QtWidgets.QMainWindow):
             else:
                 if self.ventana.pestannas.mediador_pestannas.bandera==True:
                     self.showdialog()
-                    if self.guardar==True:
-                        self.ventana.pestannas.mediador_pestannas.guardar_tabla()  
-                        self.ventana.pestannas.mediador_pestannas.bandera=False
-                    else:
-                        self.cargar_inicializacion_open()
+                    self.opciones_guardar(1)
                 else:
                     self.cargar_inicializacion_open()
         except:
+            exc="Warning:"+ str(sys.exc_info()[0])+ str(sys.exc_info()[1])
+            logging.warning(exc)
             print("Error:", sys.exc_info()[0], sys.exc_info()[1])
-        
-            
+
+      
+    def opciones_guardar(self,opt):
+        """
+        Metodo para elegir si cargamso la pantalla de abrir proyecto o crear
+        nuevo proyecto.
+        @param opt: opcion que elegiremos dependiendo de donde lo llamemos. 
+        """
+        if self.guardar==True:
+            self.ventana.pestannas.mediador_pestannas.guardar_tabla()  
+            self.ventana.pestannas.mediador_pestannas.bandera=False
+        else:
+            if opt==1:
+                self.cargar_inicializacion_open()   
+            else:
+                self.cargar_inicializacion()
+
     def file_save(self):
         """
         Metodo correspondiente al boton de guardar los cambios echos en nuestra aplicacion 
@@ -110,15 +149,28 @@ class VentanaInicio(QtWidgets.QMainWindow):
         try:
             self.ventana.pestannas.guardar_tabla()
         except :
-            print("Error:", sys.exc_info()[0], sys.exc_info()[1])
+            exc="Warning:"+ str(sys.exc_info()[0])+ str(sys.exc_info()[1])
+            logging.warning(exc)
+            print("Warning:", sys.exc_info()[0], sys.exc_info()[1])
             
     def msgbtn(self, i):
+        """
+        Metodo auxiliar para poder guardar la eleccion que seleccionamos del popap que nos 
+        indica si queremos guardar o no.
+        
+        @param i: informacion del componente que clicamos. 
+        """
         if i.text() == "OK":                      
             self.guardar = True
         else:
             self.guardar = False
                     
     def showdialog(self):
+        """
+        Metodo para mostrar la ventana de elegir de si queremos guardar o no 
+        los cambios.
+        
+        """
         msg = QtWidgets.QMessageBox()
         msg.adjustSize()
         msg.setIcon(QtWidgets.QMessageBox.Warning)    
@@ -129,11 +181,19 @@ class VentanaInicio(QtWidgets.QMainWindow):
         retval = msg.exec_()  # @UnusedVariable
                 
     def cargar_inicializacion(self):
-        path = QtWidgets.QFileDialog.getExistingDirectory(self, "openFolder")
+        """
+        Metodo que va a mostrar la pantalla de dialogo para elegir al cargar 
+        un proyecto.             
+        """
+        path = QtWidgets.QFileDialog.getExistingDirectory(self, "Cargar Proyecto")
         self.ventana = Window(path+'/Original.jpg' , self)
         self.setCentralWidget(self.ventana)
-        self.ventana.pestannas.cargar_proyec(path)
-        
+        try:
+            self.ventana.pestannas.cargar_proyec(path)
+        except:
+            exc="Warning: fichero csv no existe"+ str(sys.exc_info()[0])+ str(sys.exc_info()[1])
+            logging.warning(exc)
+            
     def file_cargar(self):
         """
         Metodo correspondiente al boton de cargar un proyecto existente para poder editar las 
@@ -146,13 +206,11 @@ class VentanaInicio(QtWidgets.QMainWindow):
             else:
                 if self.ventana.pestannas.mediador_pestannas.bandera==True:
                     self.showdialog()
-                    if self.guardar==True:
-                        self.ventana.pestannas.mediador_pestannas.guardar_tabla()  
-                        self.ventana.pestannas.mediador_pestannas.bandera=False
-                    else:
-                        self.cargar_inicializacion()
+                    self.opciones_guardar(0)
                 else:
                     self.cargar_inicializacion()
         except:
+            exc="Warning:"+ str(sys.exc_info()[0])+ str(sys.exc_info()[1])
+            logging.warning(exc)
             print("Error:", sys.exc_info()[0], sys.exc_info()[1])
             

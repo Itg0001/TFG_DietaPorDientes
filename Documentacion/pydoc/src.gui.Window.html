@@ -1,0 +1,802 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module src.gui.Window</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="src.html"><font color="#ffffff">src</font></a>.<a href="src.gui.html"><font color="#ffffff">gui</font></a>.Window</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ctobar%5Cdesktop%5Cworkespace%5Ctfg2%5Csrc%5Cgui%5Cwindow.py">c:\users\tobar\desktop\workespace\tfg2\src\gui\window.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="PyQt5.QtWidgets.html">PyQt5.QtWidgets</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="PyQt5.QtWidgets.html#QWidget">PyQt5.QtWidgets.QWidget</a>(<a href="PyQt5.QtCore.html#QObject">PyQt5.QtCore.QObject</a>, <a href="PyQt5.QtGui.html#QPaintDevice">PyQt5.QtGui.QPaintDevice</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="src.gui.Window.html#Window">Window</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Window">class <strong>Window</strong></a>(<a href="PyQt5.QtWidgets.html#QWidget">PyQt5.QtWidgets.QWidget</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Clase&nbsp;Ventana&nbsp;<br>
+Esta&nbsp;clase&nbsp;contendra&nbsp;la&nbsp;ventana&nbsp;principal&nbsp;de&nbsp;la&nbsp;aplcacion&nbsp;en&nbsp;la&nbsp;que&nbsp;colgaran&nbsp;los&nbsp;diferentes&nbsp;<br>
+componentes.&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+@var&nbsp;path&nbsp;:&nbsp;Guardamos&nbsp;el&nbsp;camino&nbsp;desde&nbsp;donde&nbsp;se&nbsp;llama.<br>
+@var&nbsp;padre:&nbsp;Guardamos&nbsp;la&nbsp;instancia&nbsp;del&nbsp;padre&nbsp;que&nbsp;crea&nbsp;la&nbsp;ventana.<br>
+@var&nbsp;pestannas:&nbsp;creamso&nbsp;el&nbsp;objeto&nbsp;de&nbsp;pestannas&nbsp;que&nbsp;contendra&nbsp;la&nbsp;ventana.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+@var&nbsp;mediador_ventana:&nbsp;creamos&nbsp;la&nbsp;instancia&nbsp;del&nbsp;mediador&nbsp;de&nbsp;la&nbsp;ventana.&nbsp;&nbsp;&nbsp;&nbsp;<br>
+@var&nbsp;c1:&nbsp;punto&nbsp;inicializado&nbsp;a&nbsp;0.<br>
+@var&nbsp;c2:&nbsp;punto&nbsp;inicializado&nbsp;a&nbsp;&nbsp;0.<br>
+@var&nbsp;tam_segmen_verdad:&nbsp;Guardar&nbsp;Tamano.<br>
+@var&nbsp;lineas:&nbsp;Guardamso&nbsp;las&nbsp;lineas&nbsp;pintadas&nbsp;para&nbsp;poder&nbsp;acceder&nbsp;desde&nbsp;otros&nbsp;metodos.<br>
+@var&nbsp;pintados:&nbsp;Guardamso&nbsp;las&nbsp;lineas&nbsp;pintadas&nbsp;para&nbsp;poder&nbsp;acceder&nbsp;desde&nbsp;otros&nbsp;metodos&nbsp;.<br>
+@var&nbsp;row_actual:Guardamso&nbsp;la&nbsp;columna&nbsp;actual&nbsp;de&nbsp;la&nbsp;tabla&nbsp;al&nbsp;clicar&nbsp;sobre&nbsp;ella.<br>
+@var&nbsp;selec_ante:&nbsp;Guardamos&nbsp;la&nbsp;linea&nbsp;seleccionada&nbsp;para&nbsp;poder&nbsp;borrarla&nbsp;mas&nbsp;adelante.<br>
+&nbsp;<br>
+@author:&nbsp;Ismael&nbsp;Tobar&nbsp;Garcia<br>
+@version:&nbsp;1.0<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="src.gui.Window.html#Window">Window</a></dd>
+<dd><a href="PyQt5.QtWidgets.html#QWidget">PyQt5.QtWidgets.QWidget</a></dd>
+<dd><a href="PyQt5.QtCore.html#QObject">PyQt5.QtCore.QObject</a></dd>
+<dd><a href="sip.html#wrapper">sip.wrapper</a></dd>
+<dd><a href="PyQt5.QtGui.html#QPaintDevice">PyQt5.QtGui.QPaintDevice</a></dd>
+<dd><a href="sip.html#simplewrapper">sip.simplewrapper</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Window-__init__"><strong>__init__</strong></a>(self, path, parent=None)</dt><dd><tt>Constructor&nbsp;de&nbsp;la&nbsp;clase&nbsp;ventana&nbsp;que&nbsp;inicializa&nbsp;todo&nbsp;lo&nbsp;necesario&nbsp;para&nbsp;poder<br>
+aplicarlos&nbsp;mas&nbsp;adelante.<br>
+&nbsp;<br>
+@param&nbsp;path:&nbsp;Guardamos&nbsp;el&nbsp;camino&nbsp;desde&nbsp;donde&nbsp;se&nbsp;llama.&nbsp;<br>
+@param&nbsp;parent:&nbsp;Guardamos&nbsp;la&nbsp;instancia&nbsp;del&nbsp;padre&nbsp;que&nbsp;crea&nbsp;la&nbsp;ventana.</tt></dd></dl>
+
+<dl><dt><a name="Window-calcular_lineas"><strong>calcular_lineas</strong></a>(self)</dt><dd><tt>Metodo&nbsp;para&nbsp;calcular&nbsp;las&nbsp;lineas&nbsp;de&nbsp;la&nbsp;imagen&nbsp;pintadas&nbsp;en&nbsp;rojo.</tt></dd></dl>
+
+<dl><dt><a name="Window-inicializa_figura_y_widgets"><strong>inicializa_figura_y_widgets</strong></a>(self)</dt><dd><tt>Metodo&nbsp;para&nbsp;inicializar&nbsp;la&nbsp;figura&nbsp;y&nbsp;los&nbsp;widgets&nbsp;de&nbsp;la&nbsp;ventana.<br>
+concretamente&nbsp;incializamos&nbsp;la&nbsp;figura&nbsp;,&nbsp;los&nbsp;ejes,<br>
+el&nbsp;FigureCanvas&nbsp;donde&nbsp;ponder&nbsp;la&nbsp;imagen<br>
+y&nbsp;La&nbsp;barra&nbsp;de&nbsp;navegacion&nbsp;predeterminada</tt></dd></dl>
+
+<dl><dt><a name="Window-inicializa_pestanna_1"><strong>inicializa_pestanna_1</strong></a>(self)</dt><dd><tt>Metodo&nbsp;que&nbsp;inicializa&nbsp;el&nbsp;panel&nbsp;de&nbsp;pestañas&nbsp;de&nbsp;la&nbsp;ventana&nbsp;1&nbsp;junto&nbsp;con&nbsp;los&nbsp;layouts<br>
+necearios&nbsp;para&nbsp;poder&nbsp;mostrar&nbsp;y&nbsp;cuadrar&nbsp;dicho&nbsp;componente&nbsp;compuesto.</tt></dd></dl>
+
+<dl><dt><a name="Window-pintar_imagen_y_segmentos"><strong>pintar_imagen_y_segmentos</strong></a>(self, segmentos)</dt><dd><tt>Metodo&nbsp;para&nbsp;pintar&nbsp;en&nbsp;el&nbsp;figurecamvas&nbsp;la&nbsp;imagen&nbsp;y&nbsp;los&nbsp;segmentos(actualizar).<br>
+&nbsp;<br>
+@param&nbsp;segmentos:&nbsp;segmentos&nbsp;que&nbsp;hay&nbsp;que&nbsp;pintar.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="PyQt5.QtWidgets.html#QWidget">PyQt5.QtWidgets.QWidget</a>:<br>
+<dl><dt><a name="Window-acceptDrops"><strong>acceptDrops</strong></a>(...)</dt><dd><tt><a href="#Window-acceptDrops">acceptDrops</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-accessibleDescription"><strong>accessibleDescription</strong></a>(...)</dt><dd><tt><a href="#Window-accessibleDescription">accessibleDescription</a>(self)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="Window-accessibleName"><strong>accessibleName</strong></a>(...)</dt><dd><tt><a href="#Window-accessibleName">accessibleName</a>(self)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="Window-actionEvent"><strong>actionEvent</strong></a>(...)</dt><dd><tt><a href="#Window-actionEvent">actionEvent</a>(self,&nbsp;QActionEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-actions"><strong>actions</strong></a>(...)</dt><dd><tt><a href="#Window-actions">actions</a>(self)&nbsp;-&gt;&nbsp;List[QAction]</tt></dd></dl>
+
+<dl><dt><a name="Window-activateWindow"><strong>activateWindow</strong></a>(...)</dt><dd><tt><a href="#Window-activateWindow">activateWindow</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Window-addAction"><strong>addAction</strong></a>(...)</dt><dd><tt><a href="#Window-addAction">addAction</a>(self,&nbsp;QAction)</tt></dd></dl>
+
+<dl><dt><a name="Window-addActions"><strong>addActions</strong></a>(...)</dt><dd><tt><a href="#Window-addActions">addActions</a>(self,&nbsp;object)</tt></dd></dl>
+
+<dl><dt><a name="Window-adjustSize"><strong>adjustSize</strong></a>(...)</dt><dd><tt><a href="#Window-adjustSize">adjustSize</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Window-autoFillBackground"><strong>autoFillBackground</strong></a>(...)</dt><dd><tt><a href="#Window-autoFillBackground">autoFillBackground</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-backgroundRole"><strong>backgroundRole</strong></a>(...)</dt><dd><tt><a href="#Window-backgroundRole">backgroundRole</a>(self)&nbsp;-&gt;&nbsp;QPalette.ColorRole</tt></dd></dl>
+
+<dl><dt><a name="Window-baseSize"><strong>baseSize</strong></a>(...)</dt><dd><tt><a href="#Window-baseSize">baseSize</a>(self)&nbsp;-&gt;&nbsp;QSize</tt></dd></dl>
+
+<dl><dt><a name="Window-changeEvent"><strong>changeEvent</strong></a>(...)</dt><dd><tt><a href="#Window-changeEvent">changeEvent</a>(self,&nbsp;QEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-childAt"><strong>childAt</strong></a>(...)</dt><dd><tt><a href="#Window-childAt">childAt</a>(self,&nbsp;QPoint)&nbsp;-&gt;&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a><br>
+<a href="#Window-childAt">childAt</a>(self,&nbsp;int,&nbsp;int)&nbsp;-&gt;&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a></tt></dd></dl>
+
+<dl><dt><a name="Window-childEvent"><strong>childEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Window-childrenRect"><strong>childrenRect</strong></a>(...)</dt><dd><tt><a href="#Window-childrenRect">childrenRect</a>(self)&nbsp;-&gt;&nbsp;QRect</tt></dd></dl>
+
+<dl><dt><a name="Window-childrenRegion"><strong>childrenRegion</strong></a>(...)</dt><dd><tt><a href="#Window-childrenRegion">childrenRegion</a>(self)&nbsp;-&gt;&nbsp;QRegion</tt></dd></dl>
+
+<dl><dt><a name="Window-clearFocus"><strong>clearFocus</strong></a>(...)</dt><dd><tt><a href="#Window-clearFocus">clearFocus</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Window-clearMask"><strong>clearMask</strong></a>(...)</dt><dd><tt><a href="#Window-clearMask">clearMask</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Window-close"><strong>close</strong></a>(...)</dt><dd><tt><a href="#Window-close">close</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-closeEvent"><strong>closeEvent</strong></a>(...)</dt><dd><tt><a href="#Window-closeEvent">closeEvent</a>(self,&nbsp;QCloseEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-connectNotify"><strong>connectNotify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Window-contentsMargins"><strong>contentsMargins</strong></a>(...)</dt><dd><tt><a href="#Window-contentsMargins">contentsMargins</a>(self)&nbsp;-&gt;&nbsp;QMargins</tt></dd></dl>
+
+<dl><dt><a name="Window-contentsRect"><strong>contentsRect</strong></a>(...)</dt><dd><tt><a href="#Window-contentsRect">contentsRect</a>(self)&nbsp;-&gt;&nbsp;QRect</tt></dd></dl>
+
+<dl><dt><a name="Window-contextMenuEvent"><strong>contextMenuEvent</strong></a>(...)</dt><dd><tt><a href="#Window-contextMenuEvent">contextMenuEvent</a>(self,&nbsp;QContextMenuEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-contextMenuPolicy"><strong>contextMenuPolicy</strong></a>(...)</dt><dd><tt><a href="#Window-contextMenuPolicy">contextMenuPolicy</a>(self)&nbsp;-&gt;&nbsp;Qt.ContextMenuPolicy</tt></dd></dl>
+
+<dl><dt><a name="Window-create"><strong>create</strong></a>(...)</dt><dd><tt><a href="#Window-create">create</a>(self,&nbsp;window:&nbsp;sip.voidptr&nbsp;=&nbsp;0,&nbsp;initializeWindow:&nbsp;bool&nbsp;=&nbsp;True,&nbsp;destroyOldWindow:&nbsp;bool&nbsp;=&nbsp;True)</tt></dd></dl>
+
+<dl><dt><a name="Window-createWindowContainer"><strong>createWindowContainer</strong></a>(...)</dt><dd><tt><a href="#Window-createWindowContainer">createWindowContainer</a>(QWindow,&nbsp;parent:&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>&nbsp;=&nbsp;None,&nbsp;flags:&nbsp;Union[Qt.WindowFlags,&nbsp;Qt.WindowType]&nbsp;=&nbsp;0)&nbsp;-&gt;&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a></tt></dd></dl>
+
+<dl><dt><a name="Window-cursor"><strong>cursor</strong></a>(...)</dt><dd><tt><a href="#Window-cursor">cursor</a>(self)&nbsp;-&gt;&nbsp;QCursor</tt></dd></dl>
+
+<strong>customContextMenuRequested</strong> = &lt;unbound PYQT_SIGNAL customContextMenuRequested(QPoint)&gt;
+<dl><dt><a name="Window-customEvent"><strong>customEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Window-destroy"><strong>destroy</strong></a>(...)</dt><dd><tt><a href="#Window-destroy">destroy</a>(self,&nbsp;destroyWindow:&nbsp;bool&nbsp;=&nbsp;True,&nbsp;destroySubWindows:&nbsp;bool&nbsp;=&nbsp;True)</tt></dd></dl>
+
+<dl><dt><a name="Window-devType"><strong>devType</strong></a>(...)</dt><dd><tt><a href="#Window-devType">devType</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Window-disconnectNotify"><strong>disconnectNotify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Window-dragEnterEvent"><strong>dragEnterEvent</strong></a>(...)</dt><dd><tt><a href="#Window-dragEnterEvent">dragEnterEvent</a>(self,&nbsp;QDragEnterEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-dragLeaveEvent"><strong>dragLeaveEvent</strong></a>(...)</dt><dd><tt><a href="#Window-dragLeaveEvent">dragLeaveEvent</a>(self,&nbsp;QDragLeaveEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-dragMoveEvent"><strong>dragMoveEvent</strong></a>(...)</dt><dd><tt><a href="#Window-dragMoveEvent">dragMoveEvent</a>(self,&nbsp;QDragMoveEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-dropEvent"><strong>dropEvent</strong></a>(...)</dt><dd><tt><a href="#Window-dropEvent">dropEvent</a>(self,&nbsp;QDropEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-effectiveWinId"><strong>effectiveWinId</strong></a>(...)</dt><dd><tt><a href="#Window-effectiveWinId">effectiveWinId</a>(self)&nbsp;-&gt;&nbsp;sip.voidptr</tt></dd></dl>
+
+<dl><dt><a name="Window-ensurePolished"><strong>ensurePolished</strong></a>(...)</dt><dd><tt><a href="#Window-ensurePolished">ensurePolished</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Window-enterEvent"><strong>enterEvent</strong></a>(...)</dt><dd><tt><a href="#Window-enterEvent">enterEvent</a>(self,&nbsp;QEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-event"><strong>event</strong></a>(...)</dt><dd><tt><a href="#Window-event">event</a>(self,&nbsp;QEvent)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-find"><strong>find</strong></a>(...)</dt><dd><tt><a href="#Window-find">find</a>(sip.voidptr)&nbsp;-&gt;&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a></tt></dd></dl>
+
+<dl><dt><a name="Window-focusInEvent"><strong>focusInEvent</strong></a>(...)</dt><dd><tt><a href="#Window-focusInEvent">focusInEvent</a>(self,&nbsp;QFocusEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-focusNextChild"><strong>focusNextChild</strong></a>(...)</dt><dd><tt><a href="#Window-focusNextChild">focusNextChild</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-focusNextPrevChild"><strong>focusNextPrevChild</strong></a>(...)</dt><dd><tt><a href="#Window-focusNextPrevChild">focusNextPrevChild</a>(self,&nbsp;bool)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-focusOutEvent"><strong>focusOutEvent</strong></a>(...)</dt><dd><tt><a href="#Window-focusOutEvent">focusOutEvent</a>(self,&nbsp;QFocusEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-focusPolicy"><strong>focusPolicy</strong></a>(...)</dt><dd><tt><a href="#Window-focusPolicy">focusPolicy</a>(self)&nbsp;-&gt;&nbsp;Qt.FocusPolicy</tt></dd></dl>
+
+<dl><dt><a name="Window-focusPreviousChild"><strong>focusPreviousChild</strong></a>(...)</dt><dd><tt><a href="#Window-focusPreviousChild">focusPreviousChild</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-focusProxy"><strong>focusProxy</strong></a>(...)</dt><dd><tt><a href="#Window-focusProxy">focusProxy</a>(self)&nbsp;-&gt;&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a></tt></dd></dl>
+
+<dl><dt><a name="Window-focusWidget"><strong>focusWidget</strong></a>(...)</dt><dd><tt><a href="#Window-focusWidget">focusWidget</a>(self)&nbsp;-&gt;&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a></tt></dd></dl>
+
+<dl><dt><a name="Window-font"><strong>font</strong></a>(...)</dt><dd><tt><a href="#Window-font">font</a>(self)&nbsp;-&gt;&nbsp;QFont</tt></dd></dl>
+
+<dl><dt><a name="Window-fontInfo"><strong>fontInfo</strong></a>(...)</dt><dd><tt><a href="#Window-fontInfo">fontInfo</a>(self)&nbsp;-&gt;&nbsp;QFontInfo</tt></dd></dl>
+
+<dl><dt><a name="Window-fontMetrics"><strong>fontMetrics</strong></a>(...)</dt><dd><tt><a href="#Window-fontMetrics">fontMetrics</a>(self)&nbsp;-&gt;&nbsp;QFontMetrics</tt></dd></dl>
+
+<dl><dt><a name="Window-foregroundRole"><strong>foregroundRole</strong></a>(...)</dt><dd><tt><a href="#Window-foregroundRole">foregroundRole</a>(self)&nbsp;-&gt;&nbsp;QPalette.ColorRole</tt></dd></dl>
+
+<dl><dt><a name="Window-frameGeometry"><strong>frameGeometry</strong></a>(...)</dt><dd><tt><a href="#Window-frameGeometry">frameGeometry</a>(self)&nbsp;-&gt;&nbsp;QRect</tt></dd></dl>
+
+<dl><dt><a name="Window-frameSize"><strong>frameSize</strong></a>(...)</dt><dd><tt><a href="#Window-frameSize">frameSize</a>(self)&nbsp;-&gt;&nbsp;QSize</tt></dd></dl>
+
+<dl><dt><a name="Window-geometry"><strong>geometry</strong></a>(...)</dt><dd><tt><a href="#Window-geometry">geometry</a>(self)&nbsp;-&gt;&nbsp;QRect</tt></dd></dl>
+
+<dl><dt><a name="Window-getContentsMargins"><strong>getContentsMargins</strong></a>(...)</dt><dd><tt><a href="#Window-getContentsMargins">getContentsMargins</a>(self)&nbsp;-&gt;&nbsp;Tuple[int,&nbsp;int,&nbsp;int,&nbsp;int]</tt></dd></dl>
+
+<dl><dt><a name="Window-grab"><strong>grab</strong></a>(...)</dt><dd><tt><a href="#Window-grab">grab</a>(self,&nbsp;rectangle:&nbsp;QRect&nbsp;=&nbsp;QRect(QPoint(0,0),QSize(-1,-1)))&nbsp;-&gt;&nbsp;QPixmap</tt></dd></dl>
+
+<dl><dt><a name="Window-grabGesture"><strong>grabGesture</strong></a>(...)</dt><dd><tt><a href="#Window-grabGesture">grabGesture</a>(self,&nbsp;Qt.GestureType,&nbsp;flags:&nbsp;Union[Qt.GestureFlags,&nbsp;Qt.GestureFlag]&nbsp;=&nbsp;Qt.GestureFlags())</tt></dd></dl>
+
+<dl><dt><a name="Window-grabKeyboard"><strong>grabKeyboard</strong></a>(...)</dt><dd><tt><a href="#Window-grabKeyboard">grabKeyboard</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Window-grabMouse"><strong>grabMouse</strong></a>(...)</dt><dd><tt><a href="#Window-grabMouse">grabMouse</a>(self)<br>
+<a href="#Window-grabMouse">grabMouse</a>(self,&nbsp;Union[QCursor,&nbsp;Qt.CursorShape])</tt></dd></dl>
+
+<dl><dt><a name="Window-grabShortcut"><strong>grabShortcut</strong></a>(...)</dt><dd><tt><a href="#Window-grabShortcut">grabShortcut</a>(self,&nbsp;Union[QKeySequence,&nbsp;QKeySequence.StandardKey,&nbsp;str,&nbsp;int],&nbsp;context:&nbsp;Qt.ShortcutContext&nbsp;=&nbsp;Qt.WindowShortcut)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Window-graphicsEffect"><strong>graphicsEffect</strong></a>(...)</dt><dd><tt><a href="#Window-graphicsEffect">graphicsEffect</a>(self)&nbsp;-&gt;&nbsp;QGraphicsEffect</tt></dd></dl>
+
+<dl><dt><a name="Window-graphicsProxyWidget"><strong>graphicsProxyWidget</strong></a>(...)</dt><dd><tt><a href="#Window-graphicsProxyWidget">graphicsProxyWidget</a>(self)&nbsp;-&gt;&nbsp;QGraphicsProxyWidget</tt></dd></dl>
+
+<dl><dt><a name="Window-hasFocus"><strong>hasFocus</strong></a>(...)</dt><dd><tt><a href="#Window-hasFocus">hasFocus</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-hasHeightForWidth"><strong>hasHeightForWidth</strong></a>(...)</dt><dd><tt><a href="#Window-hasHeightForWidth">hasHeightForWidth</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-hasMouseTracking"><strong>hasMouseTracking</strong></a>(...)</dt><dd><tt><a href="#Window-hasMouseTracking">hasMouseTracking</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-height"><strong>height</strong></a>(...)</dt><dd><tt><a href="#Window-height">height</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Window-heightForWidth"><strong>heightForWidth</strong></a>(...)</dt><dd><tt><a href="#Window-heightForWidth">heightForWidth</a>(self,&nbsp;int)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Window-hide"><strong>hide</strong></a>(...)</dt><dd><tt><a href="#Window-hide">hide</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Window-hideEvent"><strong>hideEvent</strong></a>(...)</dt><dd><tt><a href="#Window-hideEvent">hideEvent</a>(self,&nbsp;QHideEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-initPainter"><strong>initPainter</strong></a>(...)</dt><dd><tt><a href="#Window-initPainter">initPainter</a>(self,&nbsp;QPainter)</tt></dd></dl>
+
+<dl><dt><a name="Window-inputMethodEvent"><strong>inputMethodEvent</strong></a>(...)</dt><dd><tt><a href="#Window-inputMethodEvent">inputMethodEvent</a>(self,&nbsp;QInputMethodEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-inputMethodHints"><strong>inputMethodHints</strong></a>(...)</dt><dd><tt><a href="#Window-inputMethodHints">inputMethodHints</a>(self)&nbsp;-&gt;&nbsp;Qt.InputMethodHints</tt></dd></dl>
+
+<dl><dt><a name="Window-inputMethodQuery"><strong>inputMethodQuery</strong></a>(...)</dt><dd><tt><a href="#Window-inputMethodQuery">inputMethodQuery</a>(self,&nbsp;Qt.InputMethodQuery)&nbsp;-&gt;&nbsp;Any</tt></dd></dl>
+
+<dl><dt><a name="Window-insertAction"><strong>insertAction</strong></a>(...)</dt><dd><tt><a href="#Window-insertAction">insertAction</a>(self,&nbsp;QAction,&nbsp;QAction)</tt></dd></dl>
+
+<dl><dt><a name="Window-insertActions"><strong>insertActions</strong></a>(...)</dt><dd><tt><a href="#Window-insertActions">insertActions</a>(self,&nbsp;QAction,&nbsp;Iterable[QAction])</tt></dd></dl>
+
+<dl><dt><a name="Window-isActiveWindow"><strong>isActiveWindow</strong></a>(...)</dt><dd><tt><a href="#Window-isActiveWindow">isActiveWindow</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-isAncestorOf"><strong>isAncestorOf</strong></a>(...)</dt><dd><tt><a href="#Window-isAncestorOf">isAncestorOf</a>(self,&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-isEnabled"><strong>isEnabled</strong></a>(...)</dt><dd><tt><a href="#Window-isEnabled">isEnabled</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-isEnabledTo"><strong>isEnabledTo</strong></a>(...)</dt><dd><tt><a href="#Window-isEnabledTo">isEnabledTo</a>(self,&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-isFullScreen"><strong>isFullScreen</strong></a>(...)</dt><dd><tt><a href="#Window-isFullScreen">isFullScreen</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-isHidden"><strong>isHidden</strong></a>(...)</dt><dd><tt><a href="#Window-isHidden">isHidden</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-isLeftToRight"><strong>isLeftToRight</strong></a>(...)</dt><dd><tt><a href="#Window-isLeftToRight">isLeftToRight</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-isMaximized"><strong>isMaximized</strong></a>(...)</dt><dd><tt><a href="#Window-isMaximized">isMaximized</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-isMinimized"><strong>isMinimized</strong></a>(...)</dt><dd><tt><a href="#Window-isMinimized">isMinimized</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-isModal"><strong>isModal</strong></a>(...)</dt><dd><tt><a href="#Window-isModal">isModal</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-isRightToLeft"><strong>isRightToLeft</strong></a>(...)</dt><dd><tt><a href="#Window-isRightToLeft">isRightToLeft</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-isSignalConnected"><strong>isSignalConnected</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Window-isVisible"><strong>isVisible</strong></a>(...)</dt><dd><tt><a href="#Window-isVisible">isVisible</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-isVisibleTo"><strong>isVisibleTo</strong></a>(...)</dt><dd><tt><a href="#Window-isVisibleTo">isVisibleTo</a>(self,&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-isWindow"><strong>isWindow</strong></a>(...)</dt><dd><tt><a href="#Window-isWindow">isWindow</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-isWindowModified"><strong>isWindowModified</strong></a>(...)</dt><dd><tt><a href="#Window-isWindowModified">isWindowModified</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-keyPressEvent"><strong>keyPressEvent</strong></a>(...)</dt><dd><tt><a href="#Window-keyPressEvent">keyPressEvent</a>(self,&nbsp;QKeyEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-keyReleaseEvent"><strong>keyReleaseEvent</strong></a>(...)</dt><dd><tt><a href="#Window-keyReleaseEvent">keyReleaseEvent</a>(self,&nbsp;QKeyEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-keyboardGrabber"><strong>keyboardGrabber</strong></a>(...)</dt><dd><tt><a href="#Window-keyboardGrabber">keyboardGrabber</a>()&nbsp;-&gt;&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a></tt></dd></dl>
+
+<dl><dt><a name="Window-layout"><strong>layout</strong></a>(...)</dt><dd><tt><a href="#Window-layout">layout</a>(self)&nbsp;-&gt;&nbsp;QLayout</tt></dd></dl>
+
+<dl><dt><a name="Window-layoutDirection"><strong>layoutDirection</strong></a>(...)</dt><dd><tt><a href="#Window-layoutDirection">layoutDirection</a>(self)&nbsp;-&gt;&nbsp;Qt.LayoutDirection</tt></dd></dl>
+
+<dl><dt><a name="Window-leaveEvent"><strong>leaveEvent</strong></a>(...)</dt><dd><tt><a href="#Window-leaveEvent">leaveEvent</a>(self,&nbsp;QEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-locale"><strong>locale</strong></a>(...)</dt><dd><tt><a href="#Window-locale">locale</a>(self)&nbsp;-&gt;&nbsp;QLocale</tt></dd></dl>
+
+<dl><dt><a name="Window-lower"><strong>lower</strong></a>(...)</dt><dd><tt><a href="#Window-lower">lower</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Window-mapFrom"><strong>mapFrom</strong></a>(...)</dt><dd><tt><a href="#Window-mapFrom">mapFrom</a>(self,&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>,&nbsp;QPoint)&nbsp;-&gt;&nbsp;QPoint</tt></dd></dl>
+
+<dl><dt><a name="Window-mapFromGlobal"><strong>mapFromGlobal</strong></a>(...)</dt><dd><tt><a href="#Window-mapFromGlobal">mapFromGlobal</a>(self,&nbsp;QPoint)&nbsp;-&gt;&nbsp;QPoint</tt></dd></dl>
+
+<dl><dt><a name="Window-mapFromParent"><strong>mapFromParent</strong></a>(...)</dt><dd><tt><a href="#Window-mapFromParent">mapFromParent</a>(self,&nbsp;QPoint)&nbsp;-&gt;&nbsp;QPoint</tt></dd></dl>
+
+<dl><dt><a name="Window-mapTo"><strong>mapTo</strong></a>(...)</dt><dd><tt><a href="#Window-mapTo">mapTo</a>(self,&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>,&nbsp;QPoint)&nbsp;-&gt;&nbsp;QPoint</tt></dd></dl>
+
+<dl><dt><a name="Window-mapToGlobal"><strong>mapToGlobal</strong></a>(...)</dt><dd><tt><a href="#Window-mapToGlobal">mapToGlobal</a>(self,&nbsp;QPoint)&nbsp;-&gt;&nbsp;QPoint</tt></dd></dl>
+
+<dl><dt><a name="Window-mapToParent"><strong>mapToParent</strong></a>(...)</dt><dd><tt><a href="#Window-mapToParent">mapToParent</a>(self,&nbsp;QPoint)&nbsp;-&gt;&nbsp;QPoint</tt></dd></dl>
+
+<dl><dt><a name="Window-mask"><strong>mask</strong></a>(...)</dt><dd><tt><a href="#Window-mask">mask</a>(self)&nbsp;-&gt;&nbsp;QRegion</tt></dd></dl>
+
+<dl><dt><a name="Window-maximumHeight"><strong>maximumHeight</strong></a>(...)</dt><dd><tt><a href="#Window-maximumHeight">maximumHeight</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Window-maximumSize"><strong>maximumSize</strong></a>(...)</dt><dd><tt><a href="#Window-maximumSize">maximumSize</a>(self)&nbsp;-&gt;&nbsp;QSize</tt></dd></dl>
+
+<dl><dt><a name="Window-maximumWidth"><strong>maximumWidth</strong></a>(...)</dt><dd><tt><a href="#Window-maximumWidth">maximumWidth</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Window-metric"><strong>metric</strong></a>(...)</dt><dd><tt><a href="#Window-metric">metric</a>(self,&nbsp;QPaintDevice.PaintDeviceMetric)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Window-minimumHeight"><strong>minimumHeight</strong></a>(...)</dt><dd><tt><a href="#Window-minimumHeight">minimumHeight</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Window-minimumSize"><strong>minimumSize</strong></a>(...)</dt><dd><tt><a href="#Window-minimumSize">minimumSize</a>(self)&nbsp;-&gt;&nbsp;QSize</tt></dd></dl>
+
+<dl><dt><a name="Window-minimumSizeHint"><strong>minimumSizeHint</strong></a>(...)</dt><dd><tt><a href="#Window-minimumSizeHint">minimumSizeHint</a>(self)&nbsp;-&gt;&nbsp;QSize</tt></dd></dl>
+
+<dl><dt><a name="Window-minimumWidth"><strong>minimumWidth</strong></a>(...)</dt><dd><tt><a href="#Window-minimumWidth">minimumWidth</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Window-mouseDoubleClickEvent"><strong>mouseDoubleClickEvent</strong></a>(...)</dt><dd><tt><a href="#Window-mouseDoubleClickEvent">mouseDoubleClickEvent</a>(self,&nbsp;QMouseEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-mouseGrabber"><strong>mouseGrabber</strong></a>(...)</dt><dd><tt><a href="#Window-mouseGrabber">mouseGrabber</a>()&nbsp;-&gt;&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a></tt></dd></dl>
+
+<dl><dt><a name="Window-mouseMoveEvent"><strong>mouseMoveEvent</strong></a>(...)</dt><dd><tt><a href="#Window-mouseMoveEvent">mouseMoveEvent</a>(self,&nbsp;QMouseEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-mousePressEvent"><strong>mousePressEvent</strong></a>(...)</dt><dd><tt><a href="#Window-mousePressEvent">mousePressEvent</a>(self,&nbsp;QMouseEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-mouseReleaseEvent"><strong>mouseReleaseEvent</strong></a>(...)</dt><dd><tt><a href="#Window-mouseReleaseEvent">mouseReleaseEvent</a>(self,&nbsp;QMouseEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-move"><strong>move</strong></a>(...)</dt><dd><tt><a href="#Window-move">move</a>(self,&nbsp;QPoint)<br>
+<a href="#Window-move">move</a>(self,&nbsp;int,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Window-moveEvent"><strong>moveEvent</strong></a>(...)</dt><dd><tt><a href="#Window-moveEvent">moveEvent</a>(self,&nbsp;QMoveEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-nativeEvent"><strong>nativeEvent</strong></a>(...)</dt><dd><tt><a href="#Window-nativeEvent">nativeEvent</a>(self,&nbsp;Union[QByteArray,&nbsp;bytes,&nbsp;bytearray],&nbsp;sip.voidptr)&nbsp;-&gt;&nbsp;Tuple[bool,&nbsp;int]</tt></dd></dl>
+
+<dl><dt><a name="Window-nativeParentWidget"><strong>nativeParentWidget</strong></a>(...)</dt><dd><tt><a href="#Window-nativeParentWidget">nativeParentWidget</a>(self)&nbsp;-&gt;&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a></tt></dd></dl>
+
+<dl><dt><a name="Window-nextInFocusChain"><strong>nextInFocusChain</strong></a>(...)</dt><dd><tt><a href="#Window-nextInFocusChain">nextInFocusChain</a>(self)&nbsp;-&gt;&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a></tt></dd></dl>
+
+<dl><dt><a name="Window-normalGeometry"><strong>normalGeometry</strong></a>(...)</dt><dd><tt><a href="#Window-normalGeometry">normalGeometry</a>(self)&nbsp;-&gt;&nbsp;QRect</tt></dd></dl>
+
+<dl><dt><a name="Window-overrideWindowFlags"><strong>overrideWindowFlags</strong></a>(...)</dt><dd><tt><a href="#Window-overrideWindowFlags">overrideWindowFlags</a>(self,&nbsp;Union[Qt.WindowFlags,&nbsp;Qt.WindowType])</tt></dd></dl>
+
+<dl><dt><a name="Window-overrideWindowState"><strong>overrideWindowState</strong></a>(...)</dt><dd><tt><a href="#Window-overrideWindowState">overrideWindowState</a>(self,&nbsp;Union[Qt.WindowStates,&nbsp;Qt.WindowState])</tt></dd></dl>
+
+<dl><dt><a name="Window-paintEngine"><strong>paintEngine</strong></a>(...)</dt><dd><tt><a href="#Window-paintEngine">paintEngine</a>(self)&nbsp;-&gt;&nbsp;QPaintEngine</tt></dd></dl>
+
+<dl><dt><a name="Window-paintEvent"><strong>paintEvent</strong></a>(...)</dt><dd><tt><a href="#Window-paintEvent">paintEvent</a>(self,&nbsp;QPaintEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-palette"><strong>palette</strong></a>(...)</dt><dd><tt><a href="#Window-palette">palette</a>(self)&nbsp;-&gt;&nbsp;QPalette</tt></dd></dl>
+
+<dl><dt><a name="Window-parentWidget"><strong>parentWidget</strong></a>(...)</dt><dd><tt><a href="#Window-parentWidget">parentWidget</a>(self)&nbsp;-&gt;&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a></tt></dd></dl>
+
+<dl><dt><a name="Window-pos"><strong>pos</strong></a>(...)</dt><dd><tt><a href="#Window-pos">pos</a>(self)&nbsp;-&gt;&nbsp;QPoint</tt></dd></dl>
+
+<dl><dt><a name="Window-previousInFocusChain"><strong>previousInFocusChain</strong></a>(...)</dt><dd><tt><a href="#Window-previousInFocusChain">previousInFocusChain</a>(self)&nbsp;-&gt;&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a></tt></dd></dl>
+
+<dl><dt><a name="Window-raise_"><strong>raise_</strong></a>(...)</dt><dd><tt><a href="#Window-raise_">raise_</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Window-receivers"><strong>receivers</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Window-rect"><strong>rect</strong></a>(...)</dt><dd><tt><a href="#Window-rect">rect</a>(self)&nbsp;-&gt;&nbsp;QRect</tt></dd></dl>
+
+<dl><dt><a name="Window-releaseKeyboard"><strong>releaseKeyboard</strong></a>(...)</dt><dd><tt><a href="#Window-releaseKeyboard">releaseKeyboard</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Window-releaseMouse"><strong>releaseMouse</strong></a>(...)</dt><dd><tt><a href="#Window-releaseMouse">releaseMouse</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Window-releaseShortcut"><strong>releaseShortcut</strong></a>(...)</dt><dd><tt><a href="#Window-releaseShortcut">releaseShortcut</a>(self,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Window-removeAction"><strong>removeAction</strong></a>(...)</dt><dd><tt><a href="#Window-removeAction">removeAction</a>(self,&nbsp;QAction)</tt></dd></dl>
+
+<dl><dt><a name="Window-render"><strong>render</strong></a>(...)</dt><dd><tt><a href="#Window-render">render</a>(self,&nbsp;QPaintDevice,&nbsp;targetOffset:&nbsp;QPoint&nbsp;=&nbsp;QPoint(),&nbsp;sourceRegion:&nbsp;QRegion&nbsp;=&nbsp;QRegion(),&nbsp;flags:&nbsp;Union[<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>.RenderFlags,&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>.RenderFlag]&nbsp;=&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>.<a href="#Window-RenderFlags">RenderFlags</a>(<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>.DrawWindowBackground|<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>.DrawChildren))<br>
+<a href="#Window-render">render</a>(self,&nbsp;QPainter,&nbsp;targetOffset:&nbsp;QPoint&nbsp;=&nbsp;QPoint(),&nbsp;sourceRegion:&nbsp;QRegion&nbsp;=&nbsp;QRegion(),&nbsp;flags:&nbsp;Union[<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>.RenderFlags,&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>.RenderFlag]&nbsp;=&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>.<a href="#Window-RenderFlags">RenderFlags</a>(<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>.DrawWindowBackground|<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>.DrawChildren))</tt></dd></dl>
+
+<dl><dt><a name="Window-repaint"><strong>repaint</strong></a>(...)</dt><dd><tt><a href="#Window-repaint">repaint</a>(self)<br>
+<a href="#Window-repaint">repaint</a>(self,&nbsp;int,&nbsp;int,&nbsp;int,&nbsp;int)<br>
+<a href="#Window-repaint">repaint</a>(self,&nbsp;QRect)<br>
+<a href="#Window-repaint">repaint</a>(self,&nbsp;QRegion)</tt></dd></dl>
+
+<dl><dt><a name="Window-resize"><strong>resize</strong></a>(...)</dt><dd><tt><a href="#Window-resize">resize</a>(self,&nbsp;QSize)<br>
+<a href="#Window-resize">resize</a>(self,&nbsp;int,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Window-resizeEvent"><strong>resizeEvent</strong></a>(...)</dt><dd><tt><a href="#Window-resizeEvent">resizeEvent</a>(self,&nbsp;QResizeEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-restoreGeometry"><strong>restoreGeometry</strong></a>(...)</dt><dd><tt><a href="#Window-restoreGeometry">restoreGeometry</a>(self,&nbsp;Union[QByteArray,&nbsp;bytes,&nbsp;bytearray])&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-saveGeometry"><strong>saveGeometry</strong></a>(...)</dt><dd><tt><a href="#Window-saveGeometry">saveGeometry</a>(self)&nbsp;-&gt;&nbsp;QByteArray</tt></dd></dl>
+
+<dl><dt><a name="Window-scroll"><strong>scroll</strong></a>(...)</dt><dd><tt><a href="#Window-scroll">scroll</a>(self,&nbsp;int,&nbsp;int)<br>
+<a href="#Window-scroll">scroll</a>(self,&nbsp;int,&nbsp;int,&nbsp;QRect)</tt></dd></dl>
+
+<dl><dt><a name="Window-sender"><strong>sender</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Window-senderSignalIndex"><strong>senderSignalIndex</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Window-setAcceptDrops"><strong>setAcceptDrops</strong></a>(...)</dt><dd><tt><a href="#Window-setAcceptDrops">setAcceptDrops</a>(self,&nbsp;bool)</tt></dd></dl>
+
+<dl><dt><a name="Window-setAccessibleDescription"><strong>setAccessibleDescription</strong></a>(...)</dt><dd><tt><a href="#Window-setAccessibleDescription">setAccessibleDescription</a>(self,&nbsp;str)</tt></dd></dl>
+
+<dl><dt><a name="Window-setAccessibleName"><strong>setAccessibleName</strong></a>(...)</dt><dd><tt><a href="#Window-setAccessibleName">setAccessibleName</a>(self,&nbsp;str)</tt></dd></dl>
+
+<dl><dt><a name="Window-setAttribute"><strong>setAttribute</strong></a>(...)</dt><dd><tt><a href="#Window-setAttribute">setAttribute</a>(self,&nbsp;Qt.WidgetAttribute,&nbsp;on:&nbsp;bool&nbsp;=&nbsp;True)</tt></dd></dl>
+
+<dl><dt><a name="Window-setAutoFillBackground"><strong>setAutoFillBackground</strong></a>(...)</dt><dd><tt><a href="#Window-setAutoFillBackground">setAutoFillBackground</a>(self,&nbsp;bool)</tt></dd></dl>
+
+<dl><dt><a name="Window-setBackgroundRole"><strong>setBackgroundRole</strong></a>(...)</dt><dd><tt><a href="#Window-setBackgroundRole">setBackgroundRole</a>(self,&nbsp;QPalette.ColorRole)</tt></dd></dl>
+
+<dl><dt><a name="Window-setBaseSize"><strong>setBaseSize</strong></a>(...)</dt><dd><tt><a href="#Window-setBaseSize">setBaseSize</a>(self,&nbsp;int,&nbsp;int)<br>
+<a href="#Window-setBaseSize">setBaseSize</a>(self,&nbsp;QSize)</tt></dd></dl>
+
+<dl><dt><a name="Window-setContentsMargins"><strong>setContentsMargins</strong></a>(...)</dt><dd><tt><a href="#Window-setContentsMargins">setContentsMargins</a>(self,&nbsp;int,&nbsp;int,&nbsp;int,&nbsp;int)<br>
+<a href="#Window-setContentsMargins">setContentsMargins</a>(self,&nbsp;QMargins)</tt></dd></dl>
+
+<dl><dt><a name="Window-setContextMenuPolicy"><strong>setContextMenuPolicy</strong></a>(...)</dt><dd><tt><a href="#Window-setContextMenuPolicy">setContextMenuPolicy</a>(self,&nbsp;Qt.ContextMenuPolicy)</tt></dd></dl>
+
+<dl><dt><a name="Window-setCursor"><strong>setCursor</strong></a>(...)</dt><dd><tt><a href="#Window-setCursor">setCursor</a>(self,&nbsp;Union[QCursor,&nbsp;Qt.CursorShape])</tt></dd></dl>
+
+<dl><dt><a name="Window-setDisabled"><strong>setDisabled</strong></a>(...)</dt><dd><tt><a href="#Window-setDisabled">setDisabled</a>(self,&nbsp;bool)</tt></dd></dl>
+
+<dl><dt><a name="Window-setEnabled"><strong>setEnabled</strong></a>(...)</dt><dd><tt><a href="#Window-setEnabled">setEnabled</a>(self,&nbsp;bool)</tt></dd></dl>
+
+<dl><dt><a name="Window-setFixedHeight"><strong>setFixedHeight</strong></a>(...)</dt><dd><tt><a href="#Window-setFixedHeight">setFixedHeight</a>(self,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Window-setFixedSize"><strong>setFixedSize</strong></a>(...)</dt><dd><tt><a href="#Window-setFixedSize">setFixedSize</a>(self,&nbsp;QSize)<br>
+<a href="#Window-setFixedSize">setFixedSize</a>(self,&nbsp;int,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Window-setFixedWidth"><strong>setFixedWidth</strong></a>(...)</dt><dd><tt><a href="#Window-setFixedWidth">setFixedWidth</a>(self,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Window-setFocus"><strong>setFocus</strong></a>(...)</dt><dd><tt><a href="#Window-setFocus">setFocus</a>(self)<br>
+<a href="#Window-setFocus">setFocus</a>(self,&nbsp;Qt.FocusReason)</tt></dd></dl>
+
+<dl><dt><a name="Window-setFocusPolicy"><strong>setFocusPolicy</strong></a>(...)</dt><dd><tt><a href="#Window-setFocusPolicy">setFocusPolicy</a>(self,&nbsp;Qt.FocusPolicy)</tt></dd></dl>
+
+<dl><dt><a name="Window-setFocusProxy"><strong>setFocusProxy</strong></a>(...)</dt><dd><tt><a href="#Window-setFocusProxy">setFocusProxy</a>(self,&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>)</tt></dd></dl>
+
+<dl><dt><a name="Window-setFont"><strong>setFont</strong></a>(...)</dt><dd><tt><a href="#Window-setFont">setFont</a>(self,&nbsp;QFont)</tt></dd></dl>
+
+<dl><dt><a name="Window-setForegroundRole"><strong>setForegroundRole</strong></a>(...)</dt><dd><tt><a href="#Window-setForegroundRole">setForegroundRole</a>(self,&nbsp;QPalette.ColorRole)</tt></dd></dl>
+
+<dl><dt><a name="Window-setGeometry"><strong>setGeometry</strong></a>(...)</dt><dd><tt><a href="#Window-setGeometry">setGeometry</a>(self,&nbsp;QRect)<br>
+<a href="#Window-setGeometry">setGeometry</a>(self,&nbsp;int,&nbsp;int,&nbsp;int,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Window-setGraphicsEffect"><strong>setGraphicsEffect</strong></a>(...)</dt><dd><tt><a href="#Window-setGraphicsEffect">setGraphicsEffect</a>(self,&nbsp;QGraphicsEffect)</tt></dd></dl>
+
+<dl><dt><a name="Window-setHidden"><strong>setHidden</strong></a>(...)</dt><dd><tt><a href="#Window-setHidden">setHidden</a>(self,&nbsp;bool)</tt></dd></dl>
+
+<dl><dt><a name="Window-setInputMethodHints"><strong>setInputMethodHints</strong></a>(...)</dt><dd><tt><a href="#Window-setInputMethodHints">setInputMethodHints</a>(self,&nbsp;Union[Qt.InputMethodHints,&nbsp;Qt.InputMethodHint])</tt></dd></dl>
+
+<dl><dt><a name="Window-setLayout"><strong>setLayout</strong></a>(...)</dt><dd><tt><a href="#Window-setLayout">setLayout</a>(self,&nbsp;QLayout)</tt></dd></dl>
+
+<dl><dt><a name="Window-setLayoutDirection"><strong>setLayoutDirection</strong></a>(...)</dt><dd><tt><a href="#Window-setLayoutDirection">setLayoutDirection</a>(self,&nbsp;Qt.LayoutDirection)</tt></dd></dl>
+
+<dl><dt><a name="Window-setLocale"><strong>setLocale</strong></a>(...)</dt><dd><tt><a href="#Window-setLocale">setLocale</a>(self,&nbsp;QLocale)</tt></dd></dl>
+
+<dl><dt><a name="Window-setMask"><strong>setMask</strong></a>(...)</dt><dd><tt><a href="#Window-setMask">setMask</a>(self,&nbsp;QBitmap)<br>
+<a href="#Window-setMask">setMask</a>(self,&nbsp;QRegion)</tt></dd></dl>
+
+<dl><dt><a name="Window-setMaximumHeight"><strong>setMaximumHeight</strong></a>(...)</dt><dd><tt><a href="#Window-setMaximumHeight">setMaximumHeight</a>(self,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Window-setMaximumSize"><strong>setMaximumSize</strong></a>(...)</dt><dd><tt><a href="#Window-setMaximumSize">setMaximumSize</a>(self,&nbsp;int,&nbsp;int)<br>
+<a href="#Window-setMaximumSize">setMaximumSize</a>(self,&nbsp;QSize)</tt></dd></dl>
+
+<dl><dt><a name="Window-setMaximumWidth"><strong>setMaximumWidth</strong></a>(...)</dt><dd><tt><a href="#Window-setMaximumWidth">setMaximumWidth</a>(self,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Window-setMinimumHeight"><strong>setMinimumHeight</strong></a>(...)</dt><dd><tt><a href="#Window-setMinimumHeight">setMinimumHeight</a>(self,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Window-setMinimumSize"><strong>setMinimumSize</strong></a>(...)</dt><dd><tt><a href="#Window-setMinimumSize">setMinimumSize</a>(self,&nbsp;int,&nbsp;int)<br>
+<a href="#Window-setMinimumSize">setMinimumSize</a>(self,&nbsp;QSize)</tt></dd></dl>
+
+<dl><dt><a name="Window-setMinimumWidth"><strong>setMinimumWidth</strong></a>(...)</dt><dd><tt><a href="#Window-setMinimumWidth">setMinimumWidth</a>(self,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Window-setMouseTracking"><strong>setMouseTracking</strong></a>(...)</dt><dd><tt><a href="#Window-setMouseTracking">setMouseTracking</a>(self,&nbsp;bool)</tt></dd></dl>
+
+<dl><dt><a name="Window-setPalette"><strong>setPalette</strong></a>(...)</dt><dd><tt><a href="#Window-setPalette">setPalette</a>(self,&nbsp;QPalette)</tt></dd></dl>
+
+<dl><dt><a name="Window-setParent"><strong>setParent</strong></a>(...)</dt><dd><tt><a href="#Window-setParent">setParent</a>(self,&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>)<br>
+<a href="#Window-setParent">setParent</a>(self,&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>,&nbsp;Union[Qt.WindowFlags,&nbsp;Qt.WindowType])</tt></dd></dl>
+
+<dl><dt><a name="Window-setShortcutAutoRepeat"><strong>setShortcutAutoRepeat</strong></a>(...)</dt><dd><tt><a href="#Window-setShortcutAutoRepeat">setShortcutAutoRepeat</a>(self,&nbsp;int,&nbsp;enabled:&nbsp;bool&nbsp;=&nbsp;True)</tt></dd></dl>
+
+<dl><dt><a name="Window-setShortcutEnabled"><strong>setShortcutEnabled</strong></a>(...)</dt><dd><tt><a href="#Window-setShortcutEnabled">setShortcutEnabled</a>(self,&nbsp;int,&nbsp;enabled:&nbsp;bool&nbsp;=&nbsp;True)</tt></dd></dl>
+
+<dl><dt><a name="Window-setSizeIncrement"><strong>setSizeIncrement</strong></a>(...)</dt><dd><tt><a href="#Window-setSizeIncrement">setSizeIncrement</a>(self,&nbsp;int,&nbsp;int)<br>
+<a href="#Window-setSizeIncrement">setSizeIncrement</a>(self,&nbsp;QSize)</tt></dd></dl>
+
+<dl><dt><a name="Window-setSizePolicy"><strong>setSizePolicy</strong></a>(...)</dt><dd><tt><a href="#Window-setSizePolicy">setSizePolicy</a>(self,&nbsp;QSizePolicy)<br>
+<a href="#Window-setSizePolicy">setSizePolicy</a>(self,&nbsp;QSizePolicy.Policy,&nbsp;QSizePolicy.Policy)</tt></dd></dl>
+
+<dl><dt><a name="Window-setStatusTip"><strong>setStatusTip</strong></a>(...)</dt><dd><tt><a href="#Window-setStatusTip">setStatusTip</a>(self,&nbsp;str)</tt></dd></dl>
+
+<dl><dt><a name="Window-setStyle"><strong>setStyle</strong></a>(...)</dt><dd><tt><a href="#Window-setStyle">setStyle</a>(self,&nbsp;QStyle)</tt></dd></dl>
+
+<dl><dt><a name="Window-setStyleSheet"><strong>setStyleSheet</strong></a>(...)</dt><dd><tt><a href="#Window-setStyleSheet">setStyleSheet</a>(self,&nbsp;str)</tt></dd></dl>
+
+<dl><dt><a name="Window-setTabOrder"><strong>setTabOrder</strong></a>(...)</dt><dd><tt><a href="#Window-setTabOrder">setTabOrder</a>(<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>,&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>)</tt></dd></dl>
+
+<dl><dt><a name="Window-setToolTip"><strong>setToolTip</strong></a>(...)</dt><dd><tt><a href="#Window-setToolTip">setToolTip</a>(self,&nbsp;str)</tt></dd></dl>
+
+<dl><dt><a name="Window-setToolTipDuration"><strong>setToolTipDuration</strong></a>(...)</dt><dd><tt><a href="#Window-setToolTipDuration">setToolTipDuration</a>(self,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Window-setUpdatesEnabled"><strong>setUpdatesEnabled</strong></a>(...)</dt><dd><tt><a href="#Window-setUpdatesEnabled">setUpdatesEnabled</a>(self,&nbsp;bool)</tt></dd></dl>
+
+<dl><dt><a name="Window-setVisible"><strong>setVisible</strong></a>(...)</dt><dd><tt><a href="#Window-setVisible">setVisible</a>(self,&nbsp;bool)</tt></dd></dl>
+
+<dl><dt><a name="Window-setWhatsThis"><strong>setWhatsThis</strong></a>(...)</dt><dd><tt><a href="#Window-setWhatsThis">setWhatsThis</a>(self,&nbsp;str)</tt></dd></dl>
+
+<dl><dt><a name="Window-setWindowFilePath"><strong>setWindowFilePath</strong></a>(...)</dt><dd><tt><a href="#Window-setWindowFilePath">setWindowFilePath</a>(self,&nbsp;str)</tt></dd></dl>
+
+<dl><dt><a name="Window-setWindowFlags"><strong>setWindowFlags</strong></a>(...)</dt><dd><tt><a href="#Window-setWindowFlags">setWindowFlags</a>(self,&nbsp;Union[Qt.WindowFlags,&nbsp;Qt.WindowType])</tt></dd></dl>
+
+<dl><dt><a name="Window-setWindowIcon"><strong>setWindowIcon</strong></a>(...)</dt><dd><tt><a href="#Window-setWindowIcon">setWindowIcon</a>(self,&nbsp;QIcon)</tt></dd></dl>
+
+<dl><dt><a name="Window-setWindowIconText"><strong>setWindowIconText</strong></a>(...)</dt><dd><tt><a href="#Window-setWindowIconText">setWindowIconText</a>(self,&nbsp;str)</tt></dd></dl>
+
+<dl><dt><a name="Window-setWindowModality"><strong>setWindowModality</strong></a>(...)</dt><dd><tt><a href="#Window-setWindowModality">setWindowModality</a>(self,&nbsp;Qt.WindowModality)</tt></dd></dl>
+
+<dl><dt><a name="Window-setWindowModified"><strong>setWindowModified</strong></a>(...)</dt><dd><tt><a href="#Window-setWindowModified">setWindowModified</a>(self,&nbsp;bool)</tt></dd></dl>
+
+<dl><dt><a name="Window-setWindowOpacity"><strong>setWindowOpacity</strong></a>(...)</dt><dd><tt><a href="#Window-setWindowOpacity">setWindowOpacity</a>(self,&nbsp;float)</tt></dd></dl>
+
+<dl><dt><a name="Window-setWindowRole"><strong>setWindowRole</strong></a>(...)</dt><dd><tt><a href="#Window-setWindowRole">setWindowRole</a>(self,&nbsp;str)</tt></dd></dl>
+
+<dl><dt><a name="Window-setWindowState"><strong>setWindowState</strong></a>(...)</dt><dd><tt><a href="#Window-setWindowState">setWindowState</a>(self,&nbsp;Union[Qt.WindowStates,&nbsp;Qt.WindowState])</tt></dd></dl>
+
+<dl><dt><a name="Window-setWindowTitle"><strong>setWindowTitle</strong></a>(...)</dt><dd><tt><a href="#Window-setWindowTitle">setWindowTitle</a>(self,&nbsp;str)</tt></dd></dl>
+
+<dl><dt><a name="Window-sharedPainter"><strong>sharedPainter</strong></a>(...)</dt><dd><tt><a href="#Window-sharedPainter">sharedPainter</a>(self)&nbsp;-&gt;&nbsp;QPainter</tt></dd></dl>
+
+<dl><dt><a name="Window-show"><strong>show</strong></a>(...)</dt><dd><tt><a href="#Window-show">show</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Window-showEvent"><strong>showEvent</strong></a>(...)</dt><dd><tt><a href="#Window-showEvent">showEvent</a>(self,&nbsp;QShowEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-showFullScreen"><strong>showFullScreen</strong></a>(...)</dt><dd><tt><a href="#Window-showFullScreen">showFullScreen</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Window-showMaximized"><strong>showMaximized</strong></a>(...)</dt><dd><tt><a href="#Window-showMaximized">showMaximized</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Window-showMinimized"><strong>showMinimized</strong></a>(...)</dt><dd><tt><a href="#Window-showMinimized">showMinimized</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Window-showNormal"><strong>showNormal</strong></a>(...)</dt><dd><tt><a href="#Window-showNormal">showNormal</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Window-size"><strong>size</strong></a>(...)</dt><dd><tt><a href="#Window-size">size</a>(self)&nbsp;-&gt;&nbsp;QSize</tt></dd></dl>
+
+<dl><dt><a name="Window-sizeHint"><strong>sizeHint</strong></a>(...)</dt><dd><tt><a href="#Window-sizeHint">sizeHint</a>(self)&nbsp;-&gt;&nbsp;QSize</tt></dd></dl>
+
+<dl><dt><a name="Window-sizeIncrement"><strong>sizeIncrement</strong></a>(...)</dt><dd><tt><a href="#Window-sizeIncrement">sizeIncrement</a>(self)&nbsp;-&gt;&nbsp;QSize</tt></dd></dl>
+
+<dl><dt><a name="Window-sizePolicy"><strong>sizePolicy</strong></a>(...)</dt><dd><tt><a href="#Window-sizePolicy">sizePolicy</a>(self)&nbsp;-&gt;&nbsp;QSizePolicy</tt></dd></dl>
+
+<dl><dt><a name="Window-stackUnder"><strong>stackUnder</strong></a>(...)</dt><dd><tt><a href="#Window-stackUnder">stackUnder</a>(self,&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>)</tt></dd></dl>
+
+<dl><dt><a name="Window-statusTip"><strong>statusTip</strong></a>(...)</dt><dd><tt><a href="#Window-statusTip">statusTip</a>(self)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="Window-style"><strong>style</strong></a>(...)</dt><dd><tt><a href="#Window-style">style</a>(self)&nbsp;-&gt;&nbsp;QStyle</tt></dd></dl>
+
+<dl><dt><a name="Window-styleSheet"><strong>styleSheet</strong></a>(...)</dt><dd><tt><a href="#Window-styleSheet">styleSheet</a>(self)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="Window-tabletEvent"><strong>tabletEvent</strong></a>(...)</dt><dd><tt><a href="#Window-tabletEvent">tabletEvent</a>(self,&nbsp;QTabletEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-testAttribute"><strong>testAttribute</strong></a>(...)</dt><dd><tt><a href="#Window-testAttribute">testAttribute</a>(self,&nbsp;Qt.WidgetAttribute)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-timerEvent"><strong>timerEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Window-toolTip"><strong>toolTip</strong></a>(...)</dt><dd><tt><a href="#Window-toolTip">toolTip</a>(self)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="Window-toolTipDuration"><strong>toolTipDuration</strong></a>(...)</dt><dd><tt><a href="#Window-toolTipDuration">toolTipDuration</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Window-underMouse"><strong>underMouse</strong></a>(...)</dt><dd><tt><a href="#Window-underMouse">underMouse</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-ungrabGesture"><strong>ungrabGesture</strong></a>(...)</dt><dd><tt><a href="#Window-ungrabGesture">ungrabGesture</a>(self,&nbsp;Qt.GestureType)</tt></dd></dl>
+
+<dl><dt><a name="Window-unsetCursor"><strong>unsetCursor</strong></a>(...)</dt><dd><tt><a href="#Window-unsetCursor">unsetCursor</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Window-unsetLayoutDirection"><strong>unsetLayoutDirection</strong></a>(...)</dt><dd><tt><a href="#Window-unsetLayoutDirection">unsetLayoutDirection</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Window-unsetLocale"><strong>unsetLocale</strong></a>(...)</dt><dd><tt><a href="#Window-unsetLocale">unsetLocale</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Window-update"><strong>update</strong></a>(...)</dt><dd><tt><a href="#Window-update">update</a>(self)<br>
+<a href="#Window-update">update</a>(self,&nbsp;QRect)<br>
+<a href="#Window-update">update</a>(self,&nbsp;QRegion)<br>
+<a href="#Window-update">update</a>(self,&nbsp;int,&nbsp;int,&nbsp;int,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Window-updateGeometry"><strong>updateGeometry</strong></a>(...)</dt><dd><tt><a href="#Window-updateGeometry">updateGeometry</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Window-updateMicroFocus"><strong>updateMicroFocus</strong></a>(...)</dt><dd><tt><a href="#Window-updateMicroFocus">updateMicroFocus</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Window-updatesEnabled"><strong>updatesEnabled</strong></a>(...)</dt><dd><tt><a href="#Window-updatesEnabled">updatesEnabled</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-visibleRegion"><strong>visibleRegion</strong></a>(...)</dt><dd><tt><a href="#Window-visibleRegion">visibleRegion</a>(self)&nbsp;-&gt;&nbsp;QRegion</tt></dd></dl>
+
+<dl><dt><a name="Window-whatsThis"><strong>whatsThis</strong></a>(...)</dt><dd><tt><a href="#Window-whatsThis">whatsThis</a>(self)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="Window-wheelEvent"><strong>wheelEvent</strong></a>(...)</dt><dd><tt><a href="#Window-wheelEvent">wheelEvent</a>(self,&nbsp;QWheelEvent)</tt></dd></dl>
+
+<dl><dt><a name="Window-width"><strong>width</strong></a>(...)</dt><dd><tt><a href="#Window-width">width</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Window-winId"><strong>winId</strong></a>(...)</dt><dd><tt><a href="#Window-winId">winId</a>(self)&nbsp;-&gt;&nbsp;sip.voidptr</tt></dd></dl>
+
+<dl><dt><a name="Window-window"><strong>window</strong></a>(...)</dt><dd><tt><a href="#Window-window">window</a>(self)&nbsp;-&gt;&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a></tt></dd></dl>
+
+<dl><dt><a name="Window-windowFilePath"><strong>windowFilePath</strong></a>(...)</dt><dd><tt><a href="#Window-windowFilePath">windowFilePath</a>(self)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="Window-windowFlags"><strong>windowFlags</strong></a>(...)</dt><dd><tt><a href="#Window-windowFlags">windowFlags</a>(self)&nbsp;-&gt;&nbsp;Qt.WindowFlags</tt></dd></dl>
+
+<dl><dt><a name="Window-windowHandle"><strong>windowHandle</strong></a>(...)</dt><dd><tt><a href="#Window-windowHandle">windowHandle</a>(self)&nbsp;-&gt;&nbsp;QWindow</tt></dd></dl>
+
+<dl><dt><a name="Window-windowIcon"><strong>windowIcon</strong></a>(...)</dt><dd><tt><a href="#Window-windowIcon">windowIcon</a>(self)&nbsp;-&gt;&nbsp;QIcon</tt></dd></dl>
+
+<strong>windowIconChanged</strong> = &lt;unbound PYQT_SIGNAL windowIconChanged(QIcon)&gt;
+<dl><dt><a name="Window-windowIconText"><strong>windowIconText</strong></a>(...)</dt><dd><tt><a href="#Window-windowIconText">windowIconText</a>(self)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<strong>windowIconTextChanged</strong> = &lt;unbound PYQT_SIGNAL windowIconTextChanged(QString)&gt;
+<dl><dt><a name="Window-windowModality"><strong>windowModality</strong></a>(...)</dt><dd><tt><a href="#Window-windowModality">windowModality</a>(self)&nbsp;-&gt;&nbsp;Qt.WindowModality</tt></dd></dl>
+
+<dl><dt><a name="Window-windowOpacity"><strong>windowOpacity</strong></a>(...)</dt><dd><tt><a href="#Window-windowOpacity">windowOpacity</a>(self)&nbsp;-&gt;&nbsp;float</tt></dd></dl>
+
+<dl><dt><a name="Window-windowRole"><strong>windowRole</strong></a>(...)</dt><dd><tt><a href="#Window-windowRole">windowRole</a>(self)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="Window-windowState"><strong>windowState</strong></a>(...)</dt><dd><tt><a href="#Window-windowState">windowState</a>(self)&nbsp;-&gt;&nbsp;Qt.WindowStates</tt></dd></dl>
+
+<dl><dt><a name="Window-windowTitle"><strong>windowTitle</strong></a>(...)</dt><dd><tt><a href="#Window-windowTitle">windowTitle</a>(self)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<strong>windowTitleChanged</strong> = &lt;unbound PYQT_SIGNAL windowTitleChanged(QString)&gt;
+<dl><dt><a name="Window-windowType"><strong>windowType</strong></a>(...)</dt><dd><tt><a href="#Window-windowType">windowType</a>(self)&nbsp;-&gt;&nbsp;Qt.WindowType</tt></dd></dl>
+
+<dl><dt><a name="Window-x"><strong>x</strong></a>(...)</dt><dd><tt><a href="#Window-x">x</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Window-y"><strong>y</strong></a>(...)</dt><dd><tt><a href="#Window-y">y</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="PyQt5.QtWidgets.html#QWidget">PyQt5.QtWidgets.QWidget</a>:<br>
+<dl><dt><strong>DrawChildren</strong> = 2</dl>
+
+<dl><dt><strong>DrawWindowBackground</strong> = 1</dl>
+
+<dl><dt><strong>IgnoreMask</strong> = 4</dl>
+
+<dl><dt><strong>RenderFlag</strong> = &lt;class 'PyQt5.QtWidgets.QWidget.RenderFlag'&gt;</dl>
+
+<dl><dt><strong>RenderFlags</strong> = &lt;class 'PyQt5.QtWidgets.RenderFlags'&gt;<dd><tt><a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>.<a href="#Window-RenderFlags">RenderFlags</a>()<br>
+<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>.<a href="#Window-RenderFlags">RenderFlags</a>(Union[<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>.RenderFlags,&nbsp;<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>.RenderFlag])<br>
+<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>.<a href="#Window-RenderFlags">RenderFlags</a>(<a href="PyQt5.QtWidgets.html#QWidget">QWidget</a>.RenderFlags)</tt></dl>
+
+<hr>
+Methods inherited from <a href="PyQt5.QtCore.html#QObject">PyQt5.QtCore.QObject</a>:<br>
+<dl><dt><a name="Window-__getattr__"><strong>__getattr__</strong></a>(...)</dt><dd><tt><a href="#Window-__getattr__">__getattr__</a>(self,&nbsp;str)&nbsp;-&gt;&nbsp;object</tt></dd></dl>
+
+<dl><dt><a name="Window-blockSignals"><strong>blockSignals</strong></a>(...)</dt><dd><tt><a href="#Window-blockSignals">blockSignals</a>(self,&nbsp;bool)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-children"><strong>children</strong></a>(...)</dt><dd><tt><a href="#Window-children">children</a>(self)&nbsp;-&gt;&nbsp;object</tt></dd></dl>
+
+<dl><dt><a name="Window-deleteLater"><strong>deleteLater</strong></a>(...)</dt><dd><tt><a href="#Window-deleteLater">deleteLater</a>(self)</tt></dd></dl>
+
+<strong>destroyed</strong> = &lt;unbound PYQT_SIGNAL destroyed(QObject*)&gt;
+<dl><dt><a name="Window-disconnect"><strong>disconnect</strong></a>(...)</dt><dd><tt><a href="#Window-disconnect">disconnect</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Window-dumpObjectInfo"><strong>dumpObjectInfo</strong></a>(...)</dt><dd><tt><a href="#Window-dumpObjectInfo">dumpObjectInfo</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Window-dumpObjectTree"><strong>dumpObjectTree</strong></a>(...)</dt><dd><tt><a href="#Window-dumpObjectTree">dumpObjectTree</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Window-dynamicPropertyNames"><strong>dynamicPropertyNames</strong></a>(...)</dt><dd><tt><a href="#Window-dynamicPropertyNames">dynamicPropertyNames</a>(self)&nbsp;-&gt;&nbsp;object</tt></dd></dl>
+
+<dl><dt><a name="Window-eventFilter"><strong>eventFilter</strong></a>(...)</dt><dd><tt><a href="#Window-eventFilter">eventFilter</a>(self,&nbsp;QObject,&nbsp;QEvent)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-findChild"><strong>findChild</strong></a>(...)</dt><dd><tt><a href="#Window-findChild">findChild</a>(self,&nbsp;type,&nbsp;name:&nbsp;str&nbsp;=&nbsp;'',&nbsp;options:&nbsp;Union[Qt.FindChildOptions,&nbsp;Qt.FindChildOption]&nbsp;=&nbsp;Qt.FindChildrenRecursively)&nbsp;-&gt;&nbsp;QObject<br>
+<a href="#Window-findChild">findChild</a>(self,&nbsp;Tuple,&nbsp;name:&nbsp;str&nbsp;=&nbsp;'',&nbsp;options:&nbsp;Union[Qt.FindChildOptions,&nbsp;Qt.FindChildOption]&nbsp;=&nbsp;Qt.FindChildrenRecursively)&nbsp;-&gt;&nbsp;QObject</tt></dd></dl>
+
+<dl><dt><a name="Window-findChildren"><strong>findChildren</strong></a>(...)</dt><dd><tt><a href="#Window-findChildren">findChildren</a>(self,&nbsp;type,&nbsp;name:&nbsp;str&nbsp;=&nbsp;'',&nbsp;options:&nbsp;Union[Qt.FindChildOptions,&nbsp;Qt.FindChildOption]&nbsp;=&nbsp;Qt.FindChildrenRecursively)&nbsp;-&gt;&nbsp;List[QObject]<br>
+<a href="#Window-findChildren">findChildren</a>(self,&nbsp;Tuple,&nbsp;name:&nbsp;str&nbsp;=&nbsp;'',&nbsp;options:&nbsp;Union[Qt.FindChildOptions,&nbsp;Qt.FindChildOption]&nbsp;=&nbsp;Qt.FindChildrenRecursively)&nbsp;-&gt;&nbsp;List[QObject]<br>
+<a href="#Window-findChildren">findChildren</a>(self,&nbsp;type,&nbsp;QRegExp,&nbsp;options:&nbsp;Union[Qt.FindChildOptions,&nbsp;Qt.FindChildOption]&nbsp;=&nbsp;Qt.FindChildrenRecursively)&nbsp;-&gt;&nbsp;List[QObject]<br>
+<a href="#Window-findChildren">findChildren</a>(self,&nbsp;Tuple,&nbsp;QRegExp,&nbsp;options:&nbsp;Union[Qt.FindChildOptions,&nbsp;Qt.FindChildOption]&nbsp;=&nbsp;Qt.FindChildrenRecursively)&nbsp;-&gt;&nbsp;List[QObject]<br>
+<a href="#Window-findChildren">findChildren</a>(self,&nbsp;type,&nbsp;QRegularExpression,&nbsp;options:&nbsp;Union[Qt.FindChildOptions,&nbsp;Qt.FindChildOption]&nbsp;=&nbsp;Qt.FindChildrenRecursively)&nbsp;-&gt;&nbsp;List[QObject]<br>
+<a href="#Window-findChildren">findChildren</a>(self,&nbsp;Tuple,&nbsp;QRegularExpression,&nbsp;options:&nbsp;Union[Qt.FindChildOptions,&nbsp;Qt.FindChildOption]&nbsp;=&nbsp;Qt.FindChildrenRecursively)&nbsp;-&gt;&nbsp;List[QObject]</tt></dd></dl>
+
+<dl><dt><a name="Window-inherits"><strong>inherits</strong></a>(...)</dt><dd><tt><a href="#Window-inherits">inherits</a>(self,&nbsp;str)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-installEventFilter"><strong>installEventFilter</strong></a>(...)</dt><dd><tt><a href="#Window-installEventFilter">installEventFilter</a>(self,&nbsp;QObject)</tt></dd></dl>
+
+<dl><dt><a name="Window-isWidgetType"><strong>isWidgetType</strong></a>(...)</dt><dd><tt><a href="#Window-isWidgetType">isWidgetType</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-isWindowType"><strong>isWindowType</strong></a>(...)</dt><dd><tt><a href="#Window-isWindowType">isWindowType</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-killTimer"><strong>killTimer</strong></a>(...)</dt><dd><tt><a href="#Window-killTimer">killTimer</a>(self,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Window-metaObject"><strong>metaObject</strong></a>(...)</dt><dd><tt><a href="#Window-metaObject">metaObject</a>(self)&nbsp;-&gt;&nbsp;QMetaObject</tt></dd></dl>
+
+<dl><dt><a name="Window-moveToThread"><strong>moveToThread</strong></a>(...)</dt><dd><tt><a href="#Window-moveToThread">moveToThread</a>(self,&nbsp;QThread)</tt></dd></dl>
+
+<dl><dt><a name="Window-objectName"><strong>objectName</strong></a>(...)</dt><dd><tt><a href="#Window-objectName">objectName</a>(self)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<strong>objectNameChanged</strong> = &lt;unbound PYQT_SIGNAL objectNameChanged(QString)&gt;
+<dl><dt><a name="Window-parent"><strong>parent</strong></a>(...)</dt><dd><tt><a href="#Window-parent">parent</a>(self)&nbsp;-&gt;&nbsp;QObject</tt></dd></dl>
+
+<dl><dt><a name="Window-property"><strong>property</strong></a>(...)</dt><dd><tt><a href="#Window-property">property</a>(self,&nbsp;str)&nbsp;-&gt;&nbsp;Any</tt></dd></dl>
+
+<dl><dt><a name="Window-pyqtConfigure"><strong>pyqtConfigure</strong></a>(...)</dt><dd><tt>QObject.<a href="#Window-pyqtConfigure">pyqtConfigure</a>(...)<br>
+&nbsp;<br>
+Each&nbsp;keyword&nbsp;argument&nbsp;is&nbsp;either&nbsp;the&nbsp;name&nbsp;of&nbsp;a&nbsp;Qt&nbsp;property&nbsp;or&nbsp;a&nbsp;Qt&nbsp;signal.<br>
+For&nbsp;properties&nbsp;the&nbsp;property&nbsp;is&nbsp;set&nbsp;to&nbsp;the&nbsp;given&nbsp;value&nbsp;which&nbsp;should&nbsp;be&nbsp;of&nbsp;an<br>
+appropriate&nbsp;type.<br>
+For&nbsp;signals&nbsp;the&nbsp;signal&nbsp;is&nbsp;connected&nbsp;to&nbsp;the&nbsp;given&nbsp;value&nbsp;which&nbsp;should&nbsp;be&nbsp;a<br>
+callable.</tt></dd></dl>
+
+<dl><dt><a name="Window-removeEventFilter"><strong>removeEventFilter</strong></a>(...)</dt><dd><tt><a href="#Window-removeEventFilter">removeEventFilter</a>(self,&nbsp;QObject)</tt></dd></dl>
+
+<dl><dt><a name="Window-setObjectName"><strong>setObjectName</strong></a>(...)</dt><dd><tt><a href="#Window-setObjectName">setObjectName</a>(self,&nbsp;str)</tt></dd></dl>
+
+<dl><dt><a name="Window-setProperty"><strong>setProperty</strong></a>(...)</dt><dd><tt><a href="#Window-setProperty">setProperty</a>(self,&nbsp;str,&nbsp;Any)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-signalsBlocked"><strong>signalsBlocked</strong></a>(...)</dt><dd><tt><a href="#Window-signalsBlocked">signalsBlocked</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-startTimer"><strong>startTimer</strong></a>(...)</dt><dd><tt><a href="#Window-startTimer">startTimer</a>(self,&nbsp;int,&nbsp;timerType:&nbsp;Qt.TimerType&nbsp;=&nbsp;Qt.CoarseTimer)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Window-thread"><strong>thread</strong></a>(...)</dt><dd><tt><a href="#Window-thread">thread</a>(self)&nbsp;-&gt;&nbsp;QThread</tt></dd></dl>
+
+<dl><dt><a name="Window-tr"><strong>tr</strong></a>(...)</dt><dd><tt><a href="#Window-tr">tr</a>(self,&nbsp;str,&nbsp;disambiguation:&nbsp;str&nbsp;=&nbsp;None,&nbsp;n:&nbsp;int&nbsp;=&nbsp;-1)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="PyQt5.QtCore.html#QObject">PyQt5.QtCore.QObject</a>:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="PyQt5.QtCore.html#QObject">PyQt5.QtCore.QObject</a>:<br>
+<dl><dt><strong>staticMetaObject</strong> = &lt;PyQt5.QtCore.QMetaObject object&gt;</dl>
+
+<hr>
+Methods inherited from <a href="PyQt5.QtGui.html#QPaintDevice">PyQt5.QtGui.QPaintDevice</a>:<br>
+<dl><dt><a name="Window-colorCount"><strong>colorCount</strong></a>(...)</dt><dd><tt><a href="#Window-colorCount">colorCount</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Window-depth"><strong>depth</strong></a>(...)</dt><dd><tt><a href="#Window-depth">depth</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Window-devicePixelRatio"><strong>devicePixelRatio</strong></a>(...)</dt><dd><tt><a href="#Window-devicePixelRatio">devicePixelRatio</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Window-devicePixelRatioF"><strong>devicePixelRatioF</strong></a>(...)</dt><dd><tt><a href="#Window-devicePixelRatioF">devicePixelRatioF</a>(self)&nbsp;-&gt;&nbsp;float</tt></dd></dl>
+
+<dl><dt><a name="Window-devicePixelRatioFScale"><strong>devicePixelRatioFScale</strong></a>(...)</dt><dd><tt><a href="#Window-devicePixelRatioFScale">devicePixelRatioFScale</a>()&nbsp;-&gt;&nbsp;float</tt></dd></dl>
+
+<dl><dt><a name="Window-heightMM"><strong>heightMM</strong></a>(...)</dt><dd><tt><a href="#Window-heightMM">heightMM</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Window-logicalDpiX"><strong>logicalDpiX</strong></a>(...)</dt><dd><tt><a href="#Window-logicalDpiX">logicalDpiX</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Window-logicalDpiY"><strong>logicalDpiY</strong></a>(...)</dt><dd><tt><a href="#Window-logicalDpiY">logicalDpiY</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Window-paintingActive"><strong>paintingActive</strong></a>(...)</dt><dd><tt><a href="#Window-paintingActive">paintingActive</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Window-physicalDpiX"><strong>physicalDpiX</strong></a>(...)</dt><dd><tt><a href="#Window-physicalDpiX">physicalDpiX</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Window-physicalDpiY"><strong>physicalDpiY</strong></a>(...)</dt><dd><tt><a href="#Window-physicalDpiY">physicalDpiY</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Window-widthMM"><strong>widthMM</strong></a>(...)</dt><dd><tt><a href="#Window-widthMM">widthMM</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="PyQt5.QtGui.html#QPaintDevice">PyQt5.QtGui.QPaintDevice</a>:<br>
+<dl><dt><strong>PaintDeviceMetric</strong> = &lt;class 'PyQt5.QtGui.QPaintDevice.PaintDeviceMetric'&gt;</dl>
+
+<dl><dt><strong>PdmDepth</strong> = 6</dl>
+
+<dl><dt><strong>PdmDevicePixelRatio</strong> = 11</dl>
+
+<dl><dt><strong>PdmDevicePixelRatioScaled</strong> = 12</dl>
+
+<dl><dt><strong>PdmDpiX</strong> = 7</dl>
+
+<dl><dt><strong>PdmDpiY</strong> = 8</dl>
+
+<dl><dt><strong>PdmHeight</strong> = 2</dl>
+
+<dl><dt><strong>PdmHeightMM</strong> = 4</dl>
+
+<dl><dt><strong>PdmNumColors</strong> = 5</dl>
+
+<dl><dt><strong>PdmPhysicalDpiX</strong> = 9</dl>
+
+<dl><dt><strong>PdmPhysicalDpiY</strong> = 10</dl>
+
+<dl><dt><strong>PdmWidth</strong> = 1</dl>
+
+<dl><dt><strong>PdmWidthMM</strong> = 3</dl>
+
+<hr>
+Methods inherited from <a href="sip.html#simplewrapper">sip.simplewrapper</a>:<br>
+<dl><dt><a name="Window-__new__"><strong>__new__</strong></a>(*args, **kwargs)<font color="#909090"><font face="helvetica, arial"> from <a href="sip.html#wrappertype">sip.wrappertype</a></font></font></dt><dd><tt>Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;object.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="sip.html#simplewrapper">sip.simplewrapper</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

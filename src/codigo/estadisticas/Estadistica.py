@@ -1,8 +1,32 @@
 import math
+
 class Estadistica():
+    """
+    Clase que se encargara de calcular las estadisticas de una conjunto de rectas dadas
+    dependiendo de esto las agrupara y calculara sus atributos como distancia , numero de cada
+    tipo o angulo de cada recta para tener una informacion mas especifica de lo detectado.
+    
+    @author: Ismael Tobar Garcia
+    @version: 1.0
+    """
     
     @classmethod    
     def clasificar(self, segmentos, angulos, long_segmento):
+        """
+        Guardado como matriz de adyacencia.
+        En esta funcion lo que vamso a hacer es a partir de los datos de las lineas dados
+        clasificar en las direcciones apropiadas.
+        
+        @param segmentos: Lista con las lineas que hemso encontrado.
+        @param angulos: diccionario clave(linea) valor(angulo) de todas las lineasGuardado como matriz de adyacencia.
+        @param long_segmento: diccionario clave(linea) valor(longitud) de todas las lineas.
+                
+        @Return v: Lineas en vertical.
+        @Return h: Lineas en horizontal.
+        @Return md: Lineas en diagonal md.
+        @Return dm:Lineas en diagonal dm.
+        @Return total: todas las lioneas con sus valores.        
+        """
         v, h, md, dm, total = [], [], [], [], []  
         # CLASIFICAR LAS RECTAS POR SUS ANGULOS
         for i in segmentos:
@@ -25,6 +49,17 @@ class Estadistica():
     
     @classmethod       
     def stadisticas(self, tipo, numero, media_lon, desviacion_tip):
+        """
+        Metodo que va a llamar a las funcines de calculo de las estadisticas para
+        poder mostrarlas mas adelante en el csv y poder guardarlas para el informe.
+        
+        @param tipo: tipo de recta entre los 4 posibles +total.
+        @param numero: numero de ellas que hay.
+        @param media_lon: media de la longitud.
+        @param desviacion_tip: desviacion tipica de la longitud.
+        
+        @Return lista: Con toda la informacion.
+        """
         lista = []
         lista.append(tipo)
         lista.append(numero)
@@ -34,6 +69,13 @@ class Estadistica():
     
     @classmethod        
     def desviacion_tipica(self, lista_distancias):
+        """
+        Funcion que calcula la desviacion tipica de ladistacia.
+        
+        @param lista_distancias: lista con las distancias de cada recta.
+
+        @Return Desviacion tipica.
+        """
         media = self.media_long_segmentos(lista_distancias)
         acumulador = 0
         for i in lista_distancias:
@@ -42,6 +84,13 @@ class Estadistica():
     
     @classmethod        
     def media_long_segmentos(self, lista_distancias):
+        """
+        Funcion que calcula la media de la longitud de los segmentos.
+        
+        @param lista_distancias: lsita de rectas con sus distancias.
+
+        @Return meida de la longitud de la lista que entra.
+        """
         media = 0
         for i in lista_distancias:
             media += float(str(i[2]).replace(',', '.'))
@@ -49,11 +98,25 @@ class Estadistica():
     
     @classmethod            
     def longitud_segemento(self, p):
+        """
+        Funcion que calcula la longitud de un segmento.
+        
+        @param p: segmento del que calcular su distancia.
+        
+        @Return distancia del segmento
+        """
         return (((p[1][0] - p[0][0]) ** 2) + ((p[1][1] - p[0][1]) ** 2)) ** (1 / 2)
     # Angulo Con respecto a x    
     
     @classmethod
     def angu(self, line_a):
+        """
+        Funcion que calcula el angulo de una recta con respecto el eje x
+        
+        @param line_a: Una linea (2puntos)
+        
+        @Return Angulo en grados.
+        """
         # Get nicer vector form
         if line_a[1][0] - line_a[0][0] != 0:
             m = (line_a[1][1] - line_a[0][1]) / (line_a[1][0] - line_a[0][0])
@@ -72,6 +135,25 @@ class Estadistica():
 
     @classmethod    
     def calcular_estadisticas(self, v, h, md, dm, total):
+        """
+
+        Metodo que llamara a los anteriorres y calculara
+        los datos estadisticos de todas las rectas en su clasificacion.
+        
+        @param v: Rectas o segmentos en vertical.
+        @param h: Rectas o segmentos en horizontal.
+        @param md: Rectas o segmentos en diagonal md.
+        @param dm: Rectas o segmentos en diagonal dm.
+        @param total: todas las Rectas o segmentos.
+        
+        @Return st_v: estadisticas de segmentos en vertical.
+        @Return st_h: estadisticas de segmentos en horizontal.
+        @Return st_md: estadisticas de segmentos en diagonal md.
+        @Return st_dm: estadisticas de segmentos en diagonal dm.
+        @Return st_tot: estadisticas de segmentos totales.
+        @Return variables_tabla: estadisticas de segmentos totales sin el tipo.
+            
+        """
         st_v, st_h, st_md, st_dm = [], [], [], [] 
         variables_tabla = []
         if len(v) > 0:

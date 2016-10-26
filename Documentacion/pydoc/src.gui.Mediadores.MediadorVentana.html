@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module src.gui.Mediadores.MediadorVentana</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="src.html"><font color="#ffffff">src</font></a>.<a href="src.gui.html"><font color="#ffffff">gui</font></a>.<a href="src.gui.Mediadores.html"><font color="#ffffff">Mediadores</font></a>.MediadorVentana</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ctobar%5Cdesktop%5Cworkespace%5Ctfg2%5Csrc%5Cgui%5Cmediadores%5Cmediadorventana.py">c:\users\tobar\desktop\workespace\tfg2\src\gui\mediadores\mediadorventana.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="PyQt5.QtCore.html">PyQt5.QtCore</a><br>
+</td><td width="25%" valign=top><a href="PyQt5.QtWidgets.html">PyQt5.QtWidgets</a><br>
+</td><td width="25%" valign=top><a href="networkx.algorithms.approximation.html">networkx.algorithms.approximation</a><br>
+</td><td width="25%" valign=top><a href="networkx.html">networkx</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="src.gui.Mediadores.MediadorVentana.html#MediadorVentana">MediadorVentana</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="MediadorVentana">class <strong>MediadorVentana</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="MediadorVentana-__init__"><strong>__init__</strong></a>(self, ventana)</dt><dd><tt>Constructor&nbsp;de&nbsp;la&nbsp;clase&nbsp;ventana&nbsp;que&nbsp;nos&nbsp;proporciona&nbsp;las&nbsp;inicializaciones&nbsp;de<br>
+variables&nbsp;y&nbsp;de&nbsp;objetos&nbsp;que&nbsp;vana&nbsp;a&nbsp;ser&nbsp;encesarios&nbsp;para&nbsp;su&nbsp;gestion&nbsp;e&nbsp;implementacion<br>
+de&nbsp;los&nbsp;metodos&nbsp;que&nbsp;va&nbsp;a&nbsp;contener&nbsp;la&nbsp;ventana.<br>
+&nbsp;<br>
+@param&nbsp;ventana:&nbsp;instancia&nbsp;de&nbsp;la&nbsp;clase&nbsp;que&nbsp;crea&nbsp;la&nbsp;ventana.</tt></dd></dl>
+
+<dl><dt><a name="MediadorVentana-calcular_lineas"><strong>calcular_lineas</strong></a>(self)</dt><dd><tt>Metodo&nbsp;que&nbsp;se&nbsp;encargara&nbsp;de&nbsp;llamar&nbsp;a&nbsp;las&nbsp;funciones&nbsp;de&nbsp;calculo&nbsp;de&nbsp;nuestra&nbsp;aplicacion<br>
+para&nbsp;mostrar&nbsp;y&nbsp;guardar&nbsp;las&nbsp;lineas&nbsp;que&nbsp;han&nbsp;sido&nbsp;calculadas&nbsp;por&nbsp;el&nbsp;algoritmo&nbsp;de&nbsp;deteccion<br>
+de&nbsp;aquellas&nbsp;que&nbsp;ya&nbsp;esten&nbsp;pintadas&nbsp;en&nbsp;color&nbsp;rojo.</tt></dd></dl>
+
+<dl><dt><a name="MediadorVentana-inicializa_pestanna_1"><strong>inicializa_pestanna_1</strong></a>(self)</dt><dd><tt>Metodo&nbsp;que&nbsp;inicializara&nbsp;la&nbsp;pestanna&nbsp;uno&nbsp;de&nbsp;la&nbsp;ventana&nbsp;es&nbsp;decir&nbsp;el&nbsp;cuadro&nbsp;principal<br>
+de&nbsp;dicha&nbsp;ventana.</tt></dd></dl>
+
+<dl><dt><a name="MediadorVentana-pintar_imagen_y_segmentos"><strong>pintar_imagen_y_segmentos</strong></a>(self, segmentos)</dt><dd><tt>Metodo&nbsp;que&nbsp;se&nbsp;encargara&nbsp;de&nbsp;pintar&nbsp;la&nbsp;imagen&nbsp;leida&nbsp;y&nbsp;lso&nbsp;segmentos&nbsp;detectados&nbsp;y&nbsp;que&nbsp;esten&nbsp;en&nbsp;la&nbsp;<br>
+tabla&nbsp;de&nbsp;segmentos&nbsp;o&nbsp;lineas&nbsp;dentro&nbsp;de&nbsp;nuestra&nbsp;aplicacion.&nbsp;<br>
+es&nbsp;un&nbsp;metodo&nbsp;de&nbsp;actualizacion&nbsp;de&nbsp;la&nbsp;gui.<br>
+@param&nbsp;segmentos:&nbsp;Lista&nbsp;de&nbsp;segmentos&nbsp;que&nbsp;queremos&nbsp;que&nbsp;entre&nbsp;dentro&nbsp;de&nbsp;la&nbsp;imagen.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

@@ -1,2 +1,2 @@
-from .ProcesadoDeLineas import ProcesadoDeLineas
-from .ProcesadoDeImagen import ProcesadoDeImagen
+from codigo.procesado.ProcesadoDeLineas import ProcesadoDeLineas
+from codigo.procesado.ProcesadoDeImagen import ProcesadoDeImagen

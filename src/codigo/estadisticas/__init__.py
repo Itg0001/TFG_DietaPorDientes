@@ -1,1 +1,1 @@
-from .Estadistica import Estadistica
+from codigo.estadisticas.Estadistica import Estadistica

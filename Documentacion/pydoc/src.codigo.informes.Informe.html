@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module src.codigo.informes.Informe</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="src.html"><font color="#ffffff">src</font></a>.<a href="src.codigo.html"><font color="#ffffff">codigo</font></a>.<a href="src.codigo.informes.html"><font color="#ffffff">informes</font></a>.Informe</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ctobar%5Cdesktop%5Cworkespace%5Ctfg2%5Csrc%5Ccodigo%5Cinformes%5Cinforme.py">c:\users\tobar\desktop\workespace\tfg2\src\codigo\informes\informe.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="jinja2.html">jinja2</a><br>
+<a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="shutil.html">shutil</a><br>
+<a href="subprocess.html">subprocess</a><br>
+</td><td width="25%" valign=top><a href="tempfile.html">tempfile</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="src.codigo.informes.Informe.html#Informe">Informe</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Informe">class <strong>Informe</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Clase&nbsp;que&nbsp;se&nbsp;encargara&nbsp;de&nbsp;generar&nbsp;la&nbsp;tabla&nbsp;del&nbsp;informe&nbsp;en&nbsp;latex.<br>
+&nbsp;<br>
+@var&nbsp;dir_to_guardar:&nbsp;camino&nbsp;donde&nbsp;guardar&nbsp;el&nbsp;.tex<br>
+@var&nbsp;variables:&nbsp;conjunto&nbsp;de&nbsp;variables&nbsp;para&nbsp;sustituir&nbsp;en&nbsp;la&nbsp;plantilla.<br>
+@var&nbsp;path:&nbsp;directorio&nbsp;actual.<br>
+@var&nbsp;template:&nbsp;plantilla&nbsp;en&nbsp;latex&nbsp;donde&nbsp;sustituir&nbsp;las&nbsp;variables.<br>
+&nbsp;<br>
+@author:&nbsp;Ismael&nbsp;Tobar&nbsp;Garcia<br>
+@version:&nbsp;1.0<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Informe-__init__"><strong>__init__</strong></a>(self, variables, dir_to_guardar)</dt><dd><tt>Constructor&nbsp;de&nbsp;la&nbsp;clase&nbsp;de&nbsp;los&nbsp;informes.&nbsp;que&nbsp;se&nbsp;encargara&nbsp;de&nbsp;inicializar&nbsp;<br>
+las&nbsp;variables&nbsp;necesarias.<br>
+&nbsp;<br>
+@param&nbsp;variables:&nbsp;valores&nbsp;a&nbsp;sustituir&nbsp;en&nbsp;la&nbsp;plantilla&nbsp;<br>
+@param&nbsp;dir_to_guardar:&nbsp;direccion&nbsp;donde&nbsp;guardar&nbsp;la&nbsp;tabal&nbsp;latex&nbsp;generada.</tt></dd></dl>
+
+<dl><dt><a name="Informe-cargar_plantilla"><strong>cargar_plantilla</strong></a>(self)</dt><dd><tt>Metodo&nbsp;para&nbsp;cargar&nbsp;la&nbsp;plantilla&nbsp;y&nbsp;devolverlo&nbsp;como&nbsp;unavariable.<br>
+&nbsp;<br>
+@return&nbsp;&nbsp;Plantilla&nbsp;leida&nbsp;en&nbsp;latex</tt></dd></dl>
+
+<dl><dt><a name="Informe-generar_pdf"><strong>generar_pdf</strong></a>(self, pdfname, tex)</dt><dd><tt>Esta&nbsp;funcion&nbsp;no&nbsp;esta&nbsp;operativa&nbsp;pero&nbsp;valdria&nbsp;apra&nbsp;compialr&nbsp;y&nbsp;generar<br>
+un&nbsp;pdf&nbsp;con&nbsp;la&nbsp;tabla.</tt></dd></dl>
+
+<dl><dt><a name="Informe-sustituir"><strong>sustituir</strong></a>(self, variables, template)</dt><dd><tt>sustituir&nbsp;los&nbsp;valores&nbsp;de&nbsp;las&nbsp;variables&nbsp;que&nbsp;nos&nbsp;pasan&nbsp;en&nbsp;el&nbsp;constructor.<br>
+&nbsp;<br>
+@param&nbsp;variables:&nbsp;valores&nbsp;a&nbsp;sustituir&nbsp;en&nbsp;la&nbsp;plantilla&nbsp;<br>
+@param&nbsp;template:&nbsp;Plantilla&nbsp;leida&nbsp;en&nbsp;en&nbsp;latex&nbsp;donde&nbsp;sustituir&nbsp;las&nbsp;variables</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

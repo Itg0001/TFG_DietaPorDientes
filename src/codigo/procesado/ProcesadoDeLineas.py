@@ -1,18 +1,26 @@
 import math
 import numpy as np
 class ProcesadoDeLineas():
+    """
+    Clase que va a contener las funciones necesarias para poder hacer
+    el procesado de las lineas.
+    
+    @author: Ismael Tobar Garcia
+    @version: 1.0
+    """
     
     @classmethod
     def combina(self, epsilon1, epsilon2, lines, g): 
         """
-        Entrada:
-               epsilon1: Distancia que si superan dos rectas no une
-               epsilon2: Angulo que si superan dos rectas no une
-               lines: Lineas producidas al aplicar la transformada
-               G: Grafo donde anadir los nodos que tengamso que unir
         Funcion que combina las lineas cercanas producidas por la Transformada probabilistica
-        de hough que cumplen ciertos parametros y las anade a un grafo. 
-        RETURN: devolvemos el Grafo completo donde estan los nodos que hemso fusionado.
+        de hough que cumplen ciertos parametros y las anade a un grafo.
+
+        @param epsilon1: Distancia que si superan dos rectas no une
+        @param epsilon2: Angulo que si superan dos rectas no une
+        @param lines: Lineas producidas al aplicar la transformada
+        @param G: Grafo donde anadir los nodos que tengamso que unir
+ 
+        @return: devolvemos el Grafo completo donde estan los nodos que hemso fusionado.
         """
         for i in range(len(lines)):
             g.add_node(i)
@@ -24,12 +32,20 @@ class ProcesadoDeLineas():
     
     @classmethod
     def comprueba(self, lines, i, j, epsilon1, epsilon2, g):
+        """
+        Metodo que comprueba si hay que añadirlo al grafo o no.
+        
+        @param lines: Lineas producidas al aplicar la transformada.
+        @param i: variable i del bucle.
+        @param j: variable j del bucle.
+        @param epsilon1: Distancia que si superan dos rectas no une.
+        @param epsilon2: Angulo que si superan dos rectas no une.
+        @param g: grafo donde estan las lineas.
+        """
         distance = self.segments_distance(lines[i], lines[j])
         if distance <= epsilon1 :
                     angle = self.ang(lines[i], lines[j])
-                    # print(distance)
                     if angle <= epsilon2:
-                        # print("combina ",i,j)
                         g.add_edge(i, j) 
                         
     
@@ -37,17 +53,12 @@ class ProcesadoDeLineas():
     @classmethod 
     def segments_distance(self, x, y):
         """
-        Entrada:
-               x11: Segmento 1 Punto 1 coordedana x
-               y11: Segmento 1 Punto 1 coordedana y
-               x12: Segmento 1 Punto 2 coordedana x
-               y12: Segmento 1 Punto 2 coordedana y 
-               x21: Segmento 2 Punto 1 coordedana x
-               y21: Segmento 2 Punto 1 coordedana y
-               x22: Segmento 2 Punto 2 coordedana x
-               y22: Segmento 2 Punto 2 coordedana y
-        Funcion que calcula la distancia entre dos segmentos que no se cruzan 
-        RETURN: min(distances) la distancia minima de todas las posibles distancias
+        Funcion que calcula la distancia entre dos segmentos que no se cruzan.        
+        
+        @param x: puntos x e y del punto 1
+        @param y: puntos x e y del punto 2
+ 
+        @return: min(distances): la distancia minima de todas las posibles distancias
         """
         x11 = x[0][0]
         y11 = x[0][1]
@@ -74,17 +85,12 @@ class ProcesadoDeLineas():
     @classmethod
     def segments_intersect(self, x, y):
         """ 
-        Entrada:
-               x11: Segmento 1 Punto 1 coordedana x
-               y11: Segmento 1 Punto 1 coordedana y
-               x12: Segmento 1 Punto 2 coordedana x
-               y12: Segmento 1 Punto 2 coordedana y 
-               x21: Segmento 2 Punto 1 coordedana x
-               y21: Segmento 2 Punto 1 coordedana y
-               x22: Segmento 2 Punto 2 coordedana x
-               y22: Segmento 2 Punto 2 coordedana y
-        Funcion boleana que calcula si dos segmentos se cruzan o no
-        RETURN: true/false si se cruzan o no 
+        Funcion boleana que calcula si dos segmentos se cruzan o no.
+        
+        @param x: puntos x e y del punto 1.
+        @param y: puntos x e y del punto 2.
+        
+        @return: true/false si se cruzan o no 
         """
         x11 = x[0][0]
         y11 = x[0][1]
@@ -111,15 +117,15 @@ class ProcesadoDeLineas():
     @classmethod
     def point_segment_distance(self, px, py, x1, y1, x2, y2):
         """
-        Entrada:
-               px: Punto coordenada x 
-               py: Punto coordenada y
-               x1: Punto 1 coordenada x 
-               y1: Punto 1 coordenada y
-               x2: Punto 2 coordenada x 
-               y2: Punto 2 coordenada y
         Funcion que calcula la distancia desde un punto dado a un segmento.
-        RETURN: DIstancia desde el punto al segmento
+        @param px: Punto coordenada x 
+        @param py: Punto coordenada y
+        @param x1: Punto 1 coordenada x 
+        @param y1: Punto 1 coordenada y
+        @param x2: Punto 2 coordenada x 
+        @param y2: Punto 2 coordenada y
+
+        @return: Distancia desde el punto al segmento.
         """
         dx = x2 - x1
         dy = y2 - y1
@@ -148,11 +154,9 @@ class ProcesadoDeLineas():
     @classmethod
     def ang(self, line_a, line_b):
         """
-        Entrada:
-               lineA:linea o segmento A
-               lineB:linea o segmento A
         Funcion que dadas dos rectas calcula el angulo que forman entre ellas.
-        Return ang_deg: Devuelve el angulo que forman dichas rectas en grados.
+        
+        @return: ang_deg: Devuelve el angulo que forman dichas rectas en grados.
         """
         # Get nicer vector form
         v_a = [line_a[0][0] - line_a[1][0], line_a[0][1] - line_a[1][1]]
@@ -181,24 +185,25 @@ class ProcesadoDeLineas():
     @classmethod
     def dot(self, v_a, v_b):
         """
-        Entrada:
-               vA: Punto A
-               vB: Punto B
         Funcion que devuelve la multiplicacion de las coordenadas x de los dos puntos 
-        mas la multiplicacion de las coordenadas y de los dos puntos
-        Return: la multiplicacion de las coordenadas x de los dos puntos 
-               mas la multiplicacion de las coordenadas y de los dos puntos
+        mas la multiplicacion de las coordenadas y de los dos puntos.
+
+        @param vA: Punto A.
+        @param vB: Punto B.
+
+        @return: la multiplicacion de las coordenadas x de los dos puntos 
+               mas la multiplicacion de las coordenadas y de los dos puntos.
         """
         return v_a[0] * v_b[0] + v_a[1] * v_b[1]
     
-    
-    
+
     @classmethod
     def combina_segmentos(self, segmentos_list):
         """
-        Entrada: segmentosList lista con todos los segmentos a combinar
-        Combinamos los segmentos
         Lista con los segmentos combinados que calculamos con la teoria de grafos.
+        
+        @param segmentosList: lista con todos los segmentos a combinar
+        Combinamos los segmentos.
         """
         # print("combina",segmentos_list)
         xs = list(map(lambda x:[x[0][0], x[1][0]], segmentos_list))
@@ -214,15 +219,17 @@ class ProcesadoDeLineas():
             # print("devuelvo",((x_max,y_min),(x_min,y_max)))
             return (x_max, y_min), (x_min, y_max)
         
-   
+
     @classmethod
     def segmentos_verdad(self, k_components, lines):
         """
-        Entrada.
-               k_components K_componentes del grafo en el que decimos que rectas tenemos que unir
-               lines lineas calculadas por la tranformada de hough
         Funcion que dadas las lineas calculadas y las que nos marca el grafo que tenemso que unir
-        devuelve lso segmentos que de verdad ha detectado el algoritmo
+        devuelve lso segmentos que de verdad ha detectado el algoritmo.
+        
+        @param k_components: K_componentes del grafo en el que decimos que rectas tenemos que unir
+        @param lines: lineas calculadas por la tranformada de hough
+        
+        @return: segmentos_de_verdad: lista de los segmentos que tienen.
         """
         segmentos_de_verdad = []
         for i in range(len(k_components[1])):

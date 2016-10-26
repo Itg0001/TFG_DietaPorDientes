@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module src.codigo.procesado.ProcesadoDeImagen</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="src.html"><font color="#ffffff">src</font></a>.<a href="src.codigo.html"><font color="#ffffff">codigo</font></a>.<a href="src.codigo.procesado.html"><font color="#ffffff">procesado</font></a>.ProcesadoDeImagen</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ctobar%5Cdesktop%5Cworkespace%5Ctfg2%5Csrc%5Ccodigo%5Cprocesado%5Cprocesadodeimagen.py">c:\users\tobar\desktop\workespace\tfg2\src\codigo\procesado\procesadodeimagen.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="PIL.Image.html">PIL.Image</a><br>
+</td><td width="25%" valign=top><a href="PIL.ImageDraw.html">PIL.ImageDraw</a><br>
+</td><td width="25%" valign=top><a href="skimage.io.html">skimage.io</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="src.codigo.procesado.ProcesadoDeImagen.html#ProcesadoDeImagen">ProcesadoDeImagen</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ProcesadoDeImagen">class <strong>ProcesadoDeImagen</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Clase&nbsp;que&nbsp;contendra&nbsp;los&nbsp;metodos&nbsp;necesarios&nbsp;para&nbsp;poder&nbsp;realizar&nbsp;el&nbsp;procesado&nbsp;de&nbsp;las&nbsp;<br>
+imagenes&nbsp;para&nbsp;obtener&nbsp;a&nbsp;partir&nbsp;de&nbsp;una&nbsp;simple&nbsp;imagen&nbsp;las&nbsp;lienas&nbsp;que&nbsp;hay&nbsp;en&nbsp;ella&nbsp;pintadas<br>
+en&nbsp;rojo.<br>
+&nbsp;<br>
+@author:&nbsp;Ismael&nbsp;Tobar&nbsp;Garcia<br>
+@version:&nbsp;1.0<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Class methods defined here:<br>
+<dl><dt><a name="ProcesadoDeImagen-binarizar"><strong>binarizar</strong></a>(distance_red)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Metodo&nbsp;para&nbsp;binarizar&nbsp;la&nbsp;imagen&nbsp;para&nbsp;obtener&nbsp;una&nbsp;clara&nbsp;diferenciacion&nbsp;entre&nbsp;<br>
+el&nbsp;fondo&nbsp;y&nbsp;las&nbsp;lineas&nbsp;que&nbsp;queremos&nbsp;detectar.<br>
+&nbsp;<br>
+@param&nbsp;distance_red:&nbsp;distancia&nbsp;de&nbsp;cada&nbsp;pixel&nbsp;al&nbsp;rojo&nbsp;apra&nbsp;luego&nbsp;hacer&nbsp;el&nbsp;threshold.<br>
+&nbsp;<br>
+@return:&nbsp;imgBin:&nbsp;imagen&nbsp;binarizada.</tt></dd></dl>
+
+<dl><dt><a name="ProcesadoDeImagen-crop_img"><strong>crop_img</strong></a>(img_bin, img)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Metodo&nbsp;para&nbsp;la&nbsp;imagen&nbsp;no&nbsp;hay&nbsp;qeu&nbsp;procesarla&nbsp;completa&nbsp;porque&nbsp;solo&nbsp;tiene&nbsp;una&nbsp;region<br>
+marcada&nbsp;con&nbsp;lineas&nbsp;tenemos&nbsp;qque&nbsp;recortarla<br>
+&nbsp;<br>
+@param&nbsp;img_bin:&nbsp;imagen&nbsp;binarizada.<br>
+@param&nbsp;img:&nbsp;imagen&nbsp;normal.<br>
+&nbsp;<br>
+@return:&nbsp;imgBinCrop:&nbsp;Es&nbsp;la&nbsp;imagen&nbsp;binarizada&nbsp;recortada&nbsp;a&nbsp;la&nbsp;region&nbsp;que&nbsp;queremos.<br>
+@return:&nbsp;imgCrop:&nbsp;Es&nbsp;la&nbsp;imagen&nbsp;original&nbsp;recortada&nbsp;a&nbsp;la&nbsp;region&nbsp;que&nbsp;queremos.</tt></dd></dl>
+
+<dl><dt><a name="ProcesadoDeImagen-distancia_al_rojo"><strong>distancia_al_rojo</strong></a>(img)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Metodo&nbsp;para:<br>
+Pasamos&nbsp;la&nbsp;imagen&nbsp;al&nbsp;espacio&nbsp;de&nbsp;color&nbsp;RGB&nbsp;y&nbsp;nos&nbsp;quedamos&nbsp;con&nbsp;el&nbsp;canal&nbsp;rojo<br>
+Pasamos&nbsp;la&nbsp;imagen&nbsp;al&nbsp;espacio&nbsp;de&nbsp;color&nbsp;HSV<br>
+Normalizamos&nbsp;la&nbsp;imagen&nbsp;del&nbsp;espacio&nbsp;de&nbsp;color&nbsp;HSV&nbsp;para&nbsp;utilizar&nbsp;que&nbsp;distancia&nbsp;<br>
+al&nbsp;rojo&nbsp;tenemos&nbsp;y&nbsp;poder&nbsp;hacer&nbsp;el&nbsp;theshold.<br>
+&nbsp;<br>
+@param&nbsp;img:&nbsp;imagen&nbsp;original&nbsp;leida&nbsp;anteriormente.<br>
+&nbsp;<br>
+@return:&nbsp;distance_red:&nbsp;distancia&nbsp;de&nbsp;cada&nbsp;pixel&nbsp;al&nbsp;rojo&nbsp;apra&nbsp;luego&nbsp;hacer&nbsp;el&nbsp;threshold.</tt></dd></dl>
+
+<dl><dt><a name="ProcesadoDeImagen-guardar_y_pintar"><strong>guardar_y_pintar</strong></a>(path, temp, segmentos)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Metodo&nbsp;que&nbsp;se&nbsp;encargara&nbsp;de&nbsp;guardar&nbsp;y&nbsp;pintar&nbsp;los&nbsp;segmentos&nbsp;pasados&nbsp;<br>
+en&nbsp;la&nbsp;imagen&nbsp;para&nbsp;asi&nbsp;poder&nbsp;usarla&nbsp;para&nbsp;informes.<br>
+&nbsp;<br>
+@param&nbsp;path:&nbsp;Camino&nbsp;donde&nbsp;guardar&nbsp;la&nbsp;imagen&nbsp;con&nbsp;las&nbsp;lineas&nbsp;nuevas&nbsp;pintadas.&nbsp;<br>
+@param&nbsp;tem&nbsp;ruta&nbsp;al&nbsp;fichero&nbsp;temporal&nbsp;donde&nbsp;guardar&nbsp;la&nbsp;imagen.<br>
+@param&nbsp;segmentos:&nbsp;Segmentos&nbsp;a&nbsp;pintar&nbsp;en&nbsp;la&nbsp;imagen.</tt></dd></dl>
+
+<dl><dt><a name="ProcesadoDeImagen-leer_imagen"><strong>leer_imagen</strong></a>(path_img)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Metodo&nbsp;Para&nbsp;leer&nbsp;una&nbsp;imagen&nbsp;a&nbsp;traves&nbsp;de&nbsp;scikit-Image&nbsp;(skimage)<br>
+dandole&nbsp;el&nbsp;path&nbsp;de&nbsp;la&nbsp;imagen.<br>
+@param&nbsp;path_img:&nbsp;camino&nbsp;hasta&nbsp;la&nbsp;imagen.<br>
+@retrun&nbsp;Img:&nbsp;imagen&nbsp;leida.</tt></dd></dl>
+
+<dl><dt><a name="ProcesadoDeImagen-pro_hough"><strong>pro_hough</strong></a>(threshold, line_length, line_gap, sin_ruido)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Este&nbsp;metodo&nbsp;lo&nbsp;que&nbsp;va&nbsp;a&nbsp;hacer&nbsp;es&nbsp;calcular&nbsp;los&nbsp;segmentos(ORIGEN"Ox,Oy"&nbsp;Y&nbsp;FIN&nbsp;"FX,FY")&nbsp;<br>
+de&nbsp;cada&nbsp;una&nbsp;de&nbsp;las&nbsp;lineas&nbsp;que&nbsp;se&nbsp;han&nbsp;detectado&nbsp;en&nbsp;la&nbsp;imagen&nbsp;binarizada&nbsp;atraves&nbsp;de&nbsp;la&nbsp;<br>
+funcion&nbsp;probabilistica&nbsp;de&nbsp;la&nbsp;transformada&nbsp;de&nbsp;hough.<br>
+Entrada:<br>
+&nbsp;<br>
+@param&nbsp;threshold:&nbsp;Densidad&nbsp;de&nbsp;lineas.&nbsp;<br>
+@param&nbsp;line_length:&nbsp;Distancia&nbsp;minima&nbsp;de&nbsp;las&nbsp;lineas&nbsp;que&nbsp;calcula.<br>
+@param&nbsp;line_gap:&nbsp;Distancia&nbsp;a&nbsp;la&nbsp;que&nbsp;si&nbsp;estan&nbsp;los&nbsp;extremos&nbsp;de&nbsp;las&nbsp;rectas&nbsp;las&nbsp;una.<br>
+@param&nbsp;sin_ruido:&nbsp;Es&nbsp;la&nbsp;imagen&nbsp;una&nbsp;vez&nbsp;corregida&nbsp;la&nbsp;binarizacion&nbsp;apra&nbsp;que&nbsp;las&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lineas&nbsp;sean&nbsp;mas&nbsp;delgadas.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+@return:&nbsp;lines:&nbsp;Lista&nbsp;de&nbsp;todos&nbsp;los&nbsp;segmentos&nbsp;que&nbsp;ha&nbsp;detectado.</tt></dd></dl>
+
+<dl><dt><a name="ProcesadoDeImagen-reducir_grosor"><strong>reducir_grosor</strong></a>(img_bin_crop)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Metodo&nbsp;para:<br>
+Esta&nbsp;funcion&nbsp;en&nbsp;lo&nbsp;que&nbsp;consiste&nbsp;es&nbsp;qeu&nbsp;entrando&nbsp;la&nbsp;imagen&nbsp;binarizada&nbsp;<br>
+reduzcamos&nbsp;el&nbsp;tamano&nbsp;de&nbsp;las&nbsp;lineas&nbsp;para&nbsp;que&nbsp;la&nbsp;deteccion&nbsp;tenga&nbsp;menos<br>
+incertidumbre&nbsp;y&nbsp;sea&nbsp;mas&nbsp;rapida&nbsp;la&nbsp;deteccion&nbsp;de&nbsp;lineas.<br>
+&nbsp;<br>
+@param&nbsp;img_bin_crop:&nbsp;Es&nbsp;la&nbsp;imagen&nbsp;binarizada&nbsp;recortada&nbsp;a&nbsp;la&nbsp;region&nbsp;que&nbsp;queremos.<br>
+&nbsp;<br>
+@return:&nbsp;sinRuido:&nbsp;Es&nbsp;la&nbsp;imagen&nbsp;una&nbsp;vez&nbsp;corregida&nbsp;la&nbsp;binarizacion&nbsp;apra&nbsp;que&nbsp;las&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lineas&nbsp;sean&nbsp;mas&nbsp;delgadas.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

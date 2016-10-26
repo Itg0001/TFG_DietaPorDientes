@@ -4,7 +4,27 @@ import tempfile
 import shutil
 import os
 class Informe():
+    """
+    Clase que se encargara de generar la tabla del informe en latex.
+    
+    @var dir_to_guardar: camino donde guardar el .tex
+    @var variables: conjunto de variables para sustituir en la plantilla.
+    @var path: directorio actual.
+    @var template: plantilla en latex donde sustituir las variables.
+    
+    @author: Ismael Tobar Garcia
+    @version: 1.0    
+    """
+    
     def __init__(self, variables, dir_to_guardar):
+        """
+        Constructor de la clase de los informes. que se encargara de inicializar 
+        las variables necesarias.
+        
+        @param variables: valores a sustituir en la plantilla 
+        @param dir_to_guardar: direccion donde guardar la tabal latex generada.
+
+        """
         self.dir_to_guardar = dir_to_guardar.replace('\\', '/')
         self.dir_to_guardar += '/'
         self.variables = variables
@@ -14,6 +34,11 @@ class Informe():
         self.sustituir(self.variables, template)
   
     def cargar_plantilla(self):
+        """
+        Metodo para cargar la plantilla y devolverlo como unavariable.
+        
+        @return  Plantilla leida en latex
+        """
         latex_jinja_env = jinja2.Environment(
         block_start_string='/BLOCK{',
         block_end_string='}',
@@ -31,6 +56,13 @@ class Informe():
         return template
     
     def sustituir(self, variables, template):
+        """
+        sustituir los valores de las variables que nos pasan en el constructor.
+        
+        @param variables: valores a sustituir en la plantilla 
+        @param template: Plantilla leida en en latex donde sustituir las variables
+
+        """
         latex = template.render(dm1=variables[0], dm2=variables[1], dm3=variables[2],
                               h1=variables[3], h2=variables[4], h3=variables[5],
                               md1=variables[6], md2=variables[7], md3=variables[8],
@@ -41,6 +73,10 @@ class Informe():
         latex_salida.close()
         
     def generar_pdf(self, pdfname, tex): 
+        """
+        Esta funcion no esta operativa pero valdria apra compialr y generar
+        un pdf con la tabla.
+        """
         try:
             myfile = self.dir_to_guardar + pdfname + '.pdf'
             g = os.path.isfile(myfile)

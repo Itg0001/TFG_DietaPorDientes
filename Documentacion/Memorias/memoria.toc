@@ -1,0 +1,62 @@
+\select@language {spanish}
+\select@language {spanish}
+\contentsline {chapter}{\'{I}ndice general}{\es@scroman {iii}}{section*.1}
+\contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {v}}{section*.2}
+\contentsline {chapter}{Introducci\IeC {\'o}n}{1}{chapter*.3}
+\contentsline {section}{\numberline {1.1}Gestores de tareas:}{1}{section.1.1}
+\contentsline {subsection}{Trello}{1}{section*.4}
+\contentsline {subsection}{Version One}{1}{section*.5}
+\contentsline {subsection}{ZenHub}{2}{section*.6}
+\contentsline {section}{\numberline {1.2}Gestores de versiones:}{2}{section.1.2}
+\contentsline {subsection}{GitHub}{2}{section*.7}
+\contentsline {subsection}{Bitbucket}{3}{section*.8}
+\contentsline {chapter}{Objetivos del proyecto}{4}{chapter*.9}
+\contentsline {chapter}{Conceptos te\IeC {\'o}ricos}{5}{chapter*.10}
+\contentsline {section}{\numberline {3.1}Espacios de color }{5}{section.3.1}
+\contentsline {subsection}{RGB}{6}{section*.12}
+\contentsline {subsection}{HSV}{7}{section*.15}
+\contentsline {section}{\numberline {3.2}Transformada de Hough }{7}{section.3.2}
+\contentsline {subsection}{Introducci\IeC {\'o}n}{7}{section*.17}
+\contentsline {subsection}{Teor\IeC {\'\i }a}{7}{section*.18}
+\contentsline {subsection}{Psudoc\IeC {\'o}digo Transformada de Hough}{8}{section*.19}
+\contentsline {subsection}{Limitaciones}{8}{section*.21}
+\contentsline {subsection}{Transformada probabil\IeC {\'\i }stica de Hough}{8}{section*.23}
+\contentsline {section}{\numberline {3.3}Skeletonize }{9}{section.3.3}
+\contentsline {section}{\numberline {3.4}Grafos}{10}{section.3.4}
+\contentsline {subsection}{Introducci\IeC {\'o}n}{10}{section*.25}
+\contentsline {subsection}{K-componentes}{10}{section*.26}
+\contentsline {chapter}{T\IeC {\'e}cnicas y herramientas}{11}{chapter*.27}
+\contentsline {section}{\numberline {4.1}Interfaz gr\IeC {\'a}fica de usuario:}{11}{section.4.1}
+\contentsline {subsection}{Tkinter}{11}{section*.28}
+\contentsline {subsection}{WxPython}{11}{section*.29}
+\contentsline {subsection}{PyQt}{12}{section*.30}
+\contentsline {subsection}{WxWidgets:}{13}{section*.31}
+\contentsline {section}{\numberline {4.2}Plantillas}{13}{section.4.2}
+\contentsline {subsection}{Mustache}{13}{section*.32}
+\contentsline {subsection}{Jinja2}{13}{section*.33}
+\contentsline {subsection}{Comparaci\IeC {\'o}n de las herramientas}{14}{section*.34}
+\contentsline {section}{\numberline {4.3}IDE:}{14}{section.4.3}
+\contentsline {subsection}{Eclipse:}{14}{section*.36}
+\contentsline {subsection}{PyDev:}{15}{section*.37}
+\contentsline {section}{\numberline {4.4}Modelado}{15}{section.4.4}
+\contentsline {subsection}{Astah}{15}{section*.38}
+\contentsline {subsection}{XML:}{15}{section*.39}
+\contentsline {chapter}{Aspectos relevantes del desarrollo del proyecto}{17}{chapter*.40}
+\contentsline {section}{\numberline {5.1}Entorno de desarrollo}{17}{section.5.1}
+\contentsline {subsection}{Ventajas}{17}{section*.41}
+\contentsline {section}{\numberline {5.2}Procesado imagen}{18}{section.5.2}
+\contentsline {subsection}{Binarizaci\IeC {\'o}n}{19}{section*.45}
+\contentsline {subsection}{Obtener segmentos}{19}{section*.47}
+\contentsline {subsection}{Procesado de segmentos}{19}{section*.49}
+\contentsline {subsection}{Recuperaci\IeC {\'o}n de lineas}{19}{section*.51}
+\contentsline {subsection}{Resumen pasos}{20}{section*.53}
+\contentsline {section}{\numberline {5.3}Interfaz}{22}{section.5.3}
+\contentsline {subsection}{Primera versi\IeC {\'o}n}{22}{section*.54}
+\contentsline {subsection}{Versi\IeC {\'o}n a evaluar}{22}{section*.56}
+\contentsline {subsubsection}{Barra de herramientas}{23}{section*.58}
+\contentsline {subsubsection}{Barra de herramientas de la imagen}{24}{section*.60}
+\contentsline {subsubsection}{FigureCanvas de la imagen}{24}{section*.62}
+\contentsline {subsubsection}{Pesta\IeC {\~n}as}{25}{section*.64}
+\contentsline {chapter}{Trabajos relacionados}{26}{chapter*.66}
+\contentsline {chapter}{Conclusiones y L\IeC {\'\i }neas de trabajo futuras}{27}{chapter*.67}
+\contentsline {chapter}{Bibliograf\'{\i }a}{28}{section*.69}

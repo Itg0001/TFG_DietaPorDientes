@@ -1,2 +1,0 @@
-from gui.Mediadores.MediadorVentana import MediadorVentana
-from gui.Mediadores.MediadorPestannas import MediadorPestannas

@@ -1,0 +1,2 @@
+from proyecto.gui.Mediadores.MediadorVentana import MediadorVentana
+from proyecto.gui.Mediadores.MediadorPestannas import MediadorPestannas

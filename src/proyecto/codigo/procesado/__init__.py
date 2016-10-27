@@ -1,0 +1,2 @@
+from proyecto.codigo.procesado.ProcesadoDeLineas import ProcesadoDeLineas
+from proyecto.codigo.procesado.ProcesadoDeImagen import ProcesadoDeImagen

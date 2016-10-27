@@ -1,5 +1,5 @@
 from PyQt5 import QtWidgets
-from gui import VentanaInicio
+from proyecto.gui import VentanaInicio
 
 import sys
 if __name__ == '__main__':

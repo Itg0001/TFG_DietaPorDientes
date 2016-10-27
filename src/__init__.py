@@ -1,16 +1,18 @@
 import sys
 sys.path.append("C:/Users/Tobar/Desktop/Workespace/TFG2/src")
 
-from codigo.estadisticas import Estadistica
-from codigo.informes import Informe
-from codigo.informes import DatosToCsv
-from codigo.informes import InGuardarDatos
-from codigo.informes import ConfiguracionToXML
-from codigo.procesado import ProcesadoDeImagen
-from codigo.procesado import ProcesadoDeLineas
+from proyecto.codigo.estadisticas import Estadistica
+from proyecto.codigo.informes import Informe
+from proyecto.codigo.informes import DatosToCsv
+from proyecto.codigo.informes import InGuardarDatos
+from proyecto.codigo.informes import ConfiguracionToXML
+from proyecto.codigo.procesado import ProcesadoDeImagen
+from proyecto.codigo.procesado import ProcesadoDeLineas
+from proyecto.gui.Window import Window
+from proyecto.gui.VentanaInicio import VentanaInicio
+from proyecto.gui.PanelDePestannas import PanelDePestannas
+from proyecto.gui.Mediadores.MediadorVentana import MediadorVentana
+from proyecto.gui.Mediadores.MediadorPestannas import MediadorPestannas
 
-from gui.Window import Window
-from gui.VentanaInicio import VentanaInicio
-from gui.PanelDePestannas import PanelDePestannas
-from gui.Mediadores.MediadorVentana import MediadorVentana
-from gui.Mediadores.MediadorPestannas import MediadorPestannas
+
+from Test.codigo.estadisticas.TestEstadistica import TestEstadistica

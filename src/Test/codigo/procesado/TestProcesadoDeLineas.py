@@ -1,6 +1,8 @@
 import unittest
 from proyecto.codigo.procesado.ProcesadoDeLineas import ProcesadoDeLineas
 import networkx as nx
+from networkx.algorithms import approximation as apxa
+
 class TestProcesadoDeLineas(unittest.TestCase):
 
     def test_combina(self):
@@ -91,21 +93,64 @@ class TestProcesadoDeLineas(unittest.TestCase):
 
         ang = procesado.ang(x, y)
         self.assertEqual(round(ang,2),78.69)  
-        
-        
-        print("DESDE AQUIIIIII")
-        y=((40, 4),(14, 200))
+
+        x=((820, 257), (826, 242))
+        y=((820, 254), (822, 249))
         ang = procesado.ang(x, y)
-        #self.assertEqual(round(ang,2),78.69)  
-        print("HASTA AQUIIIIII")
-                
-        print(ang)       
+        self.assertEqual(round(ang,2),0.0)  
         
-if __name__ == '__main__':
-    test_procesado_de_lineas=TestProcesadoDeLineas()
-    test_procesado_de_lineas.test_combina()
-    test_procesado_de_lineas.test_segments_distance()
-    test_procesado_de_lineas.test_segments_intersect()
-    test_procesado_de_lineas.test_point_segment_distance()
-    test_procesado_de_lineas.test_ang()
-    print("OK,test_procesado_de_lineas")
+        x=((871, 183), (892, 183))
+        y=((910, 182), (893, 182))
+        ang = procesado.ang(x, y)
+        self.assertEqual(round(ang,2),180.0)  
+
+        print("OK,test_ang")
+        
+        
+    def test_dot(self):
+        procesado=ProcesadoDeLineas()
+        x=(871, 183)
+        y=(892, 183)
+        dot=procesado.dot(x, y)
+        
+        self.assertEqual(dot,810421)  
+
+        try:
+            dot=procesado.dot([], [])
+        except IndexError as ast:
+            self.assertEqual(ast.args[0],'list index out of range')
+                        
+        print("OK,test_segments_distance")
+        
+    def test_combina_segmentos(self):        
+        procesado=ProcesadoDeLineas()
+        segmentos=[((128, 72), (164, 18)), ((136, 59), (163, 19))]
+        
+        combinado=procesado.combina_segmentos(segmentos)
+        self.assertEqual(combinado,((164, 18), (128, 72)))
+
+
+        segmentos=[((670, 196), (661, 185)), ((680, 209), (674, 201)), ((685, 215), (681, 210)), ((677, 206), (659, 183))]
+        combinado=procesado.combina_segmentos(segmentos)
+        self.assertEqual(combinado,((685, 215), (659, 183)))
+        
+        try:
+            combinado=procesado.combina_segmentos([])        
+        except ValueError as ver:
+            self.assertEqual(ver.args[0],'zero-size array to reduction operation maximum which has no identity')        
+        print("OK,test_combina_segmentos")
+
+    def test_segmentos_verdad(self):
+        procesado=ProcesadoDeLineas()
+        g=nx.Graph()
+        lines=[((128, 72), (164, 18)), ((24, 43), (12, 31)), ((55, 71), (31, 49)), ((136, 59), (163, 19)), ((11, 31), (4, 24)), ((34, 51), (25, 43)), ((109, 42), (90, 18)), ((51, 67), (30, 48)), ((116, 50), (92, 20))]        
+        g=procesado.combina(8, 4, lines, g)
+        k_components = apxa.k_components(g)
+        
+        segmentos_de_verdad = procesado.segmentos_verdad(k_components, lines)
+        self.assertEqual(segmentos_de_verdad,[((164, 18), (128, 72)), ((55, 71), (4, 24)), ((116, 50), (90, 18))])
+
+        print("OK,test_segmentos_verdad")
+        
+
+    

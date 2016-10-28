@@ -15,4 +15,10 @@ from proyecto.gui.Mediadores.MediadorVentana import MediadorVentana
 from proyecto.gui.Mediadores.MediadorPestannas import MediadorPestannas
 
 
-from Test.codigo.estadisticas.TestEstadistica import TestEstadistica
+from Test.codigo.procesado import TestProcesadoDeImagen
+from Test.codigo.procesado import TestProcesadoDeLineas
+from Test.codigo.estadisticas import TestEstadistica
+
+from Test.codigo.informes.TestInforme import TestInforme
+from Test.codigo.informes.TestDatosToCsv import TestDatosToCsv
+from Test.codigo.informes.TestConfiguracionToXML import TestConfiguracionToXML

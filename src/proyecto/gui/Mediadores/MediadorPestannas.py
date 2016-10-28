@@ -410,6 +410,7 @@ class MediadorPestannas():
         except:
             exc="Warning:"+ str(sys.exc_info()[0])+ str(sys.exc_info()[1])
             logging.warning(exc)
+            print("Warning:"+ str(sys.exc_info()[0])+ str(sys.exc_info()[1]))
             try:
                 self.pestannas.button7.setEnabled(True)
                 self.pestannas.ventana.padre.save_file.setEnabled(True)

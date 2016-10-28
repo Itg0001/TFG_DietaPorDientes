@@ -169,7 +169,6 @@ class ProcesadoDeLineas():
         # Get cosine value
         cos_ = dot_prod / mag_a / mag_b
         if cos_ > 1:
-#             print("pasa") 
             cos_ = 1
         # Get angle in radians and then convert to degrees
         angle = math.acos(cos_)
@@ -177,12 +176,9 @@ class ProcesadoDeLineas():
         ang_deg = math.degrees(angle) % 360
 
         if ang_deg - 180 >= 0:
-#             print("pasa2") 
-
             # As in if statement
             return 360 - ang_deg
         else: 
-#             print("pasa3") 
             return ang_deg
     
     
@@ -237,7 +233,7 @@ class ProcesadoDeLineas():
         """
         segmentos_de_verdad = []
         for i in range(len(k_components[1])):
-            segmentos = list(map(lambda x:lines[x], k_components[1][i]))
+            segmentos = list(map(lambda x:lines[x], k_components[1][i]))           
             segmentos_de_verdad.append(self.combina_segmentos(segmentos))
         return segmentos_de_verdad
    

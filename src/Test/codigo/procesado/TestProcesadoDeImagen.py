@@ -11,10 +11,10 @@ class TestProcesadoDeImagen(unittest.TestCase):
         actual = os.getcwd()
         
         img = proc_imagen.leer_imagen(actual + '/Test/codigo/procesado/imgProc/ATP02 UE4 46_1.jpg')
-        imgOri = io.imread(actual.replace('\\', '/') + '/Test/codigo/procesado/imgProc/ATP02 UE4 46_1.jpg')
+        img_ori = io.imread(actual.replace('\\', '/') + '/Test/codigo/procesado/imgProc/ATP02 UE4 46_1.jpg')
         
-        self.assertEqual(img.shape, imgOri.shape)
-        self.assertEqual(np.all(img == imgOri), True)
+        self.assertEqual(img.shape, img_ori.shape)
+        self.assertEqual(np.all(img == img_ori), True)
         
         print("OK,test_leer_imagen")
     def test_distancia_al_rojo(self):

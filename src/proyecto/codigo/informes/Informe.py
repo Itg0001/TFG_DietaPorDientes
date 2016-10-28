@@ -39,6 +39,7 @@ class Informe():
         
         @return  Plantilla leida en latex
         """
+
         latex_jinja_env = jinja2.Environment(
         block_start_string='/BLOCK{',
         block_end_string='}',
@@ -50,7 +51,7 @@ class Informe():
         line_comment_prefix='%#',
         trim_blocks=True,
         autoescape=False,
-        loader=jinja2.FileSystemLoader(self.path.replace('\\', '/') + 'codigopru/informes/')
+        loader=jinja2.FileSystemLoader(self.path.replace('\\', '/') + 'proyecto/codigo/informes/')
         ) 
         template = latex_jinja_env.get_template('jinja-test.tex')        
         return template

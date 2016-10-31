@@ -130,3 +130,36 @@ class ProcesadoDeImagen():
         """
         lines = probabilistic_hough_line(sin_ruido, threshold, line_length, line_gap)
         return lines
+    
+    def binarizar_para_cuadrado(self,img):
+        imgHSV=rgb2hsv(img)
+        grises = rgb2grey(imgHSV)
+        ii=0
+        jj=0
+        for i in grises:
+            for j in i:
+                if j>0 and j<0.0025:
+                    grises[ii][jj]=1
+                else:
+                    grises[ii][jj]=0
+                jj=jj+1
+            jj=0
+            ii=ii+1
+        return grises
+
+    def obtener_max_y_min(self,lines):
+        puntos_x,puntos_y=set(),set()
+        for i in lines:
+            puntos_x.add(i[0][0])
+            puntos_x.add(i[1][0])    
+            puntos_y.add(i[0][1])
+            puntos_y.add(i[1][1])
+        return max(puntos_x),min(puntos_x),max(puntos_y),min(puntos_y)
+ 
+    def pertenece_o_no(self,x,y,xMin,xMax,yMin,yMax):
+        if x == None and y==None:
+            return False
+        if (xMin< x < xMax) and  (yMin< y < yMax):
+            return True
+        else:
+            return False

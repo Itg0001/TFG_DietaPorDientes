@@ -1,6 +1,9 @@
 from PyQt5 import QtCore, QtWidgets
 import networkx as nx
 from networkx.algorithms import approximation as apxa
+from skimage.morphology import  skeletonize 
+from skimage.transform import probabilistic_hough_line
+
 from proyecto.codigo.procesado import ProcesadoDeImagen
 from proyecto.codigo.procesado.ProcesadoDeLineas import ProcesadoDeLineas
 
@@ -26,7 +29,22 @@ class MediadorVentana():
         self.ventana.ax.set_xlim([0, self.img.shape[1]])
         self.ventana.ax.set_ylim([self.img.shape[0], 0])
         self.ventana.ax.imshow(self.img , interpolation='nearest')
-     
+        
+
+        
+    def detectar_cuadrado(self):    
+        grises=self.procesado.binarizar_para_cuadrado(self.img)
+        sin_ruido = skeletonize(grises)
+        lines = probabilistic_hough_line(sin_ruido, threshold=100, line_length=200,
+                                         line_gap=200)
+    
+    
+        self.ventana.xMax,self.ventana.xMin,self.ventana.yMax,self.ventana.yMin=self.procesado.obtener_max_y_min(lines)
+
+        print("xMax:",self.ventana.xMax,"\txMin:",self.ventana.xMin)
+        print("yMax:",self.ventana.yMax,"\tyMin:",self.ventana.yMin)
+        
+#         print(pertenece_o_no(549,743,xMin,xMax,yMin,yMax))
     def inicializa_pestanna_1(self):
         """
         Metodo que inicializara la pestanna uno de la ventana es decir el cuadro principal

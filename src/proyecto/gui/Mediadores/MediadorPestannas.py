@@ -1,6 +1,6 @@
 import numpy as np
 from PyQt5 import QtWidgets, QtCore
-import os,sys,logging
+import os, sys, logging
 import shutil
 import tempfile
 from proyecto.codigo  import Informe
@@ -35,7 +35,7 @@ class MediadorPestannas():
         self.escribeCSV = DatosToCsv()
         self.escribeXML = ConfiguracionToXML()
         self.borrar = False
-        self.bandera=False
+        self.bandera = False
 
 
     def inicia_paneles(self):
@@ -185,7 +185,13 @@ class MediadorPestannas():
             @return: Coordenadas P1 y P2
             """
             ix, iy = event.xdata, event.ydata
-            if ix != None and iy != None:
+            x_max=self.pestannas.ventana.xMax
+            x_min=self.pestannas.ventana.xMin
+            y_max=self.pestannas.ventana.yMax
+            y_min=self.pestannas.ventana.yMin
+
+            existe=self.pestannas.ventana.mediador_ventana.procesado.pertenece_o_no(ix, iy,x_min,x_max,y_min,y_max)
+            if (ix != None and iy != None) and existe:
                 if len(coords) == 0:
                     self.pestannas.P1.setStyleSheet('color: Red')
                     self.pestannas.P1_x.setText(str(round(ix, 0)))
@@ -212,7 +218,7 @@ class MediadorPestannas():
         Metodo que se va a encargar de añadir a la imagen la linea que hemso seleccionado 
         manualmente.
         """
-        self.bandera=True
+        self.bandera = True
         self.pestannas.p_2.setStyleSheet('color: black')
         self.pestannas.P1.setStyleSheet('color: black') 
         self.pestannas.P1_x.setText("0")
@@ -273,7 +279,7 @@ class MediadorPestannas():
         Metodo que se encargfara de borrar la linea o segmento que hemos seleccionado
         previamente dentro de la tabla y sea la que estamos visualizando.
         """
-        self.bandera=True
+        self.bandera = True
         if self.pestannas.row_actual != -1:
             self.pestannas.table.removeRow(self.pestannas.row_actual)            
             self.pestannas.row_actual = -1
@@ -291,7 +297,7 @@ class MediadorPestannas():
         Metodfo para añadir todos los segmentos calculados por el algoritmo
         que detecta la lineas en rojo dentro de la tabla.
         """
-        self.bandera=True
+        self.bandera = True
         self.limpiar_tabla()
         row = self.pestannas.table.rowCount()
         if len(self.pestannas.ventana.lineas) != 0:
@@ -341,48 +347,48 @@ class MediadorPestannas():
         otro con las lineas detectadas y las dos imagenes original y pintada despues del 
         procesado.
         """
-        #Clase PARA LAS estadisticas
+        # Clase PARA LAS estadisticas
         path = QtWidgets.QFileDialog.getExistingDirectory(self.pestannas, "openFolder")
-        band=False
-        if  path !="":
-            if os.path.exists(path+'/Proyecto') :
+        band = False
+        if  path != "":
+            if os.path.exists(path + '/Proyecto') :
                 self.showdialog()
-                if self.borrar ==True:
-                    band=True
+                if self.borrar == True:
+                    band = True
                 else:
-                    band=False
+                    band = False
             else:
-                band=True        
+                band = True        
             if band :
                 temp = tempfile.mkdtemp()
                 temp2 = tempfile.mkdtemp()
-                if os.path.exists(path+'/Proyecto'):
-                    shutil.copytree(path+'/Proyecto',temp2+'/Proyecto')
+                if os.path.exists(path + '/Proyecto'):
+                    shutil.copytree(path + '/Proyecto', temp2 + '/Proyecto')
                                     
                 row = self.pestannas.table.rowCount()
-                segmentos=[]
-                angulos={}
-                long_segmento={}
-                lista=[]
-                x1,x2,y1,y2=0,0,0,0
+                segmentos = []
+                angulos = {}
+                long_segmento = {}
+                lista = []
+                x1, x2, y1, y2 = 0, 0, 0, 0
                 for i in range(row):            
-                    x1=int(self.pestannas.table.item(i,0).text())
-                    x2=int(self.pestannas.table.item(i,1).text())
-                    y1=int(self.pestannas.table.item(i,2).text())
-                    y2=int(self.pestannas.table.item(i,3).text())
-                    segmentos.append(((x1,x2),(y1,y2)))
-                    angulos[((x1,x2),(y1,y2))]=self.estad.angu(((x1,x2),(y1,y2)))
-                    long_segmento[((x1,x2),(y1,y2))]=self.estad.longitud_segemento(((x1,x2),(y1,y2)))   
+                    x1 = int(self.pestannas.table.item(i, 0).text())
+                    x2 = int(self.pestannas.table.item(i, 1).text())
+                    y1 = int(self.pestannas.table.item(i, 2).text())
+                    y2 = int(self.pestannas.table.item(i, 3).text())
+                    segmentos.append(((x1, x2), (y1, y2)))
+                    angulos[((x1, x2), (y1, y2))] = self.estad.angu(((x1, x2), (y1, y2)))
+                    long_segmento[((x1, x2), (y1, y2))] = self.estad.longitud_segemento(((x1, x2), (y1, y2)))   
                     
-                v,h,md,dm,total=self.estad.clasificar(segmentos,angulos,long_segmento)
+                v, h, md, dm, total = self.estad.clasificar(segmentos, angulos, long_segmento)
            
-                st_v,st_h,st_md,st_dm,st_tot,variables_tabla=self.estad.calcular_estadisticas(v, h, md, dm, total)
-                lista.extend([v,h,md,dm,st_v,st_h,st_md,st_dm,st_tot])
-                self.escribe_proyecto(variables_tabla,temp,temp2,lista,path,segmentos)
+                st_v, st_h, st_md, st_dm, st_tot, variables_tabla = self.estad.calcular_estadisticas(v, h, md, dm, total)
+                lista.extend([v, h, md, dm, st_v, st_h, st_md, st_dm, st_tot])
+                self.escribe_proyecto(variables_tabla, temp, temp2, lista, path, segmentos)
 
-            self.bandera=False
+            self.bandera = False
 
-    def escribe_proyecto(self,variables_tabla,temp,temp2,lista,path,segmentos):
+    def escribe_proyecto(self, variables_tabla, temp, temp2, lista, path, segmentos):
         """
         Metodo auxiliar para guardar lso entregables delega en el la tarea de escribirlos en la carpeta nueva.
         @param variables_tabla: variables que contiene la tabla.
@@ -393,36 +399,36 @@ class MediadorPestannas():
         @param segmentos: segmentos que vamos a pintar y guardar.
         """
         try:
-            informe=Informe(variables_tabla,temp)#@UnusedVariable
+            informe = Informe(variables_tabla, temp)  # @UnusedVariable
             self.escribeCSV.guardar(temp, lista)
             self.escribeXML.guardar(temp)
-            shutil.copy(self.pestannas.ventana.mediador_ventana.ventana.path, temp+'/Original.jpg')
+            shutil.copy(self.pestannas.ventana.mediador_ventana.ventana.path, temp + '/Original.jpg')
 
-            self.pestannas.ventana.mediador_ventana.procesado.guardar_y_pintar(self.pestannas.ventana.mediador_ventana.ventana.path,temp, segmentos)                     
+            self.pestannas.ventana.mediador_ventana.procesado.guardar_y_pintar(self.pestannas.ventana.mediador_ventana.ventana.path, temp, segmentos)                     
              
-            if os.path.exists(path+'/Proyecto'):
-                shutil.rmtree(path+'/Proyecto')
+            if os.path.exists(path + '/Proyecto'):
+                shutil.rmtree(path + '/Proyecto')
              
-            shutil.copytree(temp,path+'/Proyecto')
+            shutil.copytree(temp, path + '/Proyecto')
             self.pestannas.button7.setEnabled(False)
             self.pestannas.ventana.padre.save_file.setEnabled(False)
     
         except:
-            exc="Warning:"+ str(sys.exc_info()[0])+ str(sys.exc_info()[1])
+            exc = "Warning:" + str(sys.exc_info()[0]) + str(sys.exc_info()[1])
             logging.warning(exc)
-            print("Warning:"+ str(sys.exc_info()[0])+ str(sys.exc_info()[1]))
+            print("Warning:" + str(sys.exc_info()[0]) + str(sys.exc_info()[1]))
             try:
                 self.pestannas.button7.setEnabled(True)
                 self.pestannas.ventana.padre.save_file.setEnabled(True)
                 if os.path.exists(path):
-                    shutil.copy(temp2 + '/Proyecto/Original.jpg', path+'/Proyecto/Original.jpg')
-                    shutil.copy(temp2 + '/Proyecto/Pintada.jpg', path+'/Proyecto/Pintada.jpg')
-                    shutil.copy(temp2 + '/Proyecto/Proyecto.xml', path+'/Proyecto/Proyecto.xml')
-                    shutil.copy(temp2 + '/Proyecto/Salida_Estadisticas.csv', path+'/Proyecto/Salida_Estadisticas.csv')
-                    shutil.copy(temp2 + '/Proyecto/Salida_Lineas.csv', path+'/Proyecto/Salida_Lineas.csv')
-                    shutil.copy(temp2 + '/Proyecto/Tabla.tex', path+'/Proyecto/Tabla.tex')
+                    shutil.copy(temp2 + '/Proyecto/Original.jpg', path + '/Proyecto/Original.jpg')
+                    shutil.copy(temp2 + '/Proyecto/Pintada.jpg', path + '/Proyecto/Pintada.jpg')
+                    shutil.copy(temp2 + '/Proyecto/Proyecto.xml', path + '/Proyecto/Proyecto.xml')
+                    shutil.copy(temp2 + '/Proyecto/Salida_Estadisticas.csv', path + '/Proyecto/Salida_Estadisticas.csv')
+                    shutil.copy(temp2 + '/Proyecto/Salida_Lineas.csv', path + '/Proyecto/Salida_Lineas.csv')
+                    shutil.copy(temp2 + '/Proyecto/Tabla.tex', path + '/Proyecto/Tabla.tex')
             except:
-                exc="Warning:"+ str(sys.exc_info()[0])+ str(sys.exc_info()[1])
+                exc = "Warning:" + str(sys.exc_info()[0]) + str(sys.exc_info()[1])
                 logging.warning(exc)
         finally:
             shutil.rmtree(temp)  

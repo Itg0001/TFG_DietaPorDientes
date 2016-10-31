@@ -58,7 +58,16 @@ class Window(QtWidgets.QWidget):
         # Guardamos la linea seleccionada para poder borrarla mas adelante
         self.selec_ante = None
         self.inicializa_pestanna_1()
-          
+        
+        self.xMax=self.mediador_ventana.img.shape[1]
+        self.xMin=0
+        self.yMax=self.mediador_ventana.img.shape[0]
+        self.yMin=0
+        self.detectar_cuadrado()
+        
+    def detectar_cuadrado(self):   
+        self.mediador_ventana.detectar_cuadrado()
+    
      
     def inicializa_figura_y_widgets(self):
         """

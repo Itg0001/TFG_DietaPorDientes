@@ -29,10 +29,10 @@ class Informe():
         self.path=os.getcwd() 
         self.path+='\\'
 
-        template= self.cargarPlantilla()
+        template= self.cargar_plantilla()
         self.sustituir(self.variables,template)
   
-    def cargarPlantilla(self):
+    def cargar_plantilla(self):
         """
          Metodo para cargar la plantilla y devolverlo como unavariable.
          
@@ -71,7 +71,7 @@ class Informe():
                               md1=variables[6],md2=variables[7],md3=variables[8],
                               v1=variables[9],v2=variables[10],v3=variables[11],
                               t1=variables[12],t2=variables[13],t3=variables[14])
-        latexSalida = open(self.dirToGuardar+'Salida.tex', 'w', newline='')
+        latexSalida = open(self.dirToGuardar+'Tabla.tex', 'w', newline='')
         latexSalida.write(latex)
         latexSalida.close()
 

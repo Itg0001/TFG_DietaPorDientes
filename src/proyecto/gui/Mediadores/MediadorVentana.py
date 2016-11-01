@@ -29,7 +29,9 @@ class MediadorVentana():
         self.ventana.ax.set_xlim([0, self.img.shape[1]])
         self.ventana.ax.set_ylim([self.img.shape[0], 0])
         self.ventana.ax.imshow(self.img , interpolation='nearest')
-        
+        self.referencia=self.procesado.obtener_referencia(self.img)
+        self.referencia=self.referencia[0]
+        self.ref_numeros=self.procesado.obtener_numeros(self.img)
 
         
     def detectar_cuadrado(self):    
@@ -41,8 +43,8 @@ class MediadorVentana():
     
         self.ventana.xMax,self.ventana.xMin,self.ventana.yMax,self.ventana.yMin=self.procesado.obtener_max_y_min(lines)
 
-        print("xMax:",self.ventana.xMax,"\txMin:",self.ventana.xMin)
-        print("yMax:",self.ventana.yMax,"\tyMin:",self.ventana.yMin)
+#         print("xMax:",self.ventana.xMax,"\txMin:",self.ventana.xMin)
+#         print("yMax:",self.ventana.yMax,"\tyMin:",self.ventana.yMin)
         
 #         print(pertenece_o_no(549,743,xMin,xMax,yMin,yMax))
     def inicializa_pestanna_1(self):

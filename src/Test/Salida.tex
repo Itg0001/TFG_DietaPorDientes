@@ -1,0 +1,27 @@
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{graphicx}
+
+\begin{document}
+%holaa
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{@{}lllllllllllllllllllll@{}}
+\toprule
+ &  & \multicolumn{3}{l}{\textbf{DM}} &  & \multicolumn{3}{l}{\textbf{HORIZONTAL}} &  & \multicolumn{3}{l}{\textbf{MD}} &  & \multicolumn{3}{l}{\textbf{VERTICAL}} &  & \multicolumn{3}{l}{\textbf{TOTAL}} \\ \midrule
+ &  & \textbf{N} & \textbf{X} & \textbf{STD} &  & \textbf{N} & \textbf{X} & \textbf{STD} &  & \textbf{N} & \textbf{X} & \textbf{STD} &  & \textbf{N} & \textbf{X} & \textbf{STD} &  & \textbf{N} & \textbf{X} & \textbf{STD} \\ \midrule
+DereOizq &  & 0 & 0 & 0 &  & 0 & 0 & 0 &  & 2 & 55.29 & 14.06 &  & 1 & 64.9 & 0.0 &  & 3 & 58.49 & 12.34 \\ \bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\end{document}

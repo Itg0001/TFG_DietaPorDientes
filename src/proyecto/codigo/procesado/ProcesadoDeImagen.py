@@ -5,6 +5,9 @@ from skimage.filters import threshold_otsu
 from skimage.morphology import  skeletonize 
 from skimage.transform import probabilistic_hough_line
 import numpy as np
+import tempfile
+import os,shutil
+
 from PIL import Image, ImageDraw
 
 class ProcesadoDeImagen():
@@ -163,3 +166,56 @@ class ProcesadoDeImagen():
             return True
         else:
             return False
+    def binarizar_referencia(self,imagen):
+        ii=0
+        jj=0
+        for i in imagen:
+            for j in i:
+                if round(j,2)>0 and round(j,2)<0.09:
+                    imagen[ii][jj]=0
+                else:
+                    imagen[ii][jj]=1
+                jj=jj+1
+            jj=0
+            ii=ii+1
+        return imagen
+    def obtener_referencia(self,img):
+        imgCrop = img[840:860,555:750]
+        imgHSV=rgb2hsv(imgCrop)
+        distance_white = rgb2grey(1 - np.abs(imgHSV - (1, 1, 0)))
+        img_binarizada=self.binarizar_referencia(distance_white)
+        sin_ruido = skeletonize(img_binarizada)
+        lines = probabilistic_hough_line(sin_ruido, threshold=50, line_length=50,line_gap=50)
+        return lines
+    
+    def obtener_numeros(self,img):
+        imgCrop = img[860:950,520:645]
+        imgHSV=rgb2hsv(imgCrop)
+        distance_red = rgb2grey(1 - np.abs(imgHSV - (1, 1, 0)))
+    
+    
+        ii=0
+        jj=0
+        for i in distance_red:
+            for j in i:
+                if round(j,2)>0 and round(j,2)<0.09:
+                    distance_red[ii][jj]=1
+                else:
+                    distance_red[ii][jj]=0
+                jj=jj+1
+            jj=0
+            ii=ii+1
+        temp = tempfile.mkdtemp()
+        io.imsave(temp+"/imagen.png",distance_red,)
+        
+        act=os.getcwd()
+        tes=act+"/tesseract/tesseract.exe "
+        dir_img=temp+"/imagen.png "
+        dir_salida=temp+"/salida "
+        opt="nobatch digits "
+        os.system(tes+dir_img+dir_salida+opt)
+        f = open(temp+'/salida.txt')
+        g=f.read()
+        f.close()
+        shutil.rmtree(temp) 
+        return g.replace('3','0').replace('\n','').replace('8','0')

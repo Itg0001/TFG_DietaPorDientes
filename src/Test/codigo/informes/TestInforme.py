@@ -6,9 +6,10 @@ class TestInforme(unittest.TestCase):
     def test_cargar_plantilla(self):
         variables=[0, 0, 0, 0, 0, 0, 2, '55.29', '14.06', 1, '64.9', '0.0', 3, '58.49', '12.34']
         actual = os.getcwd()
-        infor=Informe(variables,actual+'/Test/codigo/informes/fichero_pruebas')
+        infor=Informe(variables,actual+'/Test')
         template=infor.cargar_plantilla()
-        self.assertEqual(str(template),'<Template \'jinja-test.tex\'>')
+        print("ESTO ES LO QUE IMPORTA",str(template))
+        self.assertEqual(str(template),'<Template \'proyecto/codigo/informes/jinja-test.tex\'>')
 
         print("OK,test_cargar_plantilla")
     

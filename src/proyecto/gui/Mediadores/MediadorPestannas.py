@@ -37,7 +37,6 @@ class MediadorPestannas():
         self.borrar = False
         self.bandera = False
 
-
     def inicia_paneles(self):
         """
         Metodo para iniciar los paneles de pestañas.
@@ -378,7 +377,7 @@ class MediadorPestannas():
                     y2 = int(self.pestannas.table.item(i, 3).text())
                     segmentos.append(((x1, x2), (y1, y2)))
                     angulos[((x1, x2), (y1, y2))] = self.estad.angu(((x1, x2), (y1, y2)))
-                    long_segmento[((x1, x2), (y1, y2))] = self.estad.longitud_segemento(((x1, x2), (y1, y2)))   
+                    long_segmento[((x1, x2), (y1, y2))] = self.estad.longitud_segemento(((x1, x2), (y1, y2)),self.pestannas.ventana.mediador_ventana.referencia,self.pestannas.ventana.mediador_ventana.ref_numeros)   
                     
                 v, h, md, dm, total = self.estad.clasificar(segmentos, angulos, long_segmento)
            
@@ -427,6 +426,7 @@ class MediadorPestannas():
                     shutil.copy(temp2 + '/Proyecto/Salida_Estadisticas.csv', path + '/Proyecto/Salida_Estadisticas.csv')
                     shutil.copy(temp2 + '/Proyecto/Salida_Lineas.csv', path + '/Proyecto/Salida_Lineas.csv')
                     shutil.copy(temp2 + '/Proyecto/Tabla.tex', path + '/Proyecto/Tabla.tex')
+
             except:
                 exc = "Warning:" + str(sys.exc_info()[0]) + str(sys.exc_info()[1])
                 logging.warning(exc)

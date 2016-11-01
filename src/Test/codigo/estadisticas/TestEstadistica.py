@@ -68,11 +68,11 @@ class TestEstadistica(unittest.TestCase):
         estadistica = Estadistica()
         segmento=((538, 5), (523, 951))
         
-        lon=estadistica.longitud_segemento(segmento)
-        self.assertEqual(round(lon,2), 946.12)
+        lon=estadistica.longitud_segemento(segmento,segmento,1)
+        self.assertEqual(round(lon,2), 1.0)
         
         try:
-            lon=estadistica.longitud_segemento([])
+            lon=estadistica.longitud_segemento([],[],1)
         except IndexError as ex:
             self.assertEqual(ex.args[0], "list index out of range")
             
@@ -86,7 +86,7 @@ class TestEstadistica(unittest.TestCase):
         self.assertEqual(round(ang,2), 90.91)
         
         try:
-            ang=estadistica.longitud_segemento([])
+            ang=estadistica.longitud_segemento([],[],1)
         except IndexError as ex:
             self.assertEqual(ex.args[0], "list index out of range")
             

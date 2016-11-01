@@ -33,7 +33,6 @@ class Estadistica():
         for i in segmentos:
             if 67.5 < angulos[i] < 112.5: 
                 v.append((i, str(round(angulos[i], 2)).replace('.', ','), str(round(long_segmento[i], 2)).replace('.', ','), 'v'))
-                # print("linea",i,"angulo",self.angulos[i],"= vertical" )
             elif 22.5 < angulos[i] < 67.5:
                 md.append((i, str(round(angulos[i], 2)).replace('.', ','), str(round(long_segmento[i], 2)).replace('.', ','), 'md'))
                 
@@ -64,8 +63,9 @@ class Estadistica():
         lista = []
         lista.append(tipo)
         lista.append(numero)
-        lista.append(str(round(media_lon, 2)).replace(',', '.'))
-        lista.append(str(round(desviacion_tip, 2)).replace(',', '.'))
+        if media_lon != None and desviacion_tip!=None:
+            lista.append(str(round(media_lon, 2)).replace(',', '.'))
+            lista.append(str(round(desviacion_tip, 2)).replace(',', '.'))
         return lista
     
     @classmethod        
@@ -102,7 +102,7 @@ class Estadistica():
         else:
             return None
     @classmethod            
-    def longitud_segemento(self, p):
+    def longitud_segemento(self, p,r,valor=100):
         """
         Funcion que calcula la longitud de un segmento.
         
@@ -110,7 +110,12 @@ class Estadistica():
         
         @Return distancia del segmento
         """
-        return (((p[1][0] - p[0][0]) ** 2) + ((p[1][1] - p[0][1]) ** 2)) ** (1 / 2)
+        
+        valor=int(valor)
+        long_ref=int(valor)
+        long_seg=(((p[1][0] - p[0][0]) ** 2) + ((p[1][1] - p[0][1]) ** 2)) ** (1 / 2)
+        
+        return (long_seg*valor)/long_ref
     
     @classmethod
     def angu(self, line_a):

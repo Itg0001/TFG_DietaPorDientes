@@ -1,0 +1,1 @@
+from proyecto.diccionario.Diccionario import Diccionario

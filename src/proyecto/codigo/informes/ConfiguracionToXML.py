@@ -1,5 +1,6 @@
 from proyecto.codigo.informes.InGuardarDatos import InGuardarDatos
 import xml.etree.cElementTree as ET
+from proyecto.diccionario import Diccionario
 
 class ConfiguracionToXML(InGuardarDatos):
     """
@@ -21,11 +22,12 @@ class ConfiguracionToXML(InGuardarDatos):
         
         @param path: ruta donde guardar el fichero de configuracion.
         """
-        proyect = ET.Element("proyect")
-        ET.SubElement(proyect, "docu1", name='tex').text ='/Tabla.tex'
-        ET.SubElement(proyect, "docu2", name='csv').text = '/Salida_Estadisticas.csv' 
-        ET.SubElement(proyect, "docu3", name='csv').text = '/Salida_Lineas.csv' 
-        ET.SubElement(proyect, "docu4", name='jpg1').text ='/Original.jpg'
-        ET.SubElement(proyect, "docu5", name='jpg2').text = '/PintadaParaInforme.jpg'   
+        self.dic=Diccionario()
+        proyect = ET.Element(self.dic.proyec)
+        ET.SubElement(proyect, self.dic.d1, name=self.dic.tex).text =self.dic.tab
+        ET.SubElement(proyect, self.dic.d2, name=self.dic.csv).text = self.dic.sal_estad
+        ET.SubElement(proyect, self.dic.d3, name=self.dic.csv).text = self.dic.sal_lin 
+        ET.SubElement(proyect, self.dic.d4, name=self.dic.jpg1).text =self.dic.origi
+        ET.SubElement(proyect, self.dic.d5, name=self.dic.jpg2).text = self.dic.pintada   
         tree = ET.ElementTree(proyect)
-        tree.write(path+"/Proyecto.xml",encoding='UTF-8',xml_declaration=True)
+        tree.write(path+self.dic.pro_xml,encoding=self.dic.utf,xml_declaration=True)

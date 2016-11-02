@@ -1,5 +1,6 @@
 import csv
 from proyecto.codigo.informes.InGuardarDatos import InGuardarDatos
+from proyecto.diccionario import Diccionario
 
 class DatosToCsv(InGuardarDatos):
     """
@@ -30,9 +31,12 @@ class DatosToCsv(InGuardarDatos):
                     st_dm: estadisticas de lineas en diagonal dm.
                     st_tot: estadisticas totales de lineas.
         """
-        csvsalida_lin = open(path.replace('\\', '/') + '/' + 'Salida_Lineas.csv', 'w', newline='')
+        
+        self.dic=Diccionario()
+
+        csvsalida_lin = open(path.replace('\\', '/') + self.dic.sal_lin, 'w', newline='')
         salida = csv.writer(csvsalida_lin, escapechar=' ', quoting=csv.QUOTE_NONE, delimiter=';')
-        salida.writerow(['linea', 'angulo', 'tamano', 'tipo'])  
+        salida.writerow(self.dic.cabecera_csv_lineas)  
         if len(lista[0]) > 0:
             salida.writerows(lista[0])
         if len(lista[1]) > 0:
@@ -44,9 +48,10 @@ class DatosToCsv(InGuardarDatos):
         del salida
         csvsalida_lin.close()
             
-        csvsalida_stat = open(path.replace('\\', '/') + '/' + 'Salida_Estadisticas.csv', 'w', newline='')
+            
+        csvsalida_stat = open(path.replace('\\', '/') + self.dic.sal_estad, 'w', newline='')
         salida = csv.writer(csvsalida_stat, escapechar=' ', quoting=csv.QUOTE_NONE, delimiter=';')
-        salida.writerow(['tipo', 'numero', 'mediaLon', 'desviacionTip'])
+        salida.writerow(self.dic.cabecera_csv_estad)
         salida.writerow(lista[4])
         salida.writerow(lista[5])
         salida.writerow(lista[6])

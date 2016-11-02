@@ -7,6 +7,7 @@ from proyecto.codigo  import Informe
 from proyecto.codigo.estadisticas import Estadistica
 from proyecto.codigo.informes.DatosToCsv import DatosToCsv
 from proyecto.codigo.informes.ConfiguracionToXML import ConfiguracionToXML
+from proyecto.diccionario import Diccionario
 
 class MediadorPestannas():
     """
@@ -36,6 +37,8 @@ class MediadorPestannas():
         self.escribeXML = ConfiguracionToXML()
         self.borrar = False
         self.bandera = False
+        self.dic=Diccionario()     
+
 
     def inicia_paneles(self):
         """
@@ -49,8 +52,8 @@ class MediadorPestannas():
         """
         Metodo para inicializar el panel de pestañas 1 con todos sus compoenentes.
         """
-        self.pestannas.addTab(self.pestannas.tab1, "Lineas pintadas")        
-        self.pestannas.button = QtWidgets.QPushButton('Calcular Lineas')
+        self.pestannas.addTab(self.pestannas.tab1, self.dic.md_pe_lin_pin)        
+        self.pestannas.button = QtWidgets.QPushButton(self.dic.md_pe_calc)
         self.pestannas.button.clicked.connect(self.pestannas.ventana.calcular_lineas)
         self.pestannas.layout_segundo = QtWidgets.QVBoxLayout()      
         self.pestannas.layout_segundo.addWidget(self.pestannas.button)
@@ -62,38 +65,38 @@ class MediadorPestannas():
         En este caso tendra muchas mas declaraciones e inicializaciones que en el anterior.
         Tambien se encargara de inicializar los layouts.
         """
-        self.pestannas.addTab(self.pestannas.tab2, "Corregir lineas")
-        self.pestannas.addTab(self.pestannas.tab3, "Automatico")
+        self.pestannas.addTab(self.pestannas.tab2, self.dic.md_pe_corre)
+        self.pestannas.addTab(self.pestannas.tab3, self.dic.md_pe_auto)
 
-        self.pestannas.button2 = QtWidgets.QPushButton('Corregir Lineas')
+        self.pestannas.button2 = QtWidgets.QPushButton(self.dic.md_pe_corre)
         self.pestannas.button2.clicked.connect(self.pestannas.corregir_lineas)
         
-        self.pestannas.button3 = QtWidgets.QPushButton('Anadir punto')
+        self.pestannas.button3 = QtWidgets.QPushButton(self.dic.md_pe_anadir_p)
         self.pestannas.button3.clicked.connect(self.pestannas.anadir_lineas)
         self.pestannas.button3.setEnabled(False)
 
-        self.pestannas.button4 = QtWidgets.QPushButton('Anadir segmentos')
+        self.pestannas.button4 = QtWidgets.QPushButton(self.dic.md_pe_anadir_seg)
         self.pestannas.button4.clicked.connect(self.pestannas.anadir_puntos)  
         self.pestannas.button4.setEnabled(False)
 
-        self.pestannas.button5 = QtWidgets.QPushButton('Borrar seleccionado')
+        self.pestannas.button5 = QtWidgets.QPushButton(self.dic.md_pe_borrar)
         self.pestannas.button5.clicked.connect(self.pestannas.borrar_selec)
         
-        self.pestannas.button7 = QtWidgets.QPushButton('Guardar tabla')
+        self.pestannas.button7 = QtWidgets.QPushButton(self.dic.md_pe_guardar)
         self.pestannas.button7.clicked.connect(self.pestannas.guardar_tabla)
         self.pestannas.button7.setEnabled(False)
 
-        self.pestannas.button8 = QtWidgets.QPushButton('Limpiar tabla')
+        self.pestannas.button8 = QtWidgets.QPushButton(self.dic.md_pe_limpiar)
         self.pestannas.button8.clicked.connect(self.pestannas.limpiar_tabla)
+
+        self.pestannas.P1 = QtWidgets.QLabel(self.dic.md_pe_p1)
+        self.pestannas.p_2 = QtWidgets.QLabel(self.dic.md_pe_p2)
         
-        self.pestannas.P1 = QtWidgets.QLabel("P_1:")
-        self.pestannas.p_2 = QtWidgets.QLabel("P_2:")
+        self.pestannas.P1_x = QtWidgets.QLabel(self.dic.md_pe_cero)
+        self.pestannas.P1_y = QtWidgets.QLabel(self.dic.md_pe_cero)
         
-        self.pestannas.P1_x = QtWidgets.QLabel("0")
-        self.pestannas.P1_y = QtWidgets.QLabel("0")
-        
-        self.pestannas.P2_x = QtWidgets.QLabel("0")
-        self.pestannas.P2_y = QtWidgets.QLabel("0")
+        self.pestannas.P2_x = QtWidgets.QLabel(self.dic.md_pe_cero)
+        self.pestannas.P2_y = QtWidgets.QLabel(self.dic.md_pe_cero)
         
         self.pestannas.table = QtWidgets.QTableWidget(self.pestannas)
         self.pestannas.table.setRowCount(0)
@@ -102,7 +105,7 @@ class MediadorPestannas():
         self.pestannas.table.itemSelectionChanged.connect(self.pestannas.selected_row)
         self.pestannas.header = self.pestannas.table.horizontalHeader()
         self.pestannas.header.setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
-        self.pestannas.table.setHorizontalHeaderLabels(['P1X', 'P1Y', 'P2X', 'P2Y'])
+        self.pestannas.table.setHorizontalHeaderLabels(self.dic.md_pe_cabe_tab)
       
         self.pestannas.layout_tab_2 = QtWidgets.QHBoxLayout()
         
@@ -151,8 +154,8 @@ class MediadorPestannas():
             p2y = self.pestannas.table.item(row, 3)
             p2y = p2y.text()
             self.pestannas.ventana.ax.hold(True) 
-            self.pestannas.ventana.ax.set_title('Figura con lineas')
-            sel, = self.pestannas.ventana.ax.plot((np.int32(p1x), np.int32(p2x)), (np.int32(p1y) , np.int32(p2y)), 'yellow', linewidth=2.0)
+            self.pestannas.ventana.ax.set_title(self.dic.md_pe_fig_lin)
+            sel, = self.pestannas.ventana.ax.plot((np.int32(p1x), np.int32(p2x)), (np.int32(p1y) , np.int32(p2y)), self.dic.md_pe_amarillo, linewidth=2.0)
             if self.pestannas.ventana.selec_ante != None:            
                 self.pestannas.ventana.ax.lines.remove(self.pestannas.ventana.selec_ante)
             self.pestannas.ventana.selec_ante = sel
@@ -165,13 +168,13 @@ class MediadorPestannas():
         detectar por nuestro algoritmo.
         """
         self.pestannas.button3.setEnabled(False)
-        self.pestannas.p_2.setStyleSheet('color: black')
-        self.pestannas.P1.setStyleSheet('color: black')
+        self.pestannas.p_2.setStyleSheet(self.dic.md_pe_color_bl)
+        self.pestannas.P1.setStyleSheet(self.dic.md_pe_color_bl)
  
-        self.pestannas.P1_x.setText("0")
-        self.pestannas.P1_y.setText("0")
-        self.pestannas.P2_x.setText("0")
-        self.pestannas.P2_y.setText("0")        
+        self.pestannas.P1_x.setText(self.dic.md_pe_cero)
+        self.pestannas.P1_y.setText(self.dic.md_pe_cero)
+        self.pestannas.P2_x.setText(self.dic.md_pe_cero)
+        self.pestannas.P2_y.setText(self.dic.md_pe_cero)        
         self.pestannas.button2.setEnabled(False)
         coords = []     
         def onclick(event):
@@ -192,14 +195,14 @@ class MediadorPestannas():
             existe=self.pestannas.ventana.mediador_ventana.procesado.pertenece_o_no(ix, iy,x_min,x_max,y_min,y_max)
             if (ix != None and iy != None) and existe:
                 if len(coords) == 0:
-                    self.pestannas.P1.setStyleSheet('color: Red')
+                    self.pestannas.P1.setStyleSheet(self.dic.md_pe_color_red)
                     self.pestannas.P1_x.setText(str(round(ix, 0)))
                     self.pestannas.P1_y.setText(str(round(iy, 0)))
                     coords.append((ix, iy))
                     self.pestannas.ventana.c1 = (ix, iy)
  
                 else:
-                    self.pestannas.p_2.setStyleSheet('color: Red')
+                    self.pestannas.p_2.setStyleSheet(self.dic.md_pe_color_red)
                     self.pestannas.P2_x.setText(str(round(ix, 0)))
                     self.pestannas.P2_y.setText(str(round(iy, 0)))
                     self.pestannas.ventana.c2 = (ix, iy)                    
@@ -209,7 +212,7 @@ class MediadorPestannas():
                     self.pestannas.button3.setEnabled(True)
  
             return coords
-        cid = self.pestannas.ventana.fig.canvas.mpl_connect('button_press_event', onclick)
+        cid = self.pestannas.ventana.fig.canvas.mpl_connect(self.dic.md_pe_but_press, onclick)
         self.pestannas.ventana.canvas.draw()           
          
     def anadir_lineas(self):
@@ -218,12 +221,12 @@ class MediadorPestannas():
         manualmente.
         """
         self.bandera = True
-        self.pestannas.p_2.setStyleSheet('color: black')
-        self.pestannas.P1.setStyleSheet('color: black') 
-        self.pestannas.P1_x.setText("0")
-        self.pestannas.P1_y.setText("0")
-        self.pestannas.P2_x.setText("0")
-        self.pestannas.P2_y.setText("0")
+        self.pestannas.p_2.setStyleSheet(self.dic.md_pe_color_bl)
+        self.pestannas.P1.setStyleSheet(self.dic.md_pe_color_bl) 
+        self.pestannas.P1_x.setText(self.dic.md_pe_cero)
+        self.pestannas.P1_y.setText(self.dic.md_pe_cero)
+        self.pestannas.P2_x.setText(self.dic.md_pe_cero)
+        self.pestannas.P2_y.setText(self.dic.md_pe_cero)
         if self.pestannas.ventana.c1 != None and self.pestannas.ventana.c2 != None:        
             row = self.pestannas.table.rowCount()
             self.pestannas.table.insertRow(row)
@@ -319,7 +322,7 @@ class MediadorPestannas():
         
         @param i: informacion del boton que hemos clicado.
         """
-        if i.text() == "OK":                      
+        if i.text() == self.dic.md_pe_ok:                      
             self.borrar = True
         else:
             self.borrar = False
@@ -332,9 +335,9 @@ class MediadorPestannas():
         msg = QtWidgets.QMessageBox()
         msg.adjustSize()
         msg.setIcon(QtWidgets.QMessageBox.Warning)    
-        msg.setText("La carpeta ya existe")
-        msg.setInformativeText("Esta seguro de sobreescribir")
-        msg.setWindowTitle("Aviso")
+        msg.setText(self.dic.md_pe_msg_sob)
+        msg.setInformativeText(self.dic.md_pe_msg_inf)
+        msg.setWindowTitle(self.dic.md_pe_msg_avi)
         msg.setStandardButtons(QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel)
         msg.buttonClicked.connect(self.msgbtn)
         retval = msg.exec_()  # @UnusedVariable
@@ -347,10 +350,10 @@ class MediadorPestannas():
         procesado.
         """
         # Clase PARA LAS estadisticas
-        path = QtWidgets.QFileDialog.getExistingDirectory(self.pestannas, "openFolder")
+        path = QtWidgets.QFileDialog.getExistingDirectory(self.pestannas, self.dic.md_pe_open)
         band = False
         if  path != "":
-            if os.path.exists(path + '/Proyecto') :
+            if os.path.exists(path + self.dic.md_pe_proy) :
                 self.showdialog()
                 if self.borrar == True:
                     band = True
@@ -361,8 +364,8 @@ class MediadorPestannas():
             if band :
                 temp = tempfile.mkdtemp()
                 temp2 = tempfile.mkdtemp()
-                if os.path.exists(path + '/Proyecto'):
-                    shutil.copytree(path + '/Proyecto', temp2 + '/Proyecto')
+                if os.path.exists(path + self.dic.md_pe_proy):
+                    shutil.copytree(path + self.dic.md_pe_proy, temp2 + self.dic.md_pe_proy)
                                     
                 row = self.pestannas.table.rowCount()
                 segmentos = []
@@ -377,7 +380,7 @@ class MediadorPestannas():
                     y2 = int(self.pestannas.table.item(i, 3).text())
                     segmentos.append(((x1, x2), (y1, y2)))
                     angulos[((x1, x2), (y1, y2))] = self.estad.angu(((x1, x2), (y1, y2)))
-                    long_segmento[((x1, x2), (y1, y2))] = self.estad.longitud_segemento(((x1, x2), (y1, y2)),self.pestannas.ventana.mediador_ventana.referencia,self.pestannas.ventana.mediador_ventana.ref_numeros)   
+                    long_segmento[((x1, x2), (y1, y2))] = self.estad.longitud_segemento(((x1, x2), (y1, y2)),self.pestannas.ventana.mediador_ventana.ref_numeros,self.pestannas.ventana.mediador_ventana.ref_numeros)   
                     
                 v, h, md, dm, total = self.estad.clasificar(segmentos, angulos, long_segmento)
            
@@ -385,7 +388,6 @@ class MediadorPestannas():
                 lista.extend([v, h, md, dm, st_v, st_h, st_md, st_dm, st_tot])
                 self.escribe_proyecto(variables_tabla, temp, temp2, lista, path, segmentos)
 
-            self.bandera = False
 
     def escribe_proyecto(self, variables_tabla, temp, temp2, lista, path, segmentos):
         """
@@ -401,39 +403,66 @@ class MediadorPestannas():
             informe = Informe(variables_tabla, temp)  # @UnusedVariable
             self.escribeCSV.guardar(temp, lista)
             self.escribeXML.guardar(temp)
-            shutil.copy(self.pestannas.ventana.mediador_ventana.ventana.path, temp + '/Original.jpg')
+            shutil.copy(self.pestannas.ventana.mediador_ventana.ventana.path, temp + self.dic.origi)
 
             self.pestannas.ventana.mediador_ventana.procesado.guardar_y_pintar(self.pestannas.ventana.mediador_ventana.ventana.path, temp, segmentos)                     
              
-            if os.path.exists(path + '/Proyecto'):
-                shutil.rmtree(path + '/Proyecto')
+            if os.path.exists(path + self.dic.md_pe_proy):
+                shutil.rmtree(path + self.dic.md_pe_proy)
              
-            shutil.copytree(temp, path + '/Proyecto')
+            shutil.copytree(temp, path + self.dic.md_pe_proy)
             self.pestannas.button7.setEnabled(False)
             self.pestannas.ventana.padre.save_file.setEnabled(False)
-    
+            self.bandera = False
+
         except:
-            exc = "Warning:" + str(sys.exc_info()[0]) + str(sys.exc_info()[1])
+            exc = self.dic.md_pe_war + str(sys.exc_info()[0]) + str(sys.exc_info()[1])
             logging.warning(exc)
-            print("Warning:" + str(sys.exc_info()[0]) + str(sys.exc_info()[1]))
             try:
                 self.pestannas.button7.setEnabled(True)
                 self.pestannas.ventana.padre.save_file.setEnabled(True)
+                self.bandera = True
+                self.informa()
+
                 if os.path.exists(path):
-                    shutil.copy(temp2 + '/Proyecto/Original.jpg', path + '/Proyecto/Original.jpg')
-                    shutil.copy(temp2 + '/Proyecto/Pintada.jpg', path + '/Proyecto/Pintada.jpg')
-                    shutil.copy(temp2 + '/Proyecto/Proyecto.xml', path + '/Proyecto/Proyecto.xml')
-                    shutil.copy(temp2 + '/Proyecto/Salida_Estadisticas.csv', path + '/Proyecto/Salida_Estadisticas.csv')
-                    shutil.copy(temp2 + '/Proyecto/Salida_Lineas.csv', path + '/Proyecto/Salida_Lineas.csv')
-                    shutil.copy(temp2 + '/Proyecto/Tabla.tex', path + '/Proyecto/Tabla.tex')
+                    shutil.copy(temp2 + self.dic.md_pe_ori, path + self.dic.md_pe_ori)
+                    shutil.copy(temp2 + self.dic.md_pe_pin, path + self.dic.md_pe_pin)
+                    shutil.copy(temp2 + self.dic.md_pe_pro, path + self.dic.md_pe_pro)                   
+                    try:
+                        shutil.copy(temp2 + self.dic.md_pe_est, path + self.dic.md_pe_est)
+                    except:
+                        logging.warning(self.dic.md_pe_err_st+str(sys.exc_info()[0]) + str(sys.exc_info()[1]))
+                    try:
+                        shutil.copy(temp2 + self.dic.md_pe_lin, path + self.dic.md_pe_lin)
+                    except:
+                        logging.warning(self.dic.md_pe_err_lin +str(sys.exc_info()[0]) + str(sys.exc_info()[1]))
+                    try:    
+                        shutil.copy(temp2 + self.dic.md_pe_tab, path + self.dic.md_pe_tab)
+                    except:
+                        logging.warning(self.dic.md_pe_err_tab +str(sys.exc_info()[0]) + str(sys.exc_info()[1]))
 
             except:
-                exc = "Warning:" + str(sys.exc_info()[0]) + str(sys.exc_info()[1])
+                self.bandera = True
+                exc = self.dic.md_pe_war + str(sys.exc_info()[0]) + str(sys.exc_info()[1])
                 logging.warning(exc)
         finally:
             shutil.rmtree(temp)  
             shutil.rmtree(temp2) 
+    
+    def informa(self):
+        """
+        Metodo para mostrar la ventana de elegir de si queremos guardar o no 
+        los cambios.
         
+        """
+        msg = QtWidgets.QMessageBox()
+        msg.adjustSize()
+        msg.setIcon(QtWidgets.QMessageBox.Warning)    
+        msg.setText(self.dic.md_pe_msg_gur)
+        msg.setWindowTitle(self.dic.md_pe_msg_avi)
+        msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
+        retval = msg.exec_()  # @UnusedVariable
+            
     def cargar_proyec(self, path):
         """
         Metodo para a partir de un proyecto ecistente carge los ficheros con las lineas calculadas
@@ -441,9 +470,9 @@ class MediadorPestannas():
         editar los cambios necesarios.
         
         @param path: Camino hasta donde esta nuestro proyecto en custion.
-        """
+        """       
         self.cargado = True
-        segmentos = self.escribeCSV.leer(path + '/Salida_Lineas.csv')
+        segmentos = self.escribeCSV.leer(path + self.dic.sal_lin)
         segmentos_procesa = []
         segmentos_pintar = []
         for i in segmentos:

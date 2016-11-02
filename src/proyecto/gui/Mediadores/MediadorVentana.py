@@ -6,6 +6,7 @@ from skimage.transform import probabilistic_hough_line
 
 from proyecto.codigo.procesado import ProcesadoDeImagen
 from proyecto.codigo.procesado.ProcesadoDeLineas import ProcesadoDeLineas
+from proyecto.diccionario import Diccionario
 
 class MediadorVentana():
     def __init__(self, ventana):
@@ -16,6 +17,7 @@ class MediadorVentana():
         
         @param ventana: instancia de la clase que crea la ventana.
         """
+        self.dic=Diccionario()
         self.ventana = ventana
         self.procesado = ProcesadoDeImagen()
         self.procesado_de_lineas = ProcesadoDeLineas()
@@ -25,28 +27,23 @@ class MediadorVentana():
         self.img_bin = self.procesado.binarizar(self.distance_red)
         
         self.ventana.ax = self.ventana.fig.add_subplot(111)
-        self.ventana.ax.set_title('Figura sin lineas')
+        self.ventana.ax.set_title(self.dic.md_v_figsin)
         self.ventana.ax.set_xlim([0, self.img.shape[1]])
         self.ventana.ax.set_ylim([self.img.shape[0], 0])
-        self.ventana.ax.imshow(self.img , interpolation='nearest')
-        self.referencia=self.procesado.obtener_referencia(self.img)
-        self.referencia=self.referencia[0]
+        self.ventana.ax.imshow(self.img , interpolation=self.dic.md_v_ori)
         self.ref_numeros=self.procesado.obtener_numeros(self.img)
-
         
-    def detectar_cuadrado(self):    
+        
+    def detectar_cuadrado(self):
+        """
+        Metodo para detectar el cuadrado sobre el que poder pintar las lineas que hemos detectado.
+        """    
         grises=self.procesado.binarizar_para_cuadrado(self.img)
         sin_ruido = skeletonize(grises)
-        lines = probabilistic_hough_line(sin_ruido, threshold=100, line_length=200,
-                                         line_gap=200)
-    
-    
+        lines = probabilistic_hough_line(sin_ruido, threshold=100, line_length=200,line_gap=200)
         self.ventana.xMax,self.ventana.xMin,self.ventana.yMax,self.ventana.yMin=self.procesado.obtener_max_y_min(lines)
 
-#         print("xMax:",self.ventana.xMax,"\txMin:",self.ventana.xMin)
-#         print("yMax:",self.ventana.yMax,"\tyMin:",self.ventana.yMin)
-        
-#         print(pertenece_o_no(549,743,xMin,xMax,yMin,yMax))
+
     def inicializa_pestanna_1(self):
         """
         Metodo que inicializara la pestanna uno de la ventana es decir el cuadro principal
@@ -100,18 +97,18 @@ class MediadorVentana():
 
         """
         self.ventana.ax = self.ventana.fig.add_subplot(111)
-        self.ventana.ax.set_title('Figura con lineas')
+        self.ventana.ax.set_title(self.dic.md_v_figcon)
         self.ventana.ax.set_xlim([0, self.img.shape[1]])
         self.ventana.ax.set_ylim([self.img.shape[0], 0])
-        self.ventana.ax.imshow(self.img , origin='upper', vmax=1, interpolation='nearest')
+        self.ventana.ax.imshow(self.img , origin=self.dic.md_v_up, vmax=1, interpolation=self.dic.md_v_ori)
         self.ventana.ax.hold(True)
         final=[]
         for line in segmentos:
             p0, p1 = line
-            self.ventana.ax.set_title('Figura con lineas')
+            self.ventana.ax.set_title(self.dic.md_v_figcon)
             self.ventana.ax.set_xlim([0, self.img.shape[1]])
             self.ventana.ax.set_ylim([self.img.shape[0], 0])
-            l,= self.ventana.ax.plot((p0[0], p1[0]), (p0[1], p1[1]), 'b', linewidth=2)
+            l,= self.ventana.ax.plot((p0[0], p1[0]), (p0[1], p1[1]), self.dic.md_v_color, linewidth=2)
             final.append(l)
         self.ventana.ax.hold(False)
         self.ventana.canvas.draw()             

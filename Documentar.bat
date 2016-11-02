@@ -1,0 +1,2 @@
+pydoc -w .\
+pause

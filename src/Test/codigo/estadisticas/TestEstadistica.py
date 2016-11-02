@@ -69,7 +69,7 @@ class TestEstadistica(unittest.TestCase):
         segmento=((538, 5), (523, 951))
         
         lon=estadistica.longitud_segemento(segmento,segmento,1)
-        self.assertEqual(round(lon,2), 1.0)
+        self.assertEqual(round(lon,2), 946.12)
         
         try:
             lon=estadistica.longitud_segemento([],[],1)

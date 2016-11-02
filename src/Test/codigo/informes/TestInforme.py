@@ -22,5 +22,5 @@ class TestInforme(unittest.TestCase):
         infor.sustituir(variables, template)
         cop=True
         self.assertEqual(cop,True)
-
+        os.remove(actual+'/Test/Tabla.tex')
         print("OK,test_sustituir")

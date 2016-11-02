@@ -4,6 +4,7 @@ from PyQt5 import QtCore
 import sys
 from .Window import Window
 import logging
+from proyecto.diccionario import Diccionario
 
 class VentanaInicio(QtWidgets.QMainWindow):
     """
@@ -25,68 +26,99 @@ class VentanaInicio(QtWidgets.QMainWindow):
         @param parent: padre que llama al panel de pestannas 
         """
 
-
+        
         super(VentanaInicio, self).__init__(parent)
         self.resize(900, 700)
-        logging.basicConfig(filename='logger.log',level=logging.DEBUG)
+        self.dic=Diccionario()        
+        logging.basicConfig(filename=self.dic.ini_log,level=logging.DEBUG)
 
         self.cont_cargar=0
-        open_file = QtWidgets.QAction("&Nuevo proyecto", self)
-        open_file.setShortcut("Ctrl+O")
-        open_file.setStatusTip('Abrir imagen')
+        self.abierto=0
+        open_file = QtWidgets.QAction(self.dic.ini_nuevo, self)
+        open_file.setShortcut(self.dic.ini_o_nuevo)
+        open_file.setStatusTip(self.dic.ini_p_abrir)
         open_file.triggered.connect(self.file_open) 
         
-        cargar_proye = QtWidgets.QAction("&Abrir proyecto", self)
-        cargar_proye.setShortcut("Ctrl+A")
-        cargar_proye.setStatusTip('Abrir Proyecto')
-        cargar_proye.triggered.connect(self.file_cargar)     
+        cargar_proye = QtWidgets.QAction(self.dic.ini_abrir_pro, self)
+        cargar_proye.setShortcut(self.dic.ini_o_abrir_pro)
+        cargar_proye.setStatusTip(self.dic.ini_p_abrir_pro)
+        cargar_proye.triggered.connect(self.file_cargar) 
+        
+        self.cerrar_all = QtWidgets.QAction(self.dic.ini_salir, self)
+        self.cerrar_all.setShortcut(self.dic.ini_o_salir)
+        self.cerrar_all.setStatusTip(self.dic.ini_p_salir)
+        self.cerrar_all.triggered.connect(self.cerrar)    
 
-        self.save_file = QtWidgets.QAction("&Guardar proyecto", self)
-        self.save_file.setShortcut("Ctrl+G")
-        self.save_file.setStatusTip('Guardar csv y .tex')
+        self.save_file = QtWidgets.QAction(self.dic.ini_guardar, self)
+        self.save_file.setShortcut(self.dic.ini_o_guardar)
+        self.save_file.setStatusTip(self.dic.ini_p_guardar)
         self.save_file.triggered.connect(self.file_save)
         self.save_file.setDisabled(True)
         
-        self.help_f = QtWidgets.QAction("&Acerca de", self)
+        self.help_f = QtWidgets.QAction(self.dic.ini_acerca, self)
         self.help_f.setShortcut(QtCore.Qt.Key_F2)
-        self.help_f.setStatusTip('Ayuda')
+        self.help_f.setStatusTip(self.dic.ini_o_ayuda)
         self.help_f.triggered.connect(self.acerca_de)
         
-        self.ayuda_f = QtWidgets.QAction("&Ayuda", self)
+        self.ayuda_f = QtWidgets.QAction(self.dic.ini_ayuda, self)
         self.ayuda_f.setShortcut(QtCore.Qt.Key_F1)
-        self.ayuda_f.setStatusTip('Ayuda')
+        self.ayuda_f.setStatusTip(self.dic.ini_o_ayuda)
         self.ayuda_f.triggered.connect(self.ayuda)
         self.statusBar()
 
         main_menu = self.menuBar()
-        file_menu = main_menu.addMenu('&Archivo')
-        help_menu = main_menu.addMenu('&Ayuda')
+        file_menu = main_menu.addMenu(self.dic.ini_archivo)
+        help_menu = main_menu.addMenu(self.dic.ini_ayuda)
         help_menu.addAction(self.help_f)
         help_menu.addAction(self.ayuda_f)
         
         file_menu.addAction(open_file)
         file_menu.addAction(cargar_proye)
         file_menu.addAction(self.save_file)
-        self.styleChoice = QtWidgets.QLabel("Cargar imagen para iniciar", self)
+        file_menu.addAction(self.cerrar_all)
+        
+        self.styleChoice = QtWidgets.QLabel(self.dic.ini_msg, self)
         self.styleChoice.setAlignment(QtCore.Qt.AlignCenter)
 
         laout_principal = QtWidgets.QHBoxLayout()
         laout_principal.addWidget(self.styleChoice)
-        self.styleChoice.setStyleSheet('color: red')
-        font = QtGui.QFont("Times", 35, QtGui.QFont.Bold, True)
+        self.styleChoice.setStyleSheet(self.dic.ini_color)
+        font = QtGui.QFont(self.dic.ini_time, 35, QtGui.QFont.Bold, True)
         self.styleChoice.setFont(font)
         central_widget = QtWidgets.QWidget()
         central_widget.setLayout(laout_principal)
         self.setCentralWidget(central_widget)
+        
+    def cerrar(self):
+        """
+        Metodo para cerrar la aplicacion de forma apropiada, si no tenemos cambios en caso 
+        de detectar cambios preguntara si queremos guardar o no.
+        
+        """
+        if self.abierto==1:
+            if self.ventana.pestannas.mediador_pestannas.bandera==True :
+                self.showdialog()
+                if self.guardar==True:
+                    self.ventana.pestannas.mediador_pestannas.guardar_tabla()  
+                    self.ventana.pestannas.mediador_pestannas.bandera=False
+                else:
+                    self.close()
+            else:
+                self.close()
+        else:
+            self.close()
+
+  
     @classmethod   
     def acerca_de(self):
         """
         Metodo que nos mostrara el acerca de como cuadro de dialogo.
         """
+        self.dic=Diccionario()
         msg = QtWidgets.QMessageBox()
         msg.adjustSize()
-        msg.setText("Autores: \n\tIsmael Tobar García \n\tAlvar Gonzalez Arnaiz\n\tJose Francisco Diez Pastor\nVersion: \n\t1.0 ")
-        msg.setWindowTitle("Acerca de")
+        msg.setText(self.dic.ini_msg_acerca)
+        msg.setWindowTitle(self.dic.ini_acercade)
         retval = msg.exec_()  # @UnusedVariable
         
     def ayuda(self):
@@ -100,7 +132,8 @@ class VentanaInicio(QtWidgets.QMainWindow):
         Metodo que va a mostrar la pantalla de dialogo para elegir las iamgenes 
         a abrir.
         """
-        self.path = QtWidgets.QFileDialog.getOpenFileName(self, 'Abrir imagen', 'c:/', "Image files (*.jpg )")
+        self.path = QtWidgets.QFileDialog.getOpenFileName(self, self.dic.ini_p_abri, self.dic.ini_p_dir, self.dic.ini_p_opt)
+        self.abierto=1
         self.ventana = Window(self.path[0], self) 
         self.setCentralWidget(self.ventana)    
         
@@ -121,9 +154,9 @@ class VentanaInicio(QtWidgets.QMainWindow):
                 else:
                     self.cargar_inicializacion_open()
         except:
-            exc="Warning:"+ str(sys.exc_info()[0])+ str(sys.exc_info()[1])
+            exc=self.dic.ini_p_war+ str(sys.exc_info()[0])+ str(sys.exc_info()[1])
             logging.warning(exc)
-            print("Error:", sys.exc_info()[0], sys.exc_info()[1])
+            print(self.dic.ini_p_err, sys.exc_info()[0], sys.exc_info()[1])
 
       
     def opciones_guardar(self,opt):
@@ -149,9 +182,9 @@ class VentanaInicio(QtWidgets.QMainWindow):
         try:
             self.ventana.pestannas.guardar_tabla()
         except :
-            exc="Warning:"+ str(sys.exc_info()[0])+ str(sys.exc_info()[1])
+            exc=self.dic.ini_p_war+ str(sys.exc_info()[0])+ str(sys.exc_info()[1])
             logging.warning(exc)
-            print("Warning:", sys.exc_info()[0], sys.exc_info()[1])
+            print(self.dic.ini_p_war, sys.exc_info()[0], sys.exc_info()[1])
             
     def msgbtn(self, i):
         """
@@ -160,7 +193,7 @@ class VentanaInicio(QtWidgets.QMainWindow):
         
         @param i: informacion del componente que clicamos. 
         """
-        if i.text() == "OK":                      
+        if i.text() == self.dic.ini_p_ok:                      
             self.guardar = True
         else:
             self.guardar = False
@@ -168,14 +201,13 @@ class VentanaInicio(QtWidgets.QMainWindow):
     def showdialog(self):
         """
         Metodo para mostrar la ventana de elegir de si queremos guardar o no 
-        los cambios.
-        
+        los cambios.        
         """
         msg = QtWidgets.QMessageBox()
         msg.adjustSize()
         msg.setIcon(QtWidgets.QMessageBox.Warning)    
-        msg.setText("Se han detectado cambios desea guardar")
-        msg.setWindowTitle("Aviso")
+        msg.setText(self.dic.ini_p_cambios)
+        msg.setWindowTitle(self.dic.ini_p_aviso)
         msg.setStandardButtons(QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel)
         msg.buttonClicked.connect(self.msgbtn)
         retval = msg.exec_()  # @UnusedVariable
@@ -185,13 +217,14 @@ class VentanaInicio(QtWidgets.QMainWindow):
         Metodo que va a mostrar la pantalla de dialogo para elegir al cargar 
         un proyecto.             
         """
-        path = QtWidgets.QFileDialog.getExistingDirectory(self, "Cargar Proyecto")
-        self.ventana = Window(path+'/Original.jpg' , self)
+        path = QtWidgets.QFileDialog.getExistingDirectory(self, self.dic.ini_p_cargar)
+        self.abierto=1
+        self.ventana = Window(path+self.dic.origi , self)
         self.setCentralWidget(self.ventana)
         try:
             self.ventana.pestannas.cargar_proyec(path)
         except:
-            exc="Warning: fichero csv no existe"+ str(sys.exc_info()[0])+ str(sys.exc_info()[1])
+            exc=self.dic.ini_p_war_amp+ str(sys.exc_info()[0])+ str(sys.exc_info()[1])
             logging.warning(exc)
             
     def file_cargar(self):
@@ -210,7 +243,7 @@ class VentanaInicio(QtWidgets.QMainWindow):
                 else:
                     self.cargar_inicializacion()
         except:
-            exc="Warning:"+ str(sys.exc_info()[0])+ str(sys.exc_info()[1])
+            exc=self.dic.ini_p_war+ str(sys.exc_info()[0])+ str(sys.exc_info()[1])
             logging.warning(exc)
-            print("Error:", sys.exc_info()[0], sys.exc_info()[1])
+            print(self.dic.ini_p_err, sys.exc_info()[0], sys.exc_info()[1])
             

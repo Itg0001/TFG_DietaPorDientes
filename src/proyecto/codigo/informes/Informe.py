@@ -1,6 +1,7 @@
 
 import jinja2
 import os
+from proyecto.diccionario import Diccionario
 
 class Informe():
     """
@@ -28,7 +29,7 @@ class Informe():
         self.variables=variables
         self.path=os.getcwd() 
         self.path+='\\'
-
+        self.dic=Diccionario()
         template= self.cargar_plantilla()
         self.sustituir(self.variables,template)
   
@@ -38,21 +39,23 @@ class Informe():
          
          @return  Plantilla leida en latex
         """
+        self.dic.infor_plan='proyecto/codigo/informes/jinja-test.tex'
+        
         latex_jinja_env = jinja2.Environment(
-        block_start_string = '\BLOCK{',
-        block_end_string = '}',
-        variable_start_string = '\VAR{',
-        variable_end_string = '}',
-        comment_start_string = '\#{',
-        comment_end_string = '}',
-        line_statement_prefix = '%%',
-        line_comment_prefix = '%#',
+        block_start_string = self.dic.jin_blo,
+        block_end_string = self.dic.jin_o_q,
+        variable_start_string = self.dic.jin_va,
+        variable_end_string = self.dic.jin_o_q,
+        comment_start_string = self.dic.jin_alm,
+        comment_end_string = self.dic.jin_o_q,
+        line_statement_prefix = self.dic.jin_porc,
+        line_comment_prefix = self.dic.jin_alm_po,
         trim_blocks = True,
         autoescape = False,
         loader = jinja2.FileSystemLoader(self.path)
         ) 
 
-        template = latex_jinja_env.get_template('proyecto/codigo/informes/jinja-test.tex')
+        template = latex_jinja_env.get_template(self.dic.infor_plan)
         
         #template = latex_jinja_env.get_template("C:/Users/Ismael/Desktop/TFG_DietaPorDientes/TrabajosPasadosPorJose/dietaJose/Interfaces/jinja-test.tex")
         return template
@@ -71,7 +74,7 @@ class Informe():
                               md1=variables[6],md2=variables[7],md3=variables[8],
                               v1=variables[9],v2=variables[10],v3=variables[11],
                               t1=variables[12],t2=variables[13],t3=variables[14])
-        latexSalida = open(self.dirToGuardar+'Tabla.tex', 'w', newline='')
+        latexSalida = open(self.dirToGuardar+self.dic.tab_in, 'w', newline='')
         latexSalida.write(latex)
         latexSalida.close()
 

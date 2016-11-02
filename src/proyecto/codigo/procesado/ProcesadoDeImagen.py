@@ -9,6 +9,7 @@ import tempfile
 import os,shutil
 
 from PIL import Image, ImageDraw
+from proyecto.diccionario import Diccionario
 
 class ProcesadoDeImagen():
     """
@@ -27,7 +28,8 @@ class ProcesadoDeImagen():
         dandole el path de la imagen.
         @param path_img: camino hasta la imagen.
         @retrun Img: imagen leida.
-        """     
+        """
+        self.dic=Diccionario()     
         img = io.imread(path_img.replace('\\', '/'))
         return img
     
@@ -45,7 +47,7 @@ class ProcesadoDeImagen():
         draw = ImageDraw.Draw(im)
         for i in segmentos:             
             draw.line((i[0][0], i[0][1], i[1][0], i[1][1]), fill='red', width=2)        
-        im.save(temp + "/Pintada.jpg", "JPEG", quality=100)
+        im.save(temp + self.dic.pintada, self.dic.jpg, quality=100)
     
     @classmethod
     def distancia_al_rojo(self, img):
@@ -135,6 +137,14 @@ class ProcesadoDeImagen():
         return lines
     
     def binarizar_para_cuadrado(self,img):
+        """
+        Este metodo va a consistir en que a partir de la imagen que hemos abierto
+        nos la va a binarizar resaltando unicamente los bordes del cuadrado donde
+        detectar las lineas 
+        @param img: imagen que hemos leido.
+        
+        @return: imagen binarizada resaltando bordes. 
+        """
         imgHSV=rgb2hsv(img)
         grises = rgb2grey(imgHSV)
         ii=0
@@ -151,6 +161,12 @@ class ProcesadoDeImagen():
         return grises
 
     def obtener_max_y_min(self,lines):
+        """
+        En este metodo vamos a calcular las xmax, xmin ymax e ymin de neustro cuadrado
+        es decir los 4 vertices que componen el cuadrado
+        @param lines: lista de puntos que forman las lineas del cuadrado.
+        @return: 4 vertices del cuadrado.
+        """
         puntos_x,puntos_y=set(),set()
         for i in lines:
             puntos_x.add(i[0][0])
@@ -160,40 +176,37 @@ class ProcesadoDeImagen():
         return max(puntos_x),min(puntos_x),max(puntos_y),min(puntos_y)
  
     def pertenece_o_no(self,x,y,xMin,xMax,yMin,yMax):
+        """
+        En este metodo dado un punto y los 4 vertices del cuadrado comprobaremos
+        si las coordenadas del punto pertenecen al area pintable.
+        @param x: coordenada x del punto a comprobar.
+        @param y: coordenada y del punto a comprobar.
+        @param xMin: coordenada x minima del cuadrado
+        @param xMax: coordenada x macima del cuadrado.
+        @param yMin: coodenada y minima del cuadrado.
+        @param yMax: coordenada y maxima del cuadrado.
+        @return: true/false dependiendo si pertenece a esa region o no.     
+        """
         if x == None and y==None:
             return False
         if (xMin< x < xMax) and  (yMin< y < yMax):
             return True
         else:
             return False
-    def binarizar_referencia(self,imagen):
-        ii=0
-        jj=0
-        for i in imagen:
-            for j in i:
-                if round(j,2)>0 and round(j,2)<0.09:
-                    imagen[ii][jj]=0
-                else:
-                    imagen[ii][jj]=1
-                jj=jj+1
-            jj=0
-            ii=ii+1
-        return imagen
-    def obtener_referencia(self,img):
-        imgCrop = img[840:860,555:750]
-        imgHSV=rgb2hsv(imgCrop)
-        distance_white = rgb2grey(1 - np.abs(imgHSV - (1, 1, 0)))
-        img_binarizada=self.binarizar_referencia(distance_white)
-        sin_ruido = skeletonize(img_binarizada)
-        lines = probabilistic_hough_line(sin_ruido, threshold=50, line_length=50,line_gap=50)
-        return lines
+
     
     def obtener_numeros(self,img):
+        """
+        Metodo que se va a encargar de obtener los numero que componen
+        la referencia.
+        @param img: imagen de la que obtener la referencia. 
+        @return: devolvemos el valor leido de la imagen que sera la referencia.
+        """
         imgCrop = img[860:950,520:645]
         imgHSV=rgb2hsv(imgCrop)
         distance_red = rgb2grey(1 - np.abs(imgHSV - (1, 1, 0)))
-    
-    
+
+        #binarizar
         ii=0
         jj=0
         for i in distance_red:
@@ -206,16 +219,20 @@ class ProcesadoDeImagen():
             jj=0
             ii=ii+1
         temp = tempfile.mkdtemp()
-        io.imsave(temp+"/imagen.png",distance_red,)
+        #guardar en temp
+        io.imsave(temp+self.dic.pro_img,distance_red,)
         
         act=os.getcwd()
-        tes=act+"/tesseract/tesseract.exe "
-        dir_img=temp+"/imagen.png "
-        dir_salida=temp+"/salida "
-        opt="nobatch digits "
+        tes=act+self.dic.pro_tessera
+        dir_img=temp+self.dic.pro_img_tesse
+        dir_salida=temp+self.dic.pro_sal
+        opt=self.dic.pro_batch
+        #ejecutar tesseract
         os.system(tes+dir_img+dir_salida+opt)
-        f = open(temp+'/salida.txt')
+        #obtener resultado de la ejecucion.
+        f = open(temp+self.dic.pro_sal_txt)
         g=f.read()
         f.close()
+        #borrar temporal.
         shutil.rmtree(temp) 
         return g.replace('3','0').replace('\n','').replace('8','0')

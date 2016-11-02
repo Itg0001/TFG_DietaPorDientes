@@ -10,3 +10,4 @@ from proyecto.codigo.informes import DatosToCsv
 from proyecto.codigo.informes import InGuardarDatos
 from proyecto.codigo.informes import ConfiguracionToXML
 from proyecto.codigo.estadisticas import Estadistica
+from proyecto.diccionario.Diccionario import Diccionario

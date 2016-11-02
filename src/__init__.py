@@ -13,6 +13,7 @@ from proyecto.gui.VentanaInicio import VentanaInicio
 from proyecto.gui.PanelDePestannas import PanelDePestannas
 from proyecto.gui.Mediadores.MediadorVentana import MediadorVentana
 from proyecto.gui.Mediadores.MediadorPestannas import MediadorPestannas
+from proyecto.diccionario.Diccionario import Diccionario
 
 
 from Test.codigo.procesado import TestProcesadoDeImagen

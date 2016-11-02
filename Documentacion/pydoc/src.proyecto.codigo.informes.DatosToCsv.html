@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module src.proyecto.codigo.informes.DatosToCsv</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="src.html"><font color="#ffffff">src</font></a>.<a href="src.proyecto.html"><font color="#ffffff">proyecto</font></a>.<a href="src.proyecto.codigo.html"><font color="#ffffff">codigo</font></a>.<a href="src.proyecto.codigo.informes.html"><font color="#ffffff">informes</font></a>.DatosToCsv</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ctobar%5Cdesktop%5Cworkespace%5Ctfg2%5Csrc%5Cproyecto%5Ccodigo%5Cinformes%5Cdatostocsv.py">c:\users\tobar\desktop\workespace\tfg2\src\proyecto\codigo\informes\datostocsv.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="csv.html">csv</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="proyecto.codigo.informes.InGuardarDatos.html#InGuardarDatos">proyecto.codigo.informes.InGuardarDatos.InGuardarDatos</a>(<a href="builtins.html#object">builtins.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="src.proyecto.codigo.informes.DatosToCsv.html#DatosToCsv">DatosToCsv</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="DatosToCsv">class <strong>DatosToCsv</strong></a>(<a href="proyecto.codigo.informes.InGuardarDatos.html#InGuardarDatos">proyecto.codigo.informes.InGuardarDatos.InGuardarDatos</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Clase&nbsp;que&nbsp;va&nbsp;a&nbsp;encargarse&nbsp;de&nbsp;dados&nbsp;unos&nbsp;datos&nbsp;pasarlos&nbsp;a&nbsp;dos&nbsp;ficheros&nbsp;csv:&nbsp;un&nbsp;fichero&nbsp;csv,&nbsp;en&nbsp;el&nbsp;<br>
+que&nbsp;se&nbsp;encontraran&nbsp;las&nbsp;lineas,su&nbsp;longitud&nbsp;,su&nbsp;angulo&nbsp;y&nbsp;su&nbsp;direccion,&nbsp;otro&nbsp;en&nbsp;el&nbsp;que&nbsp;se&nbsp;encontraran&nbsp;almacenadas&nbsp;<br>
+las&nbsp;estadisticas&nbsp;de&nbsp;las&nbsp;lineas&nbsp;en&nbsp;conjunto&nbsp;y&nbsp;en&nbsp;cada&nbsp;grupo.<br>
+&nbsp;<br>
+@author:&nbsp;Ismael&nbsp;Tobar&nbsp;Garcia<br>
+@version:&nbsp;1.0<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="src.proyecto.codigo.informes.DatosToCsv.html#DatosToCsv">DatosToCsv</a></dd>
+<dd><a href="proyecto.codigo.informes.InGuardarDatos.html#InGuardarDatos">proyecto.codigo.informes.InGuardarDatos.InGuardarDatos</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="DatosToCsv-guardar"><strong>guardar</strong></a>(path, lista)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Metodo&nbsp;que&nbsp;permitira&nbsp;generar&nbsp;los&nbsp;scv&nbsp;de&nbsp;datos&nbsp;de&nbsp;las&nbsp;lineas&nbsp;uno&nbsp;con&nbsp;sus&nbsp;estadisticos&nbsp;<br>
+y&nbsp;otro&nbsp;con&nbsp;la&nbsp;longitud&nbsp;y&nbsp;el&nbsp;angulo&nbsp;de&nbsp;cada&nbsp;recta&nbsp;o&nbsp;segmento.<br>
+&nbsp;<br>
+@param&nbsp;path:&nbsp;Camino&nbsp;donde&nbsp;guardar&nbsp;los&nbsp;ficheros&nbsp;generados.<br>
+&nbsp;<br>
+@param&nbsp;lista:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v:&nbsp;lista&nbsp;de&nbsp;lineas&nbsp;en&nbsp;vertical.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;h:&nbsp;lista&nbsp;de&nbsp;lineas&nbsp;en&nbsp;horizontal.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;md:&nbsp;lista&nbsp;de&nbsp;lineas&nbsp;en&nbsp;diagonal&nbsp;md.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dm:&nbsp;lista&nbsp;de&nbsp;lineas&nbsp;en&nbsp;diagonal&nbsp;dm.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;st_v:&nbsp;estadisticas&nbsp;de&nbsp;lineas&nbsp;en&nbsp;vertical.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;st_h:&nbsp;estadisticas&nbsp;de&nbsp;lineas&nbsp;en&nbsp;horizontal.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;st_md:&nbsp;estadisticas&nbsp;de&nbsp;lineas&nbsp;en&nbsp;diagonal&nbsp;md.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;st_dm:&nbsp;estadisticas&nbsp;de&nbsp;lineas&nbsp;en&nbsp;diagonal&nbsp;dm.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;st_tot:&nbsp;estadisticas&nbsp;totales&nbsp;de&nbsp;lineas.</tt></dd></dl>
+
+<dl><dt><a name="DatosToCsv-leer"><strong>leer</strong></a>(path)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Metodo&nbsp;que&nbsp;a&nbsp;partir&nbsp;de&nbsp;la&nbsp;ruta&nbsp;de&nbsp;un&nbsp;fichero&nbsp;csv&nbsp;leera&nbsp;la&nbsp;configuracion&nbsp;y&nbsp;lo&nbsp;guardara&nbsp;en&nbsp;una<br>
+lista.<br>
+&nbsp;<br>
+@param&nbsp;path:&nbsp;Camino&nbsp;donde&nbsp;leer&nbsp;el&nbsp;fichero&nbsp;csv.<br>
+&nbsp;<br>
+@return&nbsp;segmentos:&nbsp;Lista&nbsp;con&nbsp;las&nbsp;lineas&nbsp;o&nbsp;segmentos.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="proyecto.codigo.informes.InGuardarDatos.html#InGuardarDatos">proyecto.codigo.informes.InGuardarDatos.InGuardarDatos</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

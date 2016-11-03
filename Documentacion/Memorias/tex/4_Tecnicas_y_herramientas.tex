@@ -3,11 +3,9 @@
 %\maketitle
 \section{Interfaz gráfica de usuario:}
 \subsection{Tkinter}
-Es una librería que proporciona el diseño y visualización de interfaces de usuario en Python. Esta a su vez esta basada en librerías de TK/TCL que están incluidas por en la propia instalación.
-\\
+Es una librería que proporciona el diseño y visualización de interfaces de usuario en Python. Esta a su vez, esta basada en librerías de TK/TCL que están incluidas por en la propia instalación.
 
-\textbf{Ventajas:}
-
+\subsubsection{Ventajas:}
 \begin{itemize}
 \item Es fácil de usar y es recomendable para el aprendizaje del lenguaje.
 
@@ -16,18 +14,14 @@ Es una librería que proporciona el diseño y visualización de interfaces de us
 \item Al servir para aprendices y venir preinstalado podemos encontrar multitud de tutoriales y de documentación sobre ello.
 \end{itemize}
 
-\textbf{Desventajas:}
-
+\subsubsection{Desventajas:}
 \begin{itemize}
 \item Pocos elementos gráficos. Escaso control de las ventanas y bastante lento.
 \end{itemize}
 
 \subsection{WxPython}
 Es una librería basada en otra importante que veremos mas adelante, también es multiplataforma y esta programada en C/C++, es mas nueva que Tkinter.
-\\
-
-\textbf{Ventajas:}
-
+\subsubsection{Ventajas:}
 \begin{itemize}
 \item Es más difícil de usar que Tkinter pero aun así hay mucha documentación sobre ella.
 
@@ -37,8 +31,7 @@ Es una librería basada en otra importante que veremos mas adelante, también es
 \item Cuenta con una gran comunidad de gente que lo usa y publica ejemplos y tutoriales.
 \end{itemize}
 
-\textbf{Desventajas:}
-
+\subsubsection{Desventajas:}
 \begin{itemize}
 \item La principal desventaja es que se actualizan las versiones mucho y para mantener una aplicación durante largo tiempo perdemos tiempo de.
 \item Es más complejo de usar que el anterior.
@@ -48,7 +41,7 @@ Es una librería basada en otra importante que veremos mas adelante, también es
 Es más difícil de usar que WxPython y WxWidget pero da más control sobre los elementos gráficos y muchas librerías se basan en ello, por lo que se puede encontrar bastante información sobre esta librería.
 \\
 
-\textbf{Ventajas:}
+\subsubsection{Ventajas:}
 
 \begin{itemize}
 \item Al ser tan usada, si instalamos Python desde Anaconda, que es un cojunto de librerías y aplicaciones de Python, ya tendríamos PyQt4 por defecto instalado.
@@ -56,15 +49,15 @@ Es más difícil de usar que WxPython y WxWidget pero da más control sobre los 
 \item Podemos usar un IDE con el que estamos muy familiarizados en la carrera y que funciona muy bien (Eclipse) pero tenemos que instalar un plugin para Python (PyDev), ya que es un IDE basado en java también deberíamos instalar Java 8.
 \end{itemize}
 
-\textbf{Desventajas:}
+\subsubsection{Desventajas:}
 
 \begin{itemize}
 \item Es mas difícil de entender y comprender que los anteriores pero quedan mas limpias las interfaces.
-\item Si somos puristas e instalamos Python solo sin IDE ni nada no vendría instalado pero si usamos Anaconda si que vendría instalado
+\item Si somos puristas e instalamos Python solo, sin IDE ni nada no vendría instalado, pero si usamos Anaconda si que vendría instalado.
 \end{itemize}
 
 \subsection{WxWidgets:}
-Como hemos mencionado anteriormente es muy parecido a WxPython por lo que no vamos a entrar en detalle también está programado en C/C++ y es multiplataforma da un aspecto de comportamiento nativo.
+Como hemos mencionado anteriormente, es muy parecido a WxPython por lo que no vamos a entrar en detalle. También está programado en C/C++ y es multiplataforma por lo que da un aspecto de comportamiento nativo.
 \\
 
 
@@ -73,18 +66,18 @@ Las plantillas sirven para generar código con la sustitución de los valores de
 Nosotros las vamos a usar en combinación con LaTex para generar el pdf con el informe de las estadísticas de la ejecución del algoritmo que detecta las líneas.\\
 Como podemos observar hay muchos frameworks para usar las plantillas pero hemos elegido comparar varios usados otros años por compañeros.
 \subsection{Mustache}
-Pystache es una implementación de Mustache en Python para el diseño de plantillas, está inspirado en Ctemplate y et.
+Pystache es una implementación de Mustache en Python para el diseño de plantillas, está inspirado en Ctemplate \cite{GitHub:CTemplate} y et \cite{et}.
 En estos tipos de lenguaje no se puede aplicar lógica de aplicación simplemente son para una presentación más fluida.
 
-\textbf{Ventajas:}
+\subsubsection{Ventajas:}
 
 \begin{itemize}
 \item Tiene documentación online.
 \item Está disponible para una gran variedad de lenguajes de programación.
-\item Si necesitásemos hacer documentos xml seria la herramienta perfecta.
+\item Si necesitásemos hacer documentos XML seria la herramienta perfecta.
 \end{itemize}
 
-\textbf{Desventajas:}
+\subsubsection{Desventajas:}
 \begin{itemize}
 \item Carece de ejemplos o tutoriales de cómo usarlo con LaTex en su versión de Python.
 \end{itemize}
@@ -96,19 +89,20 @@ El nombre de la librería viene del templo Japonés Jinja.\\
 Es una librería para escribir plantillas, para Python, funciona con las últimas versiones de Python, también es una de las más usadas librerías está inspirada en Django.
 
 
-\textbf{Ventajas:}
+\subsubsection{Ventajas:}
 \begin{itemize}
 \item Viene preinstalado con Anaconda ya que es uno de los más utilizados.
 \item Fácil de usar y de pasar los parámetros.
 \item Fue creada para Python2 pero también funciona en Python3
 \end{itemize}
-\textbf{Desventajas:}
+
+\subsubsection{Desventajas:}
 \begin{itemize}
 \item No esta implementado más que para Python.
 \end{itemize}
 
 \subsection{Comparación de las herramientas}
-Esta comparación son dos columnas\ref{tb:1} sacada de la tabla comparativa de herramientas obtenida en wikipedia.
+Esta comparación son dos filas \ref{tb:1} sacada de la tabla comparativa de herramientas obtenida en wikipedia \cite{Template:table}.
 
 
 \begin{table}[]
@@ -125,9 +119,10 @@ Mustache   & +30      & MIT      & SI        & SI        & SI      & SI         
 }
 \end{table}
 \section{IDE:}
-Un IDE es una aplicación para poder desarrollar código y ejecutar pero facilita la navegabilidad de por los paquetes y poder debugear de forma mas eficiente que sin el.\\
-Es una herramienta indispensable para el desarrollo de software,un IDE se compone normalmente de un editor de código fuente, un depurador, la mayoría de ellos tienen también autocompletado,compilador, indentador de código e interprete.\\
-Ventajas:
+Un IDE es una aplicación para poder desarrollar código y ejecutar pero facilita la navegabilidad de por los paquetes y poder debugear de forma mas eficiente que sin él.\\
+Es una herramienta indispensable para el desarrollo de software, un IDE se compone normalmente de un editor de código fuente, un depurador, la mayoría de ellos tienen también autocompletado, compilador, indentador de código e interprete.
+
+\subsubsection{Ventajas:}
 \begin{itemize}
 	\item Maximizar la productividad.
 	\item Juntar todo el ciclo de desarrollo en una herramienta.
@@ -137,12 +132,12 @@ Ventajas:
 
 \subsection{Eclipse:}
 Es una aplicación software con muchos plugins y herramientas para el desarrollo de software, esta basado en Java, para su ejecución e instalación es necesario tener Java instalado.\\
-Fue desarrollado por IMB en un principio pero ahora esta desarrollado por la Fundación Eclipse, una fundación independiente y sin animo de lucro.
+Fue desarrollado por IMB en un principio, pero ahora esta desarrollado por la Fundación Eclipse, una fundación independiente y sin animo de lucro.
 
 
-Podemos acceder a la pagina atraves del siguiente enlace: \url{https://eclipse.org/home/index.php}
+Podemos acceder a la pagina atraves del siguiente enlace  \url{https://eclipse.org/home/index.php}
 
-\textbf{Ventajas:}
+\subsubsection{Ventajas:}
 \begin{itemize}
 	\item Lo hemos usado en múltiples asignaturas durante la carrera.
 	\item Es gratuito por lo que podemos descargarlo sin problemas.
@@ -151,21 +146,23 @@ Podemos acceder a la pagina atraves del siguiente enlace: \url{https://eclipse.o
 
 \subsection{PyDev:}
 Es un plugin para poder usar el IDE de Eclipse para programar en Python, Jython e IronPython.
-Se instala desde eclipse desde: Help > Install New Software.
+Se instala desde eclipse desde: Help, Install New Software.
 
-Podemos encontrarlo a atraves del siguiente enlace:\cite{Eclipse:PyDev}
+Podemos encontrarlo a atraves del siguiente enlace \cite{Eclipse:PyDev}
 
 \section{Modelado}
-El modelado es la creación de diagramas que nos explican que apariencia y comunicación van a tener los datos entre ellos, por eso es necesaria una herramienta especializada en ello, hay muchas en el mercado pero en las asignaturas de la carrera dimos una con la que ya estamos familiarizados, por eso no vamos a analizar todas las disponible y comparar, simplemente vamos a usar la que ya conocemos como funciona y que para las siguientes parte y diagramas ya nos va a servir.
+El modelado es la creación de diagramas que nos explican que apariencia y comunicación van a tener los datos entre ellos.
+Es necesaria una herramienta especializada en ello, hay muchas en el mercado, pero en las asignaturas de la carrera dimos una con la que ya estamos familiarizados.
+Vamos a analizar todas las disponible y comparar, simplemente vamos a usar la que ya conocemos como funciona y que para las siguientes parte y diagramas nos va a servir.
 
 \subsection{Astah}
 Es una herramienta de modelado UML para creación de diagramas orientados a objetos.
 Podríamos hacerlos dibujando pero es mas preciso y mas profesional usar una herramienta que esta pensado para ello.
-Podemos encontrar la herramienta através del siguiente enlace: \cite{Modelado:Astah}
+Podemos encontrar la herramienta através del siguiente enlace  \cite{Modelado:Astah}
 
-\subsection{XML:}
+\subsection{XML}
 Para guardar los nombres de los ficheros que se generan al guardar un proyecto, vamos a usar un archivo XML, que contenga los nombres de los ficheros que se generan.\\
-XMl significa Extensible Marking Language, también otra de sus propiedades es que es un lenguaje sencillo que estructura el contenido por medio de :
+XML significa Extensible Marking Language, también otra de sus propiedades es que es un lenguaje sencillo que estructura el contenido por medio de:
 \begin{itemize}
 \item Cuerpo: Es obligatorio en su sintaxis, normalmente contiene un elemento raíz del que cuelgan todos los demás.
 \item Elementos: Pueden tener mas elementos, cadenas de caracteres o nada.
@@ -176,3 +173,38 @@ XMl significa Extensible Marking Language, también otra de sus propiedades es q
 Para mas informacion respecto a ello podemos encontrarlo aqui:\cite{Wiki:xml}.
 
 En nuestro caso lo vamos a usar como un fichero donde se guardan todo lo que contendría un proyecto.
+
+\section{OCR}
+Para entrar en materia adecuadamente para explicar la librería usada mas adelante vamos a introducir lo que es un OCR\cite{OCR} y en que consiste.\\
+Un OCR es un proceso dirigido a buscar de forma óptica un reconocimiento de caracteres en imágenes, es decir hacer una extracción de características de la imagen en cuestión, devolviendo el texto que contiene la imagen.
+
+\textbf{Ventajas:}
+\begin{itemize}
+\item Poder pasar documentos manuscritos a archivos de texto a ordenador.
+\item Facilitar trabajo que antes hacían humanos de forma mas rápida al realizarlo un ordenador.
+\item Poder automatizar muchos sistemas.
+\end{itemize}
+
+\textbf{Desventajas:}
+\begin{itemize}
+\item Depende de que dispositivo tome la imagen puede meter ruido en ella complicando o inutilizando el posterior reconocimiento.
+\item La distinta distancia entre caracteres puede variar en el reconocimiento produciendo errores.
+\item En un escenario idílico funcionaria perfectamente pero ya sabemos que dichas situaciones nunca ocurren.
+\end{itemize}
+
+\textbf{Pasos del algoritmo:}
+\begin{itemize}
+\item Binarizar la imagen.
+\item Fragmentación y/o segmentación.
+\item Skeletonizar los componentes.
+\item clasificar lo detectado.
+\end{itemize}
+
+\subsection{Tesseract}
+Como podemos ver Tesseract\cite{wiki:Tesseract} es un OCR de software libre.\\
+Originalmente estaba hecho en C pero se migro a C++ en el 1998, mas tarde fue concebido como Open Source en el 2005 al retomar el proyecto la universidad de Nevada(Las Vegas) en EEUU y finalmente en 2006 fue retomado por Google.\\
+
+Lo potente de esta librería es que si tus necesidades fuesen otras podrías reentrenar la red para que reconozca nuevos idiomas o nuevos estilos de letras.
+
+
+

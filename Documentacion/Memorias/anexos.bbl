@@ -1,0 +1,23 @@
+\begin{thebibliography}{1}
+
+\bibitem{Hunt2013}
+John Hunt.
+\newblock {\em Gang of Four Design Patterns}, pages 135--136.
+\newblock Springer International Publishing, Cham, 2013.
+
+\bibitem{wiki:Comando}
+Wikipedia.
+\newblock Patron de diseño comando, 2016.
+\newblock [Patron de diseño Comando].
+
+\bibitem{wiki:Fachada}
+Wikipedia.
+\newblock Patron de diseño fachada, 2016.
+\newblock [Patron de diseño Comando].
+
+\bibitem{wiki:Mediador}
+Wikipedia.
+\newblock Patron de diseño mediador, 2016.
+\newblock [Patron de diseño Mediador].
+
+\end{thebibliography}

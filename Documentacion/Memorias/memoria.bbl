@@ -5,11 +5,6 @@ G.~Bradski.
 \newblock Transformada de hough, 2000.
 \newblock [imagen de la documentacion de OpenCv].
 
-\bibitem{IDE:Eclipse}
-Eclipse.
-\newblock Eclipse entorno de desarrollo, 2016.
-\newblock [IDE].
-
 \bibitem{pat:patHough}
 Paul Hough.
 \newblock Patente de paul hough line transform, 1962.
@@ -21,6 +16,11 @@ Nahum Kiryati, Heikki Kälviäinen, and Satu Alaoutinen.
   evaluation.
 \newblock {\em Pattern Recognition Letters}, 21(13–14):1157 -- 1164, 2000.
 \newblock Selected Papers from The 11th Scandinavian Conference on Image.
+
+\bibitem{GitHub:CTemplate}
+dragotin OlafvdSpek.
+\newblock Template, 2005.
+\newblock [Herramienta].
 
 \bibitem{Manual:HAE}
 Cesar Represa.
@@ -35,7 +35,17 @@ Scypi.org.
 \bibitem{modelo:hsv}
 Alvy~Ray Smith.
 \newblock Modelo hsv, 1978.
-\newblock [HSV es lo mismo que HSB pero no que HSB NI HSL].
+\newblock [Modelo de color].
+
+\bibitem{wiki:Tesseract}
+Ray Smith.
+\newblock Ocr, 2006,.
+\newblock [Herramienta].
+
+\bibitem{et}
+suyu34.
+\newblock Et-template, 2015.
+\newblock [Herramienta].
 
 \bibitem{Eclipse:PyDev}
 Aleks Totic.
@@ -52,7 +62,27 @@ Aleks Totic.
 
 \bibitem{Modelado:Astah}
 Change Vision.
-\newblock Modelado uml, 2006,.
+\newblock Modelado {UML}, 2006,.
 \newblock [Herramienta].
+
+\bibitem{Wiki:Grafos}
+Wikipedia.
+\newblock Teoría de grafos, -,.
+\newblock [Modelo matemático].
+
+\bibitem{Wiki:xml}
+Wikipedia.
+\newblock Xml, -,.
+\newblock [XML].
+
+\bibitem{OCR}
+Wikipedia.
+\newblock Reconocimiento óptico de caracteres.
+\newblock [Herramienta].
+
+\bibitem{Template:table}
+Wikipedia.
+\newblock Comparativa de template engines, 2007,.
+\newblock [Tabla].
 
 \end{thebibliography}

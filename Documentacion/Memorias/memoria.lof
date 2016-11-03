@@ -4,18 +4,18 @@
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Los tres canales del espacio RGB \cite {Manual:HAE}\relax }}{6}{figure.caption.13}
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Representaci\IeC {\'o}n del modelo RGB\cite {Manual:HAE}\relax }}{6}{figure.caption.14}
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Representaci\IeC {\'o}n del modelo HSV\cite {Manual:HAE}\relax }}{7}{figure.caption.16}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Lineas de Hough\cite {opencv:HoughIm}\relax }}{8}{figure.caption.22}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Ejemplo de eskeletonize.\relax }}{9}{figure.caption.24}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Ejemplo de un widget sobre la funci\IeC {\'o}n de hough\relax }}{17}{figure.caption.42}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Ejemplo de una visualizaci\IeC {\'o}n del resultado intermedio de las funciones.\relax }}{18}{figure.caption.43}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Ejemplo de una Ejecuci\IeC {\'o}n.\relax }}{18}{figure.caption.44}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Resumen visual binarizaci\IeC {\'o}n.\relax }}{20}{figure.caption.46}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Resumen visual Obtener Segmentos.\relax }}{21}{figure.caption.48}
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Resumen visual procesado de Segmentos.\relax }}{21}{figure.caption.50}
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Lineas obtenidas despu\IeC {\'e}s de procesar el grafo\relax }}{22}{figure.caption.52}
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Dise\IeC {\~n}o de la interfaz de usuario\relax }}{23}{figure.caption.55}
-\contentsline {figure}{\numberline {5.15}{\ignorespaces Dise\IeC {\~n}o de la interfaz de usuario\relax }}{23}{figure.caption.57}
-\contentsline {figure}{\numberline {5.16}{\ignorespaces Barra de herramientas de la aplicaci\IeC {\'o}n\relax }}{24}{figure.caption.59}
-\contentsline {figure}{\numberline {5.17}{\ignorespaces Barra de herramientas de la imagen\relax }}{24}{figure.caption.61}
-\contentsline {figure}{\numberline {5.18}{\ignorespaces FigureCanvas de la imagen\relax }}{25}{figure.caption.63}
-\contentsline {figure}{\numberline {5.19}{\ignorespaces Pesta\IeC {\~n}as\relax }}{25}{figure.caption.65}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Lineas de Hough\cite {opencv:HoughIm}\relax }}{8}{figure.caption.21}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Ejemplo de eskeletonize.\relax }}{9}{figure.caption.23}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Ejemplo de un widget sobre la funci\IeC {\'o}n de Hough\relax }}{18}{figure.caption.54}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Ejemplo de una visualizaci\IeC {\'o}n del resultado intermedio de las funciones.\relax }}{19}{figure.caption.55}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Ejemplo de una ejecuci\IeC {\'o}n.\relax }}{19}{figure.caption.56}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Resumen visual binarizaci\IeC {\'o}n.\relax }}{21}{figure.caption.58}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Resumen visual Obtener Segmentos.\relax }}{22}{figure.caption.60}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Resumen visual procesado de Segmentos.\relax }}{22}{figure.caption.62}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces L\IeC {\'\i }neas obtenidas despu\IeC {\'e}s de procesar el grafo\relax }}{23}{figure.caption.64}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Dise\IeC {\~n}o de la interfaz de usuario\relax }}{24}{figure.caption.67}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Dise\IeC {\~n}o de la interfaz de usuario\relax }}{24}{figure.caption.69}
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Barra de herramientas de la aplicaci\IeC {\'o}n\relax }}{25}{figure.caption.71}
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Barra de herramientas de la imagen\relax }}{25}{figure.caption.73}
+\contentsline {figure}{\numberline {5.18}{\ignorespaces FigureCanvas de la imagen\relax }}{26}{figure.caption.75}
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Pesta\IeC {\~n}as\relax }}{26}{figure.caption.77}

@@ -57,42 +57,66 @@ class MediadorPestannas():
      
         self.pestannas.repetici = QtWidgets.QHBoxLayout()
         self.pestannas.repeticiones = QtWidgets.QLabel(self.dic.md_pe_repe)
-        self.pestannas.combo_repeti = QtWidgets.QComboBox()
-        self.pestannas.combo_repeti.addItems(["1","2","3","4","5","6"])
-        self.pestannas.combo_repeti.setCurrentIndex(1)
+        
+        
+        self.pestannas.combo_repeti = QtWidgets.QSlider(QtCore.Qt.Horizontal)
+        self.pestannas.combo_repeti.setMinimum(1)
+        self.pestannas.combo_repeti.setMaximum(7)
+        self.pestannas.combo_repeti.setValue(2)
+        self.pestannas.combo_repeti.setTickPosition(QtWidgets.QSlider.TicksBelow)
+        self.pestannas.combo_repeti.setTickInterval(1)
+        self.pestannas.combo_repeti.valueChanged.connect(self.valuechange_repeti)
+        self.pestannas.repe_actual = QtWidgets.QLabel(str(self.pestannas.combo_repeti.value()))
+        self.pestannas.repe_actual.setStyleSheet(self.dic.md_pe_color_red)
 
         
         self.pestannas.long_min_layout = QtWidgets.QHBoxLayout()
         self.pestannas.long_min = QtWidgets.QLabel(self.dic.md_pe_long_min)
-        self.pestannas.combo_lon = QtWidgets.QComboBox()
-        self.pestannas.combo_lon.addItems(["5","10","15","20","25","30","35","40","45","50"])
-        self.pestannas.combo_lon.setCurrentIndex(3)
-        
-        
+
+        self.pestannas.combo_lon = QtWidgets.QSlider(QtCore.Qt.Horizontal)
+        self.pestannas.combo_lon.setMinimum(1)
+        self.pestannas.combo_lon.setMaximum(50)
+        self.pestannas.combo_lon.setValue(20)
+        self.pestannas.combo_lon.setTickPosition(QtWidgets.QSlider.TicksBelow)
+        self.pestannas.combo_lon.setTickInterval(5)
+        self.pestannas.combo_lon.valueChanged.connect(self.valuechange_lon)
+        self.pestannas.lon_actual = QtWidgets.QLabel(str(self.pestannas.combo_lon.value()))
+        self.pestannas.lon_actual.setStyleSheet(self.dic.md_pe_color_red)
+  
         self.pestannas.direccion_layout = QtWidgets.QHBoxLayout()
         self.pestannas.direccion = QtWidgets.QLabel(self.dic.md_pe_direccion)
         self.pestannas.combo_dir = QtWidgets.QComboBox()
         self.pestannas.combo_dir.addItems(["Derecha","Izquierda"])
         self.pestannas.combo_dir.setCurrentIndex(1)
         
-
         self.pestannas.layout_segundo = QtWidgets.QVBoxLayout() 
        
         self.pestannas.direccion_layout.addWidget(self.pestannas.direccion)
         self.pestannas.direccion_layout.addWidget(self.pestannas.combo_dir)
-        self.pestannas.layout_segundo.addLayout(self.pestannas.direccion_layout)     
 
+        self.pestannas.layout_segundo.addLayout(self.pestannas.direccion_layout) 
+            
         self.pestannas.repetici.addWidget(self.pestannas.repeticiones)
-        self.pestannas.repetici.addWidget(self.pestannas.combo_repeti)
+        self.pestannas.repetici.addWidget(self.pestannas.repe_actual)
         self.pestannas.layout_segundo.addLayout(self.pestannas.repetici)
+        self.pestannas.layout_segundo.addWidget(self.pestannas.combo_repeti)
 
         self.pestannas.long_min_layout.addWidget(self.pestannas.long_min)
-        self.pestannas.long_min_layout.addWidget(self.pestannas.combo_lon)
+        self.pestannas.long_min_layout.addWidget(self.pestannas.lon_actual)
         self.pestannas.layout_segundo.addLayout(self.pestannas.long_min_layout)
-        
+        self.pestannas.layout_segundo.addWidget(self.pestannas.combo_lon)
+
         self.pestannas.layout_segundo.addWidget(self.pestannas.button)
         self.pestannas.layout_segundo.setAlignment(QtCore.Qt.AlignTop)       
-     
+    
+    def valuechange_repeti(self):
+        val= self.pestannas.combo_repeti.value()
+        self.pestannas.repe_actual.setText(str(val))
+        
+    def valuechange_lon(self):
+        val= self.pestannas.combo_lon.value()
+        self.pestannas.lon_actual.setText(str(val))
+        
     def tab_2_ui(self):
         """
         Metodo para inicializar el panel de pestañas 2 con todos sus compoenentes.
@@ -383,8 +407,8 @@ class MediadorPestannas():
         otro con las lineas detectadas y las dos imagenes original y pintada despues del 
         procesado.
         """
-        repe=self.pestannas.combo_repeti.currentIndex()
-        lon=self.pestannas.combo_lon.currentIndex()
+        repe=self.pestannas.combo_repeti.value()
+        lon=self.pestannas.combo_lon.value()
         dire=self.pestannas.combo_dir.currentIndex()
         path = QtWidgets.QFileDialog.getExistingDirectory(self.pestannas, self.dic.md_pe_open)
         band = False
@@ -457,10 +481,9 @@ class MediadorPestannas():
         @param path: Camino hasta donde esta nuestro proyecto en custion.
         """
         segmentos_pintar,self.pestannas.table,self.pestannas.nombres,repe,long,dire=self.fachada_entrada_salida.cargar_proyec(path,self.pestannas.table) 
-        self.pestannas.combo_lon.setCurrentIndex(int(long))
-        self.pestannas.combo_repeti.setCurrentIndex(int(repe))
+        self.pestannas.combo_lon.setValue(int(long))
+        self.pestannas.combo_repeti.setValue(int(repe))
         self.pestannas.combo_dir.setCurrentIndex(int(dire))
-
         if len(segmentos_pintar) != 0:       
             self.pestannas.ventana.pintar_imagen_y_segmentos(segmentos_pintar)
             self.pestannas.ventana.selec_ante = None

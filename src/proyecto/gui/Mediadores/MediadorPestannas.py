@@ -3,11 +3,11 @@ from PyQt5 import QtWidgets, QtCore
 import os, sys, logging
 import shutil
 import tempfile
-from proyecto.codigo  import Informe
 from proyecto.codigo.estadisticas import Estadistica
 from proyecto.codigo.informes.DatosToCsv import DatosToCsv
 from proyecto.codigo.informes.ConfiguracionToXML import ConfiguracionToXML
 from proyecto.diccionario import Diccionario
+from proyecto.gui.Fachadas.FachadaEntradaSalida import FachadaEntradaSalida
 
 class MediadorPestannas():
     """
@@ -36,9 +36,8 @@ class MediadorPestannas():
         self.escribeCSV = DatosToCsv()
         self.escribeXML = ConfiguracionToXML()
         self.borrar = False
-        self.bandera = False
-        self.dic=Diccionario()     
-
+        self.dic=Diccionario()
+        self.fachada_entrada_salida=FachadaEntradaSalida(self)
 
     def inicia_paneles(self):
         """
@@ -55,7 +54,42 @@ class MediadorPestannas():
         self.pestannas.addTab(self.pestannas.tab1, self.dic.md_pe_lin_pin)        
         self.pestannas.button = QtWidgets.QPushButton(self.dic.md_pe_calc)
         self.pestannas.button.clicked.connect(self.pestannas.ventana.calcular_lineas)
-        self.pestannas.layout_segundo = QtWidgets.QVBoxLayout()      
+     
+        self.pestannas.repetici = QtWidgets.QHBoxLayout()
+        self.pestannas.repeticiones = QtWidgets.QLabel(self.dic.md_pe_repe)
+        self.pestannas.combo_repeti = QtWidgets.QComboBox()
+        self.pestannas.combo_repeti.addItems(["1","2","3","4","5","6"])
+        self.pestannas.combo_repeti.setCurrentIndex(1)
+
+        
+        self.pestannas.long_min_layout = QtWidgets.QHBoxLayout()
+        self.pestannas.long_min = QtWidgets.QLabel(self.dic.md_pe_long_min)
+        self.pestannas.combo_lon = QtWidgets.QComboBox()
+        self.pestannas.combo_lon.addItems(["5","10","15","20","25","30","35","40","45","50"])
+        self.pestannas.combo_lon.setCurrentIndex(3)
+        
+        
+        self.pestannas.direccion_layout = QtWidgets.QHBoxLayout()
+        self.pestannas.direccion = QtWidgets.QLabel(self.dic.md_pe_direccion)
+        self.pestannas.combo_dir = QtWidgets.QComboBox()
+        self.pestannas.combo_dir.addItems(["Derecha","Izquierda"])
+        self.pestannas.combo_dir.setCurrentIndex(1)
+        
+
+        self.pestannas.layout_segundo = QtWidgets.QVBoxLayout() 
+       
+        self.pestannas.direccion_layout.addWidget(self.pestannas.direccion)
+        self.pestannas.direccion_layout.addWidget(self.pestannas.combo_dir)
+        self.pestannas.layout_segundo.addLayout(self.pestannas.direccion_layout)     
+
+        self.pestannas.repetici.addWidget(self.pestannas.repeticiones)
+        self.pestannas.repetici.addWidget(self.pestannas.combo_repeti)
+        self.pestannas.layout_segundo.addLayout(self.pestannas.repetici)
+
+        self.pestannas.long_min_layout.addWidget(self.pestannas.long_min)
+        self.pestannas.long_min_layout.addWidget(self.pestannas.combo_lon)
+        self.pestannas.layout_segundo.addLayout(self.pestannas.long_min_layout)
+        
         self.pestannas.layout_segundo.addWidget(self.pestannas.button)
         self.pestannas.layout_segundo.setAlignment(QtCore.Qt.AlignTop)       
      
@@ -199,8 +233,7 @@ class MediadorPestannas():
                     self.pestannas.P1_x.setText(str(round(ix, 0)))
                     self.pestannas.P1_y.setText(str(round(iy, 0)))
                     coords.append((ix, iy))
-                    self.pestannas.ventana.c1 = (ix, iy)
- 
+                    self.pestannas.ventana.c1 = (ix, iy) 
                 else:
                     self.pestannas.p_2.setStyleSheet(self.dic.md_pe_color_red)
                     self.pestannas.P2_x.setText(str(round(ix, 0)))
@@ -210,7 +243,6 @@ class MediadorPestannas():
                     self.pestannas.ventana.fig.canvas.mpl_disconnect(cid)
                     self.pestannas.button2.setEnabled(True)
                     self.pestannas.button3.setEnabled(True)
- 
             return coords
         cid = self.pestannas.ventana.fig.canvas.mpl_connect(self.dic.md_pe_but_press, onclick)
         self.pestannas.ventana.canvas.draw()           
@@ -220,13 +252,14 @@ class MediadorPestannas():
         Metodo que se va a encargar de añadir a la imagen la linea que hemso seleccionado 
         manualmente.
         """
-        self.bandera = True
+        self.pestannas.ventana.padre.bandera = True
         self.pestannas.p_2.setStyleSheet(self.dic.md_pe_color_bl)
         self.pestannas.P1.setStyleSheet(self.dic.md_pe_color_bl) 
         self.pestannas.P1_x.setText(self.dic.md_pe_cero)
         self.pestannas.P1_y.setText(self.dic.md_pe_cero)
         self.pestannas.P2_x.setText(self.dic.md_pe_cero)
         self.pestannas.P2_y.setText(self.dic.md_pe_cero)
+        
         if self.pestannas.ventana.c1 != None and self.pestannas.ventana.c2 != None:        
             row = self.pestannas.table.rowCount()
             self.pestannas.table.insertRow(row)
@@ -237,6 +270,7 @@ class MediadorPestannas():
             self.pestannas.ventana.tam_segmen_verdad = len(self.pestannas.ventana.lineas)
             self.pestannas.ventana.c1 = None
             self.pestannas.ventana.c2 = None
+            
         self.mostrar_tabla()
         self.pestannas.button3.setEnabled(False)
         item = self.pestannas.table.item(row, 0)
@@ -281,7 +315,7 @@ class MediadorPestannas():
         Metodo que se encargfara de borrar la linea o segmento que hemos seleccionado
         previamente dentro de la tabla y sea la que estamos visualizando.
         """
-        self.bandera = True
+        self.pestannas.ventana.padre.bandera = True
         if self.pestannas.row_actual != -1:
             self.pestannas.table.removeRow(self.pestannas.row_actual)            
             self.pestannas.row_actual = -1
@@ -299,7 +333,7 @@ class MediadorPestannas():
         Metodfo para añadir todos los segmentos calculados por el algoritmo
         que detecta la lineas en rojo dentro de la tabla.
         """
-        self.bandera = True
+        self.pestannas.ventana.padre.bandera = True
         self.limpiar_tabla()
         row = self.pestannas.table.rowCount()
         if len(self.pestannas.ventana.lineas) != 0:
@@ -349,7 +383,9 @@ class MediadorPestannas():
         otro con las lineas detectadas y las dos imagenes original y pintada despues del 
         procesado.
         """
-        # Clase PARA LAS estadisticas
+        repe=self.pestannas.combo_repeti.currentIndex()
+        lon=self.pestannas.combo_lon.currentIndex()
+        dire=self.pestannas.combo_dir.currentIndex()
         path = QtWidgets.QFileDialog.getExistingDirectory(self.pestannas, self.dic.md_pe_open)
         band = False
         if  path != "":
@@ -362,98 +398,47 @@ class MediadorPestannas():
             else:
                 band = True        
             if band :
-                temp = tempfile.mkdtemp()
-                temp2 = tempfile.mkdtemp()
-                if os.path.exists(path + self.dic.md_pe_proy):
-                    shutil.copytree(path + self.dic.md_pe_proy, temp2 + self.dic.md_pe_proy)
-                                    
-                row = self.pestannas.table.rowCount()
-                segmentos = []
-                angulos = {}
-                long_segmento = {}
-                lista = []
-                x1, x2, y1, y2 = 0, 0, 0, 0
-                for i in range(row):            
-                    x1 = int(self.pestannas.table.item(i, 0).text())
-                    x2 = int(self.pestannas.table.item(i, 1).text())
-                    y1 = int(self.pestannas.table.item(i, 2).text())
-                    y2 = int(self.pestannas.table.item(i, 3).text())
-                    segmentos.append(((x1, x2), (y1, y2)))
-                    angulos[((x1, x2), (y1, y2))] = self.estad.angu(((x1, x2), (y1, y2)))
-                    long_segmento[((x1, x2), (y1, y2))] = self.estad.longitud_segemento(((x1, x2), (y1, y2)),self.pestannas.ventana.mediador_ventana.ref_numeros,self.pestannas.ventana.mediador_ventana.ref_numeros)   
+                try:
+                    temp = tempfile.mkdtemp()
+                    temp2 = tempfile.mkdtemp()
+                    table=self.pestannas.table
+                    ref_numeros=self.pestannas.ventana.mediador_ventana.ref_numeros
+                    pathi=self.pestannas.ventana.mediador_ventana.ventana.path
+                    nombres=self.pestannas.nombres
+                    procesado=self.pestannas.ventana.mediador_ventana.procesado
+                    caminos=[]
+                    caminos.extend([pathi,temp,temp2,path,repe,lon,dire])
+                    self.fachada_entrada_salida.guardar_tabla(table,ref_numeros,nombres,procesado,caminos)                                   
+                    self.pestannas.button7.setEnabled(False)
+                    self.pestannas.ventana.padre.save_file.setEnabled(False)
+                    shutil.rmtree(temp)  
+                    shutil.rmtree(temp2)
                     
-                v, h, md, dm, total = self.estad.clasificar(segmentos, angulos, long_segmento)
-           
-                st_v, st_h, st_md, st_dm, st_tot, variables_tabla = self.estad.calcular_estadisticas(v, h, md, dm, total)
-                lista.extend([v, h, md, dm, st_v, st_h, st_md, st_dm, st_tot])
-                self.escribe_proyecto(variables_tabla, temp, temp2, lista, path, segmentos)
+                    self.pestannas.ventana.padre.bandera=False 
 
+                except:
+                    self.pestannas.ventana.padre.bandera=True 
+                    exc = self.dic.md_pe_war + str(sys.exc_info()[0]) + str(sys.exc_info()[1])
+                    logging.warning(exc)
+                    self.fachada_entrada_salida.undo(temp2, path)
+                    self.undo_graf()
 
-    def escribe_proyecto(self, variables_tabla, temp, temp2, lista, path, segmentos):
+    def undo_graf(self):
         """
-        Metodo auxiliar para guardar lso entregables delega en el la tarea de escribirlos en la carpeta nueva.
-        @param variables_tabla: variables que contiene la tabla.
-        @param temp: ruta al fichero temporal.
-        @param temp2: ruta al segundo fichero temporal
-        @param lista: lista con las variables que escribiremos al csv.
-        @param path:Camino donde guardar el Proyecto.
-        @param segmentos: segmentos que vamos a pintar y guardar.
+        Metodo que se encarga de hacer el undo en la interfaz grafica activando los botones de guardar al
+        no haber podido realizar los cambios.
         """
         try:
-            informe = Informe(variables_tabla, temp)  # @UnusedVariable
-            self.escribeCSV.guardar(temp, lista)
-            self.escribeXML.guardar(temp)
-            shutil.copy(self.pestannas.ventana.mediador_ventana.ventana.path, temp + self.dic.origi)
-
-            self.pestannas.ventana.mediador_ventana.procesado.guardar_y_pintar(self.pestannas.ventana.mediador_ventana.ventana.path, temp, segmentos)                     
-             
-            if os.path.exists(path + self.dic.md_pe_proy):
-                shutil.rmtree(path + self.dic.md_pe_proy)
-             
-            shutil.copytree(temp, path + self.dic.md_pe_proy)
-            self.pestannas.button7.setEnabled(False)
-            self.pestannas.ventana.padre.save_file.setEnabled(False)
-            self.bandera = False
-
+            self.pestannas.button7.setEnabled(True)
+            self.pestannas.ventana.padre.save_file.setEnabled(True)
+            self.informa()
         except:
             exc = self.dic.md_pe_war + str(sys.exc_info()[0]) + str(sys.exc_info()[1])
             logging.warning(exc)
-            try:
-                self.pestannas.button7.setEnabled(True)
-                self.pestannas.ventana.padre.save_file.setEnabled(True)
-                self.bandera = True
-                self.informa()
-
-                if os.path.exists(path):
-                    shutil.copy(temp2 + self.dic.md_pe_ori, path + self.dic.md_pe_ori)
-                    shutil.copy(temp2 + self.dic.md_pe_pin, path + self.dic.md_pe_pin)
-                    shutil.copy(temp2 + self.dic.md_pe_pro, path + self.dic.md_pe_pro)                   
-                    try:
-                        shutil.copy(temp2 + self.dic.md_pe_est, path + self.dic.md_pe_est)
-                    except:
-                        logging.warning(self.dic.md_pe_err_st+str(sys.exc_info()[0]) + str(sys.exc_info()[1]))
-                    try:
-                        shutil.copy(temp2 + self.dic.md_pe_lin, path + self.dic.md_pe_lin)
-                    except:
-                        logging.warning(self.dic.md_pe_err_lin +str(sys.exc_info()[0]) + str(sys.exc_info()[1]))
-                    try:    
-                        shutil.copy(temp2 + self.dic.md_pe_tab, path + self.dic.md_pe_tab)
-                    except:
-                        logging.warning(self.dic.md_pe_err_tab +str(sys.exc_info()[0]) + str(sys.exc_info()[1]))
-
-            except:
-                self.bandera = True
-                exc = self.dic.md_pe_war + str(sys.exc_info()[0]) + str(sys.exc_info()[1])
-                logging.warning(exc)
-        finally:
-            shutil.rmtree(temp)  
-            shutil.rmtree(temp2) 
-    
     def informa(self):
         """
         Metodo para mostrar la ventana de elegir de si queremos guardar o no 
-        los cambios.
-        
+        los cambios.         
         """
         msg = QtWidgets.QMessageBox()
         msg.adjustSize()
@@ -461,8 +446,8 @@ class MediadorPestannas():
         msg.setText(self.dic.md_pe_msg_gur)
         msg.setWindowTitle(self.dic.md_pe_msg_avi)
         msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
-        retval = msg.exec_()  # @UnusedVariable
-            
+        retval = msg.exec_()  # @UnusedVariable    
+
     def cargar_proyec(self, path):
         """
         Metodo para a partir de un proyecto ecistente carge los ficheros con las lineas calculadas
@@ -470,31 +455,13 @@ class MediadorPestannas():
         editar los cambios necesarios.
         
         @param path: Camino hasta donde esta nuestro proyecto en custion.
-        """       
-        self.cargado = True
-        segmentos = self.escribeCSV.leer(path + self.dic.sal_lin)
-        segmentos_procesa = []
-        segmentos_pintar = []
-        for i in segmentos:
-            i = i.replace(' ', '')
-            i = i.replace('(', '')
-            i = i.replace(')', '')
-            i = i.replace(',', ' ')
-            segmentos_procesa.append(i.split())
-        row = self.pestannas.table.rowCount()
-        if len(segmentos_procesa) != 0:
-            for i in segmentos_procesa:
-                l1, l2 = 0, 0 
-                l1 = (i[0], i[1])
-                l2 = (i[2], i[3])
-                segmentos_pintar.append((l1, l2))                
-                self.pestannas.table.insertRow(row)
-                self.pestannas.table.setItem(row, 0, QtWidgets.QTableWidgetItem(str(int(i[0]))))
-                self.pestannas.table.setItem(row, 1, QtWidgets.QTableWidgetItem(str(int(i[1]))))
-                self.pestannas.table.setItem(row, 2, QtWidgets.QTableWidgetItem(str(int(i[2]))))
-                self.pestannas.table.setItem(row, 3, QtWidgets.QTableWidgetItem(str(int(i[3]))))
-                row += 1
-                
+        """
+        segmentos_pintar,self.pestannas.table,self.pestannas.nombres,repe,long,dire=self.fachada_entrada_salida.cargar_proyec(path,self.pestannas.table) 
+        self.pestannas.combo_lon.setCurrentIndex(int(long))
+        self.pestannas.combo_repeti.setCurrentIndex(int(repe))
+        self.pestannas.combo_dir.setCurrentIndex(int(dire))
+
+        if len(segmentos_pintar) != 0:       
             self.pestannas.ventana.pintar_imagen_y_segmentos(segmentos_pintar)
             self.pestannas.ventana.selec_ante = None
             self.pestannas.ventana.canvas.draw()

@@ -219,7 +219,22 @@ class ProcesadoDeLineas():
             # print("devuelvo",((x_max,y_min),(x_min,y_max)))
             return (x_max, y_min), (x_min, y_max)
         
-
+    @classmethod
+    def longitud_linea(self, p,valor=100):
+        """
+        Funcion que calcula la longitud de un segmento.
+        
+        @param p: segmento del que calcular su distancia.
+        
+        @Return distancia del segmento
+        """
+        
+        valor=int(valor)
+        long_ref=int(valor)
+        long_seg=(((p[1][0] - p[0][0]) ** 2) + ((p[1][1] - p[0][1]) ** 2)) ** (1 / 2)
+        
+        return (long_seg*valor)/long_ref
+    
     @classmethod
     def segmentos_verdad(self, k_components, lines):
         """

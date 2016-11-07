@@ -31,7 +31,8 @@ class VentanaInicio(QtWidgets.QMainWindow):
         self.resize(900, 700)
         self.dic=Diccionario()        
         logging.basicConfig(filename=self.dic.ini_log,level=logging.DEBUG)
-
+        self.bandera=False
+    
         self.cont_cargar=0
         self.abierto=0
         open_file = QtWidgets.QAction(self.dic.ini_nuevo, self)
@@ -65,10 +66,14 @@ class VentanaInicio(QtWidgets.QMainWindow):
         self.ayuda_f.setStatusTip(self.dic.ini_o_ayuda)
         self.ayuda_f.triggered.connect(self.ayuda)
         self.statusBar()
+        
+
 
         main_menu = self.menuBar()
         file_menu = main_menu.addMenu(self.dic.ini_archivo)
         help_menu = main_menu.addMenu(self.dic.ini_ayuda)
+        
+        
         help_menu.addAction(self.help_f)
         help_menu.addAction(self.ayuda_f)
         
@@ -88,6 +93,8 @@ class VentanaInicio(QtWidgets.QMainWindow):
         central_widget = QtWidgets.QWidget()
         central_widget.setLayout(laout_principal)
         self.setCentralWidget(central_widget)
+    def parametros(self):
+        pass
         
     def cerrar(self):
         """
@@ -95,12 +102,12 @@ class VentanaInicio(QtWidgets.QMainWindow):
         de detectar cambios preguntara si queremos guardar o no.
         
         """
+        
         if self.abierto==1:
-            if self.ventana.pestannas.mediador_pestannas.bandera==True :
+            if self.bandera==True :
                 self.showdialog()
                 if self.guardar==True:
-                    self.ventana.pestannas.mediador_pestannas.guardar_tabla()  
-                    self.ventana.pestannas.mediador_pestannas.bandera=False
+                    self.ventana.pestannas.mediador_pestannas.guardar_tabla()
                 else:
                     self.close()
             else:
@@ -147,13 +154,16 @@ class VentanaInicio(QtWidgets.QMainWindow):
             if self.cont_cargar==0:
                 self.cargar_inicializacion_open()
                 self.cont_cargar=self.cont_cargar+1
+
             else:
-                if self.ventana.pestannas.mediador_pestannas.bandera==True:
+
+                if self.bandera==True:
                     self.showdialog()
                     self.opciones_guardar(1)
                 else:
                     self.cargar_inicializacion_open()
         except:
+
             exc=self.dic.ini_p_war+ str(sys.exc_info()[0])+ str(sys.exc_info()[1])
             logging.warning(exc)
             print(self.dic.ini_p_err, sys.exc_info()[0], sys.exc_info()[1])
@@ -166,8 +176,10 @@ class VentanaInicio(QtWidgets.QMainWindow):
         @param opt: opcion que elegiremos dependiendo de donde lo llamemos. 
         """
         if self.guardar==True:
-            self.ventana.pestannas.mediador_pestannas.guardar_tabla()  
-            self.ventana.pestannas.mediador_pestannas.bandera=False
+            
+            self.ventana.pestannas.mediador_pestannas.guardar_tabla()
+   
+  
         else:
             if opt==1:
                 self.cargar_inicializacion_open()   
@@ -237,7 +249,7 @@ class VentanaInicio(QtWidgets.QMainWindow):
                 self.cargar_inicializacion()
                 self.cont_cargar=self.cont_cargar+1
             else:
-                if self.ventana.pestannas.mediador_pestannas.bandera==True:
+                if self.bandera==True:
                     self.showdialog()
                     self.opciones_guardar(0)
                 else:

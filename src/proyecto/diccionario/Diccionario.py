@@ -14,12 +14,15 @@ class Diccionario():
         self.dm='dm'
         self.totales='totales'
         self.proyec="proyect"
-        self.d1="docu1"
-        self.d2="docu2"
-        self.d3="docu3"
-        self.d4="docu4"
-        self.d5="docu5"
 
+        #pestannas nombres de guardar
+        self.docu="docu0"
+        self.docu1="docu1"
+        self.docu2="docu2"
+        self.docu3="docu3"
+        self.docu4="docu4"
+        self.docu5="docu5"
+        
         #Configuracion a xml
         self.tex='tex'
         self.tab='/Tabla.tex'
@@ -32,17 +35,20 @@ class Diccionario():
         self.pintada='/Pintada.jpg'
         self.pro_xml="/Proyecto.xml"
         self.utf='UTF-8'
-        
+        self.repeti="repeti"
+        self.long="long"
+        self.direccion="direccion"
+        self.path="path"
         #datosTo csv
         self.cabecera_csv_lineas=['linea', 'angulo', 'tamano', 'tipo']
         self.cabecera_csv_estad=['tipo', 'numero', 'mediaLon', 'desviacionTip']
         
         
         #Informe
-        self.jin_blo='\BLOCK{'
+        self.jin_blo='/BLOCK{'
         self.jin_o_q='}'
         self.jin_va=r'\VAR{' 
-        self.jin_alm='\#{'
+        self.jin_alm='/#{'
         self.jin_porc='%%'
         self.jin_alm_po='%#'
         self.infor_plan='proyecto/codigo/informes/jinja-test.tex'
@@ -61,7 +67,12 @@ class Diccionario():
         
         #MediadorPestannas
         self.md_pe_lin_pin="Lineas pintadas"
-        self.md_pe_calc='Calcular Lineas'        
+        self.md_pe_calc='Calcular Lineas'
+        self.md_pe_param = "Guardar parametros" 
+        self.md_pe_repe = "Repeticiones:" 
+        self.md_pe_long_min = "Longitud de corte:" 
+        self.md_pe_direccion = "Direccion de imagen" 
+           
         self.md_pe_corre="Corregir lineas"
         self.md_pe_auto="Automatico"
         self.md_pe_corre='Corregir Lineas'
@@ -125,6 +136,8 @@ class Diccionario():
         self.ini_o_ayuda='Ayuda'
         self.ini_ayuda="&Ayuda"
         self.ini_archivo='&Archivo'
+
+        
         self.ini_msg="Cargar imagen para iniciar"
         self.ini_color='color: red'
         self.ini_time="Times"        

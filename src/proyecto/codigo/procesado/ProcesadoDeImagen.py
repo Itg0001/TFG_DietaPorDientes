@@ -136,6 +136,7 @@ class ProcesadoDeImagen():
         lines = probabilistic_hough_line(sin_ruido, threshold, line_length, line_gap)
         return lines
     
+    @classmethod
     def binarizar_para_cuadrado(self,img):
         """
         Este metodo va a consistir en que a partir de la imagen que hemos abierto
@@ -145,8 +146,8 @@ class ProcesadoDeImagen():
         
         @return: imagen binarizada resaltando bordes. 
         """
-        imgHSV=rgb2hsv(img)
-        grises = rgb2grey(imgHSV)
+        img_hsv=rgb2hsv(img)
+        grises = rgb2grey(img_hsv)
         ii=0
         jj=0
         for i in grises:
@@ -159,7 +160,8 @@ class ProcesadoDeImagen():
             jj=0
             ii=ii+1
         return grises
-
+    
+    @classmethod
     def obtener_max_y_min(self,lines):
         """
         En este metodo vamos a calcular las xmax, xmin ymax e ymin de neustro cuadrado
@@ -174,22 +176,23 @@ class ProcesadoDeImagen():
             puntos_y.add(i[0][1])
             puntos_y.add(i[1][1])
         return max(puntos_x),min(puntos_x),max(puntos_y),min(puntos_y)
- 
-    def pertenece_o_no(self,x,y,xMin,xMax,yMin,yMax):
+    
+    @classmethod
+    def pertenece_o_no(self,x,y,x_min,x_max,y_min,y_max):
         """
         En este metodo dado un punto y los 4 vertices del cuadrado comprobaremos
         si las coordenadas del punto pertenecen al area pintable.
         @param x: coordenada x del punto a comprobar.
         @param y: coordenada y del punto a comprobar.
-        @param xMin: coordenada x minima del cuadrado
-        @param xMax: coordenada x macima del cuadrado.
-        @param yMin: coodenada y minima del cuadrado.
-        @param yMax: coordenada y maxima del cuadrado.
+        @param x_min: coordenada x minima del cuadrado
+        @param x_max: coordenada x macima del cuadrado.
+        @param y_min: coodenada y minima del cuadrado.
+        @param y_max: coordenada y maxima del cuadrado.
         @return: true/false dependiendo si pertenece a esa region o no.     
         """
         if x == None and y==None:
             return False
-        if (xMin< x < xMax) and  (yMin< y < yMax):
+        if (x_min< x < x_max) and  (y_min< y < y_max):
             return True
         else:
             return False
@@ -202,9 +205,9 @@ class ProcesadoDeImagen():
         @param img: imagen de la que obtener la referencia. 
         @return: devolvemos el valor leido de la imagen que sera la referencia.
         """
-        imgCrop = img[860:950,520:645]
-        imgHSV=rgb2hsv(imgCrop)
-        distance_red = rgb2grey(1 - np.abs(imgHSV - (1, 1, 0)))
+        img_crop = img[860:950,520:645]
+        img_hsv=rgb2hsv(img_crop)
+        distance_red = rgb2grey(1 - np.abs(img_hsv - (1, 1, 0)))
 
         #binarizar
         ii=0

@@ -38,7 +38,7 @@ def test_procesado_lineas():
     test_procesado_de_lineas.test_segmentos_verdad()
     print("OK,TEST_PROCESADO_DE_LINEAS")
     
-def test_configuracionXML():
+def test_configuracion_xml():
     test=TestConfiguracionToXML()
     test.test_guardar()
     print("OK,TEST_CONFIGURACIONXML")
@@ -65,7 +65,7 @@ if __name__ == '__main__':
     print()
     test_procesado_lineas()
     print()
-    test_configuracionXML()
+    test_configuracion_xml()
     print()
     test_datos_to_csv()
     print()

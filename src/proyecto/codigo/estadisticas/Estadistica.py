@@ -43,7 +43,7 @@ class Estadistica():
             elif 112.5 < angulos[i] < 157.5:
                 dm.append((i, str(round(angulos[i], 2)).replace('.', ','), str(round(long_segmento[i], 2)).replace('.', ','), self.dic.dm))
                 
-            elif (0 < angulos[i] < 22.5) or (157.5 < angulos[i] < 180):                
+            elif (0 <= angulos[i] < 22.5) or (157.5 < angulos[i] < 180):                
                 h.append((i, str(round(angulos[i], 2)).replace('.', ','), str(round(long_segmento[i], 2)).replace('.', ','), self.dic.h))
         total.extend(v)
         total.extend(h)
@@ -106,7 +106,7 @@ class Estadistica():
         else:
             return None
     @classmethod            
-    def longitud_segemento(self, p,r,valor=100):
+    def longitud_segemento(self, p,valor=100):
         """
         Funcion que calcula la longitud de un segmento.
         
@@ -148,8 +148,7 @@ class Estadistica():
 
     @classmethod    
     def calcular_estadisticas(self, v, h, md, dm, total):
-        """
-        
+        """        
         Metodo que llamara a los anteriorres y calculara
         los datos estadisticos de todas las rectas en su clasificacion.
         

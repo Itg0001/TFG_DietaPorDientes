@@ -15,7 +15,7 @@ class Informe():
          @author: Ismael Tobar Garcia
          @version: 1.0    
     """
-    def __init__(self,variables,dirToGuardar):
+    def __init__(self,variables,dir_to_guardar):
         """
         Constructor de la clase de los informes. que se encargara de inicializar 
         las variables necesarias.
@@ -24,8 +24,8 @@ class Informe():
         @param dir_to_guardar: direccion donde guardar la tabal latex generada.
     
         """
-        self.dirToGuardar=dirToGuardar.replace('\\','/')
-        self.dirToGuardar+='/'
+        self.dir_to_guardar=dir_to_guardar.replace('\\','/')
+        self.dir_to_guardar+='/'
         self.variables=variables
         self.path=os.getcwd() 
         self.path+='\\'
@@ -56,8 +56,6 @@ class Informe():
         ) 
 
         template = latex_jinja_env.get_template(self.dic.infor_plan)
-        
-        #template = latex_jinja_env.get_template("C:/Users/Ismael/Desktop/TFG_DietaPorDientes/TrabajosPasadosPorJose/dietaJose/Interfaces/jinja-test.tex")
         return template
     
     def sustituir(self,variables,template):
@@ -68,15 +66,11 @@ class Informe():
          @param template: Plantilla leida en en latex donde sustituir las variables
  
         """
-        #latex=template.render(dm1=12,dm2=11,dm3=13,h1=5.5,h2=6,h3=7,md1=4,md2=1,md3=1,v1=99,v2=4,v3=5,t1=5555,t2=555,t3=55)
         latex=template.render(dm1=variables[0],dm2=variables[1],dm3=variables[2],
                               h1=variables[3],h2=variables[4],h3=variables[5],
                               md1=variables[6],md2=variables[7],md3=variables[8],
                               v1=variables[9],v2=variables[10],v3=variables[11],
                               t1=variables[12],t2=variables[13],t3=variables[14])
-        latexSalida = open(self.dirToGuardar+self.dic.tab_in, 'w', newline='')
-        latexSalida.write(latex)
-        latexSalida.close()
-
-    
-        
+        latex_salida = open(self.dir_to_guardar+self.dic.tab_in, 'w', newline='')
+        latex_salida.write(latex)
+        latex_salida.close()

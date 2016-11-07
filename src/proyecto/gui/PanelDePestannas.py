@@ -1,5 +1,6 @@
 from PyQt5 import QtWidgets
 from proyecto.gui.Mediadores import MediadorPestannas
+from proyecto.diccionario import Diccionario
 
 
 class PanelDePestannas(QtWidgets.QTabWidget):
@@ -30,9 +31,16 @@ class PanelDePestannas(QtWidgets.QTabWidget):
         self.inicia_paneles()        
         self.tab_1_ui()
         self.tab_2_ui()
-        
+        self.dic=Diccionario()
+
         self.row_actual = -1
-        
+        self.nombres={}
+        self.nombres[self.dic.docu1]=self.dic.tab
+        self.nombres[self.dic.docu2]=self.dic.sal_estad
+        self.nombres[self.dic.docu3]=self.dic.sal_lin
+        self.nombres[self.dic.docu4]=self.dic.origi
+        self.nombres[self.dic.docu5]=self.dic.pintada
+
     def inicia_paneles(self):
         """
         Metodo que inicia los paneles del panel de pestannas.

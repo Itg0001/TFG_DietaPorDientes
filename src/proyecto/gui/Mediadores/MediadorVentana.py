@@ -3,7 +3,6 @@ import networkx as nx
 from networkx.algorithms import approximation as apxa
 from skimage.morphology import  skeletonize 
 from skimage.transform import probabilistic_hough_line
-
 from proyecto.codigo.procesado import ProcesadoDeImagen
 from proyecto.codigo.procesado.ProcesadoDeLineas import ProcesadoDeLineas
 from proyecto.diccionario import Diccionario
@@ -70,20 +69,32 @@ class MediadorVentana():
         self.ventana.setLayout(self.ventana.laout_principal)  # Asignamos como principal el principal  
         self.ventana.padre.save_file.setEnabled(False)
                   
-    def calcular_lineas(self):
+    def calcular_lineas(self,repeticiones,lon_minima):
         """
         Metodo que se encargara de llamar a las funciones de calculo de nuestra aplicacion
         para mostrar y guardar las lineas que han sido calculadas por el algoritmo de deteccion
         de aquellas que ya esten pintadas en color rojo.
         """ 
+        
         sin_ruido = self.procesado.reducir_grosor(self.img_bin)
-        lines = self.procesado.pro_hough(10, 5, 11, sin_ruido)        
+        l=[]
+        while repeticiones>0:
+            lines = self.procesado.pro_hough(10, 5, 11, sin_ruido)
+            l.extend(lines)
+            repeticiones=repeticiones-1      
+
         G = nx.Graph()
-        G = self.procesado_de_lineas.combina(8, 4, lines, G)
+        G = self.procesado_de_lineas.combina(8, 4, l, G)
         k_components = apxa.k_components(G)
-        segmentos_de_verdad = self.procesado_de_lineas.segmentos_verdad(k_components, lines)
-        self.pintar_imagen_y_segmentos(segmentos_de_verdad)
-        self.ventana.lineas = segmentos_de_verdad
+        segmentos_de_verdad = self.procesado_de_lineas.segmentos_verdad(k_components, l)
+        
+        segmentos_de_verdad_pintar=[]
+        for i in segmentos_de_verdad:
+            if self.procesado_de_lineas.longitud_linea(i,self.ref_numeros) > lon_minima:
+                segmentos_de_verdad_pintar.append(i)
+                
+        self.pintar_imagen_y_segmentos(segmentos_de_verdad_pintar)
+        self.ventana.lineas = segmentos_de_verdad_pintar
         self.ventana.tam_segmen_verdad = len(self.ventana.lineas)
         self.ventana.pestannas.button4.setEnabled(True)
         self.ventana.selec_ante = None    
@@ -94,7 +105,6 @@ class MediadorVentana():
         tabla de segmentos o lineas dentro de nuestra aplicacion. 
         es un metodo de actualizacion de la guipru.
         @param segmentos: Lista de segmentos que queremos que entre dentro de la imagen.
-
         """
         self.ventana.ax = self.ventana.fig.add_subplot(111)
         self.ventana.ax.set_title(self.dic.md_v_figcon)
@@ -112,4 +122,3 @@ class MediadorVentana():
             final.append(l)
         self.ventana.ax.hold(False)
         self.ventana.canvas.draw()             
-

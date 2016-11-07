@@ -64,6 +64,7 @@ class Window(QtWidgets.QWidget):
         self.yMax=self.mediador_ventana.img.shape[0]
         self.yMin=0
         self.detectar_cuadrado()
+
         
     def detectar_cuadrado(self):   
         self.mediador_ventana.detectar_cuadrado()
@@ -96,7 +97,7 @@ class Window(QtWidgets.QWidget):
         """
         Metodo para calcular las lineas de la imagen pintadas en rojo.
         """       
-        self.mediador_ventana.calcular_lineas()
+        self.mediador_ventana.calcular_lineas(int(self.pestannas.combo_repeti.currentText()),int(self.pestannas.combo_lon.currentText()))
         self.canvas.draw()
 
     def pintar_imagen_y_segmentos(self, segmentos):

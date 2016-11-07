@@ -8,7 +8,7 @@ from proyecto.codigo.informes.DatosToCsv import DatosToCsv
 from proyecto.codigo.informes.ConfiguracionToXML import ConfiguracionToXML
 from proyecto.diccionario import Diccionario
 from proyecto.gui.Fachadas.FachadaEntradaSalida import FachadaEntradaSalida
-
+ 
 class MediadorPestannas():
     """
     Clase que implementa el mediador de las pestannas.

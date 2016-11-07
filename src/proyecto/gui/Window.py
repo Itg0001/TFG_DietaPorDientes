@@ -1,4 +1,3 @@
-
 from PyQt5 import QtWidgets
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
@@ -97,7 +96,7 @@ class Window(QtWidgets.QWidget):
         """
         Metodo para calcular las lineas de la imagen pintadas en rojo.
         """       
-        self.mediador_ventana.calcular_lineas(int(self.pestannas.combo_repeti.currentText()),int(self.pestannas.combo_lon.currentText()))
+        self.mediador_ventana.calcular_lineas(self.pestannas.combo_repeti.value(),self.pestannas.combo_lon.value())
         self.canvas.draw()
 
     def pintar_imagen_y_segmentos(self, segmentos):

@@ -206,5 +206,19 @@ Originalmente estaba hecho en C pero se migro a C++ en el 1998, mas tarde fue co
 
 Lo potente de esta librería es que si tus necesidades fuesen otras podrías reentrenar la red para que reconozca nuevos idiomas o nuevos estilos de letras.
 
+\section{Logger}
+Es una herramienta que crea un fichero de registro, el cual almacena los mensajes de error que aparecen en la aplicación, facilitando el mantenimiento de esta.
+
+Es una herramienta muy útil, ya que controlar todas las posibles excepciones es muy complicado, porque no sabemos por donde podría romper el código, de esta forma sabemos donde ha roto o que lo ha causado.
+
+\subsection{Logging}
+Es la implementacion de un logger para python \cite{python:logger} en este logger como en casi todos, podemos clasificar los mensajes de error en función de su gravedad en distintos niveles.
+
+\begin{itemize}
+\item Info: Para mensajes importante de información.
+\item Warning: Para niveles que son avisos de que no se ha hecho lo que se quería pero no son graves.
+\item Error: Para errores que han echo un mal funcionamiento del programa.
+\item Critical: Para mensajes que son críticos en nuestro programa.
 
 
+\end{itemize}

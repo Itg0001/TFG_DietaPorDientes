@@ -219,6 +219,33 @@ Es la implementacion de un logger para python \cite{python:logger} en este logge
 \item Warning: Para niveles que son avisos de que no se ha hecho lo que se quería pero no son graves.
 \item Error: Para errores que han echo un mal funcionamiento del programa.
 \item Critical: Para mensajes que son críticos en nuestro programa.
-
-
 \end{itemize}
+
+\section{Ejecutable}
+Para distribuir el software, deberíamos poder ser capaces de crear un .exe, pero no hemos sido ya que aun después de probar todas las herramientas que hacen dicha función.
+ya que han salido las ultimas versiones hace relativamente poco tiempo, estas que hay disponibles quedan muy desactualizadas, hemos tenido que resolver el problema de otra forma. 
+
+\subsection{Py2exe}
+Esta herramienta \cite{p2exe}, es una extension que se encarga de empaquetar un script de Python en un ejecutable .exe, para poder distribuir la aplicación de forma que solo necesitemos el .exe para ejecutar todo, sin necesidad de tener Python instalado.
+
+No la hemos podido usar ya que su ultima actualización es para Python 2.7.
+
+\subsection{Py2app}
+Esta herramienta es casi idéntica a la anterior pero solo esta disponible para MAC OS.
+
+No la hemos podido usar ya que el cliente no va a usar MAC OS.
+
+\subsection{Pyinstaller}
+Esta herramienta \cite{Pyinstaller}, si que hemos podido ser capaces de usarla, pero su ultima version esta disponible para Python 3.4.
+Indican que para Python 3.5 podría funcionar pero no es así, ya que si buscamos los errores que nos salían van diciendo como corregirlos en el repositorio de GitHub, pero llegamos a un punto que se hacen recursivos, al arreglar uno se estropea de nuevo y salta el anterior error, y hay algunos que no están corregidos.
+
+No la hemos usado ya que daba fallos y no hemos sido capaces de solucionarlos, porque según lo investigado y visto en todo tipo de foros, llegamos a la conclusión que con 3.5 no le funciona a nadie.
+No obstante en su siguiente actualización puede que lo corrijan y funcione para 3.5.
+
+\subsection{cxFreeze}
+Esta herramienta, es muy parecida a la de py2exe, pero su ultima version sigue estando únicamente estable para Python 3.4. 
+Si buscamos mas en su repositorio vemos que menciona una version 3.5, pero no funciona ya que directamente no lo instala, y no solo ami encontré mas gente en la misma situación.
+
+\textbf{Conclusión:}
+Hemos seguido otras formas de conseguir lo que queremos, Python es un lenguaje interpretado y necesitamos tener Python 3.5.
+Para hacer mas sencilla la instalación del entorno hemos optado por usar Miniconda, que son 50 megas de descarga, y desde allí en la primera ejecución de nuestro código, si no están las librerías las descargara y las instala.

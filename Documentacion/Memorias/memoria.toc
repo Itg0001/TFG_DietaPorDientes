@@ -1,0 +1,82 @@
+\select@language {spanish}
+\select@language {spanish}
+\contentsline {chapter}{\'{I}ndice general}{\es@scroman {iii}}{section*.1}
+\contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {v}}{section*.2}
+\contentsline {chapter}{Introducci\IeC {\'o}n}{1}{chapter*.3}
+\contentsline {section}{\numberline {1.1}Gestores de tareas:}{1}{section.1.1}
+\contentsline {subsection}{Trello}{1}{section*.4}
+\contentsline {subsection}{Version One}{1}{section*.5}
+\contentsline {subsection}{ZenHub}{2}{section*.6}
+\contentsline {section}{\numberline {1.2}Gestores de versiones:}{2}{section.1.2}
+\contentsline {subsection}{GitHub}{2}{section*.7}
+\contentsline {subsection}{Bitbucket}{3}{section*.8}
+\contentsline {chapter}{Objetivos del proyecto}{4}{chapter*.9}
+\contentsline {chapter}{Conceptos te\IeC {\'o}ricos}{5}{chapter*.10}
+\contentsline {section}{\numberline {3.1}Espacios de color }{5}{section.3.1}
+\contentsline {subsection}{RGB}{6}{section*.12}
+\contentsline {subsection}{HSV}{7}{section*.15}
+\contentsline {section}{\numberline {3.2}Transformada de Hough }{7}{section.3.2}
+\contentsline {subsection}{Teor\IeC {\'\i }a}{7}{section*.17}
+\contentsline {subsection}{Psudoc\IeC {\'o}digo Transformada de Hough}{8}{section*.18}
+\contentsline {subsection}{Limitaciones}{8}{section*.20}
+\contentsline {subsection}{Transformada probabil\IeC {\'\i }stica de Hough}{8}{section*.22}
+\contentsline {section}{\numberline {3.3}Skeletonize }{9}{section.3.3}
+\contentsline {section}{\numberline {3.4}Grafos}{9}{section.3.4}
+\contentsline {subsection}{Introducci\IeC {\'o}n}{9}{section*.24}
+\contentsline {subsection}{K-componentes}{10}{section*.25}
+\contentsline {chapter}{T\IeC {\'e}cnicas y herramientas}{11}{chapter*.26}
+\contentsline {section}{\numberline {4.1}Interfaz gr\IeC {\'a}fica de usuario:}{11}{section.4.1}
+\contentsline {subsection}{Tkinter}{11}{section*.27}
+\contentsline {subsubsection}{Ventajas:}{11}{section*.28}
+\contentsline {subsubsection}{Desventajas:}{11}{section*.29}
+\contentsline {subsection}{WxPython}{11}{section*.30}
+\contentsline {subsubsection}{Ventajas:}{11}{section*.31}
+\contentsline {subsubsection}{Desventajas:}{12}{section*.32}
+\contentsline {subsection}{PyQt}{12}{section*.33}
+\contentsline {subsubsection}{Ventajas:}{12}{section*.34}
+\contentsline {subsubsection}{Desventajas:}{12}{section*.35}
+\contentsline {subsection}{WxWidgets:}{13}{section*.36}
+\contentsline {section}{\numberline {4.2}Plantillas}{13}{section.4.2}
+\contentsline {subsection}{Mustache}{13}{section*.37}
+\contentsline {subsubsection}{Ventajas:}{13}{section*.38}
+\contentsline {subsubsection}{Desventajas:}{13}{section*.39}
+\contentsline {subsection}{Jinja2}{13}{section*.40}
+\contentsline {subsubsection}{Ventajas:}{14}{section*.41}
+\contentsline {subsubsection}{Desventajas:}{14}{section*.42}
+\contentsline {subsection}{Comparaci\IeC {\'o}n de las herramientas}{14}{section*.43}
+\contentsline {section}{\numberline {4.3}IDE:}{14}{section.4.3}
+\contentsline {subsubsection}{Ventajas:}{14}{section*.45}
+\contentsline {subsection}{Eclipse:}{15}{section*.46}
+\contentsline {subsubsection}{Ventajas:}{15}{section*.47}
+\contentsline {subsection}{PyDev:}{15}{section*.48}
+\contentsline {section}{\numberline {4.4}Modelado}{15}{section.4.4}
+\contentsline {subsection}{Astah}{15}{section*.49}
+\contentsline {subsection}{XML}{15}{section*.50}
+\contentsline {section}{\numberline {4.5}OCR}{16}{section.4.5}
+\contentsline {subsection}{Tesseract}{17}{section*.51}
+\contentsline {section}{\numberline {4.6}Logger}{17}{section.4.6}
+\contentsline {subsection}{Logging}{17}{section*.52}
+\contentsline {section}{\numberline {4.7}Ejecutable}{18}{section.4.7}
+\contentsline {subsection}{Py2exe}{18}{section*.53}
+\contentsline {subsection}{Py2app}{18}{section*.54}
+\contentsline {subsection}{Pyinstaller}{18}{section*.55}
+\contentsline {subsection}{cxFreeze}{18}{section*.56}
+\contentsline {chapter}{Aspectos relevantes del desarrollo del proyecto}{20}{chapter*.57}
+\contentsline {section}{\numberline {5.1}Entorno de desarrollo}{20}{section.5.1}
+\contentsline {subsection}{Ventajas}{20}{section*.58}
+\contentsline {section}{\numberline {5.2}Procesado imagen}{21}{section.5.2}
+\contentsline {subsection}{Binarizaci\IeC {\'o}n}{22}{section*.62}
+\contentsline {subsection}{Obtener segmentos}{22}{section*.64}
+\contentsline {subsection}{Procesado de segmentos}{22}{section*.66}
+\contentsline {subsection}{Recuperaci\IeC {\'o}n de l\IeC {\'\i }neas}{22}{section*.68}
+\contentsline {subsection}{Resumen pasos}{23}{section*.70}
+\contentsline {section}{\numberline {5.3}Interfaz}{25}{section.5.3}
+\contentsline {subsection}{Primera versi\IeC {\'o}n}{25}{section*.71}
+\contentsline {subsection}{Versi\IeC {\'o}n a evaluar}{25}{section*.73}
+\contentsline {subsubsection}{Barra de herramientas}{26}{section*.75}
+\contentsline {subsubsection}{Barra de herramientas de la imagen}{27}{section*.77}
+\contentsline {subsubsection}{FigureCanvas de la imagen}{27}{section*.79}
+\contentsline {subsubsection}{Pesta\IeC {\~n}as}{28}{section*.81}
+\contentsline {chapter}{Trabajos relacionados}{29}{chapter*.83}
+\contentsline {chapter}{Conclusiones y L\IeC {\'\i }neas de trabajo futuras}{30}{chapter*.84}
+\contentsline {chapter}{Bibliograf\'{\i }a}{31}{section*.86}

@@ -138,3 +138,22 @@ Es una rama muy amplia pero solo vamos a centrarnos en uno de los problemas que 
 
 \subsection{K-componentes}
 Una de las propiedades del grafo con sus componentes que nos indica cómo de fuertemente conexos están sus vértices, gracias a esta teoría nos aprovechamos que cuando un grafo esta dividido en clusters, agrupaciones fuertemente conexas de parte de sus vértices, por el problema de los k-componentes podemos saber que conjuntos de vértices forman los clusters por lo tanto, aplicado a nuestro problema los vértices que tengan aristas que los comuniquen pertenecerán a las mismas rectas y de cada conjunto de vértices sacaremos una recta.
+
+\section{Bordes}
+En lo que nos estamos basando, para poder resolver el problema,
+es en la detección de bordes mediante kernels conocidos.
+Para poder detectar donde esta el cambio de color en el histograma y esos cambios bruscos de pigmentación son los que nos indican que eso es un borde.
+Para ello se han desarrollado numerosos métodos matemáticos que pasando una mascara, por toda la imagen, nos devolverían otra imagen con los bordes llamada mascara.
+
+Como en los anexos donde usamos toda la variedad de ellos que hemos encontrado aquí simplemente los nombraremos.
+
+\begin{itemize}
+\item Laplace
+\item Prewitt
+\item Scharr
+\item Sobel
+\item Roberts
+\item Kirsch
+\item Gabor
+\end{itemize}
+Aparte de los métodos antes mencionados hemos combinado distintos formas para detectar bordes através de los autovectores largos, de la matriz Hessiana.

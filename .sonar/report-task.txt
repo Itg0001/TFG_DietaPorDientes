@@ -1,0 +1,5 @@
+projectKey=ubu.gii.tfg.201702DietaPorDientes
+serverUrl=http://prueba-ubugii.rhcloud.com
+dashboardUrl=http://prueba-ubugii.rhcloud.com/dashboard/index/ubu.gii.tfg.201702DietaPorDientes
+ceTaskId=AVhh6zKGb2EMGOttui5k
+ceTaskUrl=http://prueba-ubugii.rhcloud.com/api/ce/task?id=AVhh6zKGb2EMGOttui5k

@@ -1,0 +1,14 @@
+name: DietaEstrias 
+channels: !!python/tuple
+- defaults
+dependencies:
+- pyqt=5.6.0=py35_0
+- et_xmlfile=1.0.1=py35_0
+- jinja2=2.8=py35_1
+- scikit-image=0.12.3=np111py35_1
+- numpy=1.11.1=py35_1
+- matplotlib=1.5.3=np111py35_0
+- networkx=1.11=py35_0
+
+prefix: DietaEstrias 
+

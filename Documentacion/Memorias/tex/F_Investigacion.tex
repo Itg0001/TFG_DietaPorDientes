@@ -1,6 +1,18 @@
 \apendice{Procesado automático de la imagen}
 
 \section{Por procesado de imagen}
+Todas las imágenes van hacer un proceso de convolución, con el Kernel especifico en cada caso.
+
+Una convolución es una operación matemática, que no es la multiplicación de matrices tradicional, es el proceso de agregar cada porción de la imagen a sus vecinos locales ponderado por el Kernel. 
+
+Este proceso no solo vale para detectar bordes, tiene estas otras aplicaciones.
+\begin{itemize}
+\item Detección de bordes.
+\item Normalización.
+\item Desenfoques y difuminado.
+\item Eliminar ruido. 
+\end{itemize}
+
 \subsection{Laplace:}
 Esta función busca bordes usando el operador de Laplace. En nuestro caso de tamaño 3 ya que se puede especificar el tamaño.
 
@@ -226,6 +238,8 @@ Obtenemos un par de imágenes.
 
 Observaciones:
 Este método lo eh probado porque en la obtención de las líneas de sangre en los ojos es lo que se usa para ello pero al no ser líneas continuas y no seguir un patrón no he conseguido buenos resultados. En el filtro real no es tan malo pero en el filtro imaginario es ruido puro.
+\subsection{Comparativa Filtros}
+Comparativa de todos los filtros \ref{fig:1.1} y \ref{fig:1.2}. 
 
 \subsection{Procesado:}
 Partiendo del análisis anterior vamos a juntar los mejores resultados y añadir pasos adicionales para obtener la mascara binaria que mas podamos ajustar a nuestras necesidades.
@@ -233,19 +247,26 @@ Partiendo del análisis anterior vamos a juntar los mejores resultados y añadir
 
 Pasos del algoritmo \ref{fig:2.1} y \ref{fig:2.2}.
 \begin{itemize}
-	\item Ecualizar la imagen original: Así conseguimos que sus histograma este mas repartido por toda la imagen y no centrado en un solo rango.
-	\item Autovectores de la Hessiana: Obtenemos los autovectores de la matriz hessiana y nos quedamos con los largos. 
-	\item Sustraemos el fondo a la imagen.
-	\item Binarizamos la imagen.
-	\item Eliminamos el ruido.
-	\item Erosionar con operador diamante.
-	\item Esqueletonizar la imagen.
-	\item Eliminar mas ruido.
+	\item Ecualizar la imagen original:
+Así conseguimos que sus histograma este mas repartido por toda la gama de grises y no centrado en un pequeño rango.
+	\item Autovectores de la Hessiana:
+Obtenemos los autovectores de la matriz Hessiana y nos quedamos con los largos, ya que los autovectores pueden ser los cortos o los largos. 
+	\item Sustraemos el fondo a la imagen:
+Como la imagen no tiene de nuevo demasiada gama cromatica le sustraemos el fundo para asi quedarnos unicamente con las lineas, al tener ruido aparte de lo que queremos, tendremos mucho ruido.
+	\item Binarizamos la imagen:
+Como la imagen aun habiendo sustraido el fondo no es binaria hay que aplicarle un treshold o umbral para pasar a blanco o negro, es decir, binarizarla.
+	\item Eliminamos el ruido:
+Este paso anterior, en estas condiciones de trabajo genera mucho ruido, por lo que tendremos que intentar reducirlo y para ello eliminamos los trozos que son pequeños, esto elimina la mayoría de los puntos de ruido.
+	\item Erosionar con operador diamante:
+Para suavizar la imagen y evitar que queden lineas finas a modo de antenas, erosionamos la imagen con un operador estructurante en forma de diamante, así conseguimos que pase por la mayoría de las figuras.
+	\item Esqueletonizar la imagen:
+Una vez tengamos la imagen sin tanto ruido, reducimos el grosor de las lineas para que la función de Hough funcione, así nos detecta las lineas que corresponden a esta mascara binaria.
+	\item Eliminar mas ruido:
+Este paso anterior vuelve a generar ruido porque algunos trozos se dividen en pequeños segmentos y con la segunda reducción de ruido conseguimos hacerlos desaparecer y quedarnos con las lineas grandes.
 \end{itemize}
 
 
-\subsection{Comparativa}
-Comparativa de todos los filtros \ref{fig:1.1} y \ref{fig:1.2}. 
+
 \begin{figure}
 	\begin{subfigure}[c]{.5\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{Laplace}

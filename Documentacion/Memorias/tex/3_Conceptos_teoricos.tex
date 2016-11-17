@@ -54,6 +54,23 @@ El modelo HSV \cite{modelo:hsv} esta orientado a la descripción de los colores 
 
 Una ventaja con otros espacios de color parecidos es que este permite representar todas las combinaciones del espacio RGB.
 
+\subsection{CIELAB}
+El modelo lab \cite{wiki:lab},mas conocido como CIELAB,es otra forma de representar los colores. Este en concreto, se basa en como representa los colores el ojo humano, la diferencia entre LAB y CIELAB, es que CIELAB utiliza raíces cubicas, mientras que LAB usa raíces cuadradas.
+
+Componentes del modelo:
+\begin{itemize}
+	\item L: Luminosidad de negro a blanco.
+	\item A: Desde el color rojo al verde.
+	\item B: Es la gradiente del color azul.
+\end{itemize}
+
+Ventajas:
+\begin{itemize}
+\item Corregir colores: Es mas rápido hacer una corrección del color que en otros espacios de color.
+\item Mas cantidad de colores: Con esta representación del color conseguimos representar mas numero de colores, incluso colores imaginarios.
+\item La perdida es mínima al cambiar a otro espacio de color.
+\end{itemize}
+
 \section{Transformada de Hough }
 
 Uno de los puntos relevantes del proyecto es la detección de las líneas pintadas o detectadas por el algoritmo (modo automático) para ello vamos a usar una técnica que sirve para detectar formas, expresadas de forma matemática, dentro de imágenes.

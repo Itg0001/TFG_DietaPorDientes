@@ -7,4 +7,3 @@ if __name__ == '__main__':
     main = VentanaInicio()
     main.show()
     sys.exit(app.exec_())
-    

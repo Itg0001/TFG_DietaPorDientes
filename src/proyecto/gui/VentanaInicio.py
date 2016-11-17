@@ -32,7 +32,7 @@ class VentanaInicio(QtWidgets.QMainWindow):
         self.dic=Diccionario()        
         logging.basicConfig(filename=self.dic.ini_log,level=logging.DEBUG)
         self.bandera=False
-    
+        self.setWindowTitle('DietaPorDientes')
         self.cont_cargar=0
         self.abierto=0
         open_file = QtWidgets.QAction(self.dic.ini_nuevo, self)
@@ -93,6 +93,7 @@ class VentanaInicio(QtWidgets.QMainWindow):
         central_widget = QtWidgets.QWidget()
         central_widget.setLayout(laout_principal)
         self.setCentralWidget(central_widget)
+        
     def parametros(self):
         pass
         
@@ -142,6 +143,7 @@ class VentanaInicio(QtWidgets.QMainWindow):
         self.path = QtWidgets.QFileDialog.getOpenFileName(self, self.dic.ini_p_abri, self.dic.ini_p_dir, self.dic.ini_p_opt)
         self.abierto=1
         self.ventana = Window(self.path[0], self) 
+        self.bandera=False
         self.setCentralWidget(self.ventana)    
         
     def file_open(self):
@@ -178,8 +180,7 @@ class VentanaInicio(QtWidgets.QMainWindow):
         if self.guardar==True:
             
             self.ventana.pestannas.mediador_pestannas.guardar_tabla()
-   
-  
+
         else:
             if opt==1:
                 self.cargar_inicializacion_open()   
@@ -232,6 +233,7 @@ class VentanaInicio(QtWidgets.QMainWindow):
         path = QtWidgets.QFileDialog.getExistingDirectory(self, self.dic.ini_p_cargar)
         self.abierto=1
         self.ventana = Window(path+self.dic.origi , self)
+        self.bandera=False
         self.setCentralWidget(self.ventana)
         try:
             self.ventana.pestannas.cargar_proyec(path)

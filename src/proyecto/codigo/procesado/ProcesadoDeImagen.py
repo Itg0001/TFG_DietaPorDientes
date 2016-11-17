@@ -7,6 +7,7 @@ from skimage.transform import probabilistic_hough_line
 import numpy as np
 import tempfile
 import os,shutil
+from skimage.color import rgb2lab
 
 from PIL import Image, ImageDraw
 from proyecto.diccionario import Diccionario
@@ -50,7 +51,7 @@ class ProcesadoDeImagen():
         im.save(temp + self.dic.pintada, self.dic.jpg, quality=100)
     
     @classmethod
-    def distancia_al_rojo(self, img):
+    def distancia_al_rojo(self, img,pixel):
         """
         Metodo para:
         Pasamos la imagen al espacio de color RGB y nos quedamos con el canal rojo
@@ -62,9 +63,12 @@ class ProcesadoDeImagen():
 
         @return: distance_red: distancia de cada pixel al rojo apra luego hacer el threshold.
         
-        """        
-        img_hsv = rgb2hsv(img)
-        distance_red = rgb2grey(1 - np.abs(img_hsv - (0, 1, 0)))
+        """ 
+        r,g,b = pixel        
+        g,v,b=rgb2lab([[[r/255,g/255,b/255]]])[0][0]
+        
+        lab=rgb2lab(img)
+        distance_red=abs(lab - [g,v,b]).mean(axis=2)
         return distance_red
 
 
@@ -79,7 +83,7 @@ class ProcesadoDeImagen():
         @return: imgBin: imagen binarizada.
         """
         threshold_global_otsu = threshold_otsu(distance_red)
-        img_bin = distance_red >= threshold_global_otsu
+        img_bin = distance_red <= threshold_global_otsu
         return img_bin
 
     
@@ -239,3 +243,11 @@ class ProcesadoDeImagen():
         #borrar temporal.
         shutil.rmtree(temp) 
         return g.replace('3','0').replace('\n','').replace('8','0')
+    
+    def pixel_rgb_2_lab(self,pixel):
+        r,g,b = pixel        
+        return rgb2lab([[[r/255,g/255,b/255]]])[0][0]
+
+    def pixelrgb_2_hsv(self,pixel):
+        r,g,b = pixel
+        return rgb2hsv([[[r/255,g/255,b/255]]])[0][0]

@@ -22,8 +22,8 @@ class MediadorVentana():
         self.procesado_de_lineas = ProcesadoDeLineas()
         
         self.img = self.procesado.leer_imagen(self.ventana.path)
-        self.distance_red = self.procesado.distancia_al_rojo(self.img)
-        self.img_bin = self.procesado.binarizar(self.distance_red)
+#         self.distance_red = self.procesado.distancia_al_rojo(self.img)
+#         self.img_bin = self.procesado.binarizar(self.distance_red)
         
         self.ventana.ax = self.ventana.fig.add_subplot(111)
         self.ventana.ax.set_title(self.dic.md_v_figsin)
@@ -31,8 +31,47 @@ class MediadorVentana():
         self.ventana.ax.set_ylim([self.img.shape[0], 0])
         self.ventana.ax.imshow(self.img , interpolation=self.dic.md_v_ori)
         self.ref_numeros=self.procesado.obtener_numeros(self.img)
+        self.color=[]
+        self.ventana.pestannas.button.setEnabled(False)
+
         
-        
+    def obtener_color(self):
+        """
+        Metodo encargado de la correccion manual de las lineas que hayan quedado sin 
+        detectar por nuestro algoritmo.
+        """
+        self.ventana.pestannas.button3.setEnabled(False)
+        self.ventana.pestannas.button.setEnabled(False)
+
+        def onclick(event):
+            """
+            Metodo interno de la funcion anterior que se encargara de obtener las coordenadas
+            de los puntos que bayamos clicando.
+            
+            @param Event: evento que contiene las coordenadas del punto clicado.
+
+            @return: Coordenadas P1 y P2
+            """
+            ix, iy = event.xdata, event.ydata
+            coords=[]
+#             print(self.img[int(round(iy,0)),int(round(ix,0))])
+            self.color=self.img[int(round(iy,0)),int(round(ix,0))]
+            h,s,v=self.procesado.pixelrgb_2_hsv(self.color)
+            if s>0.6:
+                self.distance_red = self.procesado.distancia_al_rojo(self.img,self.color)
+                self.img_bin = self.procesado.binarizar(self.distance_red)
+                self.ventana.fig.canvas.mpl_disconnect(cid)
+                self.ventana.pestannas.button.setEnabled(True)
+            else:
+                self.ventana.pestannas.button.setEnabled(False)
+                self.color=self.img[int(round(iy,0)),int(round(ix,0))]
+                h,s,v=self.procesado.pixelrgb_2_hsv(self.color)
+                h,v=h,v
+            return coords
+        cid = self.ventana.fig.canvas.mpl_connect(self.dic.md_pe_but_press, onclick)
+        self.ventana.pestannas.button3.setEnabled(True)
+
+           
     def detectar_cuadrado(self):
         """
         Metodo para detectar el cuadrado sobre el que poder pintar las lineas que hemos detectado.

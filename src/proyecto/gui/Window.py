@@ -108,4 +108,5 @@ class Window(QtWidgets.QWidget):
         self.mediador_ventana.pintar_imagen_y_segmentos(segmentos)
         self.canvas.draw()
 
-    
+    def obtener_color(self):
+        self.mediador_ventana.obtener_color()

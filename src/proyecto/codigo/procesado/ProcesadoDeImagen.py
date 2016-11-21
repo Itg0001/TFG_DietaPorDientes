@@ -243,11 +243,12 @@ class ProcesadoDeImagen():
         #borrar temporal.
         shutil.rmtree(temp) 
         return g.replace('3','0').replace('\n','').replace('8','0')
-    
+    @classmethod
     def pixel_rgb_2_lab(self,pixel):
         r,g,b = pixel        
         return rgb2lab([[[r/255,g/255,b/255]]])[0][0]
-
+    
+    @classmethod
     def pixelrgb_2_hsv(self,pixel):
         r,g,b = pixel
         return rgb2hsv([[[r/255,g/255,b/255]]])[0][0]

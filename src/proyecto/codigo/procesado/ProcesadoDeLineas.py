@@ -60,16 +60,13 @@ class ProcesadoDeLineas():
  
         @return: min(distances): la distancia minima de todas las posibles distancias
         """
-        x11 = x[0][0]
-        y11 = x[0][1]
-        x12 = x[1][0]
-        y12 = x[1][1]
+        x1, y1 = x
+        x11, y11 = x1
+        x12, y12 = y1
         
-        x21 = y[0][0]
-        y21 = y[0][1]       
-        x22 = y[1][0]        
-        y22 = y[1][1]
-        
+        x2, y2, = y
+        x21, y21 = x2
+        x22, y22 = y2
 
         if self.segments_intersect(x, y): 
                 return 0
@@ -92,20 +89,19 @@ class ProcesadoDeLineas():
         
         @return: true/false si se cruzan o no 
         """
-        x11 = x[0][0]
-        y11 = x[0][1]
-        x12 = x[1][0]
-        y12 = x[1][1]
-        
-        x21 = y[0][0]
-        y21 = y[0][1]       
-        x22 = y[1][0]        
-        y22 = y[1][1]
+        x1, y1 = x
+        x11, y11 = x1
+        x12, y12 = y1
+                
+        x2, y2, = y
+        x21, y21 = x2
+        x22, y22 = y2
         
         dx1 = x12 - x11
         dy1 = y12 - y11
         dx2 = x22 - x21
         dy2 = y22 - y21
+        
         delta = dx2 * dy1 - dy2 * dx1
         if delta == 0: 
             return False  # parallel segments
@@ -220,7 +216,7 @@ class ProcesadoDeLineas():
             return (x_max, y_min), (x_min, y_max)
         
     @classmethod
-    def longitud_linea(self, p,valor=100):
+    def longitud_linea(self, p, valor=100):
         """
         Funcion que calcula la longitud de un segmento.
         
@@ -229,11 +225,11 @@ class ProcesadoDeLineas():
         @Return distancia del segmento
         """
         
-        valor=int(valor)
-        long_ref=int(valor)
-        long_seg=(((p[1][0] - p[0][0]) ** 2) + ((p[1][1] - p[0][1]) ** 2)) ** (1 / 2)
+        valor = int(valor)
+        long_ref = int(valor)
+        long_seg = (((p[1][0] - p[0][0]) ** 2) + ((p[1][1] - p[0][1]) ** 2)) ** (1 / 2)
         
-        return (long_seg*valor)/long_ref
+        return (long_seg * valor) / long_ref
     
     @classmethod
     def segmentos_verdad(self, k_components, lines):

@@ -22,8 +22,6 @@ class MediadorVentana():
         self.procesado_de_lineas = ProcesadoDeLineas()
         
         self.img = self.procesado.leer_imagen(self.ventana.path)
-#         self.distance_red = self.procesado.distancia_al_rojo(self.img)
-#         self.img_bin = self.procesado.binarizar(self.distance_red)
         
         self.ventana.ax = self.ventana.fig.add_subplot(111)
         self.ventana.ax.set_title(self.dic.md_v_figsin)
@@ -62,11 +60,16 @@ class MediadorVentana():
                 self.img_bin = self.procesado.binarizar(self.distance_red)
                 self.ventana.fig.canvas.mpl_disconnect(cid)
                 self.ventana.pestannas.button.setEnabled(True)
+                r,g,b=self.color
+                self.ventana.pestannas.color_sele.setText("")
+                self.ventana.pestannas.color_sele.setStyleSheet("background-color: rgb("+str(r)+","+str(g)+","+str(b)+")")
             else:
                 self.ventana.pestannas.button.setEnabled(False)
                 self.color=self.img[int(round(iy,0)),int(round(ix,0))]
                 h,s,v=self.procesado.pixelrgb_2_hsv(self.color)
                 h,v=h,v
+                self.ventana.pestannas.color_sele.setText("No seleccionado")
+                self.ventana.pestannas.color_sele.setStyleSheet("background-color: rgb(255,255,255)")
             return coords
         cid = self.ventana.fig.canvas.mpl_connect(self.dic.md_pe_but_press, onclick)
         self.ventana.pestannas.button3.setEnabled(True)

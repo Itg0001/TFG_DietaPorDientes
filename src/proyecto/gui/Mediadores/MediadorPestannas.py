@@ -57,6 +57,11 @@ class MediadorPestannas():
      
         self.pestannas.button3 = QtWidgets.QPushButton("Obtener color")
         self.pestannas.button3.clicked.connect(self.pestannas.ventana.obtener_color)
+        self.pestannas.color = QtWidgets.QHBoxLayout()
+        self.pestannas.color_eti = QtWidgets.QLabel("Color: ")
+        self.pestannas.color_sele = QtWidgets.QLabel("No seleccionado")
+        self.pestannas.color.addWidget(self.pestannas.color_eti)
+        self.pestannas.color.addWidget(self.pestannas.color_sele)
      
         self.pestannas.repetici = QtWidgets.QHBoxLayout()
         self.pestannas.repeticiones = QtWidgets.QLabel(self.dic.md_pe_repe)
@@ -108,9 +113,11 @@ class MediadorPestannas():
         self.pestannas.long_min_layout.addWidget(self.pestannas.lon_actual)
         self.pestannas.layout_segundo.addLayout(self.pestannas.long_min_layout)
         self.pestannas.layout_segundo.addWidget(self.pestannas.combo_lon)
+        self.pestannas.layout_segundo.addLayout(self.pestannas.color)
 
-        self.pestannas.layout_segundo.addWidget(self.pestannas.button)
+
         self.pestannas.layout_segundo.addWidget(self.pestannas.button3)
+        self.pestannas.layout_segundo.addWidget(self.pestannas.button)
         self.pestannas.layout_segundo.setAlignment(QtCore.Qt.AlignTop)       
     
     def valuechange_repeti(self):

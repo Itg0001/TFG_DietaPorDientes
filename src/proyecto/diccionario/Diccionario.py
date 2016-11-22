@@ -42,7 +42,8 @@ class Diccionario():
         #datosTo csv
         self.cabecera_csv_lineas=['linea', 'angulo', 'tamano', 'tipo']
         self.cabecera_csv_estad=['tipo', 'numero', 'mediaLon', 'desviacionTip']
-        
+        self.xmin="xmin"
+        self.ymin="ymin"
         
         #Informe
         self.jin_blo='/BLOCK{'
@@ -70,7 +71,7 @@ class Diccionario():
         self.md_pe_calc='Calcular Lineas'
         self.md_pe_param = "Guardar parametros" 
         self.md_pe_repe = "Repeticiones:" 
-        self.md_pe_long_min = "Longitud de corte:" 
+        self.md_pe_long_min = "Ignorar menores de:" 
         self.md_pe_direccion = "Direccion de imagen" 
            
         self.md_pe_corre="Corregir lineas"
@@ -88,7 +89,6 @@ class Diccionario():
         self.md_pe_cero="0"
         self.md_pe_cero="0"
         self.md_pe_cabe_tab=['P1X', 'P1Y', 'P2X', 'P2Y']
-        self.md_pe_fig_lin='Figura con lineas'
         self.md_pe_amarillo='yellow'
         self.md_pe_color_bl='color: black'
         self.md_pe_color_red='color: Red'
@@ -110,10 +110,10 @@ class Diccionario():
         self.md_pe_tab='/Proyecto/Tabla.tex'
         self.md_pe_err_tab="Falla porque esta abierto el archivo Tabla"
         self.md_pe_msg_gur="No se han guardado los cambios."
+        self.md_pe_direc=["Derecha","Izquierda"]
+        self.md_pe_puntos_cuadrado=["-","-","-","-"]
         
         #mediadorVentana
-        self.md_v_figsin='Figura sin lineas'
-        self.md_v_figcon='Figura con lineas'
         self.md_v_ori='nearest'
         self.md_v_up='upper'
         self.md_v_color='b'
@@ -136,10 +136,10 @@ class Diccionario():
         self.ini_o_ayuda='Ayuda'
         self.ini_ayuda="&Ayuda"
         self.ini_archivo='&Archivo'
-
+        self.nombre_api='DietaPorDientes'
         
         self.ini_msg="Cargar imagen para iniciar"
-        self.ini_color='color: red'
+        self.ini_color='color: black'
         self.ini_time="Times"        
         self.ini_msg_acerca="Autores: \n\tIsmael Tobar García \n\tAlvar Gonzalez Arnaiz\n\tJose Francisco Diez Pastor\nVersion: \n\t1.0 "
         self.ini_acercade="Acerca de"  
@@ -153,3 +153,8 @@ class Diccionario():
         self.ini_p_aviso="Aviso"
         self.ini_p_cargar="Cargar Proyecto"
         self.ini_p_war_amp="Warning: fichero csv no existe"
+        
+        #Pintar rectangulo:
+        self.detect_event_press='button_press_event'
+        self.detect_event_release='button_release_event'
+        self.detect_event_motion='motion_notify_event'

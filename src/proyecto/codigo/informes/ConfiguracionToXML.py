@@ -17,7 +17,7 @@ class ConfiguracionToXML(InGuardarDatos):
 
     
     @classmethod    
-    def guardar(self, path, nombres, repe, lon, dire):
+    def guardar(self, path, nombres, repe, lon, dire,cuadrado):
         """
         Metodo que generara el xml de configuracion con los nombres de los generables.
         
@@ -25,7 +25,7 @@ class ConfiguracionToXML(InGuardarDatos):
         """
         self.dic = Diccionario()
         proyect = ET.Element(self.dic.proyec)
-        ET.SubElement(proyect, self.dic.docu, repeti=str(repe), long=str(lon), direccion=str(dire))
+        ET.SubElement(proyect, self.dic.docu, repeti=str(repe), long=str(lon), direccion=str(dire),xmin=str(cuadrado[1]),ymin=str(cuadrado[3]))
         ET.SubElement(proyect, self.dic.docu1, name=self.dic.tex, path=nombres[self.dic.docu1])
         ET.SubElement(proyect, self.dic.docu2, name=self.dic.csv, path=nombres[self.dic.docu2])
         ET.SubElement(proyect, self.dic.docu3, name=self.dic.csv, path=nombres[self.dic.docu3]) 
@@ -46,9 +46,10 @@ class ConfiguracionToXML(InGuardarDatos):
                 repe = child.attrib[self.dic.repeti]
                 long = child.attrib[self.dic.long]
                 dire = child.attrib[self.dic.direccion]
+                xmin= child.attrib[self.dic.xmin]
+                ymin= child.attrib[self.dic.ymin]
                 i = i + 1
             else:
                 dicion[child.tag] = child.attrib[self.dic.path]
-        return dicion, repe, long, dire
-
+        return dicion, repe, long, dire,xmin,ymin
 

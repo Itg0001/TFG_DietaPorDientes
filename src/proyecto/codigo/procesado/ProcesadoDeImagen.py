@@ -7,8 +7,7 @@ from skimage.transform import probabilistic_hough_line
 import numpy as np
 import tempfile
 import os,shutil
-from skimage.color import rgb2lab
-
+from skimage.color import rgb2lab,gray2rgb
 from PIL import Image, ImageDraw
 from proyecto.diccionario import Diccionario
 
@@ -32,10 +31,11 @@ class ProcesadoDeImagen():
         """
         self.dic=Diccionario()     
         img = io.imread(path_img.replace('\\', '/'))
-        return img
+        
+        return gray2rgb(img)
     
     @classmethod
-    def guardar_y_pintar(self, path, temp, segmentos):
+    def guardar_y_pintar(self, path, temp, segmentos,cuadrado):
         """
         Metodo que se encargara de guardar y pintar los segmentos pasados 
         en la imagen para asi poder usarla para informes.
@@ -44,12 +44,18 @@ class ProcesadoDeImagen():
         @param tem ruta al fichero temporal donde guardar la imagen.
         @param segmentos: Segmentos a pintar en la imagen.
         """
-        im = Image.open(path)
+        im = Image.open(path).convert("RGB")
         draw = ImageDraw.Draw(im)
         for i in segmentos:             
-            draw.line((i[0][0], i[0][1], i[1][0], i[1][1]), fill='red', width=2)        
+            draw.line((i[0][0], i[0][1], i[1][0], i[1][1]), fill='red', width=2)         
+        if cuadrado[0]!="-" and cuadrado[1]!="-" and cuadrado[2]!="-" and cuadrado[3]!="-":
+            draw.line((cuadrado[1]-2, cuadrado[3], cuadrado[0]+2, cuadrado[3]), fill='#020202', width=6)    
+            draw.line((cuadrado[1], cuadrado[3], cuadrado[1], cuadrado[2]), fill='#020202', width=6)    
+            draw.line((cuadrado[1]-2, cuadrado[2], cuadrado[0]+2, cuadrado[2]), fill='#020202', width=6)    
+            draw.line((cuadrado[0], cuadrado[2], cuadrado[0], cuadrado[3]), fill='#020202', width=6) 
+                           
         im.save(temp + self.dic.pintada, self.dic.jpg, quality=100)
-    
+
     @classmethod
     def distancia_al_rojo(self, img,pixel):
         """
@@ -179,6 +185,8 @@ class ProcesadoDeImagen():
             puntos_x.add(i[1][0])    
             puntos_y.add(i[0][1])
             puntos_y.add(i[1][1])
+        if len(lines)==0:
+            return 0,0,0,0
         return max(puntos_x),min(puntos_x),max(puntos_y),min(puntos_y)
     
     @classmethod
@@ -245,10 +253,20 @@ class ProcesadoDeImagen():
         return g.replace('3','0').replace('\n','').replace('8','0')
     @classmethod
     def pixel_rgb_2_lab(self,pixel):
+        """
+        Esta funcion se encargara de pasar un pixel de rgb a lab.
+        @param pixel: pixel que pasar a espacio de color lab.
+        @return: pixel en espacio de color lab. 
+        """
         r,g,b = pixel        
         return rgb2lab([[[r/255,g/255,b/255]]])[0][0]
     
     @classmethod
     def pixelrgb_2_hsv(self,pixel):
+        """
+        Esta funcion se encargara de pasar un pixel de rgb a hsv.
+        @param pixel: pixel que pasar a espacio de color hsv.
+        @return: pixel en espacio de color hsv. 
+        """
         r,g,b = pixel
         return rgb2hsv([[[r/255,g/255,b/255]]])[0][0]

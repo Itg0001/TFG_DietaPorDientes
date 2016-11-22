@@ -58,17 +58,19 @@ class Window(QtWidgets.QWidget):
         self.selec_ante = None
         self.inicializa_pestanna_1()
         
-        self.xMax=self.mediador_ventana.img.shape[1]
-        self.xMin=0
-        self.yMax=self.mediador_ventana.img.shape[0]
-        self.yMin=0
+        self.x_max = self.mediador_ventana.img.shape[1]
+        self.x_min = 0
+        self.y_max = self.mediador_ventana.img.shape[0]
+        self.y_min = 0
         self.detectar_cuadrado()
-
-        
-    def detectar_cuadrado(self):   
+  
+    def detectar_cuadrado(self):
+        """
+        Metodo que se encargara de detectar el cuadrado que engloba a la imagen.
+        y establecer el area que podremos pintar.
+        """   
         self.mediador_ventana.detectar_cuadrado()
     
-     
     def inicializa_figura_y_widgets(self):
         """
         Metodo para inicializar la figura y los widgets de la ventana.
@@ -96,7 +98,7 @@ class Window(QtWidgets.QWidget):
         """
         Metodo para calcular las lineas de la imagen pintadas en rojo.
         """       
-        self.mediador_ventana.calcular_lineas(self.pestannas.combo_repeti.value(),self.pestannas.combo_lon.value())
+        self.mediador_ventana.calcular_lineas(self.pestannas.combo_repeti.value(), self.pestannas.combo_lon.value())
         self.canvas.draw()
 
     def pintar_imagen_y_segmentos(self, segmentos):
@@ -109,4 +111,7 @@ class Window(QtWidgets.QWidget):
         self.canvas.draw()
 
     def obtener_color(self):
+        """
+        Metodo que se encargara de obtener el color de las lineas (El que marque el usuario.
+        """
         self.mediador_ventana.obtener_color()

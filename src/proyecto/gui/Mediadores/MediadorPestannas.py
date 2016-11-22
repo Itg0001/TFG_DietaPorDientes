@@ -55,8 +55,9 @@ class MediadorPestannas():
         self.pestannas.button = QtWidgets.QPushButton(self.dic.md_pe_calc)
         self.pestannas.button.clicked.connect(self.pestannas.ventana.calcular_lineas)
      
-        self.pestannas.button3 = QtWidgets.QPushButton("Obtener color")
-        self.pestannas.button3.clicked.connect(self.pestannas.ventana.obtener_color)
+        self.pestannas.button33 = QtWidgets.QPushButton("Selecionar color")
+        self.pestannas.button33.clicked.connect(self.pestannas.ventana.obtener_color)
+        
         self.pestannas.color = QtWidgets.QHBoxLayout()
         self.pestannas.color_eti = QtWidgets.QLabel("Color: ")
         self.pestannas.color_sele = QtWidgets.QLabel("No seleccionado")
@@ -74,10 +75,10 @@ class MediadorPestannas():
         self.pestannas.combo_repeti.setTickPosition(QtWidgets.QSlider.TicksBelow)
         self.pestannas.combo_repeti.setTickInterval(1)
         self.pestannas.combo_repeti.valueChanged.connect(self.valuechange_repeti)
+        
         self.pestannas.repe_actual = QtWidgets.QLabel(str(self.pestannas.combo_repeti.value()))
         self.pestannas.repe_actual.setStyleSheet(self.dic.md_pe_color_red)
 
-        
         self.pestannas.long_min_layout = QtWidgets.QHBoxLayout()
         self.pestannas.long_min = QtWidgets.QLabel(self.dic.md_pe_long_min)
 
@@ -88,13 +89,15 @@ class MediadorPestannas():
         self.pestannas.combo_lon.setTickPosition(QtWidgets.QSlider.TicksBelow)
         self.pestannas.combo_lon.setTickInterval(5)
         self.pestannas.combo_lon.valueChanged.connect(self.valuechange_lon)
+        
         self.pestannas.lon_actual = QtWidgets.QLabel(str(self.pestannas.combo_lon.value()))
         self.pestannas.lon_actual.setStyleSheet(self.dic.md_pe_color_red)
   
         self.pestannas.direccion_layout = QtWidgets.QHBoxLayout()
         self.pestannas.direccion = QtWidgets.QLabel(self.dic.md_pe_direccion)
+        
         self.pestannas.combo_dir = QtWidgets.QComboBox()
-        self.pestannas.combo_dir.addItems(["Derecha","Izquierda"])
+        self.pestannas.combo_dir.addItems(self.dic.md_pe_direc)
         self.pestannas.combo_dir.setCurrentIndex(1)
         
         self.pestannas.layout_segundo = QtWidgets.QVBoxLayout() 
@@ -116,15 +119,21 @@ class MediadorPestannas():
         self.pestannas.layout_segundo.addLayout(self.pestannas.color)
 
 
-        self.pestannas.layout_segundo.addWidget(self.pestannas.button3)
+        self.pestannas.layout_segundo.addWidget(self.pestannas.button33)
         self.pestannas.layout_segundo.addWidget(self.pestannas.button)
         self.pestannas.layout_segundo.setAlignment(QtCore.Qt.AlignTop)       
     
     def valuechange_repeti(self):
+        """
+        Metodo para mirar si han cambiado las repeticiones y aztualizar.
+        """
         val= self.pestannas.combo_repeti.value()
         self.pestannas.repe_actual.setText(str(val))
         
     def valuechange_lon(self):
+        """
+        Metodo para mirar si han cambiado la longitud y aztualizar.
+        """
         val= self.pestannas.combo_lon.value()
         self.pestannas.lon_actual.setText(str(val))
         
@@ -223,7 +232,6 @@ class MediadorPestannas():
             p2y = self.pestannas.table.item(row, 3)
             p2y = p2y.text()
             self.pestannas.ventana.ax.hold(True) 
-            self.pestannas.ventana.ax.set_title(self.dic.md_pe_fig_lin)
             sel, = self.pestannas.ventana.ax.plot((np.int32(p1x), np.int32(p2x)), (np.int32(p1y) , np.int32(p2y)), self.dic.md_pe_amarillo, linewidth=2.0)
             if self.pestannas.ventana.selec_ante != None:            
                 self.pestannas.ventana.ax.lines.remove(self.pestannas.ventana.selec_ante)
@@ -245,22 +253,28 @@ class MediadorPestannas():
         self.pestannas.P2_x.setText(self.dic.md_pe_cero)
         self.pestannas.P2_y.setText(self.dic.md_pe_cero)        
         self.pestannas.button2.setEnabled(False)
+            
+        if self.pestannas.ventana.mediador_ventana.terminar==True:
+            self.pestannas.ventana.mediador_ventana.pintar_rect.disconnect()
+            x,y=self.pestannas.ventana.mediador_ventana.pintar_rect.rect.xy
+            x,y=int(x),int(y)
+            self.pestannas.ventana.x_max=round(x+745,0)
+            self.pestannas.ventana.x_min=x
+            self.pestannas.ventana.y_max=round(y+745,0)
+            self.pestannas.ventana.y_min=y
         coords = []     
         def onclick(event):
             """
             Metodo interno de la funcion anterior que se encargara de obtener las coordenadas
             de los puntos que bayamos clicando.
-            
             @param Event: evento que contiene las coordenadas del punto clicado.
-
             @return: Coordenadas P1 y P2
             """
             ix, iy = event.xdata, event.ydata
-            x_max=self.pestannas.ventana.xMax
-            x_min=self.pestannas.ventana.xMin
-            y_max=self.pestannas.ventana.yMax
-            y_min=self.pestannas.ventana.yMin
-
+            x_max=self.pestannas.ventana.x_max
+            x_min=self.pestannas.ventana.x_min
+            y_max=self.pestannas.ventana.y_max
+            y_min=self.pestannas.ventana.y_min
             existe=self.pestannas.ventana.mediador_ventana.procesado.pertenece_o_no(ix, iy,x_min,x_max,y_min,y_max)
             if (ix != None and iy != None) and existe:
                 if len(coords) == 0:
@@ -358,11 +372,10 @@ class MediadorPestannas():
         if self.pestannas.table.rowCount() > 0:
             self.pestannas.button7.setEnabled(True)
             self.pestannas.ventana.padre.save_file.setEnabled(True)
- 
         else:
             self.pestannas.button7.setEnabled(False)
             self.pestannas.ventana.padre.save_file.setEnabled(False)
-             
+ 
     def anadir_puntos(self):
         """
         Metodfo para añadir todos los segmentos calculados por el algoritmo
@@ -421,6 +434,16 @@ class MediadorPestannas():
         repe=self.pestannas.combo_repeti.value()
         lon=self.pestannas.combo_lon.value()
         dire=self.pestannas.combo_dir.currentIndex()
+        if self.pestannas.ventana.mediador_ventana.detectado==False:
+            x_max=self.pestannas.ventana.x_max
+            x_min=self.pestannas.ventana.x_min
+            y_max=self.pestannas.ventana.y_max
+            y_min=self.pestannas.ventana.y_min
+            cuadrado=[]
+            cuadrado.extend([x_max,x_min,y_max,y_min])
+        else:
+            cuadrado=[]
+            cuadrado.extend(self.dic.md_pe_puntos_cuadrado)    
         path = QtWidgets.QFileDialog.getExistingDirectory(self.pestannas, self.dic.md_pe_open)
         band = False
         if  path != "":
@@ -442,15 +465,13 @@ class MediadorPestannas():
                     nombres=self.pestannas.nombres
                     procesado=self.pestannas.ventana.mediador_ventana.procesado
                     caminos=[]
-                    caminos.extend([pathi,temp,temp2,path,repe,lon,dire])
-                    self.fachada_entrada_salida.guardar_tabla(table,ref_numeros,nombres,procesado,caminos)                                   
+                    caminos.extend([pathi,temp,temp2,path,repe,lon,dire,cuadrado])
+                    self.fachada_entrada_salida.guardar_tabla(table,ref_numeros,nombres,procesado,caminos) 
                     self.pestannas.button7.setEnabled(False)
                     self.pestannas.ventana.padre.save_file.setEnabled(False)
                     shutil.rmtree(temp)  
                     shutil.rmtree(temp2)
-                    
                     self.pestannas.ventana.padre.bandera=False 
-
                 except:
                     self.pestannas.ventana.padre.bandera=True 
                     exc = self.dic.md_pe_war + str(sys.exc_info()[0]) + str(sys.exc_info()[1])
@@ -491,11 +512,15 @@ class MediadorPestannas():
         
         @param path: Camino hasta donde esta nuestro proyecto en custion.
         """
-        segmentos_pintar,self.pestannas.table,self.pestannas.nombres,repe,long,dire=self.fachada_entrada_salida.cargar_proyec(path,self.pestannas.table) 
+        segmentos_pintar,self.pestannas.table,self.pestannas.nombres,repe,long,dire,xmin,ymin=self.fachada_entrada_salida.cargar_proyec(path,self.pestannas.table) 
         self.pestannas.combo_lon.setValue(int(long))
         self.pestannas.combo_repeti.setValue(int(repe))
         self.pestannas.combo_dir.setCurrentIndex(int(dire))
-        if len(segmentos_pintar) != 0:       
+        if len(segmentos_pintar) != 0: 
+            if self.pestannas.ventana.mediador_ventana.detectado==False:
+                self.pestannas.ventana.mediador_ventana.pintar_rect.rect.set_x(int(xmin))      
+                self.pestannas.ventana.mediador_ventana.pintar_rect.rect.set_y(int(ymin))
+                self.pestannas.ventana.mediador_ventana.pintar_rect.disconnect()
             self.pestannas.ventana.pintar_imagen_y_segmentos(segmentos_pintar)
             self.pestannas.ventana.selec_ante = None
             self.pestannas.ventana.canvas.draw()

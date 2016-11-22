@@ -37,6 +37,7 @@ class FachadaEntradaSalida():
         repe=caminos[4]
         long=caminos[5]
         dire=caminos[6]
+        cuadrado=caminos[7]
         if os.path.exists(path + self.dic.md_pe_proy):
             shutil.copytree(path + self.dic.md_pe_proy, temp2 + self.dic.md_pe_proy)
                              
@@ -59,7 +60,7 @@ class FachadaEntradaSalida():
         st_v, st_h, st_md, st_dm, st_tot, variables_tabla = self.estad.calcular_estadisticas(v, h, md, dm, total)
         lista.extend([v, h, md, dm, st_v, st_h, st_md, st_dm, st_tot])
         caminos.clear()
-        caminos.extend([temp, temp2,path,path2,repe,long,dire])
+        caminos.extend([temp, temp2,path,path2,repe,long,dire,cuadrado])
         self.escribe_proyecto(variables_tabla, lista, segmentos,nombres,procesado,caminos)
 
     def escribe_proyecto(self,variables_tabla, lista, segmentos,nombres,procesado,caminos):
@@ -78,13 +79,14 @@ class FachadaEntradaSalida():
         repe=caminos[4]
         long=caminos[5]
         dire=caminos[6]
+        cuadrado=caminos[7]
         informe = Informe(variables_tabla, temp)  # @UnusedVariable
         self.escribeCSV.guardar(temp, lista)
-        self.conf_to_xml.guardar(temp,nombres,repe,long,dire)
-        
+        self.conf_to_xml.guardar(temp,nombres,repe,long,dire,cuadrado)
         shutil.copy(path2, temp + self.dic.origi)
-        procesado.guardar_y_pintar(path2, temp, segmentos) 
-       
+
+        procesado.guardar_y_pintar(path2, temp, segmentos,cuadrado,) 
+
         if os.path.exists(path + self.dic.md_pe_proy):
             shutil.rmtree(path + self.dic.md_pe_proy)
         shutil.copytree(temp, path + self.dic.md_pe_proy)
@@ -98,7 +100,7 @@ class FachadaEntradaSalida():
         @param path: Camino hasta donde esta nuestro proyecto en custion.
         """       
         self.cargado = True
-        nombres,repeticiones,long,dire=self.conf_to_xml.leer_xml(path)      
+        nombres,repeticiones,long,dire,xmin,xmax=self.conf_to_xml.leer_xml(path)      
         segmentos = self.escribeCSV.leer(path + nombres[self.dic.docu3])
         segmentos_procesa = []
 
@@ -122,7 +124,7 @@ class FachadaEntradaSalida():
                 table.setItem(row, 2, QtWidgets.QTableWidgetItem(str(int(i[2]))))
                 table.setItem(row, 3, QtWidgets.QTableWidgetItem(str(int(i[3]))))
                 row += 1
-        return segmentos_pintar,table,nombres,repeticiones,long,dire
+        return segmentos_pintar,table,nombres,repeticiones,long,dire,xmin,xmax
 
     def undo(self,temp2,path):
         """

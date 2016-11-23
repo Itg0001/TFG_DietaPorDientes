@@ -1,4 +1,21 @@
 \capitulo{3}{Conceptos teóricos}
+En esta sección vamos a centrarnos en explicar todos los conceptos necesarios para poder entender los pasos de los procesos realizados en la aplicación y saber en que se sustentan.
+
+\begin{itemize}
+\item Espacios de color: Las imágenes nos son mas que matrices de numeros que expresan, valores o poderaciones, distintos para representar los colores, la suma de todas ellas transmitido atrabes de un medio de reproducion, pantalla o similar, nos muestran las imagenes.
+Cada espacio de color tiene unas propiedades y unas ventajas, para obtener las característica que buscamos, con mayor o menor dificultad, por eso es necesario explicar los distintos espacios de colores.
+
+\item Transformada de Hough: Es un procedimiento matemático para buscar segmentos dentro de las imágenes binarizadas, dado que es complejo y lo usamos, es necesario explicar porque funciona y en que consiste.
+
+\item La reducción de grosor: Es un paso clave en el procesado porque gracias a esto obtenemos los resultados que mas se ajustan a la realidad.
+No es complejo pero si que es muy útil y sin este paso no serviría nada de nuestro procesado, su función es eliminar el ruido.
+
+\item Grafos: Gracias a la teoría de grafos podemos procesar muchos segmentos similares en uno solo, de forma sencilla y eficiente, por lo que es necesaria su explicación.
+
+\item Bordes: Al final las estrías que detectamos no son mas que bordes dentro de la imagen y todo lo usado es para la detección de estos por lo que es necesaria su explicación. Como dato curioso, para la resolución de nuestro problema lo que hemos hecho es reducirlo a un problema de detección de bordes.
+\end{itemize}
+
+
 
 \section{Espacios de color }
 El color que percibimos en los objetos que nos rodean depende de la radiación reflejada en ellos. Según los estudios, nosotros como humanos tenemos un rango ``de luz visible'', ese rango son en verdad tres frecuencias diferentes dentro del rango 769THz a 384THz~\cite{Manual:HAE}.\\
@@ -12,12 +29,14 @@ Por lo que en verdad una imagen que percibimos es la unión de las tres frecuenc
 \end{figure}
 
 \subsection{RGB}
-El modelo RGB es usado por todos los sistemas digitales para la representación y captura de imágenes.\\
-Se divide en tres canales como se muesra en la figura \ref{fig:3.2}\\
+El modelo RGB es usado por todos los sistemas digitales para la representación y captura de imágenes.
+
+Se divide en tres canales como se muesra en la figura \ref{fig:3.2}.
+
 \begin{itemize}
-	\item R: canal del rojo (RED) contiene la intensidad de rojo de cada pixel\\
-	\item G: canal del verde (GREEN) contiene la intensidad de verde de cada pixel\\
-	\item B: canal del azul (BLUE) contiene la intensidad de azul de cada pixel\\ 
+	\item R: canal del rojo (RED) contiene la intensidad de rojo de cada pixel
+	\item G: canal del verde (GREEN) contiene la intensidad de verde de cada pixel
+	\item B: canal del azul (BLUE) contiene la intensidad de azul de cada pixel
 \end{itemize}
 
 \begin{figure}[h]
@@ -27,7 +46,7 @@ Se divide en tres canales como se muesra en la figura \ref{fig:3.2}\\
 \label{fig:3.2}
 \end{figure}
 La combinación de estos colores crea todas la gama de colores representable.
-El valor de la intensidad de cada canal depende de la codificación usada para su representación (Ocho bits dan Dieciséis millones de colores) como se muestra en la figura  \ref{fig:3.3}
+El valor de la intensidad de cada canal depende de la codificación usada para su representación (Ocho bits dan Dieciséis millones de colores) como se muestra en la figura  \ref{fig:3.3}.
 
 \begin{figure}[h]
 \centering
@@ -57,6 +76,16 @@ Una ventaja con otros espacios de color parecidos es que este permite representa
 \subsection{CIELAB}
 El modelo lab \cite{wiki:lab},mas conocido como CIELAB,es otra forma de representar los colores. Este en concreto, se basa en como representa los colores el ojo humano, la diferencia entre LAB y CIELAB, es que CIELAB utiliza raíces cubicas, mientras que LAB usa raíces cuadradas.
 
+El modelo lo podemos ver en la siguiente figura  \ref{fig:3.8}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=.35\textwidth]{CieLAB}
+\caption{Representación del modelo CIELAB\cite{cie:LAB}}
+\label{fig:3.8}
+\end{figure}
+
+
 Componentes del modelo:
 \begin{itemize}
 	\item L: Luminosidad de negro a blanco.
@@ -71,6 +100,10 @@ Ventajas:
 \item La perdida es mínima al cambiar a otro espacio de color.
 \end{itemize}
 
+
+
+
+
 \section{Transformada de Hough }
 
 Uno de los puntos relevantes del proyecto es la detección de las líneas pintadas o detectadas por el algoritmo (modo automático) para ello vamos a usar una técnica que sirve para detectar formas, expresadas de forma matemática, dentro de imágenes.
@@ -83,12 +116,13 @@ Normalmente para detectar figuras sencillas en una imagen primero hay que usar a
 
 Para ello el método de Hough propone solucionar el problema detectando grupos de puntos que forman los bordes de la misma figura y así conseguir unirlos creando la recta real a la que pertenecen.
 
-\subsection{Psudocódigo Transformada de Hough}
-Como podemos ver en el siguiente Psudocódigo 
+\subsection{Pseudocódigo Transformada de Hough}
+Como podemos ver en el siguiente pseudocódigo 
 \ref{alg:Hough}.
 
 %Hough
 \begin{algorithm*}
+\caption{Pseudocódigo de la transformada}
 \DontPrintSemicolon
 \KwIn{Imagen}
 \KwOut{(list) de segmentos encontrados }

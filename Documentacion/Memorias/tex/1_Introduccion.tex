@@ -1,125 +1,27 @@
 \capitulo{1}{Introducción}
-Para ponernos en contexto sobre que va a hacer y en que va a consistir el proyecto, vamos a explicar brevemente que hará.
-El problema planteado, consiste en crear una herramienta o aplicación para detectar las estrías que se producen en los dientes, al masticar distintos tipos de comida.
-Pero en el contexto de la prehistoria, para después poder clasificar los individuos en función de la dieta que llevaban.
-Por lo que nuestro proyecto va a tener una parte de visión artificial, que detecte las lineas que han pintado sobre las imágenes de microscopio de electrones, otra parte de diseño e implementación, del software a usar y distintos análisis de las herramientas que usaremos para ello.
-
-La herramienta a usar tendrá implementados 3 modos claramente diferenciados, el primero sera la detección automática de las lineas pintadas sobre la imagen, otro modo, el segundo consistirá en pintar lineas manualmente sobre la imagen o corregir las posibles lineas que el anterior modo no consiga detectar, por ultimo el modo automático que buscara las estrias por la imagen, nos devolverá las que consiga detectar, este modo quedara como extra ya que hemos tenido una gran agilidad realizando el proyecto y vamos a tratar esta parte para completar e investigar sobre detección automática de bordes.
-
-
 %\maketitle
-\section{Gestores de tareas:}
-\subsection{Trello}
-Es una pizarra virtual también conocida como canvas en la cual podemos organizar nuestros proyectos a través de su aplicación web de forma fácil e intuitiva desde cualquier equipo en el que introduzcamos nuestra cuenta ya que al estar en la nube no se pierde nuestra información ni aunque se degrade el sistema.\\
-Podemos acceder a él através del siguiente enlace: 
-\url{https://trello.com/}
 
+Para ponernos en contexto sobre que va a hacer y en que va a consistir el proyecto, vamos a explicar brevemente que hará.
 
+El problema planteado, consiste en crear una herramienta o aplicación para detectar las estrías que se producen en los dientes, al masticar distintos tipos de comida.
 
-\textbf{Ventajas:}
+Para ser mas exactos, todos los materiales tienen una dureza tangible, los dientes tienen una dureza superior a la de los alimentos, sin embargo  algunas partes de los alimentos tienen mas dureza que los dientes, por lo que los consiguen rayar, creando unas estrías que dependiendo de los alimentos siguen distintos patrones.
 
-\begin{itemize}
-\item Es muy rápido su aprendizaje y su uso así como su simplicidad.
+ 
+Vamos a detectar esas estrías, pero en el contexto de la prehistoria, para después poder clasificar los individuos en función de la dieta que llevaban.
 
-\item La hemos usado en el transcurso de la carrera por lo que ya estamos familiarizados con el entorno.
-\end{itemize}
+Nuestro proyecto va a tener una parte de visión artificial, que detecte las lineas que han pintado, sobre las imágenes de microscopio de electrones a 100 aumentos, otra parte de diseño e implementación, del software a usar y distintos análisis de las herramientas que usaremos para ello.
 
-\textbf{Desventajas:}
+La herramienta a usar tendrá implementados 3 modos claramente diferenciados.
 
 \begin{itemize}
-\item No esta integrado dentro de nuestro repositorio por lo que lo tendríamos que usar como una herramienta mas en la que al final duplicaríamos trabajo.
-\end{itemize}
-
-
-\subsection{Version One}
-Es un gestor de tareas online en el cual podemos gestionar todas las tareas de nuestros proyectos así como realizar un seguimiento de forma visual del estado del proyecto y de las características del mismo.\\ 
-Podemos Acceder a el através del siguiente enlace: 
-\url{https://www.versionone.com/}
-
-
-\textbf{Ventajas:}
-
-\begin{itemize}
-\item Podemos incluir código, por lo que es mas completo que otras herramientas de gestión de tareas.
-\end{itemize}
-
-\textbf{Desventajas:}
-
-\begin{itemize}
-\item Como antes hemos indicado en este caso también sería algo que nos duplicaría trabajo al no estar integrado en nuestro repositorio. Sería también una herramienta a parte que no se comunicaría con nuestro repositorio.
+\item Detección automática de las lineas pintadas sobre la imagen.
+\item Pintar lineas manualmente sobre la imagen o corregir las posibles lineas que el anterior modo no consiga detectar.
+\item Automático que buscara las estrías por la imagen.Este modo quedara como extra, ya que hemos tenido una gran agilidad realizando el proyecto, vamos a tratar esta parte para completar e investigar sobre detección automática de bordes.
 \end{itemize}
 
 
-\subsection{ZenHub}
-Es una herramienta similar a Trello que también es a modo de pizarra donde ver los cambios y el estado de un vistazo pero con algunas diferencias.\\
-Podemos Acceder a el através del siguiente enlace: 
-\url{https://www.zenhub.com/}
 
-
-
-\textbf{Ventajas:}
-
-\begin{itemize}
-\item La ventaja principal es que podemos integrarlo desde GitHub por lo que ya no sería necesario duplicar trabajo con el uso de una aplicación externa.
-\end{itemize}
-
-\textbf{Desventajas:}
-
-\begin{itemize}
-\item No podremos añadir código pero tampoco es algo catastrófico, ya que justo en el repositorio donde se integra la herramienta podemos visualizar dicho código.
-
-\item Por este motivo he decidido usar esta herramienta.
-\end{itemize}
-
-\section{Gestores de versiones:}
-\subsection{GitHub}
-Es un repositorio de versiones donde el código queda organizado por tareas (issues) y las versiones cada vez que hacemos un commit se actualiza las clases de código mostrando lo que ha cambiado.
-El software esta escrito en Ruby usando el framework Ruby on Rails.\\
-Podemos Acceder a el através del siguiente enlace: 
-\url{https://github.com/}
-
-
-
-\textbf{Ventajas:}
-
-\begin{itemize}
-\item Es de los repositorios mas usados y esta basado en Git.
-
-\item El código es público y cualquiera que le interese te puede proponer cambios en el mismo, seguirte y ver el proyecto.
-
-\item Las distintas versiones del código están en la nube por lo que si se nos borra el contenido del disco duro aun así podremos recuperarlo.
-\end{itemize}
-
-\textbf{Desventajas:}
-
-\begin{itemize}
-\item También puedes tener proyectos privados solo con el modo de pago pero al no influir sobre este proyecto no pasa nada.
-
-\item Nos hemos decidido por este repositorio porque es uno de los mas usados y como se basa en Git al igual que muchos de sus competidores guarda mucha similitud con ellos.
-Al utilizar dicho repositorio de forma apropiada no deberíamos tener problemas si el día de mañana queremos usar otro.
-\end{itemize}
-
-\subsection{Bitbucket}
-Este repositorio web también guarda nuestro código y nuestras iteraciones sobre el proyecto para así tener una visión mas completa sobre nuestro trabajo.
-Este software esta escrito en Python.\\
-Podemos acceder a el através del siguiente enlace: 
-\url{https://bitbucket.org/}
-
-
-\textbf{Ventajas:}
-\begin{itemize}
-
-\item Es un repositorio muy usado y que esta basado en Git que es casi la referencia en este tipo de proyectos.
-
-\item Tiene cuentas gratuitas para proyectos privados y públicos.
-
-\end{itemize}
-
-\textbf{Desventajas:}
-
-\begin{itemize}
-\item No se puede incluir mas de 5 personas en los proyectos gratuitos.
-\end{itemize}
 
 
 

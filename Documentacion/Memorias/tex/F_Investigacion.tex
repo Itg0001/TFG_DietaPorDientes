@@ -239,7 +239,7 @@ Obtenemos un par de imágenes.
 Observaciones:
 Este método lo eh probado porque en la obtención de las líneas de sangre en los ojos es lo que se usa para ello pero al no ser líneas continuas y no seguir un patrón no he conseguido buenos resultados. En el filtro real no es tan malo pero en el filtro imaginario es ruido puro.
 \subsection{Comparativa Filtros}
-Comparativa de todos los filtros \ref{fig:1.1} y \ref{fig:1.2}. 
+Comparativa de todos los filtros \ref{fig:1.1}. 
 
 \subsection{Procesado:}
 Partiendo del análisis anterior vamos a juntar los mejores resultados y añadir pasos adicionales para obtener la mascara binaria que mas podamos ajustar a nuestras necesidades.
@@ -273,134 +273,124 @@ La imágenes tienen mucho ruido y aunque hemos conseguido procesar y reducirlo, 
 
 
 \begin{figure}
-	\begin{subfigure}[c]{.5\linewidth}
+	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{Laplace}
 	\caption{Bordes usando Laplace}
 	\end{subfigure}%
-	\begin{subfigure}[c]{.5\linewidth}
+	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{Prewitt}
 	\caption{Bordes usando Prewitt}
 	\end{subfigure}%
-
-	\begin{subfigure}[c]{.5\linewidth}
+	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{Scharr}
 	\caption{Bordes usando Scharr}
-	\end{subfigure}%	
-	\begin{subfigure}[c]{.5\linewidth}
+	\end{subfigure}%
+		
+	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{Sobel}
 	\caption{Bordes usando Sobel}
 	\end{subfigure}%
-	
-	\begin{subfigure}[c]{.5\linewidth}
+	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{Roberts}
 	\caption{Bordes usando Roberts}
 	\end{subfigure}%	
-	\begin{subfigure}[c]{.5\linewidth}
+	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{HessianaAutoLargos}
 	\caption{Bordes usando HessianaAutoLargos}
 	\end{subfigure}%
 	
-	\begin{subfigure}[c]{.5\linewidth}
+	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{CannyP}
 	\caption{Bordes usando CannyP}
 	\end{subfigure}%
-	\begin{subfigure}[c]{.5\linewidth}
+	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{Canny}
 	\caption{Bordes usando Canny}
-	\end{subfigure}%
-	
-	\begin{subfigure}[c]{.5\linewidth}
+	\end{subfigure}%	
+	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{Kirsch}
 	\caption{Bordes usando Kirsch}
 	\end{subfigure}	
+	
+	\begin{subfigure}[c]{.33\linewidth}
+	\centering\large \includegraphics[width=.9\textwidth]{GaborI}
+	\caption{Bordes usando Gabor filtro imaginario}
+	\end{subfigure}%	
+	\begin{subfigure}[c]{.33\linewidth}
+	\centering\large \includegraphics[width=.9\textwidth]{GaborR}
+	\caption{Bordes usando Gabor filtro real}
+	\end{subfigure}
 
 \caption{Resumen visual filtros usados.}\label{fig:1.1}
 \end{figure}
 
 
-\begin{figure}
-	\begin{subfigure}[c]{.5\linewidth}
-	\centering\large \includegraphics[width=.9\textwidth]{GaborI}
-	\caption{Bordes usando Gabor filtro imaginario}
-	\end{subfigure}%	
-	\begin{subfigure}[c]{.5\linewidth}
-	\centering\large \includegraphics[width=.9\textwidth]{GaborR}
-	\caption{Bordes usando Gabor filtro real}
-	\end{subfigure}
 
-\caption{Resumen visual filtros usados.}\label{fig:1.2}
-\end{figure}
 
 
 
 \begin{figure}
 
-	\begin{subfigure}[c]{.5\linewidth}
+	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{Imagen}
 	\caption{Imagen original}
 	\end{subfigure}%
-	\begin{subfigure}[c]{.5\linewidth}
+	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{ImagenHist}
 	\caption{Histograma imagen original}
-	\end{subfigure}%	
-
-	\begin{subfigure}[c]{.5\linewidth}
+	\end{subfigure}%
+	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{Equalized}
 	\caption{Imagen ecualizada}
 	\end{subfigure}%
-	\begin{subfigure}[c]{.5\linewidth}
+	
+	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{Histograma_Equali}
 	\caption{Histograma imagen ecualizada}
 	\end{subfigure}%
-
-\caption{Pasos del procesado.}\label{fig:2.1}
-\end{figure}
-
-\begin{figure}
-	\begin{subfigure}[c]{.5\linewidth}
+	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{HessianaPaso2}
 	\caption{Autovectores largos.}
 	\end{subfigure}%
-	\begin{subfigure}[c]{.5\linewidth}
+	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{HessianaPaso2MenosFOndo}
 	\caption{Hessiana menos fondo.}
 	\end{subfigure}%	
 
-	\begin{subfigure}[c]{.5\linewidth}
+	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{MenosFondoBinarizada}
 	\caption{Binarizado.}
 	\end{subfigure}%
-	\begin{subfigure}[c]{.5\linewidth}
+	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{BinarizadaSinRuido}
 	\caption{Binarizada sin ruido.}
 	\end{subfigure}%
-
-	\begin{subfigure}[c]{.5\linewidth}
+	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{SinRuidoErosionada}
 	\caption{Erosionado.}
 	\end{subfigure}%
-	\begin{subfigure}[c]{.5\linewidth}
+	
+	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{ErosionadaEsqueletonizada}
 	\caption{Esqueletonizado de la erosión.}
-	\end{subfigure}%
-		
-	\begin{subfigure}{.5\linewidth}
+	\end{subfigure}%		
+	\begin{subfigure}{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{EsqueletonizadaSinRuido}
 	\caption{Esqueletonizada sin ruido}
 	\end{subfigure}%
-	\begin{subfigure}{.5\linewidth}
+	\begin{subfigure}{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{SegmentosSinUnir}
 	\caption{Segmentos detectados}
 	\end{subfigure}%
 	
-	\begin{subfigure}{.5\linewidth}
+	\begin{subfigure}{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{LineasReales}
 	\caption{Segmentos reales}
 	\end{subfigure}%
 	
-
-\caption{Pasos del procesado.}\label{fig:2.2}
+\caption{Pasos del procesado.}\label{fig:2.1}
 \end{figure}
+
 
 
 

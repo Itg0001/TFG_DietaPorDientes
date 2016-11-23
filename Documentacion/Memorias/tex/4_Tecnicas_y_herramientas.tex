@@ -1,6 +1,127 @@
 \capitulo{4}{Técnicas y herramientas}
 
+\section{Introducción}
+En esta sección vamos a hablar, de las distintas técnicas y herramientas que hemos usado y analizado, con sus comparativas y que nos ha influenciado en tomar la decisión de usarlo.
+Dada la gran cantidad de herramientas y técnicas para resolver los subproblemas de nuestra aplicación hemos ido escogiendo varias de las herramientas disponibles y hemos cogido lo que mejor se ajustaba a nosotros.
+
+En algunos casos las decisiones han estado muy claras, pero en otros no, así que aveces nos hemos decantado por lo conocido y otras por lo que mas sencillo era.
+
 %\maketitle
+\section{Gestores de tareas:}
+\subsection{Trello}
+Es una pizarra virtual también conocida como canvas en la cual podemos organizar nuestros proyectos a través de su aplicación web de forma fácil e intuitiva desde cualquier equipo en el que introduzcamos nuestra cuenta ya que al estar en la nube no se pierde nuestra información ni aunque se degrade el sistema.\\
+Podemos acceder a él através del siguiente enlace: 
+\url{https://trello.com/}
+
+
+
+\textbf{Ventajas:}
+
+\begin{itemize}
+\item Es muy rápido su aprendizaje y su uso así como su simplicidad.
+
+\item La hemos usado en el transcurso de la carrera por lo que ya estamos familiarizados con el entorno.
+\end{itemize}
+
+\textbf{Desventajas:}
+
+\begin{itemize}
+\item No esta integrado dentro de nuestro repositorio por lo que lo tendríamos que usar como una herramienta mas en la que al final duplicaríamos trabajo.
+\end{itemize}
+
+
+\subsection{Version One}
+Es un gestor de tareas online en el cual podemos gestionar todas las tareas de nuestros proyectos así como realizar un seguimiento de forma visual del estado del proyecto y de las características del mismo.\\ 
+Podemos Acceder a el através del siguiente enlace: 
+\url{https://www.versionone.com/}
+
+
+\textbf{Ventajas:}
+
+\begin{itemize}
+\item Podemos incluir código, por lo que es mas completo que otras herramientas de gestión de tareas.
+\end{itemize}
+
+\textbf{Desventajas:}
+
+\begin{itemize}
+\item Como antes hemos indicado en este caso también sería algo que nos duplicaría trabajo al no estar integrado en nuestro repositorio. Sería también una herramienta a parte que no se comunicaría con nuestro repositorio.
+\end{itemize}
+
+
+\subsection{ZenHub}
+Es una herramienta similar a Trello que también es a modo de pizarra donde ver los cambios y el estado de un vistazo pero con algunas diferencias.\\
+Podemos Acceder a el através del siguiente enlace: 
+\url{https://www.zenhub.com/}
+
+
+
+\textbf{Ventajas:}
+
+\begin{itemize}
+\item La ventaja principal es que podemos integrarlo desde GitHub por lo que ya no sería necesario duplicar trabajo con el uso de una aplicación externa.
+\end{itemize}
+
+\textbf{Desventajas:}
+
+\begin{itemize}
+\item No podremos añadir código pero tampoco es algo catastrófico, ya que justo en el repositorio donde se integra la herramienta podemos visualizar dicho código.
+
+\item Por este motivo he decidido usar esta herramienta.
+\end{itemize}
+
+\section{Gestores de versiones:}
+\subsection{GitHub}
+Es un repositorio de versiones donde el código queda organizado por tareas (issues) y las versiones cada vez que hacemos un commit se actualiza las clases de código mostrando lo que ha cambiado.
+El software esta escrito en Ruby usando el framework Ruby on Rails.\\
+Podemos Acceder a el através del siguiente enlace: 
+\url{https://github.com/}
+
+
+
+\textbf{Ventajas:}
+
+\begin{itemize}
+\item Es de los repositorios mas usados y esta basado en Git.
+
+\item El código es público y cualquiera que le interese te puede proponer cambios en el mismo, seguirte y ver el proyecto.
+
+\item Las distintas versiones del código están en la nube por lo que si se nos borra el contenido del disco duro aun así podremos recuperarlo.
+\end{itemize}
+
+\textbf{Desventajas:}
+
+\begin{itemize}
+\item También puedes tener proyectos privados solo con el modo de pago pero al no influir sobre este proyecto no pasa nada.
+
+\item Nos hemos decidido por este repositorio porque es uno de los mas usados y como se basa en Git al igual que muchos de sus competidores guarda mucha similitud con ellos.
+Al utilizar dicho repositorio de forma apropiada no deberíamos tener problemas si el día de mañana queremos usar otro.
+\end{itemize}
+
+\subsection{Bitbucket}
+Este repositorio web también guarda nuestro código y nuestras iteraciones sobre el proyecto para así tener una visión mas completa sobre nuestro trabajo.
+Este software esta escrito en Python.\\
+Podemos acceder a el através del siguiente enlace: 
+\url{https://bitbucket.org/}
+
+
+\textbf{Ventajas:}
+\begin{itemize}
+
+\item Es un repositorio muy usado y que esta basado en Git que es casi la referencia en este tipo de proyectos.
+
+\item Tiene cuentas gratuitas para proyectos privados y públicos.
+
+\end{itemize}
+
+\textbf{Desventajas:}
+
+\begin{itemize}
+\item No se puede incluir mas de 5 personas en los proyectos gratuitos.
+\end{itemize}
+
+
+
 \section{Interfaz gráfica de usuario:}
 \subsection{Tkinter}
 Es una librería que proporciona el diseño y visualización de interfaces de usuario en Python. Esta a su vez, esta basada en librerías de TK/TCL que están incluidas por en la propia instalación.
@@ -57,13 +178,13 @@ Es más difícil de usar que WxPython y WxWidget pero da más control sobre los 
 \end{itemize}
 
 \subsection{WxWidgets:}
-Como hemos mencionado anteriormente, es muy parecido a WxPython por lo que no vamos a entrar en detalle. También está programado en C/C++ y es multiplataforma por lo que da un aspecto de comportamiento nativo.
-\\
+Como hemos mencionado anteriormente, es muy parecido a WxPython por lo que no vamos a entrar en detalle. También está programado en C/C++ y es multiplataforma, por lo que da un aspecto de comportamiento nativo.
+
 
 
 \section{Plantillas}
 Las plantillas sirven para generar código con la sustitución de los valores dentro de sus variables y así tener siempre un código con los valores en la ejecución.\\
-Nosotros las vamos a usar en combinación con LaTex para generar el pdf con el informe de las estadísticas de la ejecución del algoritmo que detecta las líneas.\\
+Nosotros las vamos a usar en combinación con LaTeX para generar el pdf con el informe de las estadísticas de la ejecución del algoritmo que detecta las líneas.\\
 Como podemos observar hay muchos frameworks para usar las plantillas pero hemos elegido comparar varios usados otros años por compañeros.
 \subsection{Mustache}
 Pystache es una implementación de Mustache en Python para el diseño de plantillas, está inspirado en Ctemplate \cite{GitHub:CTemplate} y et \cite{et}.
@@ -79,7 +200,7 @@ En estos tipos de lenguaje no se puede aplicar lógica de aplicación simplement
 
 \subsubsection{Desventajas:}
 \begin{itemize}
-\item Carece de ejemplos o tutoriales de cómo usarlo con LaTex en su versión de Python.
+\item Carece de ejemplos o tutoriales de cómo usarlo con LaTeX en su versión de Python.
 \end{itemize}
 
 
@@ -102,7 +223,7 @@ Es una librería para escribir plantillas, para Python, funciona con las última
 \end{itemize}
 
 \subsection{Comparación de las herramientas}
-Esta comparación son dos filas \ref{tb:1} sacada de la tabla comparativa de herramientas obtenida en wikipedia \cite{Template:table}.
+Esta comparación son dos filas, como se observa en la Tabla \ref{tb:1} sacada de la tabla comparativa de herramientas obtenida en wikipedia \cite{Template:table}.
 
 
 \begin{table}[]
@@ -112,7 +233,7 @@ Esta comparación son dos filas \ref{tb:1} sacada de la tabla comparativa de her
 \resizebox{\textwidth}{!}{
 \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|}
 \hline
-Biblioteca & Lenguaje & Licencia & Variables & Funciones & Include & \begin{tabular}[c]{@{}l@{}}Inclusiones\\ condicionales\end{tabular} & Bucles & Evaluacion & Asignaciones & Errores y excepciones & \begin{tabular}[c]{@{}l@{}}Plantillas\\ naturales\end{tabular} & Herencia \\ \hline
+Biblioteca & Lenguaje & Licencia & Variables & Funciones & Include & \begin{tabular}[c]{@{}l@{}}Inclusiones\\ condicionales\end{tabular} & Bucles & Evaluacion & Asignaciones & Errores y\\ excepciones & \begin{tabular}[c]{@{}l@{}}Plantillas\\ naturales\end{tabular} & Herencia \\ \hline
 Jinja2     & Python   & BSD      & SI        & SI        & SI      & SI                                                                  & SI     & SI         & SI           & SI                    & SI                                                             & SI       \\ \hline
 Mustache   & +30      & MIT      & SI        & SI        & SI      & SI                                                                  & SI     & NO         & NO           & SI                    & SI                                                             & NO       \\ \hline
 \end{tabular}
@@ -125,7 +246,7 @@ Es una herramienta indispensable para el desarrollo de software, un IDE se compo
 \subsubsection{Ventajas:}
 \begin{itemize}
 	\item Maximizar la productividad.
-	\item Juntar todo el ciclo de desarrollo en una herramienta.
+	\item Unificar todo el ciclo de desarrollo en una herramienta.
 	\item Algunos soportan múltiples lenguajes. 
 	\item Sin ello es difícil leer código y editarlo.
 \end{itemize}
@@ -151,14 +272,17 @@ Se instala desde eclipse desde: Help, Install New Software.
 Podemos encontrarlo a atraves del siguiente enlace \cite{Eclipse:PyDev}
 
 \section{Modelado}
-El modelado es la creación de diagramas que nos explican que apariencia y comunicación van a tener los datos entre ellos.
-Es necesaria una herramienta especializada en ello, hay muchas en el mercado, pero en las asignaturas de la carrera dimos una con la que ya estamos familiarizados.
-Vamos a analizar todas las disponible y comparar, simplemente vamos a usar la que ya conocemos como funciona y que para las siguientes parte y diagramas nos va a servir.
+El modelado es la creación de diagramas que nos explican que apariencia y comunicación van a tener los objetos entre ellos dentro de nuestra aplicación.
+
+Es necesaria una herramienta especializada para ello, hay muchas en el mercado, pero en las asignaturas de la carrera hemos usado una con la que ya estamos familiarizados.
+
+Aun así vamos a analizar todas las disponible y comparar algunas de ellas.
+
 
 \subsection{Astah}
 Es una herramienta de modelado UML para creación de diagramas orientados a objetos.
 Podríamos hacerlos dibujando pero es mas preciso y mas profesional usar una herramienta que esta pensado para ello.
-Podemos encontrar la herramienta através del siguiente enlace  \cite{Modelado:Astah}
+Podemos encontrar la herramienta através del siguiente enlace  \cite{Modelado:Astah}.
 
 \subsection{XML}
 Para guardar los nombres de los ficheros que se generan al guardar un proyecto, vamos a usar un archivo XML, que contenga los nombres de los ficheros que se generan.\\
@@ -170,12 +294,14 @@ XML significa Extensible Marking Language, también otra de sus propiedades es q
 \item Secciones CDATA: Para especificar caracteres especiales sin que rompan la estructura XML.
 \end{itemize}
  
-Para mas informacion respecto a ello podemos encontrarlo aqui:\cite{Wiki:xml}.
+Para mas informacion respecto a ello podemos encontrarlo en este enlace: \cite{Wiki:xml}.
 
 En nuestro caso lo vamos a usar como un fichero donde se guardan todo lo que contendría un proyecto.
+\subsection{Conclusión}
+Después de analizar dos opciones de herramientas y viendo que todas ellas tienen gran similitud ,vamos a usar la que ya conocemos como funciona, que nos va a servir para todos los diagramas.
 
 \section{OCR}
-Para entrar en materia adecuadamente para explicar la librería usada mas adelante vamos a introducir lo que es un OCR\cite{OCR} y en que consiste.\\
+Para entrar en materia adecuadamente para explicar la librería usada mas adelante vamos a introducir lo que es un OCR  \cite{OCR} y en que consiste.\\
 Un OCR es un proceso dirigido a buscar de forma óptica un reconocimiento de caracteres en imágenes, es decir hacer una extracción de características de la imagen en cuestión, devolviendo el texto que contiene la imagen.
 
 \textbf{Ventajas:}
@@ -201,10 +327,10 @@ Un OCR es un proceso dirigido a buscar de forma óptica un reconocimiento de car
 \end{itemize}
 
 \subsection{Tesseract}
-Como podemos ver Tesseract\cite{wiki:Tesseract} es un OCR de software libre.\\
-Originalmente estaba hecho en C pero se migro a C++ en el 1998, mas tarde fue concebido como Open Source en el 2005 al retomar el proyecto la universidad de Nevada(Las Vegas) en EEUU y finalmente en 2006 fue retomado por Google.\\
+Como podemos ver Tesseract~\cite{wiki:Tesseract} es un OCR de software libre.\\
+Originalmente estaba hecho en C pero se migró a C++ en 1998, mas tarde fue concebido como Open Source en el 2005 al retomar el proyecto la universidad de Nevada (Las Vegas) en EEUU. Finalmente en 2006 fue retomado por Google.\\
 
-Lo potente de esta librería es que si tus necesidades fuesen otras podrías reentrenar la red para que reconozca nuevos idiomas o nuevos estilos de letras.
+Lo potente de esta librería es que si tus necesidades fuesen otras, podrías reentrenar la red para que reconozca nuevos idiomas o nuevos estilos de letras.
 
 \section{Logger}
 Es una herramienta que crea un fichero de registro, el cual almacena los mensajes de error que aparecen en la aplicación, facilitando el mantenimiento de esta.
@@ -222,13 +348,13 @@ Es la implementacion de un logger para python \cite{python:logger} en este logge
 \end{itemize}
 
 \section{Ejecutable}
-Para distribuir el software, deberíamos poder ser capaces de crear un .exe, pero no hemos sido ya que aun después de probar todas las herramientas que hacen dicha función.
-ya que han salido las ultimas versiones hace relativamente poco tiempo, estas que hay disponibles quedan muy desactualizadas, hemos tenido que resolver el problema de otra forma. 
+Para distribuir el software, deberíamos poder ser capaces de crear un .exe, pero no lo hemos sido.
+Después de probar todas las herramientas que hacen dicha función,  por que han salido las ultimas versiones hace relativamente poco tiempo, estas que hay disponibles quedan muy desactualizadas, hemos tenido que resolver el problema de otra forma. 
 
 \subsection{Py2exe}
 Esta herramienta \cite{p2exe}, es una extension que se encarga de empaquetar un script de Python en un ejecutable .exe, para poder distribuir la aplicación de forma que solo necesitemos el .exe para ejecutar todo, sin necesidad de tener Python instalado.
 
-No la hemos podido usar ya que su ultima actualización es para Python 2.7.
+No la hemos podido usar ya que su última actualización es para Python 2.7.
 
 \subsection{Py2app}
 Esta herramienta es casi idéntica a la anterior pero solo esta disponible para MAC OS.
@@ -236,16 +362,25 @@ Esta herramienta es casi idéntica a la anterior pero solo esta disponible para 
 No la hemos podido usar ya que el cliente no va a usar MAC OS.
 
 \subsection{Pyinstaller}
-Esta herramienta \cite{Pyinstaller}, si que hemos podido ser capaces de usarla, pero su ultima version esta disponible para Python 3.4.
-Indican que para Python 3.5 podría funcionar pero no es así, ya que si buscamos los errores que nos salían van diciendo como corregirlos en el repositorio de GitHub, pero llegamos a un punto que se hacen recursivos, al arreglar uno se estropea de nuevo y salta el anterior error, y hay algunos que no están corregidos.
+Esta herramienta \cite{Pyinstaller}, si que hemos podido ser capaces de usarla, pero su última version esta disponible para Python 3.4.
 
-No la hemos usado ya que daba fallos y no hemos sido capaces de solucionarlos, porque según lo investigado y visto en todo tipo de foros, llegamos a la conclusión que con 3.5 no le funciona a nadie.
+Indican que para Python 3.5 podría funcionar pero no es así,
+al ejecutarlo salían errores pero buscándolos uno a uno, en su repositorio de GitHub, los podíamos corregir, después de sucesivos errores terminamos en un bucle, corregíamos uno y salia el anterior y así sucesivamente de forma recursiva. 
+Finalmente algunos de los que salían, no se pudieron corregir, 
+no la hemos usado y no hemos sido capaces de solucionarlos.
+
+Porque según lo investigado y visto en todo tipo de foros, llegamos a la conclusión que con 3.5 no le funciona a nadie.
 No obstante en su siguiente actualización puede que lo corrijan y funcione para 3.5.
 
 \subsection{cxFreeze}
-Esta herramienta, es muy parecida a la de py2exe, pero su ultima version sigue estando únicamente estable para Python 3.4. 
-Si buscamos mas en su repositorio vemos que menciona una version 3.5, pero no funciona ya que directamente no lo instala, y no solo ami encontré mas gente en la misma situación.
+Esta herramienta, es muy parecida a la de Py2exe, pero su última versión sigue estando únicamente estable para Python 3.4. 
+Si buscamos mas en su repositorio vemos que menciona una version 3.5, pero no funciona ya que directamente no lo instala, y no solo a mi, encontré mas gente en la misma situación.
 
 \subsection{Conclusión:}
 Hemos seguido otras formas de conseguir lo que queremos, Python es un lenguaje interpretado y necesitamos tener Python 3.5.
-Para hacer mas sencilla la instalación del entorno hemos optado por usar Miniconda, que son 50 megas de descarga, y desde allí en la primera ejecución de nuestro código, si no están las librerías las descargara y las instala.
+
+Para facilitar la instalación de Python hemos optado por usar Miniconda, es una distribución que facilita dicha instalación pero sin ninguna librería instalada, por lo que es mas ligero, 50 Megas, frente a Anaconda, cerca de 500 Megas. Quedando a nuestra disposición indicar que librerías instalar.
+
+En la primera ejecución del código nos va a descargar e instalar todas las librerías que necesitamos.
+
+

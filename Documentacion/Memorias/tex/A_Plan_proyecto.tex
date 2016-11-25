@@ -251,7 +251,148 @@ Gráfico del sprint 6 \ref{fig:A.2.6}.
 \label{fig:A.2.6}
 \end{figure}
 
-\subsection{Sprint 7 (13/10/2016 - 22/10/2016)}
+\subsection{Sprint 7 (28/10/2016 - 04/11/2016)}
+
+Esta semana vamos a añadir funcionalidades para que el usuario tenga mas comodidad al usar la aplicación, Evitando que pueda cometer errores o falsos positivos.
+
+
+\begin{itemize}
+	\item Detectar y calcular la referencia.
+		\begin{itemize}
+			\item Detectar la referencia.
+			\item Calcular cuanto es la referencia.
+		\end{itemize}
+	\item Detectar la región pintable.
+	\item Revisar toda la aplicación.
+		\begin{itemize}
+			\item Revisar el código con SonarQube.
+			\item Ajustar los cálculos en algunos puntos.
+			\item Añadir botón de cerrar.
+		\end{itemize}
+	\item Corregir las memorias.
+		\begin{itemize}
+			\item Memorias.
+			\item Anexos.
+		\end{itemize}			
+\end{itemize}
+\subsubsection{Cumplido:}
+Esta semana, hemos cumplido todos los objetivos que nos habíamos propuesto, también hemos documentado bastante, no solo corregir lo que teníamos planteado.
+
+El gráfico de esta semana se ha quedado muy desplazado hacia la derecha, porque hemos echo unas pruebas en ZenHub y al sacar varias tareas que ya estaban en cerradas, se ha despintado de la gráfica, pero todas ellas fueron terminadas en tiempo.
+
+Las funcionalidades añadidas son:
+\begin{itemize}
+	\item Detectar la región pintable: Era uno de los puntos que nos faltaban, para poder conseguir que solo se pudieran pintar, a mano, las lineas dentro del cuadrado pintado por el usuario, en las imágenes. Porque solo esta permitido para este estudio las lineas que se encuentran dentro del recuadro en la imagen.
+	\item Detectar y calcular la referencia: En las imágenes de microscopio, se les hace una marca con los aumentos con los que se han echo las imágenes, la referencia, que marca la escala y otros datos importantes.
+	Nuestro trabajo ha sido detectarlo y calcular cuantos píxeles son.
+	
+	\item Hemos añadido el botón de cerrar la aplicación que era un punto en el que aun no habíamos pensado y es necesario.
+	
+	\item La mejora de la calidad del software pasando la herramienta SonarQube para corregir las posibles mejoras que nos proponga dicha herramienta. 
+\end{itemize}
+
+Gráfico del sprint 7 \ref{fig:A.2.7}.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.99\textwidth]{Semana7}
+\caption{Burndown de la semana 7}
+\label{fig:A.2.7}
+\end{figure}
+
+\subsection{Sprint 8 (04/11/2016 - 11/11/2016)}
+Esta semana, va a consistir en investigar sobre el modo automático, dar valor al código en cuanto a calidad aplicando algún concepto de patrones de diseño, haciendo una fachada para la entrada salida.
+
+\begin{itemize}
+	\item Diseño:
+		\begin{itemize}
+			\item Desacoplar del mediador lo que debe ir en la fachada.
+			\item Comprobar que los mediadores solo interfieren con aspectos de la GUI.
+		\end{itemize}	
+	\item Añadir Configuraciones al calculo.
+		\begin{itemize}
+			\item Añadir las repeticiones.
+			\item Añadir la longitud mínima para filtrar rectas.
+		\end{itemize}
+		\item Investigación detección de bordes por procesado
+			\begin{itemize}
+				\item Vamos a usar todos los algoritmos y métodos disponibles en las librerías.
+				\item Programar otros conocidos pero que no existan en la librería.
+				\item Buscar mucha mas información sobre los metodos conocidos para detección de bordes.
+			\end{itemize}					
+		\item Investigación detección de bordes por Deep learning.
+			\begin{itemize}
+				\item StrudturedForest.
+				\item Retina-Unet. 
+			\end{itemize}
+\end{itemize}
+\subsubsection{Cumplido:}
+En esta semana, hemos cumplido los objetivos, aparte ademas de buscar información sobre los métodos hemos creado un notebook con las pruebas de las ejecuciones de todos ellos.
+
+Aparte en la semana pasada implementamos la configuración, pero estaba en el código, no podía el usuario cambiarlo en función de sus necesidades.
+Por lo que hemos extraído esa parte a la interfaz gráfica, así puede modificar los valores de configuración, guardarse en el XML, para cuando se cargue el proyecto, también se carguen esos valores.
+
+Gráfico del sprint 8 \ref{fig:A.2.8}.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.99\textwidth]{Semana8}
+\caption{Burndown de la semana 8}
+\label{fig:A.2.7}
+\end{figure}
+
+\subsection{Sprint 9 (04/11/2016 - 11/11/2016)}
+
+Esta semana, vamos a centrarnos en ejecutar y probar todos los métodos estudiados en la semana anterior, algunas modificaciones para facilitar al usuario, su simplicidad y mejorar, los posibles escenarios de ejecución.
+
+
+\begin{itemize}
+	\item Extracción de características.
+		\begin{itemize}
+			\item Aplicar Hough con valores ajustados.
+			\item Extraer y procesar los segmentos.
+		\end{itemize}
+	\item Investigar y probar DeepLearning para Python 2.7.
+		\begin{itemize}
+			\item Probar en Python 2.7 ya que en 3.5 no funcionan los algoritmos.
+		\end{itemize}
+	\item Ejecutable sin dependencias.
+		\begin{itemize}
+			\item Crear un .exe pero no ha sido posible ya que no hay versiones actuales de esas herramientas para Python 3.5
+			\item Crear una alternativa.
+		\end{itemize}
+	\item Documentar.
+		\begin{itemize}
+			\item Documentar Memorias. 
+			\item Documentar Anexos.
+		\end{itemize}
+	\item Independencia del color.
+		\begin{itemize}
+			\item Modificar la distancia al color para que funcione con todos los colores.
+		\end{itemize}
+\end{itemize}
+
+\subsubsection{Cumplido:}
+Esta semana hemos cumplido con los objetivos, pero no todo ha sido posible su implementación o realización.
+Los algoritmos de DeepLearning no hemos sido capaces de ejecutarlos ya que están bastante desaztualizados y las dependencias no están demasiado claras por lo que su ejecución no ha sido posible.
+
+Todos los demás puntos del sprint, han sido realizados con éxito.
+La parte de la independencia del color, nos ha permitido que ahora nuestra aplicación, funcione para todas las lineas indiferentemente, del color en el que estén pintadas, el usuario elije que color tienen y las busca.
+
+Respecto a la extracción de características, del modo automático por procesado, hemos conseguido que sea decente partiendo de que las lineas no son fácilmente detectables y las que están mas marcadas no son las que nos interesan.
+
+Para el ejecutable sin dependencias las opciones de crear el .exe no han sido posibles dada la desaztualización de las herramientas destinadas a estos fines.
+Como alternativa hemos creado una distribución de Miniconda especifica para nuestro propósito que solo contendrá las librerías necesarias para ello.
+
+Gráfico del sprint 9 \ref{fig:A.2.9}.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.99\textwidth]{Semana9}
+\caption{Burndown de la semana 9}
+\label{fig:A.2.7}
+\end{figure}
+
+
+\subsection{Sprint 10 (18/11/2016 - 25/11/2016)}
+
 
 \section{Estudio de viabilidad}
 

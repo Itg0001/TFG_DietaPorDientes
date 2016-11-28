@@ -1,5 +1,5 @@
 
-class Diccionario():
+class DiccionarioING():
     """ 
     Clase que contiene los string necesarios para inicializar los datos..
         
@@ -7,6 +7,7 @@ class Diccionario():
     @version: 1.0    
     """
     def __init__(self):
+    
         #Estadisticas      
         self.v='v'
         self.h='h'
@@ -14,12 +15,11 @@ class Diccionario():
         self.dm='dm'
         self.totales='totales'
         self.proyec="proyect"
-        self.idioma="Ingles"
-        self.idioma_esp="Español"
-        self.idioma_selec="Idioma"
-        self.info_msg="Reinicializar para aplicar cambios \n La aplicacion se va a cerrar"
-        self.warnn="AVISO"
-        
+        self.idioma="English"
+        self.idioma_esp="Spanish"
+        self.idioma_selec="Languaje"
+        self.info_msg="The application will close for aply changes\n Reload it"
+        self.warnn="Warning"
         #pestannas nombres de guardar
         self.docu="docu0"
         self.docu1="docu1"
@@ -171,59 +171,61 @@ class Diccionario():
         self.detect_event_press='button_press_event'
         self.detect_event_release='button_release_event'
         self.detect_event_motion='motion_notify_event'
-        
-        self.md_pe_lin_pin="Lineas pintadas"
-        self.md_pe_calc='Calcular Lineas'
-        self.md_pe_param = "Guardar parametros" 
-        self.md_pe_repe = "Repeticiones:" 
-
-        self.md_pe_long_min = "Ignorar menores de:" 
-        self.md_pe_direccion = "Direccion de imagen" 
-        self.sel_col="Selecionar color"  
+    
+    
+        #MediadorPestannas
+        self.md_pe_lin_pin="Painted lines"
+        self.md_pe_calc='Calculate lines'
+        self.md_pe_param = "Save settings" 
+        self.md_pe_repe = "Repetitions:" 
+        self.md_pe_long_min = "Ignore under:" 
+        self.md_pe_direccion = "Orientation of image"            
+        self.sel_col="Select color"  
         self.md_pe_col="Color: "
-        self.md_pe_no_sel="No seleccionado"
-        self.md_pe_direc=["Derecha","Izquierda"]
+        self.md_pe_no_sel="Not select"        
+        self.md_pe_direc=["Right","Left"]
 
-        self.md_pe_corre="Corregir lineas"
-        self.md_pe_auto="Automatico"
-        self.md_pe_corre='Corregir Lineas'
-        self.md_pe_anadir_p='Anadir punto'
-        self.md_pe_anadir_seg='Anadir segmentos'
-        self.md_pe_borrar='Borrar seleccionado'
-        self.md_pe_guardar='Guardar tabla'
-        self.md_pe_limpiar='Limpiar tabla'
+        self.md_pe_corre="Correct lines"
+        self.md_pe_auto="Automatic"
+        self.md_pe_corre='Correct lines'
+        self.md_pe_anadir_p='Add point'
+        self.md_pe_anadir_seg='Add segments'
+        self.md_pe_borrar='Delete selected'
+        self.md_pe_guardar='Save table'
+        self.md_pe_limpiar='Clean table'       
         
-        self.md_pe_msg_sob="¿Esta seguro de sobreescribir?"
-        self.md_pe_msg_inf="La carpeta ya existe"
-        self.md_pe_msg_avi="Aviso"
+        self.md_pe_msg_sob="Are you sure to overwrite?"
+        self.md_pe_msg_inf="Folder already exists"
+        self.md_pe_msg_avi="Warning"
         self.md_pe_open="openFolder"
         self.md_pe_war="Warning:"
-        self.tradu="ESP"
-        self.md_pe_msg_gur="No se han guardado los cambios."
+        self.tradu="ING"
+        self.md_pe_msg_gur="Changes not saved."
         
         #VentanaInicio
-        self.ini_nuevo="&Nuevo proyecto"
-        self.ini_p_abrir='Abrir imagen'
-        self.ini_abrir_pro="&Abrir proyecto"
-        self.ini_p_abrir_pro='Abrir Proyecto'
-        self.ini_salir="&Salir"
+        self.ini_nuevo="&New proyect"
+        self.ini_p_abrir='Open image'
+        self.ini_abrir_pro="&Open proyect"
+        self.ini_p_abrir_pro='Open Proyect'
+        self.ini_salir="&Quit"
         self.ini_p_salir='Salir'
-        self.ini_guardar="&Guardar proyecto"
-        self.ini_p_guardar='Guardar csv y .tex'
-        self.ini_acerca="&Acerca de"
-        self.ini_o_ayuda='Ayuda'
-        self.ini_ayuda="&Ayuda"
-        self.ini_archivo='&Archivo'
-        self.nombre_api='DietaPorDientes'
+        self.ini_guardar="&Save proyect"
+        self.ini_p_guardar='Save csv y .tex'
+        self.ini_acerca="&About"
+        self.ini_o_ayuda='Help'
+        self.ini_ayuda="&Help"
+        self.ini_archivo='&File'
+        self.nombre_api='DietForTeeth'
         
-        self.ini_msg="Cargar imagen para iniciar"
+        self.ini_msg="Load image to start"
         self.ini_time="Times"        
-        self.ini_msg_acerca="Autores: \n\tIsmael Tobar García \n\tAlvar Gonzalez Arnaiz\n\tJose Francisco Diez Pastor\nVersion: \n\t1.0 "
-        self.ini_acercade="Acerca de"  
-        self.ini_p_abri='Abrir imagen'
+        self.ini_msg_acerca="authors: \n\tIsmael Tobar García \n\tAlvar Gonzalez Arnaiz\n\tJose Francisco Diez Pastor\nVersion: \n\t1.0 "
+        self.ini_acercade="About"  
+        self.ini_p_abri='Open image'
         self.ini_p_war="Warning:"
         self.ini_p_err="Error:"
         self.ini_p_ok="OK"
-        self.ini_p_cambios="Se han detectado cambios desea guardar"
-        self.ini_p_aviso="Aviso"
-        self.ini_p_cargar="Cargar Proyecto"
+        self.ini_p_cambios="Changes detected, want to save?"
+        self.ini_p_aviso="Warning"
+        self.ini_p_cargar="Charge proyect"
+        

@@ -4,7 +4,11 @@ from PyQt5 import QtCore
 import sys
 from .Window import Window
 import logging
+# from proyecto.diccionario import DiccionarioESP
+from proyecto.diccionario import DiccionarioING
 from proyecto.diccionario import Diccionario
+import xml.etree.cElementTree as ET
+import xml.etree.ElementTree as ET2
 
 class VentanaInicio(QtWidgets.QMainWindow):
     """
@@ -18,7 +22,7 @@ class VentanaInicio(QtWidgets.QMainWindow):
     @version: 1.0    
     """
 
-    def __init__(self, parent=None):
+    def __init__(self,idioma_path, parent=None):
         """
         Constructor de la clase ventana de inicio en el cual 
         inicializaremos las variabel snecsarias para sus futuros usos.
@@ -26,22 +30,33 @@ class VentanaInicio(QtWidgets.QMainWindow):
         @param parent: padre que llama al panel de pestannas 
         """
         super(VentanaInicio, self).__init__(parent)
+
+        self.idioma_path=idioma_path
+        self.idioma=self.carga_idioma(self.idioma_path)
+        if self.idioma=="ESP":
+            self.dic=Diccionario()
+        else:
+            self.dic=DiccionarioING()        
+
         self.resize(900, 700)
-        self.dic=Diccionario()        
         logging.basicConfig(filename=self.dic.ini_log,level=logging.DEBUG)
         self.bandera=False
+        self.inicializa_mensages()
+        self.carga_acerca(self.dic)
+        
+        self.ventana=None
         self.setWindowTitle(self.dic.nombre_api)
         self.cont_cargar=0
         self.abierto=0
-        open_file = QtWidgets.QAction(self.dic.ini_nuevo, self)
-        open_file.setShortcut(self.dic.ini_o_nuevo)
-        open_file.setStatusTip(self.dic.ini_p_abrir)
-        open_file.triggered.connect(self.file_open) 
+        self.open_file = QtWidgets.QAction(self.dic.ini_nuevo, self)
+        self.open_file.setShortcut(self.dic.ini_o_nuevo)
+        self.open_file.setStatusTip(self.dic.ini_p_abrir)
+        self.open_file.triggered.connect(self.file_open) 
         
-        cargar_proye = QtWidgets.QAction(self.dic.ini_abrir_pro, self)
-        cargar_proye.setShortcut(self.dic.ini_o_abrir_pro)
-        cargar_proye.setStatusTip(self.dic.ini_p_abrir_pro)
-        cargar_proye.triggered.connect(self.file_cargar) 
+        self.cargar_proye = QtWidgets.QAction(self.dic.ini_abrir_pro, self)
+        self.cargar_proye.setShortcut(self.dic.ini_o_abrir_pro)
+        self.cargar_proye.setStatusTip(self.dic.ini_p_abrir_pro)
+        self.cargar_proye.triggered.connect(self.file_cargar) 
         
         self.cerrar_all = QtWidgets.QAction(self.dic.ini_salir, self)
         self.cerrar_all.setShortcut(self.dic.ini_o_salir)
@@ -65,18 +80,33 @@ class VentanaInicio(QtWidgets.QMainWindow):
         self.ayuda_f.triggered.connect(self.ayuda)
         self.statusBar()
 
+        self.ingles = QtWidgets.QAction(self.dic.idioma, self)
+        self.ingles.triggered.connect(self.guarda_ingles)
+        
+        self.espa = QtWidgets.QAction(self.dic.idioma_esp, self)
+        self.espa.triggered.connect(self.guarda_espannol)
+        
+        self.help_f = QtWidgets.QAction(self.dic.ini_acerca, self)
+        self.help_f.setShortcut(QtCore.Qt.Key_F2)
+        self.help_f.setStatusTip(self.dic.ini_o_ayuda)
+        self.help_f.triggered.connect(self.acerca_de)
+
+
         main_menu = self.menuBar()
-        file_menu = main_menu.addMenu(self.dic.ini_archivo)
-        help_menu = main_menu.addMenu(self.dic.ini_ayuda)
+        self.file_menu = main_menu.addMenu(self.dic.ini_archivo)
+        self.help_menu = main_menu.addMenu(self.dic.ini_ayuda)
+        self.conf_menu = main_menu.addMenu(self.dic.idioma_selec)
         
+        self.conf_menu.addAction(self.ingles)
+        self.conf_menu.addAction(self.espa)
         
-        help_menu.addAction(self.help_f)
-        help_menu.addAction(self.ayuda_f)
+        self.help_menu.addAction(self.help_f)
+        self.help_menu.addAction(self.ayuda_f)
         
-        file_menu.addAction(open_file)
-        file_menu.addAction(cargar_proye)
-        file_menu.addAction(self.save_file)
-        file_menu.addAction(self.cerrar_all)
+        self.file_menu.addAction(self.open_file)
+        self.file_menu.addAction(self.cargar_proye)
+        self.file_menu.addAction(self.save_file)
+        self.file_menu.addAction(self.cerrar_all)
         
         self.styleChoice = QtWidgets.QLabel(self.dic.ini_msg, self)
         self.styleChoice.setAlignment(QtCore.Qt.AlignCenter)
@@ -89,7 +119,47 @@ class VentanaInicio(QtWidgets.QMainWindow):
         central_widget = QtWidgets.QWidget()
         central_widget.setLayout(laout_principal)
         self.setCentralWidget(central_widget)
-  
+     
+    def mensage_reinicia(self):
+        self.msg_reini = QtWidgets.QMessageBox()
+        self.msg_reini.adjustSize()
+        self.msg_reini.setText(self.dic.info_msg)
+        self.msg_reini.setWindowTitle(self.dic.warnn)
+        retval = self.msg_reini.exec_()# @UnusedVariable 
+        self.cerrar() 
+          
+    def guarda_ingles(self):
+        self.mensage_reinicia()
+        self.guarda_idioma(self.idioma_path,"ING")
+        
+    def guarda_espannol(self):
+        self.mensage_reinicia()
+        self.guarda_idioma(self.idioma_path,"ESP")
+     
+        
+    def guarda_idioma(self,idioma,idiom):    
+            proyect = ET.Element("proyect")
+            ET.SubElement(proyect,"docu0", idioma=str(idiom))
+            tree = ET.ElementTree(proyect)
+            tree.write(idioma + "/Conf.xml", encoding="UTF-8", xml_declaration=True)
+            
+    def carga_idioma(self,idioma):
+        tree = ET2.parse(idioma + "/Conf.xml")
+        root = tree.getroot()
+        for child in root:
+            idiom=child.attrib["idioma"]
+    
+        return idiom
+    
+        
+    def inicializa_mensages(self):
+        self.msg = QtWidgets.QMessageBox()
+        self.msg.adjustSize()
+        self.msg.setIcon(QtWidgets.QMessageBox.Warning)    
+        self.msg.setText(self.dic.ini_p_cambios)
+        self.msg.setWindowTitle(self.dic.ini_p_aviso)
+        
+    
     def cerrar(self):
         """
         Metodo para cerrar la aplicacion de forma apropiada, si no tenemos cambios en caso 
@@ -108,17 +178,21 @@ class VentanaInicio(QtWidgets.QMainWindow):
         else:
             self.close()
             
-    @classmethod   
+    @classmethod  
+    def carga_acerca(self,dic):
+        """
+        Metodo que nos mostrara el acerca de como cuadro de dialogo.
+        """
+        self.msg_acerca = QtWidgets.QMessageBox()
+        self.msg_acerca.adjustSize()
+        self.msg_acerca.setText(dic.ini_msg_acerca)
+        self.msg_acerca.setWindowTitle(dic.ini_acercade)
+    @classmethod  
     def acerca_de(self):
         """
         Metodo que nos mostrara el acerca de como cuadro de dialogo.
         """
-        self.dic=Diccionario()
-        msg = QtWidgets.QMessageBox()
-        msg.adjustSize()
-        msg.setText(self.dic.ini_msg_acerca)
-        msg.setWindowTitle(self.dic.ini_acercade)
-        retval = msg.exec_()  # @UnusedVariable
+        retval = self.msg_acerca.exec_()  # @UnusedVariable
         
     def ayuda(self):
         """
@@ -202,14 +276,10 @@ class VentanaInicio(QtWidgets.QMainWindow):
         Metodo para mostrar la ventana de elegir de si queremos guardar o no 
         los cambios.        
         """
-        msg = QtWidgets.QMessageBox()
-        msg.adjustSize()
-        msg.setIcon(QtWidgets.QMessageBox.Warning)    
-        msg.setText(self.dic.ini_p_cambios)
-        msg.setWindowTitle(self.dic.ini_p_aviso)
-        msg.setStandardButtons(QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel)
-        msg.buttonClicked.connect(self.msgbtn)
-        retval = msg.exec_()  # @UnusedVariable
+
+        self.msg.setStandardButtons(QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel)
+        self.msg.buttonClicked.connect(self.msgbtn)
+        retval = self.msg.exec_()  # @UnusedVariable
                 
     def cargar_inicializacion(self):
         """

@@ -1,1 +1,2 @@
 from proyecto.diccionario.Diccionario import Diccionario
+from proyecto.diccionario.DiccionarioING import DiccionarioING

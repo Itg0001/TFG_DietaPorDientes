@@ -10,7 +10,7 @@ import os,shutil
 from skimage.color import rgb2lab,gray2rgb
 from PIL import Image, ImageDraw
 from proyecto.diccionario import Diccionario
-
+import warnings
 class ProcesadoDeImagen():
     """
     Clase que contendra los metodos necesarios para poder realizar el procesado de las 
@@ -224,6 +224,7 @@ class ProcesadoDeImagen():
         #binarizar
         ii=0
         jj=0
+
         for i in distance_red:
             for j in i:
                 if round(j,2)>0 and round(j,2)<0.09:
@@ -233,15 +234,19 @@ class ProcesadoDeImagen():
                 jj=jj+1
             jj=0
             ii=ii+1
+
         temp = tempfile.mkdtemp()
         #guardar en temp
-        io.imsave(temp+self.dic.pro_img,distance_red,)
-        
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            io.imsave(temp+self.dic.pro_img,distance_red)
+
         act=os.getcwd()
         tes=act+self.dic.pro_tessera
         dir_img=temp+self.dic.pro_img_tesse
         dir_salida=temp+self.dic.pro_sal
         opt=self.dic.pro_batch
+
         #ejecutar tesseract
         os.system(tes+dir_img+dir_salida+opt)
         #obtener resultado de la ejecucion.

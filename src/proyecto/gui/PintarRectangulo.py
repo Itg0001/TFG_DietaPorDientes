@@ -1,5 +1,6 @@
 from matplotlib.patches import Rectangle
-from proyecto.diccionario.Diccionario import Diccionario
+# from proyecto.diccionario.DiccionarioESP import DiccionarioESP
+from proyecto.diccionario import DiccionarioING
 
 
 class PintarRectangulo:
@@ -7,7 +8,7 @@ class PintarRectangulo:
         self.press = None
         self.r = Rectangle((7.,7.), 745., 745., edgecolor='black', facecolor='none',lw=4)
         self.rect = ax.add_patch(self.r)
-        self.dic=Diccionario()
+        self.dic=DiccionarioING()
     def connect(self):
         self.cidpress = self.rect.figure.canvas.mpl_connect(
             self.dic.detect_event_press, self.on_press)
@@ -53,7 +54,6 @@ class PintarRectangulo:
         Iremos actualizando la region pintada
         """
         self.press = None
-#         print('event contains', self.rect.xy)        
         self.rect.figure.canvas.draw()
         
         

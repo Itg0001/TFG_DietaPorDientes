@@ -1,6 +1,7 @@
 import os,shutil,logging,sys
 from PyQt5 import QtWidgets
 from proyecto.codigo.informes.DatosToCsv import DatosToCsv
+from proyecto.diccionario import DiccionarioING
 from proyecto.diccionario import Diccionario
 from proyecto.codigo.informes.ConfiguracionToXML import ConfiguracionToXML  
 from proyecto.codigo  import Informe
@@ -16,10 +17,14 @@ class FachadaEntradaSalida():
     @var estad: Instancia de la clase que se encarga de lasestadisticas.   
     """
 
-    def __init__(self,mediador):
+    def __init__(self,mediador,idioma):
+        self.idioma=idioma
         self.mediador=mediador
         self.escribeCSV = DatosToCsv()
-        self.dic=Diccionario()
+        if self.idioma=="ESP":
+            self.dic=Diccionario()
+        else:
+            self.dic=DiccionarioING()
         self.conf_to_xml=ConfiguracionToXML()
         self.estad = Estadistica()
         

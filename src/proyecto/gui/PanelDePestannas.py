@@ -1,5 +1,7 @@
 from PyQt5 import QtWidgets
 from proyecto.gui.Mediadores import MediadorPestannas
+# from proyecto.diccionario import DiccionarioESP
+from proyecto.diccionario import DiccionarioING
 from proyecto.diccionario import Diccionario
 
 
@@ -26,13 +28,19 @@ class PanelDePestannas(QtWidgets.QTabWidget):
         #------Creamos los componentes -------------------------
         super(PanelDePestannas, self).__init__(parent)
         self.ventana = parent
-        self.mediador_pestannas = MediadorPestannas(self)
+        self.idioma=self.ventana.idioma
+
+        self.mediador_pestannas = MediadorPestannas(self,self.idioma)
 
         self.inicia_paneles()        
         self.tab_1_ui()
         self.tab_2_ui()
-        self.dic=Diccionario()
-
+        
+        if self.idioma=="ESP":
+            self.dic=Diccionario()
+        else:
+            self.dic=DiccionarioING()
+            
         self.row_actual = -1
         self.nombres={}
         self.nombres[self.dic.docu1]=self.dic.tab

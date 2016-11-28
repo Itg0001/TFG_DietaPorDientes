@@ -1,14 +1,15 @@
 from PyQt5 import QtCore, QtWidgets
-import networkx as nx
+import networkx as nx,os
 from networkx.algorithms import approximation as apxa
 from skimage.morphology import  skeletonize 
 from skimage.transform import probabilistic_hough_line
 from proyecto.codigo.procesado import ProcesadoDeImagen
 from proyecto.codigo.procesado.ProcesadoDeLineas import ProcesadoDeLineas
+from proyecto.diccionario import DiccionarioING
 from proyecto.diccionario import Diccionario
 from proyecto.gui.PintarRectangulo import PintarRectangulo
 class MediadorVentana():
-    def __init__(self, ventana):
+    def __init__(self, ventana,idioma):
         """
         Constructor de la clase ventana que nos proporciona las inicializaciones de
         variables y de objetos que vana a ser encesarios para su gestion e implementacion
@@ -16,7 +17,12 @@ class MediadorVentana():
         
         @param ventana: instancia de la clase que crea la ventana.
         """
-        self.dic=Diccionario()
+
+        self.idioma=idioma
+        if self.idioma=="ESP":
+            self.dic=Diccionario()
+        else:
+            self.dic=DiccionarioING()
         self.ventana = ventana
         self.ventana.ax = self.ventana.fig.add_subplot(111)
         self.procesado = ProcesadoDeImagen()
@@ -26,7 +32,10 @@ class MediadorVentana():
         self.ventana.ax.set_xlim([0, self.img.shape[1]])
         self.ventana.ax.set_ylim([self.img.shape[0], 0])
         self.ventana.ax.imshow(self.img , interpolation=self.dic.md_v_ori)
-        self.ref_numeros=self.procesado.obtener_numeros(self.img)
+        if os.name=='nt':
+            self.ref_numeros=self.procesado.obtener_numeros(self.img)
+        else:
+            self.ref_numeros=100
         self.color=[]
         self.ventana.pestannas.button.setEnabled(False)
         self.terminar=False
@@ -50,7 +59,6 @@ class MediadorVentana():
             """ 
             ix, iy = event.xdata, event.ydata
             coords=[]
-            print(iy,ix)
             if iy!=None and ix!=None:
                 self.color=self.img[int(round(iy,0)),int(round(ix,0))]
                 h,s,v=self.procesado.pixelrgb_2_hsv(self.color)
@@ -69,7 +77,7 @@ class MediadorVentana():
                     self.color=self.img[int(round(iy,0)),int(round(ix,0))]
                     h,s,v=self.procesado.pixelrgb_2_hsv(self.color)
                     h,v=h,v
-                    self.ventana.pestannas.color_sele.setText("No seleccionado")
+                    self.ventana.pestannas.color_sele.setText(self.dic.md_pe_no_sel)
                     self.ventana.pestannas.color_sele.setStyleSheet("background-color: rgb(255,255,255)")
                 return coords
         cid = self.ventana.fig.canvas.mpl_connect(self.dic.md_pe_but_press, onclick)
@@ -88,7 +96,7 @@ class MediadorVentana():
             self.pintar_rect.connect()
             self.terminar=True
             self.detectado=False
-
+            self.ventana.pestannas.button33.setEnabled(False)
     def inicializa_pestanna_1(self):
         """
         Metodo que inicializara la pestanna uno de la ventana es decir el cuadro principal

@@ -6,6 +6,7 @@ import tempfile
 from proyecto.codigo.estadisticas import Estadistica
 from proyecto.codigo.informes.DatosToCsv import DatosToCsv
 from proyecto.codigo.informes.ConfiguracionToXML import ConfiguracionToXML
+from proyecto.diccionario import DiccionarioING
 from proyecto.diccionario import Diccionario
 from proyecto.gui.Fachadas.FachadaEntradaSalida import FachadaEntradaSalida
  
@@ -23,7 +24,7 @@ class MediadorPestannas():
     @author: Ismael Tobar Garcia
     @version: 1.0
     """
-    def __init__(self, pestannas):
+    def __init__(self, pestannas,idioma):
         """
         Constructor de la clase MediadorPestannas se encargara de inicializar los objetos 
         pasados al constructor y tambien de inicializar las variables y objetos necesarios 
@@ -31,13 +32,21 @@ class MediadorPestannas():
         
         @param pestannas: Instancia de la clase que la crea. 
         """
+        self.idioma=idioma
         self.pestannas = pestannas
+
         self.estad = Estadistica()
         self.escribeCSV = DatosToCsv()
         self.escribeXML = ConfiguracionToXML()
         self.borrar = False
-        self.dic=Diccionario()
-        self.fachada_entrada_salida=FachadaEntradaSalida(self)
+        if self.idioma=="ESP":
+            self.dic=Diccionario()
+        else:
+            self.dic=DiccionarioING()
+                    
+        self.fachada_entrada_salida=FachadaEntradaSalida(self,self.idioma)
+        self.inicializa_msg()
+
 
     def inicia_paneles(self):
         """
@@ -47,20 +56,24 @@ class MediadorPestannas():
         self.pestannas.tab2 = QtWidgets.QWidget()
         self.pestannas.tab3 = QtWidgets.QWidget()
         
+        
+
+        
+        
     def tab_1_ui(self):
         """
         Metodo para inicializar el panel de pestañas 1 con todos sus compoenentes.
         """
-        self.pestannas.addTab(self.pestannas.tab1, self.dic.md_pe_lin_pin)        
+        self.pestannas.addTab(self.pestannas.tab1, self.dic.md_pe_lin_pin) 
         self.pestannas.button = QtWidgets.QPushButton(self.dic.md_pe_calc)
         self.pestannas.button.clicked.connect(self.pestannas.ventana.calcular_lineas)
      
-        self.pestannas.button33 = QtWidgets.QPushButton("Selecionar color")
+        self.pestannas.button33 = QtWidgets.QPushButton(self.dic.sel_col)
         self.pestannas.button33.clicked.connect(self.pestannas.ventana.obtener_color)
-        
+
         self.pestannas.color = QtWidgets.QHBoxLayout()
-        self.pestannas.color_eti = QtWidgets.QLabel("Color: ")
-        self.pestannas.color_sele = QtWidgets.QLabel("No seleccionado")
+        self.pestannas.color_eti = QtWidgets.QLabel(self.dic.md_pe_col)
+        self.pestannas.color_sele = QtWidgets.QLabel(self.dic.md_pe_no_sel)
         self.pestannas.color.addWidget(self.pestannas.color_eti)
         self.pestannas.color.addWidget(self.pestannas.color_sele)
      
@@ -408,21 +421,23 @@ class MediadorPestannas():
             self.borrar = True
         else:
             self.borrar = False
-                 
+    def inicializa_msg(self):
+        self.msg = QtWidgets.QMessageBox()
+        self.msg.adjustSize()
+        self.msg.setIcon(QtWidgets.QMessageBox.Warning)    
+        self.msg.setText(self.dic.md_pe_msg_sob)
+        self.msg.setInformativeText(self.dic.md_pe_msg_inf)
+        self.msg.setWindowTitle(self.dic.md_pe_msg_avi)
+                    
     def showdialog(self):
         """
         Metodo que nos muestra el cuadro de dialogo dentro de la aplicacion 
         donde podremos elegir si queremos sobreescribir o no.
         """
-        msg = QtWidgets.QMessageBox()
-        msg.adjustSize()
-        msg.setIcon(QtWidgets.QMessageBox.Warning)    
-        msg.setText(self.dic.md_pe_msg_sob)
-        msg.setInformativeText(self.dic.md_pe_msg_inf)
-        msg.setWindowTitle(self.dic.md_pe_msg_avi)
-        msg.setStandardButtons(QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel)
-        msg.buttonClicked.connect(self.msgbtn)
-        retval = msg.exec_()  # @UnusedVariable
+        
+        self.msg.setStandardButtons(QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel)
+        self.msg.buttonClicked.connect(self.msgbtn)
+        retval = self.msg.exec_()  # @UnusedVariable
 
     def guardar_tabla(self):
         """

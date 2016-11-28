@@ -35,14 +35,17 @@ class Window(QtWidgets.QWidget):
         @param path: Guardamos el camino desde donde se llama. 
         @param parent: Guardamos la instancia del padre que crea la ventana.
         """
+        
         super(Window, self).__init__(parent)
         self.resize(900, 700)
         self.path = path
-        self.padre = parent    
+        self.padre = parent  
+        self.idioma=self.padre.idioma
+  
         self.inicializa_figura_y_widgets()
         
         self.pestannas = PanelDePestannas(self)                
-        self.mediador_ventana = MediadorVentana(self)
+        self.mediador_ventana = MediadorVentana(self,self.idioma)
         
         #----------------Inicializaciones de variables----------------------
         self.c1 = 0
@@ -86,6 +89,7 @@ class Window(QtWidgets.QWidget):
         # Widgets
         self.canvas = FigureCanvas(self.fig)
         self.toolbar = NavigationToolbar(self.canvas, self)
+        
            
     def inicializa_pestanna_1(self):
         """

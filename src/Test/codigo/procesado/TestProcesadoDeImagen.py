@@ -22,7 +22,7 @@ class TestProcesadoDeImagen(unittest.TestCase):
         actual = os.getcwd()
                
         img = proc_imagen.leer_imagen(actual + '/Test/codigo/procesado/imgProc/ATP02 UE4 46_1.jpg')
-        dist_red = proc_imagen.distancia_al_rojo(img)
+        dist_red = proc_imagen.distancia_al_rojo(img,[250,50,50])
         self.assertEqual(np.all(img == dist_red), False)
         print("OK,test_distancia_al_rojo")
 
@@ -30,7 +30,7 @@ class TestProcesadoDeImagen(unittest.TestCase):
         proc_imagen = ProcesadoDeImagen()
         actual = os.getcwd()
         img = proc_imagen.leer_imagen(actual + '/Test/codigo/procesado/imgProc/ATP02 UE4 46_1.jpg')
-        dist_red = proc_imagen.distancia_al_rojo(img)
+        dist_red = proc_imagen.distancia_al_rojo(img,[250,50,50])
         binari = proc_imagen.binarizar(dist_red)
         
         self.assertEqual(np.all(binari == dist_red), False)
@@ -40,7 +40,7 @@ class TestProcesadoDeImagen(unittest.TestCase):
         proc_imagen = ProcesadoDeImagen()
         actual = os.getcwd()
         img = proc_imagen.leer_imagen(actual + '/Test/codigo/procesado/imgProc/ATP02 UE4 46_1.jpg')
-        dist_red = proc_imagen.distancia_al_rojo(img)
+        dist_red = proc_imagen.distancia_al_rojo(img,[250,50,50])
         binari = proc_imagen.binarizar(dist_red)
         skeleto = proc_imagen.reducir_grosor(binari)
         
@@ -52,12 +52,12 @@ class TestProcesadoDeImagen(unittest.TestCase):
         proc_imagen = ProcesadoDeImagen()
         actual = os.getcwd()
         img = proc_imagen.leer_imagen(actual + '/Test/codigo/procesado/imgProc/ATP02 UE4 46_1.jpg')
-        dist_red = proc_imagen.distancia_al_rojo(img)
+        dist_red = proc_imagen.distancia_al_rojo(img,[250,50,50])
         binari = proc_imagen.binarizar(dist_red)
         skeleto = proc_imagen.reducir_grosor(binari)        
         lines = proc_imagen.pro_hough(10, 5, 11, skeleto)
-        linias=[((128, 72), (164, 18)), ((24, 43), (12, 31)), ((55, 71), (31, 49)), ((136, 59), (163, 19)), ((11, 31), (4, 24)), ((34, 51), (25, 43)), ((109, 42), (90, 18)), ((51, 67), (30, 48)), ((116, 50), (92, 20))]        
-
+        linias=[((129, 70), (163, 19)), ((48, 65), (4, 24)), ((55, 71), (11, 30)), ((128, 72), (138, 57)), ((116, 50), (90, 18)), ((96, 26), (92, 21))]
+        
         self.assertEqual(lines, linias)
 
         print("OK,test_pro_hough")        

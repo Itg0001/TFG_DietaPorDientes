@@ -142,7 +142,8 @@ class MediadorVentana():
         segmentos_de_verdad_pintar=[]
         for i in segmentos_de_verdad:
             if self.procesado_de_lineas.longitud_linea(i,self.ref_numeros) > lon_minima:
-                segmentos_de_verdad_pintar.append(i)    
+                segmentos_de_verdad_pintar.append(i)
+        print(segmentos_de_verdad_pintar)    
         self.pintar_imagen_y_segmentos(segmentos_de_verdad_pintar)
         self.ventana.lineas = segmentos_de_verdad_pintar
         self.ventana.tam_segmen_verdad = len(self.ventana.lineas)

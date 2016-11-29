@@ -41,7 +41,7 @@ class TestProcesadoDeLineas(unittest.TestCase):
         try:
             procesado.segments_distance(0,0)
         except TypeError as ex:
-            self.assertEqual(ex.args[0],'\'int\' object is not subscriptable')
+            self.assertEqual(ex.args[0],'\'int\' object is not iterable')
         print("OK,test_segments_distance")
 
     def test_segments_intersect(self):
@@ -59,7 +59,7 @@ class TestProcesadoDeLineas(unittest.TestCase):
         try:
             intersec=procesado.segments_intersect(0,0)
         except TypeError as ex:
-            self.assertEqual(ex.args[0],'\'int\' object is not subscriptable')
+            self.assertEqual(ex.args[0],'\'int\' object is not iterable')
         print("OK,test_segments_intersect")
         
         

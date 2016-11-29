@@ -8,6 +8,8 @@ from proyecto.codigo.informes import InGuardarDatos
 from proyecto.codigo.informes import ConfiguracionToXML
 from proyecto.codigo.procesado import ProcesadoDeImagen
 from proyecto.codigo.procesado import ProcesadoDeLineas
+from proyecto.codigo.procesado import ProcesadoAutomatico
+
 from proyecto.gui.Window import Window
 from proyecto.gui.VentanaInicio import VentanaInicio
 from proyecto.gui.PanelDePestannas import PanelDePestannas

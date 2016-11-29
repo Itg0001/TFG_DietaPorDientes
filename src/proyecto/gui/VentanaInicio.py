@@ -2,13 +2,14 @@ from PyQt5 import QtWidgets
 from PyQt5 import QtGui
 from PyQt5 import QtCore
 import sys
-from .Window import Window
 import logging
 # from proyecto.diccionario import DiccionarioESP
 from proyecto.diccionario import DiccionarioING
 from proyecto.diccionario import Diccionario
 import xml.etree.cElementTree as ET
 import xml.etree.ElementTree as ET2
+from proyecto.gui.VisorHtml import VisorHtml
+from proyecto.gui.Window import Window
 
 class VentanaInicio(QtWidgets.QMainWindow):
     """
@@ -198,7 +199,9 @@ class VentanaInicio(QtWidgets.QMainWindow):
         """
         Metodo que implementara la ayuda.
         """
-        pass
+        main = VisorHtml("file:///C:/Users/Tobar/Desktop/hh.html")
+        
+        main.exec_()
     
     def cargar_inicializacion_open(self):
         """

@@ -201,7 +201,6 @@ class ProcesadoDeLineas():
         @param segmentosList: lista con todos los segmentos a combinar
         Combinamos los segmentos.
         """
-        # print("combina",segmentos_list)
         xs = list(map(lambda x:[x[0][0], x[1][0]], segmentos_list))
         ys = list(map(lambda x:[x[0][1], x[1][1]], segmentos_list))
         x_max = np.max(xs)
@@ -209,11 +208,90 @@ class ProcesadoDeLineas():
         x_min = np.min(xs)
         y_min = np.min(ys)
         if (x_max, y_max) in set(map(lambda x:x[0], segmentos_list)):
-            # print("devuelvo",((x_max,y_max),(x_min,y_min)))
             return (x_max, y_max), (x_min, y_min)
         else:
-            # print("devuelvo",((x_max,y_min),(x_min,y_max)))
             return (x_max, y_min), (x_min, y_max)
+    @classmethod
+    def filtra_contenidas(self,lineas,x_min,x_max,y_min,y_max,lon_min):
+        lines_pintar=[]
+        for i in lineas:
+            existe_punto1=self.pertenece_o_no(i[0][0], i[0][1],x_min,x_max,y_min,y_max)
+            existe_punto2=self.pertenece_o_no(i[1][0], i[1][1],x_min,x_max,y_min,y_max)
+            if existe_punto1 and existe_punto2:
+                if self.longitud_linea(i) > lon_min:
+                    lines_pintar.append(i)
+        return lines_pintar
+    @classmethod
+    def filtra_intersec(self,lineas,cuadr,x_min,x_max,y_min,y_max,lon_min):
+        nuevas=[]
+        for i in lineas:
+            add=0
+            p1,p2=i
+            x1,y1=p1
+            x2,y2=p2
+            fl=0
+            for j in cuadr:
+                marc=0
+                un=self.segments_intersect( i, j)
+#                 if un:
+                existe_punto1=self.pertenece_o_no(i[0][0], i[0][1],x_min,x_max,y_min,y_max)
+                existe_punto2=self.pertenece_o_no(i[1][0], i[1][1],x_min,x_max,y_min,y_max)
+                tem_p1x,tem_p1y=self.seg_intersect(i,j)
+                if not existe_punto1 and fl!=1 and un:
+                    tem_p1x,tem_p1y=self.seg_intersect(i,j)
+                    x1=tem_p1x
+                    y1=tem_p1y
+                    add=1
+                    marc=1
+                    fl=1
+                if not existe_punto2 and marc!=1 and un:
+                    tem_p2x,tem_p2y=self.seg_intersect(i,j)
+                    x2=tem_p2x
+                    y2=tem_p2y
+                    add=1
+                marc=0
+            if add==1:
+                if self.longitud_linea([(x1,y1),(x2,y2)]) > lon_min:
+                    nuevas.append([(x1,y1),(x2,y2)])
+                add=0   
+        return nuevas
+    @classmethod
+    def pertenece_o_no(self,x,y,x_min,x_max,y_min,y_max):
+        """
+        En este metodo dado un punto y los 4 vertices del cuadrado comprobaremos
+        si las coordenadas del punto pertenecen al area pintable.
+        @param x: coordenada x del punto a comprobar.
+        @param y: coordenada y del punto a comprobar.
+        @param x_min: coordenada x minima del cuadrado
+        @param x_max: coordenada x macima del cuadrado.
+        @param y_min: coodenada y minima del cuadrado.
+        @param y_max: coordenada y maxima del cuadrado.
+        @return: true/false dependiendo si pertenece a esa region o no.     
+        """
+        if x == None and y==None:
+            return False
+        if (x_min< x < x_max) and  (y_min< y < y_max):
+            return True
+        else:
+            return False
+    @classmethod
+    def perp( self,a ) :
+        b = np.empty_like(a)
+        b[0] = -a[1]
+        b[1] =  a[0]
+        return b
+    @classmethod
+    def seg_intersect(self,segment1, segment2) :
+        a1, a2 = np.array(segment1)
+        b1, b2 = np.array(segment2)    
+        
+        da = a2-a1
+        db = b2-b1
+        dp = a1-b1
+        dap = self.perp(da)
+        denom = np.dot( dap, db)
+        num = np.dot( dap, dp )
+        return list((num / denom.astype(float))*db + b1)
         
     @classmethod
     def longitud_linea(self, p, valor=100):

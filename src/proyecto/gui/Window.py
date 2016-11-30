@@ -73,7 +73,9 @@ class Window(QtWidgets.QWidget):
         y establecer el area que podremos pintar.
         """   
         self.mediador_ventana.detectar_cuadrado()
-    
+    def fijar_cuadrado_auto(self):
+        self.mediador_ventana.fijar_cuadrado_auto()
+
     def inicializa_figura_y_widgets(self):
         """
         Metodo para inicializar la figura y los widgets de la ventana.
@@ -103,6 +105,10 @@ class Window(QtWidgets.QWidget):
         Metodo para calcular las lineas de la imagen pintadas en rojo.
         """       
         self.mediador_ventana.calcular_lineas(self.pestannas.combo_repeti.value(), self.pestannas.combo_lon.value())
+        self.canvas.draw()
+        
+    def calcular_automatic(self):
+        self.mediador_ventana.calcular_automatic()
         self.canvas.draw()
 
     def pintar_imagen_y_segmentos(self, segmentos):

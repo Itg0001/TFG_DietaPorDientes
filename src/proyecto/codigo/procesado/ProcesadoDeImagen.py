@@ -209,7 +209,7 @@ class ProcesadoDeImagen():
         else:
             return False
 
-    
+    @classmethod
     def obtener_numeros(self,img):
         """
         Metodo que se va a encargar de obtener los numero que componen

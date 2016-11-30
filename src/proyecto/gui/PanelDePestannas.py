@@ -66,6 +66,7 @@ class PanelDePestannas(QtWidgets.QTabWidget):
         Metodo que inicializa la ventana del panel de pestañas numero 2.
         """
         self.mediador_pestannas.tab_2_ui()
+
      
     def selected_row(self):
         """

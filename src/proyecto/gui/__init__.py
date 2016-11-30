@@ -5,3 +5,4 @@ from proyecto.gui.VentanaInicio import VentanaInicio
 from proyecto.gui.VisorHtml import VisorHtml
 from proyecto.gui.Window import Window
 from proyecto.gui.Fachadas.FachadaEntradaSalida import FachadaEntradaSalida
+from proyecto.gui.Fachadas.FachadaBotonesAndLayaout import FachadaBotonesAndLayaout

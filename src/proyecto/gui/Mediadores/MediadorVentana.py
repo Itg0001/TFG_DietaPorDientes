@@ -5,6 +5,7 @@ from skimage.morphology import  skeletonize
 from skimage.transform import probabilistic_hough_line
 from proyecto.codigo.procesado import ProcesadoDeImagen
 from proyecto.codigo.procesado.ProcesadoDeLineas import ProcesadoDeLineas
+from proyecto.codigo.procesado.ProcesadoAutomatico import ProcesadoAutomatico
 from proyecto.diccionario import DiccionarioING
 from proyecto.diccionario import Diccionario
 from proyecto.gui.PintarRectangulo import PintarRectangulo
@@ -38,8 +39,11 @@ class MediadorVentana():
             self.ref_numeros=100
         self.color=[]
         self.ventana.pestannas.button.setEnabled(False)
+        self.ventana.pestannas.button_fijar.setEnabled(False)
+
         self.terminar=False
         self.detectado=True
+        self.automatic_mode=ProcesadoAutomatico()
         
     def obtener_color(self):
         """
@@ -81,8 +85,7 @@ class MediadorVentana():
                     self.ventana.pestannas.color_sele.setStyleSheet("background-color: rgb(255,255,255)")
                 return coords
         cid = self.ventana.fig.canvas.mpl_connect(self.dic.md_pe_but_press, onclick)
-
-           
+    
     def detectar_cuadrado(self):
         """
         Metodo para detectar el cuadrado sobre el que poder pintar las lineas que hemos detectado.
@@ -97,6 +100,10 @@ class MediadorVentana():
             self.terminar=True
             self.detectado=False
             self.ventana.pestannas.button33.setEnabled(False)
+        else:
+            self.ventana.pestannas.button_auto.setEnabled(False)
+            self.ventana.pestannas.button_fijar.setEnabled(False)
+
     def inicializa_pestanna_1(self):
         """
         Metodo que inicializara la pestanna uno de la ventana es decir el cuadro principal
@@ -143,13 +150,53 @@ class MediadorVentana():
         for i in segmentos_de_verdad:
             if self.procesado_de_lineas.longitud_linea(i,self.ref_numeros) > lon_minima:
                 segmentos_de_verdad_pintar.append(i)
-        print(segmentos_de_verdad_pintar)    
         self.pintar_imagen_y_segmentos(segmentos_de_verdad_pintar)
         self.ventana.lineas = segmentos_de_verdad_pintar
         self.ventana.tam_segmen_verdad = len(self.ventana.lineas)
         self.ventana.pestannas.button4.setEnabled(True)
-        self.ventana.selec_ante = None    
+        self.ventana.selec_ante = None   
         
+        
+    def fijar_cuadrado_auto(self):
+        self.ventana.mediador_ventana.pintar_rect.disconnect()
+        x,y=self.ventana.mediador_ventana.pintar_rect.rect.xy
+        x,y=int(x),int(y)
+        self.ventana.x_max=round(x+745,0)
+        self.ventana.x_min=x
+        self.ventana.y_max=round(y+745,0)
+        self.ventana.y_min=y
+        
+        l1=[(self.ventana.x_min-2, self.ventana.y_min),(self.ventana.x_max+2, self.ventana.y_min)]
+        l2=[(self.ventana.x_min, self.ventana.y_min),(self.ventana.x_min, self.ventana.y_max)]
+        l3=[(self.ventana.x_min-2, self.ventana.y_max),(self.ventana.x_max+2, self.ventana.y_max)]    
+        l4=[(self.ventana.x_max, self.ventana.y_max),(self.ventana.x_max, self.ventana.y_min)]
+        cuadr=[]
+        cuadr.extend([l1,l2,l3,l4])
+        intersecciones=self.procesado_de_lineas.filtra_intersec(self.ventana.lineas,cuadr,self.ventana.x_min,self.ventana.x_max,self.ventana.y_min,self.ventana.y_max,self.ventana.pestannas.slider_lon_auto.value())
+        contenidas=self.procesado_de_lineas.filtra_contenidas(self.ventana.lineas,self.ventana.x_min,self.ventana.x_max,self.ventana.y_min,self.ventana.y_max,self.ventana.pestannas.slider_lon_auto.value())    
+        lineas_verdad=[]
+        lineas_verdad.extend(contenidas)
+        lineas_verdad.extend(intersecciones)
+        self.pintar_imagen_y_segmentos(lineas_verdad)
+        self.ventana.lineas=lineas_verdad
+        self.ventana.pestannas.button_fijar.setEnabled(False)
+
+        
+
+        
+    def calcular_automatic(self):
+        self.ventana.pestannas.button_fijar.setEnabled(True)
+
+        self.ventana.mediador_ventana.pintar_rect.connect()
+        no_small2=self.automatic_mode.procesado_automatico(self.img)
+        segmentos_de_verdad_pintar=self.automatic_mode.obtencion_lineas(no_small2)
+        self.pintar_imagen_y_segmentos(segmentos_de_verdad_pintar)
+        self.ventana.lineas = segmentos_de_verdad_pintar
+        self.ventana.tam_segmen_verdad = len(self.ventana.lineas)
+        self.ventana.pestannas.button4.setEnabled(True)
+        self.ventana.selec_ante = None 
+
+
     def pintar_imagen_y_segmentos(self, segmentos):
         """
         Metodo que se encargara de pintar la imagen leida y lso segmentos detectados y que esten en la 

@@ -73,7 +73,14 @@ class Diccionario():
         
         
         #MediadorPestannas
-        self.md_pe_lin_pin="Lineas pintadas"
+        self.md_pe_automati="calcula Auto"
+        self.md_pe_fijar="Fijar cuadrado"
+        self.md_pe_corregir="Corregir lineas"
+        self.md_pe_tablas="Tabla"
+        self.md_pe_lineas_pintadas="Detectar Pintadas"
+        self.md_pe_automatico="Automatico"
+        
+        self.md_pe_lin_pin=""
         self.md_pe_calc='Calcular Lineas'
         self.md_pe_param = "Guardar parametros" 
         self.md_pe_repe = "Repeticiones:" 
@@ -172,7 +179,7 @@ class Diccionario():
         self.detect_event_release='button_release_event'
         self.detect_event_motion='motion_notify_event'
         
-        self.md_pe_lin_pin="Lineas pintadas"
+        self.md_pe_lin_pin="Detectores"
         self.md_pe_calc='Calcular Lineas'
         self.md_pe_param = "Guardar parametros" 
         self.md_pe_repe = "Repeticiones:" 

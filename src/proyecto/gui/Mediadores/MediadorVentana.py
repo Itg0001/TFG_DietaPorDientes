@@ -172,7 +172,7 @@ class MediadorVentana():
         l4=[(self.ventana.x_max, self.ventana.y_max),(self.ventana.x_max, self.ventana.y_min)]
         cuadr=[]
         cuadr.extend([l1,l2,l3,l4])
-        intersecciones=self.procesado_de_lineas.filtra_intersec(self.ventana.lineas,cuadr,self.ventana.x_min,self.ventana.x_max,self.ventana.y_min,self.ventana.y_max,self.ventana.pestannas.slider_lon_auto.value())
+        intersecciones=self.procesado_de_lineas.filtra_intersec(self.ventana.lineas,cuadr,[self.ventana.x_min,self.ventana.x_max,self.ventana.y_min,self.ventana.y_max],self.ventana.pestannas.slider_lon_auto.value())
         contenidas=self.procesado_de_lineas.filtra_contenidas(self.ventana.lineas,self.ventana.x_min,self.ventana.x_max,self.ventana.y_min,self.ventana.y_max,self.ventana.pestannas.slider_lon_auto.value())    
         lineas_verdad=[]
         lineas_verdad.extend(contenidas)

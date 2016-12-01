@@ -217,13 +217,13 @@ class ProcesadoDeLineas():
         for i in lineas:
             existe_punto1=self.pertenece_o_no(i[0][0], i[0][1],x_min,x_max,y_min,y_max)
             existe_punto2=self.pertenece_o_no(i[1][0], i[1][1],x_min,x_max,y_min,y_max)
-            if existe_punto1 and existe_punto2:
-                if self.longitud_linea(i) > lon_min:
-                    lines_pintar.append(i)
+            if existe_punto1 and existe_punto2 and self.longitud_linea(i) > lon_min:
+                lines_pintar.append(i)
         return lines_pintar
     @classmethod
-    def filtra_intersec(self,lineas,cuadr,x_min,x_max,y_min,y_max,lon_min):
+    def filtra_intersec(self,lineas,cuadr,variables,lon_min):
         nuevas=[]
+        x_min,x_max,y_min,y_max=variables
         for i in lineas:
             add=0
             p1,p2=i
@@ -233,10 +233,8 @@ class ProcesadoDeLineas():
             for j in cuadr:
                 marc=0
                 un=self.segments_intersect( i, j)
-#                 if un:
                 existe_punto1=self.pertenece_o_no(i[0][0], i[0][1],x_min,x_max,y_min,y_max)
                 existe_punto2=self.pertenece_o_no(i[1][0], i[1][1],x_min,x_max,y_min,y_max)
-                tem_p1x,tem_p1y=self.seg_intersect(i,j)
                 if not existe_punto1 and fl!=1 and un:
                     tem_p1x,tem_p1y=self.seg_intersect(i,j)
                     x1=tem_p1x
@@ -244,17 +242,26 @@ class ProcesadoDeLineas():
                     add=1
                     marc=1
                     fl=1
-                if not existe_punto2 and marc!=1 and un:
-                    tem_p2x,tem_p2y=self.seg_intersect(i,j)
-                    x2=tem_p2x
-                    y2=tem_p2y
-                    add=1
+                x2,y2,add=self.prueba_point2(existe_punto2, marc, un, i, j,[x2,y2,add])
+#                 if not existe_punto2 and marc!=1 and un:
+#                     tem_p2x,tem_p2y=self.seg_intersect(i,j)
+#                     x2=tem_p2x
+#                     y2=tem_p2y
+#                     add=1
                 marc=0
-            if add==1:
-                if self.longitud_linea([(x1,y1),(x2,y2)]) > lon_min:
-                    nuevas.append([(x1,y1),(x2,y2)])
+            if add==1 and self.longitud_linea([(x1,y1),(x2,y2)]) > lon_min:
+                nuevas.append([(x1,y1),(x2,y2)])
                 add=0   
         return nuevas
+    @classmethod
+    def prueba_point2(self,existe_punto2,marc,un,i,j,dos):
+        x2,y2,add=dos
+        if not existe_punto2 and marc!=1 and un:
+            tem_p2x,tem_p2y=self.seg_intersect(i,j)
+            x2=tem_p2x
+            y2=tem_p2y
+            add=1
+        return x2,y2,add
     @classmethod
     def pertenece_o_no(self,x,y,x_min,x_max,y_min,y_max):
         """

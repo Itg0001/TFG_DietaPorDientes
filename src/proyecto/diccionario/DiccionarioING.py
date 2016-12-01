@@ -97,7 +97,7 @@ class DiccionarioING():
         self.md_pe_tab='/Proyecto/Tabla.tex'
         self.md_pe_err_tab="Falla porque esta abierto el archivo Tabla"
         self.md_pe_puntos_cuadrado=["-","-","-","-"]
-        
+        self.md_pe_orien="Tooth orientation"
         #mediadorVentana
         self.md_v_ori='nearest'
         self.md_v_up='upper'

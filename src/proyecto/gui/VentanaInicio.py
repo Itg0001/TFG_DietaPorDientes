@@ -3,7 +3,6 @@ from PyQt5 import QtGui
 from PyQt5 import QtCore
 import sys
 import logging
-# from proyecto.diccionario import DiccionarioESP
 from proyecto.diccionario import DiccionarioING
 from proyecto.diccionario import Diccionario
 import xml.etree.cElementTree as ET
@@ -137,13 +136,13 @@ class VentanaInicio(QtWidgets.QMainWindow):
         self.mensage_reinicia()
         self.guarda_idioma(self.idioma_path,"ESP")
      
-        
+    @classmethod  
     def guarda_idioma(self,idioma,idiom):    
             proyect = ET.Element("proyect")
             ET.SubElement(proyect,"docu0", idioma=str(idiom))
             tree = ET.ElementTree(proyect)
             tree.write(idioma + "/Conf.xml", encoding="UTF-8", xml_declaration=True)
-            
+    @classmethod  
     def carga_idioma(self,idioma):
         tree = ET2.parse(idioma + "/Conf.xml")
         root = tree.getroot()
@@ -152,7 +151,6 @@ class VentanaInicio(QtWidgets.QMainWindow):
     
         return idiom
     
-        
     def inicializa_mensages(self):
         self.msg = QtWidgets.QMessageBox()
         self.msg.adjustSize()
@@ -194,7 +192,7 @@ class VentanaInicio(QtWidgets.QMainWindow):
         Metodo que nos mostrara el acerca de como cuadro de dialogo.
         """
         retval = self.msg_acerca.exec_()  # @UnusedVariable
-        
+    @classmethod  
     def ayuda(self):
         """
         Metodo que implementara la ayuda.

@@ -20,15 +20,23 @@ class Diccionario():
         self.info_msg="Reinicializar para aplicar cambios \n La aplicacion se va a cerrar"
         self.warnn="AVISO"
         
+        self.docu3="docu3"
+        self.docu4="docu4"
+        self.docu5="docu5"
         #pestannas nombres de guardar
         self.docu="docu0"
         self.docu1="docu1"
         self.docu2="docu2"
-        self.docu3="docu3"
-        self.docu4="docu4"
-        self.docu5="docu5"
+   
         
         #Configuracion a xml
+        self.pintada='/Pintada.jpg'
+        self.pro_xml="/Proyecto.xml"
+        self.utf='UTF-8'
+        self.repeti="repeti"
+        self.long="long"
+        self.direccion="direccion"
+        self.path="path"
         self.tex='tex'
         self.tab='/Tabla.tex'
         self.csv='csv'
@@ -37,13 +45,7 @@ class Diccionario():
         self.jpg1='jpg1'
         self.origi='/Original.jpg'
         self.jpg2='jpg2'
-        self.pintada='/Pintada.jpg'
-        self.pro_xml="/Proyecto.xml"
-        self.utf='UTF-8'
-        self.repeti="repeti"
-        self.long="long"
-        self.direccion="direccion"
-        self.path="path"
+      
         #datosTo csv
         self.cabecera_csv_lineas=['linea', 'angulo', 'tamano', 'tipo']
         self.cabecera_csv_estad=['tipo', 'numero', 'mediaLon', 'desviacionTip']
@@ -52,14 +54,15 @@ class Diccionario():
         
 
         #Informe
-        self.jin_blo='/BLOCK{'
-        self.jin_o_q='}'
-        self.jin_va=r'\VAR{' 
         self.jin_alm='/#{'
         self.jin_porc='%%'
         self.jin_alm_po='%#'
         self.infor_plan='proyecto/codigo/informes/jinja-test.tex'
         self.tab_in='Tabla.tex'
+        self.jin_blo='/BLOCK{'
+        self.jin_o_q='}'
+        self.jin_va=r'\VAR{' 
+    
         
         
         #ProcesadoImagen
@@ -128,7 +131,7 @@ class Diccionario():
         self.md_pe_msg_gur="No se han guardado los cambios."
         self.md_pe_direc=["Derecha","Izquierda"]
         self.md_pe_puntos_cuadrado=["-","-","-","-"]
-        
+        self.md_pe_orien="Orientacion del diente"
         #mediadorVentana
         self.md_v_ori='nearest'
         self.md_v_up='upper'

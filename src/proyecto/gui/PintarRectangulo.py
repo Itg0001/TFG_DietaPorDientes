@@ -1,5 +1,4 @@
 from matplotlib.patches import Rectangle
-# from proyecto.diccionario.DiccionarioESP import DiccionarioESP
 from proyecto.diccionario import DiccionarioING
 
 

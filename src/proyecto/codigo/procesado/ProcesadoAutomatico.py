@@ -32,9 +32,9 @@ class ProcesadoAutomatico():
             warnings.simplefilter("ignore")
             img=rgb2grey(img)
             img_adapteq = exposure.equalize_adapthist(img, clip_limit=0.91,nbins =100)
-            img_adapteqDENO=denoise_tv_chambolle(img_adapteq, weight=0.1)
+            img_adapteq_deno=denoise_tv_chambolle(img_adapteq, weight=0.1)
         
-            hxx, hxy, hyy = hessian_matrix(img_adapteqDENO, sigma=1.85,mode='wrap',cval=0.11)
+            hxx, hxy, hyy = hessian_matrix(img_adapteq_deno, sigma=1.85,mode='wrap',cval=0.11)
             i1, i2 = hessian_matrix_eigvals(hxx, hxy, hyy) # @UnusedVariable
     
             image = img_as_float(i1)

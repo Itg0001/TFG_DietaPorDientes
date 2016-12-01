@@ -12,7 +12,7 @@ class FachadaBotonesAndLayaout():
     def inicia_ui1(self):
         self.pestannas.groupBox= QtWidgets.QGroupBox(self.dic.md_pe_lineas_pintadas)
         self.pestannas.groupBox_auto= QtWidgets.QGroupBox(self.dic.md_pe_automatico)
-        self.pestannas.groupBox_dire= QtWidgets.QGroupBox("Orientacion del diente")
+        self.pestannas.groupBox_dire= QtWidgets.QGroupBox(self.dic.md_pe_orien)
         
         self.pestannas.group = QtWidgets.QVBoxLayout()
 

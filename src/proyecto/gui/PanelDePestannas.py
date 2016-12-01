@@ -1,6 +1,5 @@
 from PyQt5 import QtWidgets
 from proyecto.gui.Mediadores import MediadorPestannas
-# from proyecto.diccionario import DiccionarioESP
 from proyecto.diccionario import DiccionarioING
 from proyecto.diccionario import Diccionario
 

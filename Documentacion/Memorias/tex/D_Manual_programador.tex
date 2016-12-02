@@ -1,11 +1,169 @@
 \apendice{Documentación técnica de programación}
 
 \section{Introducción}
-
+Esta información esta dirigida, a otros desarrolladores, que puedan leer esta documentación o continúen el proyecto, por lo que vamos a describir mas detalladamente el funcionamiento del proyecto y los aspectos que podrían mejorarse o modificarse en el futuro.
 \section{Estructura de directorios}
 
+\subsection{Ejecutables:} 
+	\begin{itemize}
+		\item EjecutarGui: Este fichero se corresponde con el ejecutable para lanzar la aplicación en modo GUI.
+		\item EjecutarTest: Este fichero se corresponde con el ejecutable para lanzar los teses de la aplicación en modo consola.
+		\item Documentar: Este fichero se corresponde con el ejecutable para documentar la aplicación de forma recursiva y crear los htmls correspondientes.
+	\end{itemize}
+		
+\subsection{Documentación:}
+En esta carpeta estará contenida la documentación en formato html.
+	\begin{itemize}
+		\item pydoc: Esta carpeta se corresponderá con la documentación de pydoc
+	\end{itemize}
+
+\subsection{Src:}
+Esta carpeta contendrá todos los ficheros de código fuente del proyecto, el OCR, y los teses.
+
+\subsubsection{Proyecto:}
+Esta carpeta contendrá todos los ficheros de código fuente del proyecto, todos los módulos o paquetes.
+	\begin{itemize}
+		\item Código.
+		\begin{itemize}
+			\item Estadísticas.
+				\begin{itemize}
+					\item Estadística.
+				\end{itemize}
+			\item Informes:
+				\begin{itemize}
+					\item ConfiguracionToXML.
+					\item DatosToCsv.
+					\item Informe.
+					\item InGuardarDatos
+				\end{itemize}
+			\item Procesado:
+				\begin{itemize}
+					\item ProcesadoAutomatico.
+					\item ProcesadoDeImagen
+					\item ProcesadoDeLineas
+				\end{itemize}
+		\item Diccionario:
+			\begin{itemize}
+				\item Diccionario
+				\item DiccionarioING
+			\end{itemize}	
+		\item Gui:
+	\end{itemize}
+	
+
+\begin{itemize}
+\item   
+\begin{itemize}
+		\item Fachadas:
+			\begin{itemize}
+				\item FachadaBotonesAndLayaout.
+				\item FachadaEntradaSalida.
+			\end{itemize}
+		\item Mediadores:
+			\begin{itemize}
+				\item MediadorPestannas.
+				\item MediadorVentana.
+			\end{itemize}
+		\item PanelDePestannas
+		\item PintarRectangulo
+		\item VentanaInicio
+		\item VisorHtml
+		\item Window
+	\end{itemize}						
+\end{itemize}
+\end{itemize}
+
+\subsubsection{Tesseract:}
+En esta carpeta contendremos el ejecutable del OCR junto con sus ficheros de configuración para poderlo ejecutar.
+
+\subsection{Test:}
+En esta carpeta contendremos los teses del código para comprobar que funcionan correctamente.
+\subsubsection{Codigo:}
+\begin{itemize}
+	\item Estadísticas:
+		\begin{itemize}
+			\item TestEstadistica
+		\end{itemize}
+	\item Informes:
+		\begin{itemize}
+			\item TestConfiguracionToXML
+			\item TestDatosToCsv
+			\item TestInforme
+		\end{itemize}
+	\item Procesado:
+		\begin{itemize}
+			\item TestProcesadoDeImagen
+			\item TestProcesadoDeLineas
+		\end{itemize}
+\end{itemize}
+
 \section{Manual del programador}
+En esta sección vamos a describir como se han programado las partes mas importantes que son las que mas nos interesan.
+\subsection{Procesado}
+Para programar el procesado hemos encadenado sucesivos pasos, que dividiremos en tres secciones.
+
+\begin{itemize}
+\item ProcesadoDeImagen: Este se corresponde con el procesado de la imagen para la extracción de las características.
+
+1 Hemos calculado de la imagen la distancia a un color: Se corresponde con el que estén pintadas los segmentos, lo selecciona el usuario. Evitamos cualquier color que hiciese que falle el algoritmo, filtrando la selección por el canal del modelo de color HSV, que no indica la saturación. En nuestra imagen lo único que tiene alta saturación alta son los segmentos pintados ya que la imagen esta en grises.
+
+2 Binarizamos la imagen con la distancia al color para obtener la mascara con los objetos que queremos detectar y reducimos el grosor de estos.
+
+3 Sobre la mascara reducida calculamos los segmentos por la transformada de Hough.
+
+\item ProcesadoDeLineas: Este módulo contiene el procesado de las lineas, detectadas en el ultimo paso del punto anterior.
+
+1 Primero de todo, lo que tenemos no son segmentos completos, sino subsegmentos que forman los segmentos reales. Tenemos que unirlos aquellos que sean muy similares, caracterizados por distancia y ángulo.
+
+2 Para realizar la union lo primero que haremos sera ir añadiendo, un camino entre los dos segmentos, a un grafo, de aquellos que cumplan lo anterior.
+
+3 Obtendremos las uno componentes del grafo, que se corresponden, con los clusters, que son los segmentos buscados.
+
+\item ProcesadoAutomatico:Este apartado aunque lleva proceso similares a los anteriores no puede ir junto ya que necesita otros pasos intermedios.
+
+1 Usaremos, el detector de bordes que hemos implementado, primero ecualizaremos la imagen para distribuir su histograma, segundo calculamos los autovectores de la matriz Hessiana y nos quedamos con los autovectores largos, tercero binarizamos la imagen y procesamos dicha imagen. Queda reflejado en anexo F
+\end{itemize}
+
+\subsection{GUI}
+
+\begin{itemize}
+	\item Imagen y líneas: Para pintar las imágenes, hemos usado el backend de matplotlib, que nos muestra la imagen sobre unos ejes de coordenadas, que nos indican e informan sobre las coordenadas de cada pixel, gracias a esto y a los métodos de conexión sobre los eventos, hemos podido simplificar al máximo la obtención de los puntos, la forma de pintar los segmentos detectados y la interacción de usuario.
+	
+	\item OCR: Para leer la referencia de la imagen hemos usado un OCR conocido que se llama Tesseract a este le pasamos el recorte de la imagen que contiene la referencia y nos devuelve el numero que contiene.
+\end{itemize}
 
 \section{Compilación, instalación y ejecución del proyecto}
 
+\subsection{Compilación:}
+En Python no hace falta compilar el proyecto ya que es un lenguaje interpretado. necesitaremos únicamente tener Python instalado, atraves de Miniconda que es una distribución Python.
+
+\subsection{Instalación:}
+Para poder ejecutar deberemos instalar Miniconda en 
+C.Users.TuUsuario, Es el directorio predefinido por Miniconda, Una vez que lo tengamos instalado podremos proceder a hacer doble clic sobre el ejecutable EjecutarGui.bat que instalara las dependencias a las librerías que necesitamos para su ejecución.
+
+\subsection{Ejecución del proyecto:}
+Para la primera ejecución si no tenemos las librerías instaladas al hacer doble clic sobre EjecucionGui.bat, tardara un rato en descargarlas y crear el entorno virtual de Miniconda con únicamente las librerías que se usan, pero las siguientes veces únicamente ejecutara la aplicación.
+
+Si la descarga de las librerías se interrumpe por una caída de la red o algo nos dará un error. Pero si volvemos a ejecutar se iniciara donde se paro la descarga, es decir no perdemos lo que ya haya conseguido descargar.
+
+
+\subsection{Conclusiones:}
+Hemos seguido otras formas de conseguir lo que queremos, Python es un lenguaje interpretado y necesitamos tener Python 3.5.
+
+Para facilitar la instalación de Python hemos optado por usar Miniconda, es una distribución que facilita dicha instalación pero sin ninguna librería instalada, por lo que es mas ligero, 50 Megas, frente a Anaconda, cerca de 500 Megas. Quedando a nuestra disposición indicar que librerías instalar.
+
+En la primera ejecución del código nos va a descargar e instalar todas las librerías que necesitamos.
+
 \section{Pruebas del sistema}
+En esta sección vamos a informar como ejecutar los teses que están ubicados en la carpeta Test dentro de la carpeta src del proyecto. 
+
+\subsection{Test Python:}
+Dichos teses están escritos en Python usando la librería unittest.
+
+Hay muchas comprobaciones sobre las funciones de calculo y aquellas que escriben y leen ficheros, pero para la parte de la interfaz gráfica no hay echas pruebas ya que no se puede controlar del todo esta parte, pero ha sido probada por mi y todos los aspectos añadidos y no produce fallos conocidos.
+
+Para ejecutarlos basta con ejecutarlos desde Eclipse, el main de los teses mainTest.py o también si preferimos podemos ejecutarlos desde la terminal con el mismo fichero.
+Otra opción para ejecutar los teses es dar doble clic sobre el ejecutable EjecutarTest que esta en la carpeta de los ejecutables. 
+
+Aparte de los datos proporcionados en la ejecución hemos puesto una salida informativa para cada test y las partes que comprueba.
+ 

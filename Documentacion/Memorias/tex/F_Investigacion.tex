@@ -1,28 +1,22 @@
 \apendice{Procesado automático de la imagen}
 
-\section{introducción}
-En este apartado vamos a explicar lo que hemos investigado sobre la detección de bordes para el modo automático.
-
-Esto lo vamos afrontar desde dos puntos de vista, el primero sera por el procesado de imágenes, esto consistirá en binarizar la imagen usando un kernel conocido y observar si los resultados nos muestran algún resultado factible.
-Como segunda opción vamos a intentar ejecutar algoritmos de Deep Learning para ver si mejora el resultado usando estos algoritmos.
-
 \section{Por procesado de imagen}
-Todas las imágenes van hacer un proceso de convolución, con el Kernel \cite{wiki:kernels} especifico en cada caso.
+Todas las imágenes van hacer un proceso de convolución, con el Kernel especifico en cada caso.
 
 Una convolución es una operación matemática, que no es la multiplicación de matrices tradicional, es el proceso de agregar cada porción de la imagen a sus vecinos locales ponderado por el Kernel. 
 
 Este proceso no solo vale para detectar bordes, tiene estas otras aplicaciones.
 \begin{itemize}
-\item Detección de bordes: Detectar los bordes a partir del histograma.
-\item Normalización: Eliminar algo de ruido o contraste sobre las imágenes para distribuir mas los valores sobre esta.
-\item Desenfoques y difuminado: Desenfocar o difuminar la imagen a partir de hacer la operación de convolución con una mascara diseñada para ello.
-\item Eliminar ruido: Sirve para moderar los valores de la imagen  y hacer que estén mas centrados en un rango y así eliminar el ruido aleatorio. 
+\item Detección de bordes.
+\item Normalización.
+\item Desenfoques y difuminado.
+\item Eliminar ruido. 
 \end{itemize}
 
 \subsection{Laplace:}
-Esta función busca bordes usando el operador de Laplace \cite{wiki:Laplace}. En nuestro caso de tamaño 3 ya que se puede especificar el tamaño.
+Esta función busca bordes usando el operador de Laplace. En nuestro caso de tamaño 3 ya que se puede especificar el tamaño.
 
-Como podemos observar en el Kernel de Laplace \ref{F_k1}.
+Kernel Laplace \ref{F_k1}.
 \begin{table}[]
 	\centering
 	\caption{Kernel Laplace}
@@ -35,14 +29,17 @@ Como podemos observar en el Kernel de Laplace \ref{F_k1}.
 	\end{tabular}
 \end{table}
 
+from skimage.filters import laplace,prewitt\\
+bord=laplace(img,ksize=3)
+
 Observaciones:
-Como podemos observar en la imagen \ref{fig:1.1.1}, no es un método factible para nuestro propósito, porque no detecta los bordes simplemente deja algunas partes difuminadas, pero nada sobre lo que podamos trabajar para obtener la imagen binarizada. Por lo que no vamos a continuar usándolo.
+Como podemos observar no es un método factible para nuestro propósito por lo que no vamos a continuar usándolo.
 
 \subsection{Prewitt:}
 
-Encuentra los bordes usando la transformada de Prewitt \cite{wiki:Prewitt}.
+Encuentra los bordes usando la transformada de Prewitt.
 
-Como podemos observar en el Kernel de Prewitt \ref{F_k2}.
+Kernel Prewitt \ref{F_k2}.
 \begin{table}[]
 	\centering
 	\caption{Kernel Prewitt}
@@ -58,13 +55,13 @@ Como podemos observar en el Kernel de Prewitt \ref{F_k2}.
 
 
 Observaciones:
-Como podemos ver las grietas, de la imagen \ref{fig:1.1.2}, las detecta bien pero las estrías de dieta son siluetas muy tenues y contiene mucho ruido.
+Como podemos ver las grietas en la imagen las detecta bien pero las estrías de dieta son siluetas muy tenues y contiene mucho ruido.
 
 
 \subsection{Scharr:}
-Con este método encontramos los bordes usando la transformada de Scharr \cite{wiki:Scharr}.
+Con este método encontramos los bordes usando la transformada de Scharr.
 
-Como podemos observar en el Kernel de HScharr \ref{F_k3}.
+Kernel HScharr \ref{F_k3}.
 \begin{table}[]
 	\centering
 	\caption{Kernel HScharr}
@@ -82,16 +79,16 @@ todo ello partido de 16 y para las verticales es la matriz transpuesta.
 
 
 Observaciones:
-Como podemos ver en la imagen \ref{fig:1.1.3}, las estrías de dieta son muy tenues pero ligeramente mejores que en la anterior tampoco demasiado pero ligeramente, el método es algo más rápido también pero no obtenemos algo tangible.
+Como podemos ver en la imagen las estrías de dieta son muy tenues pero ligeramente mejores que en la anterior tampoco demasiado pero ligeramente, el método es algo más rápido también pero no obtenemos algo tangible.
 
 
 
 
 \subsection{Sobel:}
-Este método busca bordes usando la transformada de Sobel \cite{wiki:Sobel}.
+Este método busca bordes usando la transformada de Sobel.
 
 
-Como podemos observar en el Kernel de HSobel \ref{F_k4}.
+Kernel HSobel \ref{F_k4}.
 \begin{table}[]
 	\centering
 	\caption{Kernel HSobel}
@@ -103,19 +100,20 @@ Como podemos observar en el Kernel de HSobel \ref{F_k4}.
 		-1 & -2 & -1 \\ \hline
 	\end{tabular}
 \end{table}
+Todo ello partido de 4 y para las verticales es la matriz transpuesta. 
 
-El kernel de Sobel, partido de 4 para los bordes horizontales.
-Para los bordes verticales, es El kernel de Sobel, partido de 4 y transpuesto. 
+
+
 
 Observaciones: 
-Con este método tal y como podemos observar en la imagen \ref{fig:1.1.4}, crea más ruido que los anteriores pero también podemos observar la silueta de las estrías de dieta.
+Con este método tal y como podemos observar en la imagen crea más ruido que los anteriores pero también podemos observar la silueta de las estrías de dieta.
 
 
 \subsection{Roberts:}
 
-Esta función encuentra los bordes usando la operación cruzada de Robert \cite{wiki:Roberts}.
+Esta función encuentra los bordes usando la operación cruzada de Robert
 
-Como podemos observar en el Kernel de Roberts \ref{F_k5}.
+Kernel Roberts \ref{F_k5}.
 \begin{table}[]
 	\centering
 	\caption{Kernel Roberts}
@@ -131,15 +129,14 @@ Como podemos observar en el Kernel de Roberts \ref{F_k5}.
 
 
 Observaciones:
-Como podemos observar en la imagen \ref{fig:1.1.5}.
 Este método produce mucho ruido y las estrías son líneas demasiado tenues.
 
 \subsection{Kirsch:}
-Esta función encuentra los bordes usando el kernel de Kirsch \cite{wiki:Kirsch}.
+Esta función encuentra los bordes usando el kernel de Kirsch.
 para cada dirección.
 No estaba implementado en Skimage por lo que he implementado el método.
 
-Como podemos observar en el Kernel de kirsch g1 \ref{F_k6_1}, para los bordes horizontales.
+Kernel g1 \ref{F_k6_1}.
 \begin{table}[]
 	\centering
 	\caption{Kernel g1}
@@ -152,7 +149,7 @@ Como podemos observar en el Kernel de kirsch g1 \ref{F_k6_1}, para los bordes ho
 	\end{tabular}
 \end{table}
 
-Como podemos observar en el Kernel de kirsch g2 \ref{F_k6_2}, para los bordes verticales.
+Kernel g2 \ref{F_k6_2}.
 \begin{table}[]
 	\centering
 	\caption{Kernel g2}
@@ -166,7 +163,7 @@ Como podemos observar en el Kernel de kirsch g2 \ref{F_k6_2}, para los bordes ve
 \end{table}
 
 
-Como podemos observar en el Kernel de kirsch g3 \ref{F_k6_3}, para los bordes diagonal ascendente.
+Kernel g3 \ref{F_k6_3}.
 
 \begin{table}[]
 	\centering
@@ -180,7 +177,7 @@ Como podemos observar en el Kernel de kirsch g3 \ref{F_k6_3}, para los bordes di
 	\end{tabular}
 \end{table}
 
-Como podemos observar en el Kernel de kirsch g4 \ref{F_k6_4}, para diagonal descendente.
+kernel g4 \ref{F_k6_4}.
 
 \begin{table}[]
 	\centering
@@ -194,33 +191,33 @@ Como podemos observar en el Kernel de kirsch g4 \ref{F_k6_4}, para diagonal desc
 	\end{tabular}
 \end{table}
 Observaciones:
-Como podemos observar en la imagen \ref{fig:1.1.9}.
 Este método produce mucho ruido y las estrías son líneas demasiado tenues.
 No obstante de los métodos hasta ahora usados es en el que mas aprecian.
 
 \subsection{Autovectores matriz Hessiana:}
-Este método consiste en obtener la matriz hessiana \cite{wiki:Hessiana} y después sus autovectores de la matriz Hessiana y nos devuelve dos matrices la matriz i1 es la matriz con el autovector más largo y la i2 es la matriz con autovector más corto.
+Este método consiste en obtener la matriz hessiana y después sus autovectores de la matriz Hessiana y nos devuelve dos matrices la matriz i1 es la matriz con el autovector más largo y la i2 es la matriz con autovector más corto.
+
+
 
 
 
 Observaciones: 
-
-Como podemos observar en la imagen \ref{fig:1.1.6} en escala de grises del autovector de los valores más largos las siluetas de las estrías de dieta son las que más se remarcan sobre un tenue fondo gris pero pudiendo ser observadas por lo que este podría ser un punto de partida.
+Como podemos observar en la imagen en escala de grises del autovector de los valores más largos las siluetas de las estrías de dieta son las que más se remarcan sobre un tenue fondo gris pero pudiendo ser observadas por lo que este podría ser un punto de partida.
 
 
 
 \subsection{Canny:}
 
 \subsubsection{Eliminando ruido:}
-Primero ,obtener los bordes, llamar a una función que elimina el ruido y después al detector de bordes Canny \cite{wiki:Canny}, para obtener los bordes.
-Los parámetros del Canny en como sigma un valor intermedio de 1.4 junto con un umbral bajo, muy bajo, y un umbral alto, también bajo.
+Primero ,obtener los bordes, llamar a una función que elimina el ruido y después al detector de bordes canny, para obtener los bordes.
+Los parámetros del canny en como sigma un valor intermedio de 1.4 junto con un umbral bajo, muy bajo, y un umbral alto, también bajo.
 Obtenemos una imagen resaltando algunos bordes pero no todo los que queremos ya que no están demasiado marcados.
 
 
 
 
 Observaciones:
-Desde esta imagen \ref{fig:1.1.7} con bastante ruido ya podemos observar que las más marcadas son detectadas pero no se consiguen diferenciar demasiado bien, pero en comparación con los demás métodos tiene de las mejores salidas aun no siendo buena de ir en esta línea tendiéramos que usar esto.
+Desde esta imagen con bastante ruido ya podemos observar que las más marcadas son detectadas pero no se consiguen diferenciar demasiado bien, pero en comparación con los demás métodos tiene de las mejores salidas aun no siendo buena de ir en esta línea tendiéramos que usar esto.
 
 \subsubsection{Modificando parámetros Canny:}
 
@@ -228,20 +225,18 @@ La segunda opción ha sido usar un detector de bordes Canny solamente modificand
 
 
 Observaciones:
-Esta imagen \ref{fig:1.1.8} detecta menos ruido que con la otra tentativa pero sigue siendo deficiente en cuanto a las líneas ya que aparte de detectar pocas detecta las que realmente no son estrías de dieta. Pero de ir en alguna línea seria por este camino.
+Esta imagen detecta menos ruido que con la otra tentativa pero sigue siendo deficiente en cuanto a las líneas ya que aparte de detectar pocas detecta las que realmente no son estrías de dieta. Pero de ir en alguna línea seria por este camino.
 
 
 
 \subsection{Gabor:}
 
-Gabor \cite{wiki:Gabor} es un filtro linear con un kernel gausiano  que es modulado por un onda sinusoidal plana. Principalmente se usa en visión artificial de clasificación y detección de bordes.
+Es un filtro linear con un kernel gausiano  que es modulado por un onda sinusoidal plana. Principalmente se usa en visión artificial de clasificación y detección de bordes.
 Obtenemos un par de imágenes.
 
 
 
 Observaciones:
-Como podemos observar en la imagen usando Gabor con filtro imaginario \ref{fig:1.1.10}.
-Como podemos observar en la imagen usando Gabor con filtro real \ref{fig:1.1.11}.
 Este método lo eh probado porque en la obtención de las líneas de sangre en los ojos es lo que se usa para ello pero al no ser líneas continuas y no seguir un patrón no he conseguido buenos resultados. En el filtro real no es tan malo pero en el filtro imaginario es ruido puro.
 \subsection{Comparativa Filtros}
 Comparativa de todos los filtros \ref{fig:1.1}. 
@@ -250,27 +245,27 @@ Comparativa de todos los filtros \ref{fig:1.1}.
 Partiendo del análisis anterior vamos a juntar los mejores resultados y añadir pasos adicionales para obtener la mascara binaria que mas podamos ajustar a nuestras necesidades.
 
 
-Pasos del algoritmo \ref{fig:2.1}.
+Pasos del algoritmo \ref{fig:2.1} y \ref{fig:2.2}.
 \begin{itemize}
-	\item Ecualizar la imagen original \ref{fig:2.1.1} y su histograma \ref{fig:2.1.2}, obtenemos la imagen ecualizada \ref{fig:2.1.3}.
-Así conseguimos que sus histograma \ref{fig:2.1.4} este mas repartido por toda la gama de grises y no centrado en un pequeño rango.
-	\item Autovectores de la Hessiana \ref{fig:2.1.5}:
+	\item Ecualizar la imagen original:
+Así conseguimos que sus histograma este mas repartido por toda la gama de grises y no centrado en un pequeño rango.
+	\item Autovectores de la Hessiana:
 Obtenemos los autovectores de la matriz Hessiana y nos quedamos con los largos, ya que los autovectores pueden ser los cortos o los largos. 
-	\item Sustraemos el fondo a la imagen \ref{fig:2.1.6}:
+	\item Sustraemos el fondo a la imagen:
 Como la imagen no tiene de nuevo demasiada gama cromática le sustraemos el fundo para así quedarnos únicamente con las líneas, al tener ruido aparte de lo que queremos, tendremos mucho ruido.
-	\item Binarizamos la imagen \ref{fig:2.1.7}:
+	\item Binarizamos la imagen:
 Como la imagen aun habiendo sustraído el fondo no es binaria hay que aplicarle un treshold o umbral para pasar a blanco o negro, es decir, binarizarla.
-	\item Eliminamos el ruido \ref{fig:2.1.8}:
+	\item Eliminamos el ruido:
 Este paso anterior, en estas condiciones de trabajo genera mucho ruido, por lo que tendremos que intentar reducirlo y para ello eliminamos los trozos que son pequeños, esto elimina la mayoría de los puntos de ruido.
-	\item Erosionar con operador diamante \ref{fig:2.1.9}:
+	\item Erosionar con operador diamante:
 Para suavizar la imagen y evitar que queden líneas finas a modo de antenas, erosionamos la imagen con un operador estructurante en forma de diamante, así conseguimos que pase por la mayoría de las figuras.
-	\item Esqueletonizar la imagen \ref{fig:2.1.10}:
+	\item Esqueletonizar la imagen:
 Una vez tengamos la imagen sin tanto ruido, reducimos el grosor de las líneas para que la función de Hough funcione, así nos detecta las líneas que corresponden a esta mascara binaria.
-	\item Eliminar mas ruido \ref{fig:2.1.11}:
+	\item Eliminar mas ruido:
 Este paso anterior vuelve a generar ruido porque algunos trozos se dividen en pequeños segmentos y con la segunda reducción de ruido conseguimos hacerlos desaparecer y quedarnos con las líneas grandes.
-	\item Detectar los segmentos \ref{fig:2.1.12}:
+	\item Detectar los segmentos:
 Una vez que tenemos todos los segmentos detectados mediante Hough, que se corresponden con las líneas que hay en la imagen, tenemos que unir los que sean contiguos y muy cercanos, para formar segmentos mas grandes.
-	\item Unir segmentos cercanos \ref{fig:2.1.13}:
+	\item Unir segmentos cercanos:
 Para este paso vamos a usar lo mismo que hemos utilizado dentro de la parte, detección de las líneas pintadas.
 La imágenes tienen mucho ruido y aunque hemos conseguido procesar y reducirlo, aun no vamos a detectar un alto por ciento de las estrías.
 \end{itemize}
@@ -280,50 +275,50 @@ La imágenes tienen mucho ruido y aunque hemos conseguido procesar y reducirlo, 
 \begin{figure}
 	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{Laplace}
-	\caption{Bordes usando Laplace}\label{fig:1.1.1}
+	\caption{Bordes usando Laplace}
 	\end{subfigure}%
 	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{Prewitt}
-	\caption{Bordes usando Prewitt}\label{fig:1.1.2}
+	\caption{Bordes usando Prewitt}
 	\end{subfigure}%
 	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{Scharr}
-	\caption{Bordes usando Scharr}\label{fig:1.1.3}
+	\caption{Bordes usando Scharr}
 	\end{subfigure}%
 		
 	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{Sobel}
-	\caption{Bordes usando Sobel}\label{fig:1.1.4}
+	\caption{Bordes usando Sobel}
 	\end{subfigure}%
 	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{Roberts}
-	\caption{Bordes usando Roberts}\label{fig:1.1.5}
+	\caption{Bordes usando Roberts}
 	\end{subfigure}%	
 	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{HessianaAutoLargos}
-	\caption{Bordes usando HessianaAutoLargos}\label{fig:1.1.6}
+	\caption{Bordes usando HessianaAutoLargos}
 	\end{subfigure}%
 	
 	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{CannyP}
-	\caption{Bordes usando CannyP}\label{fig:1.1.7}
+	\caption{Bordes usando CannyP}
 	\end{subfigure}%
 	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{Canny}
-	\caption{Bordes usando Canny}\label{fig:1.1.8}
+	\caption{Bordes usando Canny}
 	\end{subfigure}%	
 	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{Kirsch}
-	\caption{Bordes usando Kirsch}\label{fig:1.1.9}
+	\caption{Bordes usando Kirsch}
 	\end{subfigure}	
 	
 	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{GaborI}
-	\caption{Bordes usando Gabor filtro imaginario}\label{fig:1.1.10}
+	\caption{Bordes usando Gabor filtro imaginario}
 	\end{subfigure}%	
 	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{GaborR}
-	\caption{Bordes usando Gabor filtro real}\label{fig:1.1.11}
+	\caption{Bordes usando Gabor filtro real}
 	\end{subfigure}
 
 \caption{Resumen visual filtros usados.}\label{fig:1.1}
@@ -338,59 +333,59 @@ La imágenes tienen mucho ruido y aunque hemos conseguido procesar y reducirlo, 
 
 	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{Imagen}
-	\caption{Imagen original}\label{fig:2.1.1}
+	\caption{Imagen original}
 	\end{subfigure}%
 	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{ImagenHist}
-	\caption{Histograma imagen original}\label{fig:2.1.2}
+	\caption{Histograma imagen original}
 	\end{subfigure}%
 	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{Equalized}
-	\caption{Imagen ecualizada}\label{fig:2.1.3}
+	\caption{Imagen ecualizada}
 	\end{subfigure}%
 	
 	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{Histograma_Equali}
-	\caption{Histograma imagen ecualizada}\label{fig:2.1.4}
+	\caption{Histograma imagen ecualizada}
 	\end{subfigure}%
 	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{HessianaPaso2}
-	\caption{Autovectores largos.}\label{fig:2.1.5}
+	\caption{Autovectores largos.}
 	\end{subfigure}%
 	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{HessianaPaso2MenosFOndo}
-	\caption{Hessiana menos fondo.}\label{fig:2.1.6}
+	\caption{Hessiana menos fondo.}
 	\end{subfigure}%	
 
 	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{MenosFondoBinarizada}
-	\caption{Binarizado.}\label{fig:2.1.7}
+	\caption{Binarizado.}
 	\end{subfigure}%
 	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{BinarizadaSinRuido}
-	\caption{Binarizada sin ruido.}\label{fig:2.1.8}
+	\caption{Binarizada sin ruido.}
 	\end{subfigure}%
 	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{SinRuidoErosionada}
-	\caption{Erosionado.}\label{fig:2.1.9}
+	\caption{Erosionado.}
 	\end{subfigure}%
 	
 	\begin{subfigure}[c]{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{ErosionadaEsqueletonizada}
-	\caption{Esqueletonizado de la erosión.}\label{fig:2.1.10}
+	\caption{Esqueletonizado de la erosión.}
 	\end{subfigure}%		
 	\begin{subfigure}{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{EsqueletonizadaSinRuido}
-	\caption{Esqueletonizada sin ruido}\label{fig:2.1.11}
+	\caption{Esqueletonizada sin ruido}
 	\end{subfigure}%
 	\begin{subfigure}{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{SegmentosSinUnir}
-	\caption{Segmentos detectados}\label{fig:2.1.12}
+	\caption{Segmentos detectados}
 	\end{subfigure}%
 	
 	\begin{subfigure}{.33\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{LineasReales}
-	\caption{Segmentos reales}\label{fig:2.1.13}
+	\caption{Segmentos reales}
 	\end{subfigure}%
 	
 \caption{Pasos del procesado.}\label{fig:2.1}

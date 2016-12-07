@@ -45,7 +45,7 @@ Gracias a estos widgets podemos dar valores e ir viendo como cambia la salida de
 \section{Procesado imagen}
 Para llegar a conseguir calcular las líneas que había pintadas en las imágenes, tube que realizar una serie de pasos que vamos a resumir en tres etapas.
 \subsection{Binarización}
-Partiendo de una imagen que solo tenía líneas en rojo pintadas encima de las estrías producidas por el desgaste y lo demás de la imagen en escala de grises. Lo primero fue leer la imagen a trabes de las funciones ya programadas en la librería de Scikit-Image(skimage) \cite{scik:skeleton}.
+Partiendo de una imagen que solo tenía líneas en rojo pintadas encima de las estrías producidas por el desgaste y lo demás de la imagen en escala de grises. Lo primero fue leer la imagen a trabes de las funciones ya programadas en la librería de Scikit-Image (skimage) \cite{scik:skeleton}.
 Una vez que tenemos la imagen guardada en el espacio de color RGB podemos empezar el procesado quedándonos con el canal Rojo.
 
 Calculamos la distancia de cada pixel de la imagen al color deseado, pasamos la imagen de distancias a blanco y negro y así tendremos un valor entre 0 y 256 en cada pixel correspondiente a la distancia al color. Cuanto mas alejado mas negro y los que sean del color, en blanco.
@@ -139,3 +139,8 @@ La programación de interfaces en Python ha sido bastante sencillo y muy intuiti
 
 En grandes rasgos estoy bastante contento con PyQt5 me ha resultado muy útil y la librería de Matplotlib también ya que con ellas he conseguido resolver todos los problemas planteados.
 
+\section{Internacionalización}
+
+En nuestra aplicación, hemos implementado una funcionalidad para traducirla a los dos idiomas, que hemos considerado mas apropiados para el usuario, ya que los usuarios serán Españoles pero publicaran los artículos en Ingles.
+
+La forma de implementarlo ha sido mediante una clase, donde se guardan los string correspondientes a los textos en ingles y otra en español. Mediante un fichero de configuración, se guarda el idioma usado, en el fichero y así una vez cambiado quedara como configuración. Para futuras ejecuciones sin necesidad de cambiar cada vez el idioma, si lo queremos volver a cambiar este fichero quedara también cambiado.

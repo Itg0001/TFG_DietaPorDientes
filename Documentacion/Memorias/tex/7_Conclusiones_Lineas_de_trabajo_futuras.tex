@@ -37,3 +37,23 @@ Pero no viene de mal mencionar que al final las he usado y las he aprendido porq
 
 
 \section{Líneas de trabajo futuras:}
+Como partes de mejora futuras podríamos enumerar varios aspectos del proyecto.
+
+\begin{itemize}
+	\item Detección automática de bordes: 
+Podríamos proponer a incluir, un algoritmo mas especializado en la detección de bordes, ya que las limitaciones que nos hemos encontrado hacen que este sea el puto mas flojo del proyecto, como propuesta, podría ser la creación desde cero de un algoritmo que detectase los bordes de una manera mas precisa.
+
+	\item Unión de segmentos: 
+La transformada de Hough para la detección de las lineas ha dado muy buenos resultados pero creo que se podría mejorar con este algoritmo: 
+
+	\begin{itemize}
+		\item Binarizar como hasta ahora.
+		\item Esqueletonizar la imagen como hasta ahora
+		\item Detectar las lineas mas grandes en la imagen y borrarlas de la mascara.
+		\item Detectas las lineas bastante mas pequeñas pero aun no la mas cortas del todo y borrarlas de la mascara.
+		\item detectar las lineas cortas en la imagen y borrarlas de la mascara
+		\item Filtrar las lineas que en la mascara no contengan mas de un 70 por ciento de blanco así quitamos falsos positivos.
+	\end{itemize}
+	\item Añadir mas tipos de estrías que podríamos detectar como modos auxiliares para determinar que características queremos extraer de la imagen. Es decir acoplar en la aplicación la resolución de un nuevo problema de detección.
+	
+\end{itemize}

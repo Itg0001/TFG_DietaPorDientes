@@ -1,28 +1,41 @@
 \apendice{Especificación de Requisitos}
 
 \section{Introducción}
-Como introducción y para no repetirnos voy a explicar de forma mas general y sin entrar en detalles que contiene el proyecto.
 
 
-El anexo contiene:
 
-\begin{itemize}
-\item Plan de proyecto: Consiste en la planificación temporal que hemos seguido adjuntando los gráficos de todas las semanas de trabajo.
-\item Requisitos: Contendrá el que consiste el proyecto y las definiciones de los requisitos.
-\item Diseño: Va a contener los diagramas de clases y la distribución en paquetes que hemos elegido. También contendrá que tiene cada clase.
-\item Manual programador:
-\item Manual del usuario: Este contendrá un tutorial de como usar la aplicación de forma correcta para la extracción de características de las imágenes.
-\item Investigación: Este apartado contendrá que hemos probado y como hemos investigado para el desarrollo del modo automático de la aplicación.
-\end{itemize}
+Este anexo contendrá los objetivos de la aplicación y los requisitos que va a tener esta.
+Consistirán en breves descripciones de todos los objetivos principales, como se subdividen en objetivos mas cortos para conseguir realizarlos y las funcionalidades implementadas.
+
+Requisitos: Contendrá el que consiste el proyecto y las definiciones de los requisitos y objetivos.
+
 
 \section{Objetivos generales}
-En este apartado lo que vamos a enumerar son los objetivos que nos hemos propuesto y hemos cumplido de todo el proyecto.
+Los objetivos que buscamos con este proyecto son:
 
+\begin{itemize}
+\item Construcción del prototipo de procesado de las imágenes:
+Con este prototipo la funcionalidad buscada era, hacer las pruebas sobre el código, que mas adelante introduciríamos en la aplicación real, pero así podríamos ajustar los parámetros para que funcionase bien. También de esta forma estaríamos seguros que el proyecto es realizable.
+
+\item Construcción de la aplicación: 
+Una vez que tengamos el prototipo funcionando, tendríamos que construir una aplicación para ejecutar de una forma mas profesional que simplemente desde un notebook, esto es algo muy avanzado para un usuario sin experiencia, así facilitar la ejecución sin necesidad de depender del notebook.
+
+\item  Construcción del prototipo para el modo automático:
+Como hemos realizado el trabajo en tiempo, hemos optado por acoplar un modo de detección de bordes automatizado, para ver si eramos capaces de detectar los segmentos que detectaría un humano.
+El problema de este modo es que algunos segmentos no son casi perceptibles por un humano por lo tanto los que estén mas marcados son los que podremos detectar.
+
+\item Añadir el modo automático a la aplicación: 
+Como hemos echo anteriormente con el modo de detección de las lineas pintadas. Esta vez también lo acoplaremos a nuestra aplicación, facilitando la ejecución y aplicación de este modo sobre imágenes que no estuvieran pintadas.
+\end{itemize}
+
+
+
+\section{Catalogo de requisitos}
 El proyecto consiste en:
 \begin{itemize}
 	\item Construcción del prototipo de procesado de las imágenes.
 		\begin{itemize}
-			\item Lectura de imagenen.
+			\item Lectura de imagen.
 			\item Binarización para detectar las pintadas.
 			\item Procesado de la imagen binaria.
 			\item Extracción de características.
@@ -48,131 +61,5 @@ El proyecto consiste en:
 \end{itemize}
 
 
-
-
-\section{Catalogo de requisitos}
-Este apartado se refiere a las tareas que hemos realizado en cada uno de los respectivos Sprints.
-
-Sprint 0
-\begin{itemize}
-	\item Probar LaTex 
-	\item Probar gestores de tarea: 
-	\begin{itemize}
-	\item Trello 
-	\item Zenhub 
-	\item Version One
-	\end{itemize}
-	\item Gestores de versiones 
-	\begin{itemize}
-	\item GitHub 
-	\item Bitbucket 
-	\end{itemize}
-	\item Examinar el problema, evaluar el notebook y las posibilidades de las librerías \\
-	\item Echar un vistazo al artículo 
-\end{itemize}
-
-
-
-Sprint 1 
-\begin{itemize}
-\item Mejora de la detección de las líneas que quedas solapadas. 
-\item Analizar herramientas de interfaces gráficas y comparativa.
-	\begin{itemize}
-	\item PyQt4. 
-	\item WxWidget.
-	\end{itemize}
-\item Prototipado inicial de la herramienta y documentar el prototipo.
-\end{itemize}
-
-
-
-Sprint 2 
-\begin{itemize}
-\item Documentación. 
-\begin{itemize}
-	\item Aspectos relevantes. 
-	\item Técnicas y herramientas.
-	\item Planificación temporal.
-	\end{itemize}
-\item Listas en la interfaz gráfica (Usar tablas para mostrar las rectas que hemos añadido manualmente).
-\item Cargar imágenes con el file chooser.
-\end{itemize}
-
-Sprint 3 
-\begin{itemize}
-	\item Acabar la GUI.
-		\begin{itemize}
-			\item Mostrar todas las líneas en la tabla.
-			\item Poder borrar la línea seleccionada.
-		\end{itemize} 
-	\item Informe.
-		\begin{itemize}
-			\item Calcular estadísticas.
-			\item Mirar documentación Python.
-		\end{itemize}
-	\item Pasar código de PyQt4 a PyQt5.
-\end{itemize}
-
-
-Sprint 4
-\begin{itemize}
-	\item Diseño de la aplicación.
-		\begin{itemize}
-			\item Diagrama de clases.
-			\item Diagrama de paquetes.
-		\end{itemize}
-		
-	\item Implementación del código.
-		
-	\item Corrección de las memorias.
-	
-	\item Herramienta SonarQube.
-	\begin{itemize}
-		\item Ejecutar la aplicación.
-		\item Corregir las horas de débito.
-	\end{itemize}
-\end{itemize}
-
-
-
-Sprint 5
-\begin{itemize}
-	\item Aplicar patrones de diseño
-	\begin{itemize}
-		\item Fachada.
-		\item Mediador.
-		\item Comando.
-	\end{itemize}
-	\item Documentar sobre los patrones usados.
-	\item XML mirar documentación sobre ello.
-\end{itemize}
-
-
-
-Sprint 6 
-\begin{itemize}
-\item Completar menús de la GUI.
-	\begin{itemize}
-		\item Guardar.
-		\item Cargar.
-		\item Acerca de.
-		\item Ayuda.
-	\end{itemize}
-\item Completar documentación de los fuentes.
-	\begin{itemize}
-		\item Paquete código.
-		\item Paquete gui.
-	\end{itemize}
-\item Pruebas unitarias.
-	\begin{itemize}
-		\item Teses paquete código.
-		\item Teses paquete gui.
-	\end{itemize}
-\end{itemize}
-
-
-
-
 \section{Especificación de requisitos}
-
 

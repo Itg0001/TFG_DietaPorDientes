@@ -6,7 +6,11 @@ En este apartado vamos a explicar lo que hemos investigado sobre la detección d
 Esto lo vamos afrontar desde dos puntos de vista, el primero sera por el procesado de imágenes, esto consistirá en binarizar la imagen usando un kernel conocido y observar si los resultados nos muestran algún resultado factible.
 Como segunda opción vamos a intentar ejecutar algoritmos de Deep Learning para ver si mejora el resultado usando estos algoritmos.
 
+Para entender este anexo y este procesado, por lo menos es necesario haberse leído los conceptos teóricos y herramientas mencionadas en la memoria ya que no deberíamos duplicar información en varios sitios.
+
 \section{Por procesado de imagen}
+Esta sección consistirá, partiendo de una imagen extraer las características, en este caso sera la detección de los bordes contenidos, se corresponderán con las estrías que queremos detectar.Lo vamos a detectar a partir de los métodos explicados a continuación. 
+
 Todas las imágenes van hacer un proceso de convolución, con el Kernel \cite{wiki:kernels} especifico en cada caso.
 
 Una convolución es una operación matemática, que no es la multiplicación de matrices tradicional, es el proceso de agregar cada porción de la imagen a sus vecinos locales ponderado por el Kernel. 
@@ -213,8 +217,13 @@ Como podemos observar en la imagen \ref{fig:1.1.6} en escala de grises del autov
 
 \subsubsection{Eliminando ruido:}
 Primero ,obtener los bordes, llamar a una función que elimina el ruido y después al detector de bordes Canny \cite{wiki:Canny}, para obtener los bordes.
-Los parámetros del Canny en como sigma un valor intermedio de 1.4 junto con un umbral bajo, muy bajo, y un umbral alto, también bajo.
-Obtenemos una imagen resaltando algunos bordes pero no todo los que queremos ya que no están demasiado marcados.
+Para los parámetros usados en la función de Canny utilizaremos:
+\begin{itemize}
+	\item Sigma: Un valor intermedio de 1.4.
+	\item Umbral mínimo: Un valor muy bajo.
+	\item Umbral Máximo: Un valor bajo pero mayor que el umbral mínimo.
+\end{itemize}
+Gracias a estos parámetros usados obtenemos una imagen resaltando algunos bordes pero no todo los que queremos ya que no están demasiado marcados.
 
 
 
@@ -244,7 +253,10 @@ Como podemos observar en la imagen usando Gabor con filtro imaginario \ref{fig:1
 Como podemos observar en la imagen usando Gabor con filtro real \ref{fig:1.1.11}.
 Este método lo eh probado porque en la obtención de las líneas de sangre en los ojos es lo que se usa para ello pero al no ser líneas continuas y no seguir un patrón no he conseguido buenos resultados. En el filtro real no es tan malo pero en el filtro imaginario es ruido puro.
 \subsection{Comparativa Filtros}
-Comparativa de todos los filtros \ref{fig:1.1}. 
+Como podemos ver en la figura \ref{fig:1.1} hemos usado casi todos los filtros conocidos para hacer esta comparativa, a simple vista ninguno de los métodos mencionados o probados no parece que funcione, ya que el problema no es fácil.
+Manualmente no observamos algunas de las estrías que los expertos marcan por lo tanto, detectar algunas sera algo efectivo.
+
+Pero dentro de la comparativa la que mejor detecta algunos de los bordes parece el método de la Matriz Hessiana con autovectores largos. aunque en la imagen se presenta poca diferencia entre fondo y las estrías por lo que nos centraremos en ese procesado haber si conseguimos diferenciarlo y extraer las características.
 
 \subsection{Procesado:}
 Partiendo del análisis anterior vamos a juntar los mejores resultados y añadir pasos adicionales para obtener la mascara binaria que mas podamos ajustar a nuestras necesidades.
@@ -252,16 +264,16 @@ Partiendo del análisis anterior vamos a juntar los mejores resultados y añadir
 
 Pasos del algoritmo \ref{fig:2.1}.
 \begin{itemize}
-	\item Ecualizar la imagen original \ref{fig:2.1.1} y su histograma \ref{fig:2.1.2}, obtenemos la imagen ecualizada \ref{fig:2.1.3}.
-Así conseguimos que sus histograma \ref{fig:2.1.4} este mas repartido por toda la gama de grises y no centrado en un pequeño rango.
+	\item Ecualizar la imagen original \ref{fig:2.1.1}, consistirá en extender el histograma de la imagen original para que no este centrado en un rango pequeño como podemos observar en su histograma \ref{fig:2.1.2}, pasado este paso obtendremos la imagen ecualizada \ref{fig:2.1.3}.
+Así conseguimos que su histograma \ref{fig:2.1.4} este mas repartido por toda la gama de grises y no centrado en un pequeño rango.
 	\item Autovectores de la Hessiana \ref{fig:2.1.5}:
-Obtenemos los autovectores de la matriz Hessiana y nos quedamos con los largos, ya que los autovectores pueden ser los cortos o los largos. 
+Para detectar los bordes utilizaremos el método antes mencionado de la matriz Hessiana del cual elegiremos solo los largos, ya que los autovectores pueden ser los cortos o los largos. 
 	\item Sustraemos el fondo a la imagen \ref{fig:2.1.6}:
-Como la imagen no tiene de nuevo demasiada gama cromática le sustraemos el fundo para así quedarnos únicamente con las líneas, al tener ruido aparte de lo que queremos, tendremos mucho ruido.
+Como la imagen no tiene de nuevo demasiada diferencia entre el fondo y los bordes, sustraeremos el fundo, para quedarnos únicamente con las estrías detectadas, al tener ruido aparte de los elementos buscados, tendremos que eliminar dicho ruido mas adelante.
 	\item Binarizamos la imagen \ref{fig:2.1.7}:
-Como la imagen aun habiendo sustraído el fondo no es binaria hay que aplicarle un treshold o umbral para pasar a blanco o negro, es decir, binarizarla.
+Como la imagen después de sustraer el fondo no es binaria, cualidad necesaria para ser una mascara, hay que aplicar un treshold o umbral para pasar a blanco o negro, binarizar, es decir los pixeles que no pasen el umbral serán negros y los que lo pasen formaran parte de los elementos que queremos detectar y seran blancos, entonces la imagen quedara binarizada.
 	\item Eliminamos el ruido \ref{fig:2.1.8}:
-Este paso anterior, en estas condiciones de trabajo genera mucho ruido, por lo que tendremos que intentar reducirlo y para ello eliminamos los trozos que son pequeños, esto elimina la mayoría de los puntos de ruido.
+Este paso anterior, en estas condiciones de trabajo genera mucho ruido, por lo que tendremos que intentar reducirlo y para ello eliminamos los trozos que son pequeños, ya que el ruido parece ser aleatorio de fragmentos muy pequeños, esto elimina la mayoría de los puntos de ruido.
 	\item Erosionar con operador diamante \ref{fig:2.1.9}:
 Para suavizar la imagen y evitar que queden líneas finas a modo de antenas, erosionamos la imagen con un operador estructurante en forma de diamante, así conseguimos que pase por la mayoría de las figuras.
 	\item Esqueletonizar la imagen \ref{fig:2.1.10}:

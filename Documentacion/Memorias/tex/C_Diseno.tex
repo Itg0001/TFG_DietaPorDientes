@@ -43,75 +43,15 @@ Esta clase contendrá el tratamiento que tiene que llevar la imagen para la extr
 	\item ProcesadoDeLineas:
 Esta clase contendrá el procesado de las líneas obtenidas por el procesado de la imagen y el resultado final que obtendremos.
 	\item Informe: 
-Esta clase contendrá la generación del informe (Tabla) de estadísticas en formato LaTex para poder exportar fácilmente a un documento PDF.
+Esta clase contendrá la generación del informe (Tabla) de estadísticas en formato \LaTeX para poder exportar fácilmente a un documento PDF.
 	\item DatosToCsv:
 Esta clase contendrá el paso de los datos que contiene la tabla a un documento en formato csv del que desde Excel podemos extraer fácilmente los datos.
 	\item Estadistica: 
 Esta clase contendrá el cálculo de los datos estadísticos y la clasificación de las líneas según su orientación.
 \end{itemize}
 
-\subsection{Paquetes}
-En este punto vamos a hacer una breve descripción de cada paquete y de su contenido dentro de la aplicación.
 
-\begin{itemize}
-\item Gui:
-Este paquete contendrá todos los elementos gráficos de la aplicación y todos lo que se corresponde con interacción con el usuario.
-	\begin{itemize}
-	\item Mediadores:
-	Este paquete va a contener los mediadores de la interfaz para deslocalizar código y complejidad en esta.
-	\end{itemize}
-\item Código: Este paquete contendrá todas las clases de cálculo que necesitara la aplicación:
-	\begin{itemize}
-	\item Estadísticas:
-	Este paquete contendrá las clases del cálculo de estadísticas.
-	\item Informes:
-	Este paquete contendrá la generación del informe LaTex
-	\item Procesado:
-	Este paquete se va a encargar tanto del procesado de la imagen 			como del procesado de los segmentos extraídos hasta conseguir los 		segmentos finales.
-	\end{itemize}
-\end{itemize}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=.99\textwidth]{DiaPackages}
-	\caption{Diagrama de paquetes inicial}
-	\label{fig:C.1.2}
-\end{figure}
-
-\subsection{Patrones de diseño}
-En este apartado vamos a usar de los patrones de diseño que hemos utilizado en nuestra aplicaron.\\
-El patrón más importante y con el que vamos a empezar es el medidor que consigue hacer que la interfaz este limpia simplemente con las declaraciones de las variables que más adelante va a utilizar.
-La base de los patrones de diseño su libro más significativo es \cite{Hunt2013}.
-\begin{itemize}
-\item Mediador \cite{wiki:Mediador}: Se utiliza para encapsulas las interacciones entre los objetos de la interfaz por lo que se clasifica como patrón de comportamiento.
-Como dato curioso, es de los pocos patrones que permiten la bidireccionalidad de comunicación entre las clases, por eso es el patrón idóneo para la interacción de las clases de la interfaz gráfica.
-Aplicando este patrón reducimos la dependencia del código por lo que de esta forma las interfaces no ven lo que tienen por debajo y reduce la complejidad.\\\\
-\textbf{Obtenemos:}
-\begin{itemize}
-\item Conseguir desacoplamiento.
-\item Simplificar y aclarar la comunicación.
-\item Centralizar el control.
-\item Interfaz simple para un sistema complejo.
-\end{itemize}
-
-\item Comando \cite{wiki:Comando}: Se utiliza para encapsular el contenido de una función, así ni el emisor de la operación ni el receptor saber que hay por debajo, pero si poder acceder a las funciones que hay.\\\\
-\textbf{Obtenemos:}
-\begin{itemize}
-\item Permitir la parametrización.
-\item Visualizar que ordenes se ejecutan en cada paso.
-\item Construir operaciones complicadas a partir de otras más sencillas.
-\item Permitir saber que habría que hacer para deshacer una operación.
-\end{itemize}
-\item Fachada \cite{wiki:Fachada}: Es un patrón de diseño estructural, sirve para reducir la complejidad con la división en clases más pequeñas y reduciendo sus dependencias.\\\\
-\textbf{Obtenemos:}
-\begin{itemize}
-\item Separar en niveles la aplicación.
-\item Reducir su complejidad.
-\item Desacoplar el código.
-\item Interfaz simple para un sistema complejo.
-\item Potable y reutilizable.
-\end{itemize}
-\end{itemize}
 
 
 \subsection{Diseño de la Interfaz}
@@ -206,3 +146,73 @@ Sección de la imagen donde estarán implementadas las funcionalidades para visu
 \section{Diseño procedimental}
 
 \section{Diseño arquitectónico}
+
+En esta sección del anexo de diseño, vamos a explicar y mostrar de forma general como esta diseñado el proyecto, en cuanto a la distribución de paquetes y los patrones de diseño que hemos aplicado.
+
+\subsection{Diseño de paquetes}
+
+En este punto vamos a hacer una breve descripción de cada paquete y de su contenido dentro de la aplicación.
+
+\begin{itemize}
+\item Gui:
+Este paquete contendrá todos los elementos gráficos de la aplicación y todos lo que se corresponde con interacción con el usuario.
+	\begin{itemize}
+	\item Mediadores:
+	Este paquete va a contener los mediadores de la interfaz para deslocalizar código y complejidad en esta.
+	\end{itemize}
+\item Código: Este paquete contendrá todas las clases de cálculo que necesitara la aplicación:
+	\begin{itemize}
+	\item Estadísticas:
+	Este paquete contendrá las clases del cálculo de estadísticas.
+	\item Informes:
+	Este paquete contendrá la generación del informe \LaTeX
+	\item Procesado:
+	Este paquete se va a encargar tanto del procesado de la imagen 			como del procesado de los segmentos extraídos hasta conseguir los 		segmentos finales.
+	\end{itemize}
+\end{itemize}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.99\textwidth]{DiaPackages}
+	\caption{Diagrama de paquetes inicial}
+	\label{fig:C.1.2}
+\end{figure}
+
+
+\subsection{Patrones de diseño}
+En este apartado vamos a usar de los patrones de diseño que hemos utilizado en nuestra aplicaron.
+
+El patrón más importante y con el que vamos a empezar es el medidor que consigue hacer que la interfaz este limpia simplemente con las declaraciones de las variables que más adelante va a utilizar.
+La base de los patrones de diseño su libro más significativo es \cite{Hunt2013}.
+
+\begin{itemize}
+\item Mediador \cite{wiki:Mediador}: Se utiliza para encapsulas las interacciones entre los objetos de la interfaz por lo que se clasifica como patrón de comportamiento.
+Como dato curioso, es de los pocos patrones que permiten la bidireccionalidad de comunicación entre las clases, por eso es el patrón idóneo para la interacción de las clases de la interfaz gráfica.
+Aplicando este patrón reducimos la dependencia del código por lo que de esta forma las interfaces no ven lo que tienen por debajo y reduce la complejidad.
+
+\textbf{Obtenemos:}
+\begin{itemize}
+\item Conseguir desacoplamiento.
+\item Simplificar y aclarar la comunicación.
+\item Centralizar el control.
+\item Interfaz simple para un sistema complejo.
+\end{itemize}
+
+\item Comando \cite{wiki:Comando}: Se utiliza para encapsular el contenido de una función, así ni el emisor de la operación ni el receptor saber que hay por debajo, pero si poder acceder a las funciones que hay.\\\\
+\textbf{Obtenemos:}
+\begin{itemize}
+\item Permitir la parametrización.
+\item Visualizar que ordenes se ejecutan en cada paso.
+\item Construir operaciones complicadas a partir de otras más sencillas.
+\item Permitir saber que habría que hacer para deshacer una operación.
+\end{itemize}
+\item Fachada \cite{wiki:Fachada}: Es un patrón de diseño estructural, sirve para reducir la complejidad con la división en clases más pequeñas y reduciendo sus dependencias.\\\\
+\textbf{Obtenemos:}
+\begin{itemize}
+\item Separar en niveles la aplicación.
+\item Reducir su complejidad.
+\item Desacoplar el código.
+\item Interfaz simple para un sistema complejo.
+\item Potable y reutilizable.
+\end{itemize}
+\end{itemize}

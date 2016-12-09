@@ -11,6 +11,8 @@ Requisitos: Contendrá el que consiste el proyecto y las definiciones de los req
 
 
 \section{Objetivos generales}
+\label{txt:objetivos}
+
 Los objetivos que buscamos con este proyecto son:
 
 \begin{itemize}
@@ -62,4 +64,62 @@ El proyecto consiste en:
 
 
 \section{Especificación de requisitos}
+\begin{itemize}
+\item RF1: Construcción del prototipo de procesado de las imágenes pintadas en un notebook interactivo de jupyter.
+	\begin{itemize}
+		\item RF1.1: Lectura de imagen que el usuario indique.
+		\item RF1.2: Binarización para obtener la mascara de los segmentos.
+		\item RF1.3: Procesado de la imagen binaria para obtener la mascara con las lineas a detectar de grosor mínimo un pixel.
+		\item RF1.4: Extracción de características de la imagen para obtener los segmentos en forma de puntos de segmentos .
+		\item RF1.5 Procesado de los segmentos para obtener las estrías reales juntando los segmentos.
+	\end{itemize}
+	 
+\item RF2: Construcción de la aplicación de forma gráfica.
+	\begin{itemize}
+		\item RF2.1: Construcción de los menús donde mostrar las opciones disponibles en la aplicación.
+		\item RF2.2: Construcción del panel de pestañas donde estarán las opciones para los diferentes modos de la aplicación y sus funcionalidades
+		\item RF2.3: Construcción del panel donde se mostrara la imagen junto con una barra de opciones con información de la imagen y botones de acciones sobre la imagen.
+		\item RF2.4: Permitir al usuario la lectura de la imagen y cargar en el panel.
+	\end{itemize}
 
+
+\item RF3: Construcción del modo para calcular las estrías pintadas en las imágenes.
+	\begin{itemize}
+		\item RF3.1: Permitir al usuario seleccionar el color de las estrías pintadas que queremos detectar.
+		\item RF3.2: Permitir al usuario seleccionar la orientación de la imagen,la longitud mínima que debe ignorar y el numero de repeticiones que quiere para calcular los segmentos.
+		\item RF3.3: El usuario debe poder pedir a la aplicación que use el algoritmo implementado para la detección de las estrías pintadas.			 
+		\item RF3.4: La aplicación debe mostrar los segmentos que ha calculado con el algoritmo en el panel donde se muestra la imagen.
+	\end{itemize}
+
+\item RF4: Construcción del modo manual para corregir los errores o editar las lineas que hemos pintado.
+	\begin{itemize}
+		\item RF4.1: Permitir que el usuario pueda pintar lineas sobre la imagen, pero solo sobre el cuadrado, para añadir nuevos segmentos.
+		\item RF4.2: Permitir que el usuario pueda añadir las lineas que ha calculado el algoritmo de detección de estrías pintadas.
+		\item RF4.3: Permitir añadir, borrar, y limpiar la tabla de los segmentos obtenidos que se corresponden con las estrías.
+		\item RF4.4: Pintar, permitir mover y fijar el cuadrado donde queremos pintar las estrías manualmente.
+		\item RF4.5: Permitir al usuario Guardar los segmentos y obtener las estadísticas y mediciones de todos los segmentos que ha calculado el algoritmo y se muestran en la tabla.			
+	\end{itemize}
+
+\item RF5: Construcción del notebook interactivo de jupyter, procesado de imágenes modo automático para detección automática de estrías, para imágenes sin pintar.
+	\begin{itemize}
+		\item RF5.1: Construcción de funcionalidad para la lectura de la imagen que el usuario indique.
+			 RF5.2: Construir funcionalidad para ecualizar la imagen para distribuir el histograma.			 
+		\item RF5.3: Construcción de un proceso de binarización para extraer bordes encontrados en la imagen.
+		\item RF5.4: Construcción de un procesado de la imagen binaria para limpiar de ruido.
+		\item RF5.5: Construcción de un proceso para calcular las estrías que aparecen en la imagen.
+		\item RF5.6: Construcción de un proceso para extraer las estrías a las que pertenecen cada conjunto de segmentos.		
+
+	\end{itemize}
+
+			 
+\item RF6: Construcción del modo completamente automático para detectar las estrías en imágenes sin pintar.
+	\begin{itemize}
+
+		\item RF6.1: Permitir al usuario seleccionar la orientación de la imagen y la longitud mínima que debe ignorar para calcular los segmentos. 
+		\item RF6.2: Permitir al usuario mandar calcular al algoritmo las estrías que contiene la imagen.
+		\item RF6.3: La aplicación debe mostrar los segmentos que ha calculado con el algoritmo en el panel donde se muestra la imagen.					
+		\item RF6.4: Pintar, permitir mover y fijar el cuadrado donde queremos quedarnos con las estrías.
+	\end{itemize}
+
+\end{itemize}					
+			 

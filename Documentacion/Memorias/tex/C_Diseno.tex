@@ -144,6 +144,39 @@ Sección de la imagen donde estarán implementadas las funcionalidades para visu
 \end{figure}
 
 \section{Diseño procedimental}
+En este apartado se van a explicar los pasos que siguen los distintos modos de la aplicación.
+
+\begin{itemize}
+	\item Modo semiautomático:
+La finalidad de este modo de trabajo en nuestra aplicación, servirá para detectar las estrías que previamente se han pintado en alguna imagen. Para extraer las características de estas.
+	\begin{itemize}
+		\item Comienza cuando el usuario cargue la imagen en la aplicación.
+		\item Posteriormente a la carga, el usuario deberá elegir los parámetros que puede modificar, para la ejecución del algoritmo.
+		\item Una vez seleccionados los parámetros, podremos continuar mandando ejecutar a la aplicación el algoritmo, para la detección de las estrías pintadas.
+		\item Este nos va a devolver un conjunto de segmentos, que se corresponderán con las estrías que contiene la imagen pintadas, las añadirá a la tabla donde podremos editarlas o añadir algunas que podría no haber detectado dicho algoritmo.
+		\item por ultimo podremos guardar las estadísticas, las imágenes original, pintada, longitudes de los segmentos, ángulos, orientaciones, la tabla rellena en formato \LaTeX para incluir en futuros informes y el fichero de configuración del proyecto.
+	\end{itemize}
+	\item Modo automático:
+	La finalidad de este modo de trabajo de la aplicación, consiste en detectar las estrías de dieta de una imagen en blanco desde el cero. Para extraer características de dichas estrías.
+	\begin{itemize}
+		\item Primero el usuario deberá cargar una imagen, sin que tenga las estrías pintadas, en la aplicación.
+		\item posteriormente, deberá elegir los parámetros disponibles para el modo automático, este consistirá en seleccionar la orientación y la longitud mínima que ignora el algoritmo.
+		
+		\item Una vez que hayan sido seleccionados se habilitara la función de detección de las estrías. Al ejecutar este algoritmo nos mostrara todas las estrías que detecto en la imagen y nos permitirá mover la región de interés que queremos analizar.
+		\item Al mover la región de interés que nos conviene analizar y fijarlo desechara las estrías que no estén contenidas y también los trozos de las detectadas que se salgan fuera de la región.
+		\item Por ultimo, el paso anterior nos mostrara en la tabla de edición de los segmentos las estrías que ha detectado, pudiendo modificar o eliminar aquellas que nosotros no consideremos útiles.
+		También nos permitirá guardar el proyecto tal y como estaba para obtener las estadísticas y demás datos relevantes de las estrías detectadas.
+	\end{itemize}
+	\item Modo manual:
+	La finalidad de este modo no es otra mas que poder incluir el factor humano en la aplicación y corregir los posibles errores o modificar ciertas estrías que nuestro algoritmo ha detectado.
+	\begin{itemize}
+		\item Después de cargar cualquier imagen en la aplicación podremos acceder a las funciones de este modo.
+		\item Para pintar desde cero una imagen, sin que tenga estrías, podemos hacer clic en el la pestaña de corregir lineas y mover la región de iteres por la imagen en la zona que queremos pintar. 
+		\item Dentro de la pestaña, anteriormente mencionada, en el botón con el mismo nombre al hacer clic, la primera vez fijaremos el cuadrado y procederemos a seleccionar el origen y el final de la estría que queremos detectar, Para añadirla simplemente tendremos que clicar sobre el botón añadir punto y esta quedara incluida en la tabla. Para pintar nuevas estrías en una imagen que ya contenga estrías pintadas procederemos de forma similar, pero no podremos mover la región de interés. 
+		\item Una vez que tengamos alguna estría pintada en nuestra imagen podremos proceder a guardar las estadísticas y todos los datos relevantes del proyecto, de forma similar a los otros modos.
+	\end{itemize}
+
+\end{itemize}
 
 \section{Diseño arquitectónico}
 

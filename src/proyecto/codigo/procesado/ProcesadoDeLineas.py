@@ -243,11 +243,6 @@ class ProcesadoDeLineas():
                     marc=1
                     fl=1
                 x2,y2,add=self.prueba_point2(existe_punto2, marc, un, i, j,[x2,y2,add])
-#                 if not existe_punto2 and marc!=1 and un:
-#                     tem_p2x,tem_p2y=self.seg_intersect(i,j)
-#                     x2=tem_p2x
-#                     y2=tem_p2y
-#                     add=1
                 marc=0
             if add==1 and self.longitud_linea([(x1,y1),(x2,y2)]) > lon_min:
                 nuevas.append([(x1,y1),(x2,y2)])

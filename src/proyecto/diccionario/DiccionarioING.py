@@ -175,7 +175,12 @@ class DiccionarioING():
         self.ini_archivo='&File'
         self.nombre_api='DietForTeeth'
         
-        self.ini_msg="Load image to start"
+        self.ini_msg="Load image "
+        self.ini_msg2="or "
+        self.ini_msg3="Load proyect "
+        self.ini_msg4="to estart. "
+
+        
         self.ini_time="Times"        
         self.ini_msg_acerca="authors: \n\tIsmael Tobar García \n\tAlvar Gonzalez Arnaiz\n\tJose Francisco Diez Pastor\nVersion: \n\t1.0 "
         self.ini_acercade="About"  

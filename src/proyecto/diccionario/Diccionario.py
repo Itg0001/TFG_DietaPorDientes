@@ -226,7 +226,11 @@ class Diccionario():
         self.ini_archivo='&Archivo'
         self.nombre_api='DietaPorDientes'
         
-        self.ini_msg="Cargar imagen para iniciar"
+        self.ini_msg="Cargar imagen"
+        self.ini_msg2="o "
+        self.ini_msg3="cargar proyecto "
+        self.ini_msg4="para iniciar. "
+        
         self.ini_time="Times"        
         self.ini_msg_acerca="Autores: \n\tIsmael Tobar García \n\tAlvar Gonzalez Arnaiz\n\tJose Francisco Diez Pastor\nVersion: \n\t1.0 "
         self.ini_acercade="Acerca de"  

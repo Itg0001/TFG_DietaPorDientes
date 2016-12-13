@@ -110,15 +110,71 @@ class VentanaInicio(QtWidgets.QMainWindow):
         
         self.styleChoice = QtWidgets.QLabel(self.dic.ini_msg, self)
         self.styleChoice.setAlignment(QtCore.Qt.AlignCenter)
+        self.clickables(self.styleChoice).connect(self.file_open)
+        self.styleChoice.setAlignment(QtCore.Qt.AlignCenter)
 
-        laout_principal = QtWidgets.QHBoxLayout()
+        self.styleChoice2 = QtWidgets.QLabel(self.dic.ini_msg3, self)
+        self.styleChoice2.setAlignment(QtCore.Qt.AlignCenter)
+        self.clickables(self.styleChoice2).connect(self.file_cargar)
+        self.styleChoice2.setAlignment(QtCore.Qt.AlignCenter)
+
+        self.styleChoice2.setStyleSheet(self.dic.ini_color)
+        font = QtGui.QFont(self.dic.ini_time, 35, QtGui.QFont.Bold, True)
+        self.styleChoice2.setFont(font)
+
+        self.styleChoice3 = QtWidgets.QLabel(self.dic.ini_msg4, self)
+        self.styleChoice3.setAlignment(QtCore.Qt.AlignCenter)
+        self.styleChoice3.setAlignment(QtCore.Qt.AlignCenter)
+
+        self.styleChoice3.setStyleSheet(self.dic.ini_color)
+        font = QtGui.QFont(self.dic.ini_time, 35, QtGui.QFont.Bold, True)
+        self.styleChoice3.setFont(font)
+        
+        self.styleChoice4 = QtWidgets.QLabel(self.dic.ini_msg2, self)
+        self.styleChoice4.setAlignment(QtCore.Qt.AlignCenter)
+
+        self.styleChoice4.setStyleSheet(self.dic.ini_color)
+        font = QtGui.QFont(self.dic.ini_time, 35, QtGui.QFont.Bold, True)
+        self.styleChoice4.setFont(font)
+        self.styleChoice4.setAlignment(QtCore.Qt.AlignCenter)
+
+        laout_principal = QtWidgets.QVBoxLayout()
         laout_principal.addWidget(self.styleChoice)
+        laout_principal.addWidget(self.styleChoice4)
+        laout_principal.addWidget(self.styleChoice2)
+        laout_principal.addWidget(self.styleChoice3)
+        
+        laout_principal.setAlignment(QtCore.Qt.AlignCenter)
+
+        
         self.styleChoice.setStyleSheet(self.dic.ini_color)
         font = QtGui.QFont(self.dic.ini_time, 35, QtGui.QFont.Bold, True)
         self.styleChoice.setFont(font)
         central_widget = QtWidgets.QWidget()
         central_widget.setLayout(laout_principal)
         self.setCentralWidget(central_widget)
+    
+    def clickables(self,widget):
+
+        class Filter(QtCore.QObject):
+        
+            clicked = QtCore.pyqtSignal()
+            
+            def eventFilter(self, obj, event):
+            
+                if obj == widget:
+                    if event.type() == QtCore.QEvent.MouseButtonRelease:
+                        if obj.rect().contains(event.pos()):
+                            self.clicked.emit()
+                            # The developer can opt for .emit(obj) to get the object within the slot.
+                            return True
+                
+                return False
+        
+        filter = Filter(widget)
+        widget.installEventFilter(filter)
+        return filter.clicked
+    
      
     def mensage_reinicia(self):
         self.msg_reini = QtWidgets.QMessageBox()

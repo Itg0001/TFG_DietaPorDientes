@@ -166,6 +166,8 @@ class Estadistica():
         @Return variables_tabla: estadisticas de segmentos totales sin el tipo.
             
         """
+        self.dic=Diccionario()
+
         st_v, st_h, st_md, st_dm = [], [], [], [] 
         variables_tabla = []
         if len(v) > 0:

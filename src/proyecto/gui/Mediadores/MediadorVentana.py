@@ -153,6 +153,7 @@ class MediadorVentana():
         self.pintar_imagen_y_segmentos(segmentos_de_verdad_pintar)
         self.ventana.lineas = segmentos_de_verdad_pintar
         self.ventana.tam_segmen_verdad = len(self.ventana.lineas)
+        self.ventana.pestannas.anadir_puntos()
         self.ventana.pestannas.button4.setEnabled(True)
         self.ventana.selec_ante = None   
         
@@ -178,7 +179,10 @@ class MediadorVentana():
         lineas_verdad.extend(contenidas)
         lineas_verdad.extend(intersecciones)
         self.pintar_imagen_y_segmentos(lineas_verdad)
+
         self.ventana.lineas=lineas_verdad
+        self.ventana.pestannas.anadir_puntos()
+
         self.ventana.pestannas.button_fijar.setEnabled(False)
 
         
@@ -193,6 +197,8 @@ class MediadorVentana():
         self.pintar_imagen_y_segmentos(segmentos_de_verdad_pintar)
         self.ventana.lineas = segmentos_de_verdad_pintar
         self.ventana.tam_segmen_verdad = len(self.ventana.lineas)
+        #self.ventana.pestannas.anadir_puntos()
+
         self.ventana.pestannas.button4.setEnabled(True)
         self.ventana.selec_ante = None 
 

@@ -45,12 +45,12 @@ Gracias a estos widgets podemos dar valores e ir viendo como cambia la salida de
 \section{Procesado imagen}
 Para llegar a conseguir calcular las líneas que había pintadas en las imágenes, tube que realizar una serie de pasos que vamos a resumir en tres etapas.
 \subsection{Binarización}
-Partiendo de una imagen que solo tenía líneas en rojo pintadas encima de las estrías producidas por el desgaste y lo demás de la imagen en escala de grises. Lo primero fue leer la imagen a trabes de las funciones ya programadas en la librería de Scikit-Image (skimage) \cite{scik:skeleton}.
-Una vez que tenemos la imagen guardada en el espacio de color RGB podemos empezar el procesado quedándonos con el canal Rojo.
+Partiendo de una imagen que solo tenía líneas, en cualquier color, pintadas encima de las estrías producidas por el desgaste y lo demás de la imagen en escala de grises. Lo primero fue leer la imagen a través de las funciones ya programadas en la librería de Scikit-Image (skimage) \cite{scik:skeleton}.
+Una vez que tenemos la imagen guardada en el espacio de color RGB podemos empezar el procesado, transformando la imagen al espacio de color CIELAB, partiendo de este espacio calcularemos la distancia de los pixeles al color seleccionado por el usuario.
 
 Calculamos la distancia de cada pixel de la imagen al color deseado, pasamos la imagen de distancias a blanco y negro y así tendremos un valor entre 0 y 256 en cada pixel correspondiente a la distancia al color. Cuanto mas alejado mas negro y los que sean del color, en blanco.
 
-Para que la diferencia sea blanco o negro binarizamos, la imagen con un valor umbral así los valores de la distancia que sean mayores que el umbral pasaran a valer máximo y los que no consigan pasar el umbral serán los bordes blancos \ref{fig:5.4}.
+Para que la diferencia sea blanco o negro binarizamos, la imagen con un valor umbral así los valores de la distancia que sean mayores que el umbral pasaran a valer máximo y los que no consigan pasar el umbral serán los bordes blancos, como podemos observar en la figura \ref{fig:5.4}.
 
 
 \begin{figure}
@@ -117,7 +117,7 @@ Llegados a este punto, lo que tenemos son:
 \subsection{Recuperación de líneas}
 Ahora lo que tenemos es un grafo con clusters, ya que cada cluster se identifica con únicamente una recta y tendremos tantos como rectas.
 Un problema de grafos es el problema de las k-componentes pero a nosotros solo nos interesan las 1-componentes del grafo ya que cada grupo de estos segmentos cercanos se corresponde con una recta real.
-Devolvemos la combinación de los segmentos mas relevantes de cada cluster y estos se convierten en nuestra buscada linea real \ref{fig:5.7}.
+Devolvemos la combinación de los segmentos mas relevantes de cada cluster y estos se convierten en nuestra buscada linea real, como podemos observar en la figura \ref{fig:5.7}.
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.65\textwidth]{ResultanteDelGrafo}
@@ -141,6 +141,6 @@ En grandes rasgos estoy bastante contento con PyQt5 me ha resultado muy útil y 
 
 \section{Internacionalización}
 
-En nuestra aplicación, hemos implementado una funcionalidad para traducirla a los dos idiomas, que hemos considerado mas apropiados para el usuario, ya que los usuarios serán Españoles pero publicaran los artículos en Ingles.
+En nuestra aplicación, hemos implementado una funcionalidad para traducirla a los dos idiomas, que hemos considerado mas apropiados para el usuario, ya que los usuarios serán españoles pero publicaran los artículos en Ingles.
 
-La forma de implementarlo ha sido mediante una clase, donde se guardan los string correspondientes a los textos en ingles y otra en español. Mediante un fichero de configuración, se guarda el idioma usado, en el fichero y así una vez cambiado quedara como configuración. Para futuras ejecuciones sin necesidad de cambiar cada vez el idioma, si lo queremos volver a cambiar este fichero quedara también cambiado.
+La forma de implementarlo ha sido mediante una clase, donde se guardan los string correspondientes a los textos en inglés y otra en español. Mediante un fichero de configuración, se guarda el idioma usado, en el fichero y así una vez cambiado quedara como configuración. Para futuras ejecuciones sin necesidad de cambiar cada vez el idioma, si lo queremos volver a cambiar este fichero quedara también cambiado.

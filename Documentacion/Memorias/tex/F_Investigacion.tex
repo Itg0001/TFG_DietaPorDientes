@@ -8,17 +8,16 @@ Como segunda opción vamos a intentar ejecutar algoritmos de Deep Learning para 
 
 Para entender este anexo y este procesado, por lo menos es necesario haberse leído los conceptos teóricos y herramientas mencionadas en la memoria ya que no deberíamos duplicar información en varios sitios.
 
-\section{Por procesado de imagen}
+\section{Extracción de bordes mediante procesado de imagen}
 Esta sección consistirá, partiendo de una imagen extraer las características, en este caso sera la detección de los bordes contenidos, se corresponderán con las estrías que queremos detectar.Lo vamos a detectar a partir de los métodos explicados a continuación. 
 
-Todas las imágenes van hacer un proceso de convolución, con el Kernel \cite{wiki:kernels} especifico en cada caso.
+A todas las imágenes se las va a aplicar un proceso de convolución, con el Kernel \cite{wiki:kernels} especifico en cada caso.
 
 Una convolución es una operación matemática, que no es la multiplicación de matrices tradicional, es el proceso de agregar cada porción de la imagen a sus vecinos locales ponderado por el Kernel. 
 
 Este proceso no solo vale para detectar bordes, tiene estas otras aplicaciones.
 \begin{itemize}
-\item Detección de bordes: Detectar los bordes a partir del histograma.
-\item Normalización: Eliminar algo de ruido o contraste sobre las imágenes para distribuir mas los valores sobre esta.
+\item Detección de bordes: Detectar los puntos donde acaba un objeto y empieza otro, también las aristas o bordes de las imágenes.
 \item Desenfoques y difuminado: Desenfocar o difuminar la imagen a partir de hacer la operación de convolución con una mascara diseñada para ello.
 \item Eliminar ruido: Sirve para moderar los valores de la imagen  y hacer que estén mas centrados en un rango y así eliminar el ruido aleatorio. 
 \end{itemize}
@@ -86,7 +85,7 @@ todo ello partido de 16 y para las verticales es la matriz transpuesta.
 
 
 Observaciones:
-Como podemos ver en la imagen \ref{fig:1.1.3}, las estrías de dieta son muy tenues pero ligeramente mejores que en la anterior tampoco demasiado pero ligeramente, el método es algo más rápido también pero no obtenemos algo tangible.
+Como podemos ver en la imagen \ref{fig:1.1.3}, las estrías de dieta son muy tenues pero ligeramente mejores que en la anterior tampoco demasiado pero ligeramente, el método es algo más rápido también pero no obtenemos algo tangible, en cuanto  a bordes detectados ya que se muestran de forma muy tenue y no podrán ser extraídos en la binarización necesitaríamos mayor diferencia, entre el fondo el y borde.
 
 
 

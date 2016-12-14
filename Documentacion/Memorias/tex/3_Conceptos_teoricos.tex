@@ -5,20 +5,28 @@ En esta sección vamos a centrarnos en explicar todos los conceptos necesarios p
 \item Espacios de color: Las imágenes nos son mas que matrices de numeros que expresan, valores o poderaciones, distintos para representar los colores, la suma de todas ellas transmitido atrabes de un medio de reproducion, pantalla o similar, nos muestran las imagenes.
 Cada espacio de color tiene unas propiedades y unas ventajas, para obtener las característica que buscamos, con mayor o menor dificultad, por eso es necesario explicar los distintos espacios de colores.
 
-\item Transformada de Hough: Es un procedimiento matemático para buscar segmentos dentro de las imágenes binarizadas, dado que es complejo y lo usamos, es necesario explicar porque funciona y en que consiste.
-
-\item La reducción de grosor: Es un paso clave en el procesado porque gracias a esto obtenemos los resultados que mas se ajustan a la realidad.
+\item Preprocesados:
+Estos se compondrán de una serie de pasos previos a la obtención de los segmentos correspondientes a las estrías.
+	\begin{itemize}
+		\item La reducción de grosor: Es un paso clave en el procesado porque gracias a esto obtenemos los resultados que mas se ajustan a la realidad.
 No es complejo pero si que es muy útil y sin este paso no serviría nada de nuestro procesado, su función es eliminar el ruido.
+		\item Bordes: Al final las estrías que detectamos no son mas que bordes dentro de la imagen y todo lo usado es para la detección de estos por lo que es necesaria su explicación. Como dato curioso, para la resolución de nuestro problema lo que hemos hecho es reducirlo a un problema de detección de bordes.
+	\end{itemize}
 
-\item Grafos: Gracias a la teoría de grafos podemos procesar muchos segmentos similares en uno solo, de forma sencilla y eficiente, por lo que es necesaria su explicación.
+\item Análisis: 
+Una vez que tengamos la mascara sobre la que detectar las características que estamos buscando, este proceso tampoco sera directo, por lo que tendremos que hacer una serie de pasos, para obtener nuestro objetivo.
+	\begin{itemize}
+	\item Transformada de Hough: Es un procedimiento matemático para buscar segmentos dentro de las imágenes binarizadas, dado que es complejo y lo usamos, es necesario explicar porque funciona y en que consiste.
 
-\item Bordes: Al final las estrías que detectamos no son mas que bordes dentro de la imagen y todo lo usado es para la detección de estos por lo que es necesaria su explicación. Como dato curioso, para la resolución de nuestro problema lo que hemos hecho es reducirlo a un problema de detección de bordes.
+	\item Grafos: Gracias a la teoría de grafos podemos procesar muchos segmentos similares en uno solo, de forma sencilla y eficiente, por lo que es necesaria su explicación.
+	\end{itemize}
+
 \end{itemize}
 
 
 
 \section{Espacios de color }
-El color que percibimos en los objetos que nos rodean depende de la radiación reflejada en ellos. Según los estudios, nosotros como humanos tenemos un rango ``de luz visible'', ese rango son en verdad tres frecuencias diferentes dentro del rango 769THz a 384THz~\cite{Manual:HAE}.\\
+El color que percibimos en los objetos que nos rodean depende de la radiación reflejada en ellos. Según los estudios, nosotros como humanos tenemos un rango ``de luz visible'', ese rango son en verdad tres frecuencias diferentes dentro del rango 769THz a 384THz~\cite{Manual:HAE}.
 Por lo que en verdad una imagen que percibimos es la unión de las tres frecuencias diferentes y para poder simular este hecho las maquinas simulan esta capacidad innata de los humanos creando los espacios de color que son modelos matemáticos para representar en una maquina lo que se observa en la figura \ref{fig:3.1}.
 
 \begin{figure}[h]
@@ -46,7 +54,7 @@ Se divide en tres canales como se muesra en la figura \ref{fig:3.2}.
 \label{fig:3.2}
 \end{figure}
 La combinación de estos colores crea todas la gama de colores representable.
-El valor de la intensidad de cada canal depende de la codificación usada para su representación (Ocho bits dan Dieciséis millones de colores) como se muestra en la figura  \ref{fig:3.3}.
+El valor de la intensidad de cada canal depende de la codificación usada para su representación (Ocho bits dan dieciséis millones de colores) como se muestra en la figura  \ref{fig:3.3}.
 
 \begin{figure}[h]
 \centering
@@ -59,9 +67,9 @@ El valor de la intensidad de cada canal depende de la codificación usada para s
 El modelo HSV \cite{modelo:hsv} esta orientado a la descripción de los colores en términos mas prácticos para el ser humano que el RGB, los canales significan algo mas que la cantidad de cada color, por lo que es mas practico para el ser humano.Lo que se observa en la figura \ref{fig:3.4}.
  
 \begin{itemize}
-	\item H: (Matiz) que representa el tono o color.\\
-	\item S: (Saturación) representa el nivel de saturación de un color.\\
-	\item V: (Brillo) representa la intensidad lumínica.\\
+	\item H: (Matiz) que representa el tono o color.
+	\item S: (Saturación) representa el nivel de saturación de un color.
+	\item V: (Brillo) representa la intensidad lumínica.
 \end{itemize}
 
 \begin{figure}[h]
@@ -72,9 +80,10 @@ El modelo HSV \cite{modelo:hsv} esta orientado a la descripción de los colores 
 \end{figure}
 
 Una ventaja con otros espacios de color parecidos es que este permite representar todas las combinaciones del espacio RGB.
+Pero su característica principal sera que el canal de saturación, representa la viveza de un color por lo que nos permitirá diferenciar, al seleccionar el color de las estrías pintadas, entre grises que tendrán saturación muy baja y el color pintado sobre estas.
 
 \subsection{CIELAB}
-El modelo lab \cite{wiki:lab},mas conocido como CIELAB,es otra forma de representar los colores. Este en concreto, se basa en como representa los colores el ojo humano, la diferencia entre LAB y CIELAB, es que CIELAB utiliza raíces cubicas, mientras que LAB usa raíces cuadradas.
+El modelo lab \cite{wiki:lab},mas conocido como CIELAB, es otra forma de representar los colores. Este en concreto, se basa en como representa los colores el ojo humano, la diferencia entre LAB y CIELAB, es que CIELAB utiliza raíces cubicas, mientras que LAB usa raíces cuadradas.
 
 El modelo lo podemos ver en la siguiente figura  \ref{fig:3.8}.
 
@@ -100,6 +109,7 @@ Ventajas:
 \item La perdida es mínima al cambiar a otro espacio de color.
 \end{itemize}
 
+El uso de este espacio de color, viene dado por la necesidad de calcular la distancia a otros colores, que en este caso la diferencia y caracteriza mejor que los demás espacios, y por esto vamos a usar este espacio.
 \section{Transformada de Hough }
 
 Uno de los puntos relevantes del proyecto es la detección de las líneas pintadas o detectadas por el algoritmo (modo automático) para ello vamos a usar una técnica que sirve para detectar formas, expresadas de forma matemática, dentro de imágenes.
@@ -112,10 +122,10 @@ Normalmente para detectar figuras sencillas en una imagen primero hay que usar a
 
 Para ello el método de Hough propone solucionar el problema detectando grupos de puntos que forman los bordes de la misma figura y así conseguir unirlos creando la recta real a la que pertenecen.
 
-\subsection{Pseudocódigo Transformada de Hough}
 Como podemos ver en el siguiente pseudocódigo 
 \ref{alg:Hough}.
 
+\label{alg:Hough}
 %Hough
 \begin{algorithm*}
 \caption{Pseudocódigo de la transformada}
@@ -136,7 +146,6 @@ Como podemos ver en el siguiente pseudocódigo
 Buscar las posiciones con mayores valores en el acumulador\;	
 
 \Return {$rectas$ Las rectas cuyos valores son los mayores en el acumulador}
-\label{alg:Hough}
 \end{algorithm*}
 
 \subsection{Limitaciones}
@@ -151,18 +160,18 @@ Como se muestra en el figura \ref{fig:3.5}.
 \end{figure}
 \subsection{Transformada probabilística de Hough}
 
-Tal y como se explica en \cite{Kiryati20001157}, la transformada probabilística de Hough es una version que se basa en que la detección de bordes o la producción de la imagen binaria que contiene el objeto, podría tener ruido y por lo tanto los píxeles que corresponden al ruido con la transformada normal podrían ser considerados como una recta, cuando en verdad es ruido.\\
+Tal y como se explica en \cite{Kiryati20001157}, la transformada probabilística de Hough es una version que se basa en que la detección de bordes o la producción de la imagen binaria que contiene el objeto, podría tener ruido y por lo tanto los píxeles que corresponden al ruido con la transformada normal podrían ser considerados como una recta, cuando en verdad es ruido.
 
 Para que unos puntos sean considerados recta en la transformada probabilística, es necesario menos puntos que en la transformada normal de Hough.
 Pero este método penaliza a los puntos que se encuentran aleatoriamente por toda la imagen (ruido) frente a los que se localizan perfectamente agrupados formando las rectas. 
 Un exceso de ruido en la imagen también haría este método inservible, pero para pequeñas cantidades lo hacen mas preciso que el método normal.
 Otra ventaja es que con este método obtenemos el segmento que necesitamos, no la prolongación de él hasta el infinito.
 
-\section{Skeletonize }
+\section{Reducción de grosor: Skeletonize}
 Tal y como se explica en \cite{scik:skeleton}, dentro del pre-procesado de la imagen, uno de los puntos clave para que nuestro método funcione.
 Después de su binarización y la detección de los bordes de la imagen a procesar, debemos reducir la región sobre la que aplicar la transformada de Hough, así conseguiremos que esta sea mas rápida, y detecte menos número de líneas imaginarias por cada línea real.
 
-Esto lo conseguiremos usando una función de esqueletonizado que nos devuelve lo que su nombre indica el esqueleto de los bordes de la imagen reducidos a 1 pixel, Como podemos observar en la imagen \ref{fig:3.6}.
+Esto lo conseguiremos usando una función de esqueletonizado que nos devuelve lo que su nombre indica el esqueleto de los bordes de la imagen reducidos a un pixel, Como podemos observar en la imagen \ref{fig:3.6}.
 
 
 \begin{figure}
@@ -179,8 +188,7 @@ Esto lo conseguiremos usando una función de esqueletonizado que nos devuelve lo
 
 
 \section{Grafos}	
-\subsection{Introducción}
-La teoría de grafos\cite{Wiki:Grafos} en un campo dentro de la computación y de las matemáticas, estudia las propiedades de los grafos que están compuestos por vértices y aristas, que comunican estos los vértices.
+La teoría de grafos~\cite{Wiki:Grafos} en un campo dentro de la computación y de las matemáticas, estudia las propiedades de los grafos que están compuestos por vértices y aristas, que comunican estos los vértices.
 Es una rama muy amplia pero solo vamos a centrarnos en uno de los problemas que podemos resolver gracias a estas teorías.
 
 \subsection{K-componentes}
@@ -196,13 +204,6 @@ Como en los anexos donde usamos toda la variedad de ellos que hemos encontrado a
 
 Kernel \cite{wiki:kernels}: Un kernel es una matriz que se operara con una porcion de pixeles para suavizar o detectar algún elemento que sea de nuestro interés.
 
-\begin{itemize}
-\item Laplace \cite{wiki:Laplace}.
-\item Prewitt \cite{wiki:Prewitt}.
-\item Scharr \cite{jon:Scharr}.
-\item Sobel \cite{wiki:Sobel}.
-\item Roberts \cite{wiki:Roberts}.
-\item Kirsch \cite{wiki:Kirsch}.
-\item Gabor \cite{wiki:Gabor}.
-\end{itemize}
+Laplace~\cite{wiki:Laplace}, Prewitt~\cite{wiki:Prewitt}, Scharr~\cite{jon:Scharr}, Sobel~\cite{wiki:Sobel}, Roberts~\cite{wiki:Roberts}, Kirsch~\cite{wiki:Kirsch}, Gabor~\cite{wiki:Gabor}.
+ 
 Aparte de los métodos antes mencionados hemos combinado distintos formas para detectar bordes através de los autovectores \cite{wiki:Eigenvector} largos, de la matriz Hessiana \cite{wiki:Hessiana}.

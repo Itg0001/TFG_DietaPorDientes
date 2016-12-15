@@ -397,25 +397,31 @@ Gráfico del sprint 9 \ref{fig:A.2.9}.
 \section{Estudio de viabilidad}
 
 \subsection{Viabilidad económica}
+En este punto, vamos a hacer es un estudio de viabilidad económica del proyecto, vamos a analizar los gastos que hubiera supuesto, si fuese un proyecto real, para una empresa, en cuanto a tiempo de programación e infraestructura necesaria para ello.
+
 
 \subsection{Viabilidad legal}
+En este punto, lo que vamos a hacer es analizar las librerías que hemos usado, en nuestro proyecto. Buscar los tipos de licencias que tienen cada uno, luego analizar, dependiendo de las compatibilidades, que tipos de licencia podemos aplicar nuestro proyecto y seleccionar uno de ellos.
 
-Jinja2 * 2.8 * An easy to use stand-alone template engine written in pure python. * BSD
+\begin{table}[]
+	\centering
+	\caption{Tabla de librerias y sus licencias}
+	\label{tabla:Licencias}
+	\begin{tabular}{|l|l|l|l|}
+	\hline
+	Libreria     & Version & Descripcion                                                     & Licencia                \\ 	\hline
+	Jinja2       & 2.8     &  \begin{tabular}[c]{@{}l@{}}Un motor de plantillas escrito\\ en Python. \end{tabular}               & BSD                     \\ 	\hline
+	Numpy        & 1.11.1  & \begin{tabular}[c]{@{}l@{}}Procesamiento de arrays para\\ numeros,strings,records y objetos.\end{tabular} & BSD                     \\ 	\hline
+	Scipy        & 0.18.1  & Libreria cientifica para Python.                                & BSD                     \\ 	\hline
+	Scikit-image & 0.12.3  & \begin{tabular}[c]{@{}l@{}}Libreria para tratamiento\\ de imagenes para SciPy.\end{tabular}	               & BSD                     \\ 	\hline
+	Networkx     & 1.11    & \begin{tabular}[c]{@{}l@{}}Libreria Python para crear y\\ analizar redes complejas.\end{tabular}          & BSD                     \\ 	\hline
+	Pillow       & 3.3.1   & \begin{tabular}[c]{@{}l@{}}Libreria Python para\\ tratamiento de imagenes.\end{tabular} & \begin{tabular}[c]{@{}l@{}}PIL license\\ similar MIT\end{tabular} \\ \hline
+	Pyqt         & 5.6.0   & Libreria Python para crear GUI.                                 &\begin{tabular}[c]{@{}l@{}} GPLv2 o\\ GPLv3\end{tabular}           \\ \hline
+	Matplotlib   & 1.5.3   & \begin{tabular}[c]{@{}l@{}}Libreria Python para mostrar\\ graficos 2D.\end{tabular}                      & PSF-based               \\ \hline
+	Tesseract    & 3.02    & Ocr para ejecutar en Windows.                                   & Apachev2                \\ \hline
+\end{tabular}
+\end{table}
 
-Numpy * 1.11.1 * array processing for numbers, strings, records, and objects * BSD
 
-scipy * 0.18.1 *	Scientific Library for Python * BSD
-
-scikit-image *	0.12.3 *Image processing routines for SciPy / * 3-clause BSD
-
-networkx * 1.11	* Python package for creating and manipulating complex networks * BSD
-
-pillow * 3.3.1 * The friendly Python Imaging Library(PIL) fork *  PIL license similar MIT
-
-pyqt * 5.6.0 * Python binding of the cross-platform GUI toolkit Qt * Commercial, GPLv2, GPLv3 * mirar enlace \url{http://pycol.blogspot.com.es/}
-
-matplotlib	1.5.3	Python 2D plotting library / PSF-based
-
-anaconda * 3.5 * GNU GPL*
-
+BSD de tres clausulas es compatible con GLP (esto esta en construcción)
 

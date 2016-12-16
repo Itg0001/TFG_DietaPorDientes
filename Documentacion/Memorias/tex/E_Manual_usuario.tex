@@ -36,7 +36,7 @@ Una vez que tengamos Miniconda para Python 3.5 y el proyecto descargado o clonad
 	
 	Procederemos a hacer doble clic sobre este fichero ejecutable y se abrirá una terminal, la primera vez que lo hagamos este proceso tardara un rato, porque descarga las librerías necesarias para la ejecución del mismo.
 	
-	\item Una vez terminado el proceso anterior, se abrira la aplicación.
+	\item Una vez terminado el proceso anterior, se abrirá la aplicación.
 \end{itemize}
 
 \subsection{Cuando algo falla}
@@ -58,16 +58,13 @@ Una vez tengamos todo bien configurado y la aplicación ejecute correctamente de
 \caption{Ventana inicial de la aplicación}
 \label{fig:E.1}
 \end{figure}
-Una vez llegados a este punto tendremos varias opciones para editar o calculas las estrias de una imagen, dependiendo si esta en blanco o ya pintada tendremos las siguientes opciones:
+Una vez llegados a este punto tendremos varias opciones para editar o calculas las estrías de una imagen, dependiendo si esta en blanco o ya pintada tendremos las siguientes opciones:
 
 \begin{itemize}
 	\item Abrir imagen \ref{modo:1}:
 
 	\item Cargar proyecto \ref{modo:2}:
 	
-	\item[Modo 1] Semiautomatico  \ref{modo:2.1}
-	\item[Modo 2] Manual \ref{modo:2.2}
-	\item[Modo 3] Automatico \ref{modo:2.3}
 \end{itemize}
 
 
@@ -148,13 +145,13 @@ Una vez abierto el proyecto tendremos la imagen en blanco y negro junto con sus 
 
 \label{modo:idioma}
 \subsection{Cambiar idioma}
-Para cambiar el idioma de la aplicación deberemos seleccionar en el menú principal Idioma $>$ Una de las dos opciones, como podemos obserbar en la figura \ref{cambiarIdioma}, hemos optado por cambiar el idioma de la aplicación y que perduren los cambios realizados en el fichero de configuración por lo que nos va a pedir reiniciar la aplicación, si tenemos algo abierto nos preguntara si queremos guardar los cambios o no.
+Para cambiar el idioma de la aplicación deberemos seleccionar en el menú principal Idioma $>$ Una de las dos opciones, como podemos observar en la figura \ref{fig:camb}, hemos optado por cambiar el idioma de la aplicación y que perduren los cambios realizados en el fichero de configuración por lo que nos va a pedir reiniciar la aplicación, si tenemos algo abierto nos preguntara si queremos guardar los cambios o no.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=.55\textwidth]{CambiarIdioma}
 \caption{Como cambiar el idioma.}
-\label{fig:cambiarIdioma}
+\label{fig:camb}
 \end{figure}
 
 \subsection{Modo semi-automático para lineas pintadas}
@@ -166,7 +163,7 @@ Este modo solamente podrá ser usado cuando dispongamos de una imagen que tenga 
 \begin{figure}[h]
 \centering
 \includegraphics[width=.99\textwidth]{semiAutoCorrecto}
-\caption{Imagen valida para detección de estrías modo semi automático.}
+\caption{Imagen valida para detección de estrías modo semiautomático.}
 \label{fig:semiAutoCorrecto}
 \end{figure}
 
@@ -188,7 +185,7 @@ A continuación deberemos seleccionar tanto el numero de repeticiones del algori
 \label{fig:opcionesAlg}
 \end{figure}
 
-Finalmente para nos quedaría la opción mas importante que sin ella el algoritmo no podrá ser ejecutado. Es seleccionar el color del que estén pintadas las lineas, para ello deberemos clicar sobre el botón <<Seleccionar color>>, como podemos observar en la figura \ref{fig:selecionarColorP1} y despues de clicar sobre el este se desactivara como podemos observar en la figura \ref{fig:selecionarColorP2}.
+Finalmente para nos quedaría la opción mas importante que sin ella el algoritmo no podrá ser ejecutado. Es seleccionar el color del que estén pintadas las lineas, para ello deberemos clicar sobre el botón <<Seleccionar color>>, como podemos observar en la figura \ref{fig:selecionarColorP1} y después de clicar sobre el este se desactivara como podemos observar en la figura \ref{fig:selecionarColorP2}.
 Las estrías pintadas aveces pueden ser muy finas y no seremos capaces de clicar sobre esos pixeles por lo que en este caso deberemos ampliar la imagen en una región que contenga estrías pintadas, para ampliar debemos seleccionar el botón de ampliar y dibujar un rectángulo sobre la imagen con el clic derecho pulsado,como podemos observar en la figura \ref{fig:selecionarColorP3}.
 Una vez seleccionado el color correctamente este pintada el label de color actual y también se activara el botón de calcular las lineas, como podemos observar en la figura \ref{fig:selecionarColorP4}.
 
@@ -217,21 +214,89 @@ Una vez seleccionado el color correctamente este pintada el label de color actua
 	\end{subfigure}%
 \end{figure}
 
+Para finalizar una vez que cliquemos en el botón de calcular lineas ya podremos añadir estrías nuevas, eliminar algunos segmentos, borrar todos o guardar los datos del proyecto para calcular las estadísticas de las estrías.
 
 
+\subsection{Modo manual}
+Después de cargar una imagen ya sea pintada o sin pintar deberemos abrir una imagen como indica el apartado \ref{modo:1} o abrir un proyecto tal y como indican el apartado \ref{modo:2}.
+Una vez que tengamos la imagen o el proyecto cargado podremos pintar nuevas estrías en la imagen siguiendo los siguientes pasos.
 
-\label{modo:2.1}
-\subsubsection{Modo Semiautomatico}
+\begin{itemize}
+\item Pulsaremos el botón de corregir lineas, como muestra la siguiente figura \ref{fig:CorregirPaso1}.
 
-\label{modo:2.2}
-\subsubsection{Modo Manual}
+\item Una vez pulsado deberemos seleccionar dos puntos, uno el inicio y el segundo, el final del segmento que queremos añadir. 
+Dentro del recuadro de la región factible que esta delimitada por un recuadro negro, como se muestra en las figuras \ref{fig:punto1} y \ref{fig:punto2}, ahora solo nos quedara añadir el segmento a la tabla como muestra la figura \ref{fig:anadirsegment}.
+\end{itemize}
 
-\label{modo:2.3}
-\subsubsection{Modo Automatico}
+\begin{figure}
+	\begin{subfigure}[c]{.5\linewidth}
+	\centering\large \includegraphics[width=.9\textwidth]{CorregirPaso1}
+	\caption{Activar el modo de corregir o añadir un segmento.}\label{fig:CorregirPaso1}
+	\end{subfigure}%
+	\begin{subfigure}[c]{.5\linewidth}
+	\centering\large \includegraphics[width=.9\textwidth]{punto1}
+	\caption{Primer punto seleccionado.}\label{fig:punto1}
+	\end{subfigure}%
+	
+	\begin{subfigure}[c]{.5\linewidth}
+	\centering\large \includegraphics[width=.9\textwidth]{punto2}
+	\caption{Segundo punto seleccionado.}\label{fig:punto2}
+	\end{subfigure}%
+	\begin{subfigure}[c]{.5\linewidth}
+	\centering\large \includegraphics[width=.9\textwidth]{anadirsegment}
+	\caption{Añadir segmento.}\label{fig:anadirsegment}
+	\end{subfigure}%
+\end{figure}
 
+	
+Para los demás pasos no hace falta explicación ya que sus respectivos botones dicen claramente que funciones desempeñan.	
+	
+\subsection{Modo automático}
+Después de cargar una imagen sin pintar deberemos abrir una imagen como indica el apartado \ref{modo:1} o abrir un proyecto tal y como indica el apartado \ref{modo:2}.
 
+Una vez que tengamos la imagen o el proyecto cargado, podremos configurar el modo automático, lo primero sera asignar la orientación de la imagen, como podemos ver en la figura \ref{fig:selOrientacion}, también deberemos seleccionar la longitud mínima de corte que ignorara el algoritmo automático, como podemos observar en la figura \ref{fig:selTam}.
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=.55\textwidth]{selTam}
+\caption{Selección de la longitud mínima de corte.}
+\label{fig:selTam}
+\end{figure}
 
+Una vez seleccionado el tamaño mínimo de corte podremos ejecutar el algoritmo clicando el botón de calar automático obteniendo el resultado mostrado en la figura \ref{fig:CalculadasAuto} y podremos mover el recuadro del área con el que nos queremos quedar a la región de interés que consideremos apropiada.
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=.55\textwidth]{CalculadasAuto}
+\caption{Selección de la longitud mínima de corte.}
+\label{fig:CalculadasAuto}
+\end{figure}
 
+una vez que la situemos donde mayor densidad de estrías haya detectado, la fijaremos e ignorara las que se queden por fuera de la región, como podemos observar en la figura \ref{fig:automati}.
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=.55\textwidth]{automati}
+\caption{Selección de la longitud mínima de corte.}
+\label{fig:automati}
+\end{figure}
+
+Pasado este punto en la pestaña de corregir lineas quedaran añadidas todas aquellas que ha detectado el algoritmo y hemos encuadrado en la región factible, de estas lineas podremos obtener tanto estadísticas como un proyecto para editar mas adelante. Guardando el proyecto con el botón para dicha función.
+
+\subsection{Guardar proyecto}
+
+En este apartado vamos a explicar como guardar un proyecto una vez que hayamos abierto o cargado una imagen, calculado las estrías con el modo semiautomático o por el automático, y la tabla este rellenada con estas. 
+Si el proyecto es cargado de uno ya existente, no tener abiertas las estadísticas en Excel porque sino no funcionara la operación de guardar, esto sera transparente al usuario porque dejara los ficheros como estaban antes, no los modificara, e informara al usuario de que no han sido guardados. 
+
+Podemos usar tanto el botón de guardar que aparece en la pestaña dos \ref{fig:BotonGuarPesta} como el botón del menú principal que aparece en la figura \ref{fig:BotonGuar}
+
+\begin{figure}
+	\begin{subfigure}[c]{.5\linewidth}
+	\centering\large \includegraphics[width=.9\textwidth]{BotonGuarPesta}
+	\caption{Boton de guardar en la pestaña dos.}\label{fig:BotonGuarPesta}
+	\end{subfigure}%
+	\begin{subfigure}[c]{.5\linewidth}
+	\centering\large \includegraphics[width=.9\textwidth]{BotonGuar}
+	\caption{Boton de guardar en el menu principal.}\label{fig:BotonGuar}
+	\end{subfigure}%
+\end{figure}

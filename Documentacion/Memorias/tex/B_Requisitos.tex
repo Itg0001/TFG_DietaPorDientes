@@ -68,32 +68,74 @@ El proyecto consiste en:
 		\item RF1.1: Construcción de los menús donde mostrar las opciones disponibles en la aplicación.
 		\item RF1.2: Construcción del panel de pestañas donde estarán las opciones para los diferentes modos de la aplicación y sus funcionalidades
 		\item RF1.3: Construcción del panel donde se mostrara la imagen junto con una barra de opciones con información de la imagen y botones de acciones sobre la imagen.
-		\item RF1.4: Permitir al usuario la lectura de la imagen y cargar en el panel.
+		\item RF1.4: Lectura de la imagen y cargar en el panel.
 	\end{itemize}
 
 \item RF2: Construcción del modo para calcular las estrías pintadas en las imágenes.
 	\begin{itemize}
-		\item RF2.1: Permitir al usuario seleccionar el color de las estrías pintadas que queremos detectar.
-		\item RF2.2: Permitir al usuario seleccionar la orientación de la imagen,la longitud mínima que debe ignorar y el numero de repeticiones que quiere para calcular los segmentos.
-		\item RF2.3: El usuario debe poder pedir a la aplicación que use el algoritmo implementado para la detección de las estrías pintadas.			 
-		\item RF2.4: La aplicación debe mostrar los segmentos que ha calculado con el algoritmo en el panel donde se muestra la imagen.
+		\item RF2.1: Seleccionar el color de las estrías pintadas que queremos detectar.
+		\item RF2.2: Seleccionar la orientación de la imagen,la longitud mínima que debe ignorar y el numero de repeticiones que quiere para calcular los segmentos.
+		\item RF2.3: Pedir a la aplicación que use el algoritmo implementado para la detección de las estrías pintadas.			 
+		\item RF2.4: Mostrar los segmentos que ha calculado con el algoritmo en el panel donde se muestra la imagen.
 	\end{itemize}
 
 \item RF3: Construcción del modo manual para corregir los errores o editar las lineas que hemos pintado.
 	\begin{itemize}
-		\item RF3.1: Permitir que el usuario pueda pintar lineas sobre la imagen, pero solo sobre el cuadrado, para añadir nuevos segmentos.
-		\item RF3.2: Permitir que el usuario pueda añadir las lineas que ha calculado el algoritmo de detección de estrías pintadas.
-		\item RF3.3: Permitir añadir, borrar, y limpiar la tabla de los segmentos obtenidos que se corresponden con las estrías.
+		\item RF3.1: Pintar lineas sobre la imagen, pero solo sobre el cuadrado, para añadir nuevos segmentos.
+		\item RF3.2: Añadir las lineas que ha calculado el algoritmo de detección de estrías pintadas.
+		\item RF3.3: Borrar y limpiar la tabla de los segmentos obtenidos, que se corresponden con las estrías.
 		\item RF3.4: Pintar, permitir mover y fijar el cuadrado donde queremos pintar las estrías manualmente.
-		\item RF3.5: Permitir al usuario Guardar los segmentos y obtener las estadísticas y mediciones de todos los segmentos que ha calculado el algoritmo y se muestran en la tabla.			
+		\item RF3.5: Guardar los segmentos y obtener las estadísticas y mediciones de todos los segmentos que ha calculado el algoritmo y se muestran en la tabla.			
 	\end{itemize}
 			 
 \item RF4: Construcción del modo completamente automático para detectar las estrías en imágenes sin pintar.
 	\begin{itemize}
-		\item RF4.1: Permitir al usuario seleccionar la orientación de la imagen y la longitud mínima que debe ignorar para calcular los segmentos. 
-		\item RF4.2: Permitir al usuario mandar calcular al algoritmo las estrías que contiene la imagen.
-		\item RF4.3: La aplicación debe mostrar los segmentos que ha calculado con el algoritmo en el panel donde se muestra la imagen.					
+		\item RF4.1: Seleccionar la orientación de la imagen y la longitud mínima que debe ignorar para calcular los segmentos. 
+		\item RF4.2: Mandar calcular al algoritmo las estrías que contiene la imagen.
+		\item RF4.3: Mostrar los segmentos que ha calculado con el algoritmo en el panel donde se muestra la imagen.					
 		\item RF4.4: Pintar, permitir mover y fijar el cuadrado donde queremos quedarnos con las estrías.
 	\end{itemize}
 \end{itemize}					
+
+\subsection{Diagrama de casos de uso}
+El diagrama que contiene los caso de uso de nuestra aplicación estará contenido en la figura \ref{fig:diagramCasosUso}.	
+
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=.99\textwidth]{DiagramCasosUso}
+\caption{Diagrama de casos de uso.}
+\label{fig:diagramCasosUso}
+\end{figure}
+ 
+\subsection{Casos de uso}
+Las tablas de los casos de uso se muestran en las siguientes figuras, \ref{fig:tablacaso1}, \ref{fig:tablacaso2},\ref{fig:tablacaso3} y \ref{fig:tablacaso4}.
 			 
+\begin{figure}[h]
+\centering
+\includegraphics[width=.99\textwidth]{tablacaso1}
+\caption{Tabla del caso de uso 1.}
+\label{fig:tablacaso1}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=.99\textwidth]{tablacaso2}
+\caption{Tabla del caso de uso 2.}
+\label{fig:tablacaso2}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=.99\textwidth]{tablacaso3}
+\caption{Tabla del caso de uso 3.}
+\label{fig:tablacaso3}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=.99\textwidth]{tablacaso4}
+\caption{Tabla del caso de uso 4.}
+\label{fig:tablacaso4}
+\end{figure}

@@ -35,7 +35,7 @@ El proyecto consiste en:
 	\item Construcción del prototipo de procesado de las imágenes.
 		\begin{itemize}
 			\item Lectura de imagen.
-			\item Binarización para detectar las pintadas.
+			\item Binarización para detectar las estrías pintadas.
 			\item Procesado de la imagen binaria.
 			\item Extracción de características.
 			\item Procesado de las características.
@@ -74,7 +74,7 @@ El proyecto consiste en:
 \item RF2: Construcción del modo para calcular las estrías pintadas en las imágenes.
 	\begin{itemize}
 		\item RF2.1: Seleccionar el color de las estrías pintadas que queremos detectar.
-		\item RF2.2: Seleccionar la orientación de la imagen,la longitud mínima que debe ignorar y el numero de repeticiones que quiere para calcular los segmentos.
+		\item RF2.2: Seleccionar la orientación de la imagen, la longitud mínima que debe ignorar y el numero de repeticiones que quiere para calcular los segmentos.
 		\item RF2.3: Pedir a la aplicación que use el algoritmo implementado para la detección de las estrías pintadas.			 
 		\item RF2.4: Mostrar los segmentos que ha calculado con el algoritmo en el panel donde se muestra la imagen.
 	\end{itemize}
@@ -98,7 +98,7 @@ El proyecto consiste en:
 \end{itemize}					
 
 \subsection{Diagrama de casos de uso}
-El diagrama que contiene los caso de uso de nuestra aplicación estará contenido en la figura \ref{fig:diagramCasosUso}.	
+El diagrama que contiene los caso de uso de nuestra aplicación esta contenido en la figura \ref{fig:diagramCasosUso}.	
 
 
 
@@ -109,15 +109,31 @@ El diagrama que contiene los caso de uso de nuestra aplicación estará contenid
 \label{fig:diagramCasosUso}
 \end{figure}
  
-\subsection{Casos de uso}
-Las tablas de los casos de uso se muestran en las siguientes figuras, \ref{fig:tablacaso1}, \ref{fig:tablacaso2},\ref{fig:tablacaso3} y \ref{fig:tablacaso4}.
-			 
-\begin{figure}[h]
+A partir del diagrama principal se han diseñado las siguientes tablas de los diagramas de casos de uso, se muestran en las siguientes figuras, \ref{tab:tablacaso1}, \ref{fig:tablacaso2}, \ref{fig:tablacaso3} y \ref{fig:tablacaso4}.
+
+\begin{table}[]
 \centering
-\includegraphics[width=.99\textwidth]{tablacaso1}
-\caption{Tabla del caso de uso 1.}
-\label{fig:tablacaso1}
-\end{figure}
+\caption{Tabla del caso de uso 1}
+\label{tab:tablacaso1}
+\begin{tabular}{@{}
+>{\columncolor[HTML]{FFFFFF}}l l@{}}
+\toprule
+\textbf{Caso de uso 1}   & Construcción Notebook interactivo de Júpiter,para imágenes pintadas.                                                                                                         \\ \midrule
+\textbf{Versión}         & 1.0                                                                                                                                                                          \\ \midrule
+\textbf{Autor}           & Ismael Tobar García                                                                                                                                                          \\ \midrule
+\textbf{Requisitos}      & \begin{tabular}[c]{@{}l@{}}RF1\\   RF1.1\\   RF1.2\\   RF1.3\\   RF1.4\\   RF1.5\end{tabular}                                                                                \\ \midrule
+\textbf{Descripción}     & \begin{tabular}[c]{@{}l@{}}El usuario podrá ejecutar el notebook interactivo para ver todo el proceso\\   paso a paso\end{tabular}                                           \\ \midrule
+\textbf{Precondiciones}  & Tener una imagen con líneas pintadas.                                                                                                                                        \\ \midrule
+\textbf{Acciones}        & \begin{tabular}[c]{@{}l@{}}1 Abrir notebook de Júpiter\\   2 Ir ejecutando paso a paso los bloques de código.\\   3 Se irán visualizando las partes ejecutadas.\end{tabular} \\ \midrule
+\textbf{Postcondiciones} & Ninguna                                                                                                                                                                      \\ \midrule
+\textbf{Excepciones}     & \begin{tabular}[c]{@{}l@{}}Si el usuario no ha especificado la ruta correcta a la imagen saltara\\   una excepción de que no existe el fichero.\end{tabular}                 \\ \midrule
+\textbf{Importancia}     & Baja                                                                                                                                                                         \\ \bottomrule
+\end{tabular}
+\end{table}
+
+
+			 
+
 
 \begin{figure}[h]
 \centering

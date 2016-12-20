@@ -64,7 +64,8 @@ class ProcesadoAutomatico():
         self.proce_lines=ProcesadoDeLineas()
         lines = probabilistic_hough_line(no_small2, 30,20,30)
         G = nx.Graph()
-        G = self.proce_lines.combina(8,4, lines, G)
+        G = self.proce_lines.combina2(4,8,4,1,lines,G)
+
         k_components = apxa.k_components(G)
         segmentos_de_verdad = self.proce_lines.segmentos_verdad(k_components, lines)
     

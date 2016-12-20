@@ -171,9 +171,9 @@ class VentanaInicio(QtWidgets.QMainWindow):
                 
                 return False
         
-        filter = Filter(widget)
-        widget.installEventFilter(filter)
-        return filter.clicked
+        filters = Filter(widget)
+        widget.installEventFilter(filters)
+        return filters.clicked
     
      
     def mensage_reinicia(self):
@@ -253,7 +253,9 @@ class VentanaInicio(QtWidgets.QMainWindow):
         """
         Metodo que implementara la ayuda.
         """
-        main = VisorHtml("file:///C:/Users/Tobar/Desktop/hh.html")
+        import os
+        print()
+        main = VisorHtml("file:///"+os.getcwd() + "/proyecto/gui/ayuda.html")
         
         main.exec_()
     

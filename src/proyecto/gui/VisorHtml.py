@@ -8,12 +8,13 @@ class VisorHtml(QtWidgets.QDialog):
         """
         self.path = path
         QtWidgets.QDialog.__init__(self,parent=None)
-        self.resize(800,600)
+        self.resize(1200,900)
         self.mainLayout = QtWidgets.QHBoxLayout(self)
 
         self.html = QtWebKitWidgets.QWebView()
-
+        self.html.setZoomFactor(1.2)
         self.html.load(QtCore.QUrl(self.path))
+
         self.mainLayout.addWidget(self.html)
         self.html.show()
 

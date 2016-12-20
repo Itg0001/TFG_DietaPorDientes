@@ -4,7 +4,8 @@ IF NOT EXIST %HOMEPATH%\Miniconda3\envs\DietaEstrias conda env create -f %cd%\en
 
 
 set path=%HOMEPATH%\Miniconda3\envs\DietaEstrias; %path%;
+cd ..
 cd src
-python mainTest.py
+python main.py
 
 pause

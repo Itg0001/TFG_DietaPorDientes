@@ -30,6 +30,56 @@ class ProcesadoDeLineas():
                 self.comprueba(lines, i, j, epsilon1, epsilon2, g)
         return g
     
+    
+    def modulo(self,linea):
+        p1,p2=linea 
+        x1,y1 = p1
+        x2,y2 = p2
+        
+        return math.sqrt((x1-x2)**2 + (y1-y2)**2)
+
+    def combina2(self,distancia1,distancia2,diffOrientacion,longcorto,lines,G): 
+        for i in range(len(lines)):
+            G.add_node(i)
+
+        for i in range(len(lines)-1):
+            for j in range(i+1,len(lines)):
+                d1 = self.segments_distance(lines[i],lines[j])
+                d2 = self.segment_points_distance(lines[i],lines[j])
+                         
+                #paralelas y d1 menor que distancia1
+                #consecutivas y d2 menor que distancia2
+                if (d1<d2 and d1<distancia1) or (d1>=d2 and d2<distancia2): 
+                    angle = self.ang(lines[i],lines[j])
+                    
+                    if angle <= diffOrientacion or self.modulo(lines[i])<longcorto or self.modulo(lines[j])<longcorto:
+                        #print("combina ",i,j)
+                        G.add_edge(i,j) 
+        return G
+    def segment_points_distance(self,seg1, seg2):
+        """distance between two segments in the plane:
+        one segment is (x11, y11) to (x12, y12)
+        the other is   (x21, y21) to (x22, y22)
+        """
+        
+        
+        x11, y11 = seg1[0]
+        x12, y12 = seg1[1]
+        x21, y21 = seg2[0]
+        x22, y22 = seg2[1]
+        
+        # try each of the 4 vertices w/the other segment
+        distances = []
+        distances.append(self.point_distance((x11, y11), (x21, y21)))
+        distances.append(self.point_distance((x11, y11), (x22, y22)))
+        distances.append(self.point_distance((x12, y12), (x21, y21)))
+        distances.append(self.point_distance((x12, y12), (x22, y22)))
+        return min(distances)
+    
+    def point_distance(self,p1, p2):
+        dx = p1[0] - p2[0]
+        dy = p1[1] - p2[1]
+        return (dx*dx + dy*dy)**0.5
     @classmethod
     def comprueba(self, lines, i, j, epsilon1, epsilon2, g):
         """
@@ -108,6 +158,8 @@ class ProcesadoDeLineas():
         s = (dx1 * (y21 - y11) + dy1 * (x11 - x21)) / delta
         t = (dx2 * (y11 - y21) + dy2 * (x21 - x11)) / (-delta)
         return (0 <= s <= 1) and (0 <= t <= 1)
+    
+    
     
      
     @classmethod

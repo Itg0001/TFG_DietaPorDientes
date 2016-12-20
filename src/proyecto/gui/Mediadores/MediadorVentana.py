@@ -143,7 +143,8 @@ class MediadorVentana():
             l.extend(lines)
             repeticiones=repeticiones-1      
         G = nx.Graph()
-        G = self.procesado_de_lineas.combina(8, 4, l, G)
+#         G = self.procesado_de_lineas.combina(8, 4, l, G)
+        G = self.procesado_de_lineas.combina2(4,8,4,1,l,G)
         k_components = apxa.k_components(G)
         segmentos_de_verdad = self.procesado_de_lineas.segmentos_verdad(k_components, l)
         segmentos_de_verdad_pintar=[]

@@ -1,2 +1,3 @@
+cd ..
 pydoc -w .\
 pause

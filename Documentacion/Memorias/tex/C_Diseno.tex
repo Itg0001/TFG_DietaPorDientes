@@ -6,7 +6,7 @@ En este apartado vamos a explicar que hemos usado para la resolución del proble
 
 Para la elaboración de los diagramas de paquetes y de clases hemos usado UML como metodología y el programa Astah para implementar los diagramas de clases.
 
-Primero, hemos planeado un prototipo de diseño de cada una de las clases, que a medida que después las implementábamos las hemos ido completando, para que se correspondieran en lo que finalmente quedaba.
+Primero, hemos planeado un prototipo de diseño de cada una de las clases, como podemos observar en la figura~\ref{fig:C.1.1} el diagrama de clases inicial, a medida que las implementábamos las hemos ido completando, para que se correspondieran en lo que finalmente va a quedar.
 
 
 
@@ -71,7 +71,7 @@ Consiguiendo tener una botonería arriba del todo y dos columnas debajo claramen
 
 \subsection{Versión a evaluar}
 
-En otro Sprint del proyecto lo que he usado han sido pestañas para así tener en la zona de funcionalidades los modos de trabajo de la aplicación claramente separados \ref{fig:5.9}.
+En otro Sprint del proyecto lo que he usado han sido pestañas para así tener en la zona de funcionalidades los modos de trabajo de la aplicación claramente separados, como podemos observar en la figura \ref{fig:5.9}.
 
 \begin{itemize}
 \item Detección líneas rojas.
@@ -82,7 +82,7 @@ En otro Sprint del proyecto lo que he usado han sido pestañas para así tener e
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.65\textwidth]{disenoWi}
+\includegraphics[width=0.99\textwidth]{disenoWi}
 \caption{Diseño de la interfaz de usuario}
 \label{fig:5.9}
 \end{figure}
@@ -90,13 +90,13 @@ En otro Sprint del proyecto lo que he usado han sido pestañas para así tener e
 Es una sección de la interfaz que nos va permitir de momento la carga de imágenes para su procesado \ref{fig:5.10}.
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.65\textwidth]{BarraHerramientas}
+\includegraphics[width=0.35\textwidth]{BarraHerramientas}
 \caption{Barra de herramientas de la aplicación}
 \label{fig:5.10}
 \end{figure}
 
 \subsubsection{Barra de herramientas de la imagen}
-Es una sección de la interfaz que nos permitirá manipular la imagen para realizar estas acciones \ref{fig:5.11}.
+Es una sección de la interfaz que nos permitirá manipular la imagen para realizar estas acciones,como podemos observar en la figura \ref{fig:5.11}.
 
 \begin{itemize}
 \item Volver al principio. 
@@ -129,7 +129,7 @@ Es la región donde se muestra la imagen que va a ser ligeramente mas grande que
 
 
 \subsubsection{Pestañas}
-Sección de la imagen donde estarán implementadas las funcionalidades para visualizar las líneas que son detectadas por el algoritmo en la imagen \ref{fig:5.13}.
+Sección de la imagen donde estarán implementadas las funcionalidades para visualizar las líneas que son detectadas por el algoritmo. se ilustra en la figura \ref{fig:5.13}.
 \begin{itemize}
 \item El modo primero es la detección de los surcos en rojo en los dientes 
 \item El modo segundo es la corrección/detección manual de las líneas por una persona y quedando reflejadas en la imagen.
@@ -154,7 +154,7 @@ La finalidad de este modo de trabajo en nuestra aplicación, servirá para detec
 		\item Posteriormente a la carga, el usuario deberá elegir los parámetros que puede modificar, para la ejecución del algoritmo.
 		\item Una vez seleccionados los parámetros, podremos continuar mandando ejecutar a la aplicación el algoritmo, para la detección de las estrías pintadas.
 		\item Este nos va a devolver un conjunto de segmentos, que se corresponderán con las estrías que contiene la imagen pintadas, las añadirá a la tabla donde podremos editarlas o añadir algunas que podría no haber detectado dicho algoritmo.
-		\item por ultimo podremos guardar las estadísticas, las imágenes original, pintada, longitudes de los segmentos, ángulos, orientaciones, la tabla rellena en formato \LaTeX para incluir en futuros informes y el fichero de configuración del proyecto.
+		\item por ultimo podremos guardar las estadísticas, las imágenes original, pintada, longitudes de los segmentos, ángulos, orientaciones, la tabla rellena en formato \LaTeX , para incluir en futuros informes y el fichero de configuración del proyecto.
 	\end{itemize}
 	\item Modo automático:
 	La finalidad de este modo de trabajo de la aplicación, consiste en detectar las estrías de dieta de una imagen en blanco desde el cero. Para extraer características de dichas estrías.
@@ -163,8 +163,8 @@ La finalidad de este modo de trabajo en nuestra aplicación, servirá para detec
 		\item posteriormente, deberá elegir los parámetros disponibles para el modo automático, este consistirá en seleccionar la orientación y la longitud mínima que ignora el algoritmo.
 		
 		\item Una vez que hayan sido seleccionados se habilitara la función de detección de las estrías. Al ejecutar este algoritmo nos mostrara todas las estrías que detecto en la imagen y nos permitirá mover la región de interés que queremos analizar.
-		\item Al mover la región de interés que nos conviene analizar y fijarlo desechara las estrías que no estén contenidas y también los trozos de las detectadas que se salgan fuera de la región.
-		\item Por ultimo, el paso anterior nos mostrara en la tabla de edición de los segmentos las estrías que ha detectado, pudiendo modificar o eliminar aquellas que nosotros no consideremos útiles.
+		\item Al mover la región de interés que nos conviene analizar y fijarlo, desechará las estrías que no estén contenidas y también los trozos de las detectadas que se salgan fuera de la región.
+		\item Por último, el paso anterior nos mostrara en la tabla de edición de los segmentos las estrías que ha detectado, pudiendo modificar o eliminar aquellas que nosotros no consideremos útiles.
 		También nos permitirá guardar el proyecto tal y como estaba para obtener las estadísticas y demás datos relevantes de las estrías detectadas.
 	\end{itemize}
 	\item Modo manual:
@@ -172,7 +172,7 @@ La finalidad de este modo de trabajo en nuestra aplicación, servirá para detec
 	\begin{itemize}
 		\item Después de cargar cualquier imagen en la aplicación podremos acceder a las funciones de este modo.
 		\item Para pintar desde cero una imagen, sin que tenga estrías, podemos hacer clic en el la pestaña de corregir lineas y mover la región de iteres por la imagen en la zona que queremos pintar. 
-		\item Dentro de la pestaña, anteriormente mencionada, en el botón con el mismo nombre al hacer clic, la primera vez fijaremos el cuadrado y procederemos a seleccionar el origen y el final de la estría que queremos detectar, Para añadirla simplemente tendremos que clicar sobre el botón añadir punto y esta quedara incluida en la tabla. Para pintar nuevas estrías en una imagen que ya contenga estrías pintadas procederemos de forma similar, pero no podremos mover la región de interés. 
+		\item Dentro de la pestaña, anteriormente mencionada, en el botón con el mismo nombre al hacer clic, la primera vez fijaremos el cuadrado y procederemos a seleccionar el origen y el final de la estría que queremos detectar, para añadirla simplemente tendremos que hacer click sobre el botón añadir punto y esta quedará incluida en la tabla. Para pintar nuevas estrías en una imagen que ya contenga estrías pintadas procederemos de forma similar, pero no podremos mover la región de interés. 
 		\item Una vez que tengamos alguna estría pintada en nuestra imagen podremos proceder a guardar las estadísticas y todos los datos relevantes del proyecto, de forma similar a los otros modos.
 	\end{itemize}
 
@@ -193,7 +193,7 @@ Este paquete contendrá todos los elementos gráficos de la aplicación y todos 
 	\item Mediadores:
 	Este paquete va a contener los mediadores de la interfaz para deslocalizar código y complejidad en esta.
 	\end{itemize}
-\item Código: Este paquete contendrá todas las clases de cálculo que necesitara la aplicación:
+\item Código: Este paquete contendrá todas las clases de cálculo que necesitará la aplicación:
 	\begin{itemize}
 	\item Estadísticas:
 	Este paquete contendrá las clases del cálculo de estadísticas.
@@ -216,10 +216,10 @@ Este paquete contendrá todos los elementos gráficos de la aplicación y todos 
 En este apartado vamos a usar de los patrones de diseño que hemos utilizado en nuestra aplicaron.
 
 El patrón más importante y con el que vamos a empezar es el medidor que consigue hacer que la interfaz este limpia simplemente con las declaraciones de las variables que más adelante va a utilizar.
-La base de los patrones de diseño su libro más significativo es \cite{Hunt2013}.
+La base de los patrones de diseño, está explicado en su libro más significativo, el cual es \cite{Hunt2013}.
 
 \begin{itemize}
-\item Mediador \cite{wiki:Mediador}: Se utiliza para encapsulas las interacciones entre los objetos de la interfaz por lo que se clasifica como patrón de comportamiento.
+\item Mediador \cite{wiki:Mediador}: Se utiliza para encapsular las interacciones entre los objetos de la interfaz por lo que se clasifica como patrón de comportamiento.
 Como dato curioso, es de los pocos patrones que permiten la bidireccionalidad de comunicación entre las clases, por eso es el patrón idóneo para la interacción de las clases de la interfaz gráfica.
 Aplicando este patrón reducimos la dependencia del código por lo que de esta forma las interfaces no ven lo que tienen por debajo y reduce la complejidad.
 
@@ -231,7 +231,7 @@ Aplicando este patrón reducimos la dependencia del código por lo que de esta f
 \item Interfaz simple para un sistema complejo.
 \end{itemize}
 
-\item Comando \cite{wiki:Comando}: Se utiliza para encapsular el contenido de una función, así ni el emisor de la operación ni el receptor saber que hay por debajo, pero si poder acceder a las funciones que hay.\\\\
+\item Comando \cite{wiki:Comando}: Se utiliza para encapsular el contenido de una función, así ni el emisor de la operación ni el receptor, sabe que hay por debajo, pero si poder acceder a las funciones que hay.\\\\
 \textbf{Obtenemos:}
 \begin{itemize}
 \item Permitir la parametrización.

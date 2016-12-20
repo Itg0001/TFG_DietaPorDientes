@@ -1,9 +1,9 @@
 \apendice{Documentación de usuario}
 
 \section{Introducción}
-En esta sección, nos vamos a centrar en explicar y mostrar paso a paso, como un usuario puede llegar a usar esta aplicación de forma intuitiva y sencilla.
+Esta sección se centra en la explicación y demostración de cómo se debe utilizar la aplicación, de forma intuitiva y sencilla.
 \section{Requisitos de usuarios}
-Para que un usuario pueda ejecutar y usar nuestra aplicación, deberá tener instalado Python 3.5 en su maquina, aunque para facilitar al usuario no tener que saber como descargar las librerías o dependencias, hemos implementado un script que funcionara teniendo instalado Miniconda para Python 3.5, explicaremos su uso en la instalación.
+Para que un usuario pueda ejecutar y usar nuestra aplicación, deberá tener instalado Python 3.5 en su máquina, aunque para facilitar al usuario no tener que saber como descargar las librerías o dependencias, hemos implementado un script que funcionará teniendo instalado Miniconda para Python 3.5, explicaremos su uso en la instalación.
 
 \begin{itemize}
 	\item Tener una distribución Windows instalada.
@@ -16,7 +16,7 @@ Para que un usuario pueda ejecutar y usar nuestra aplicación, deberá tener ins
 		
 		Es una distribución que incluye Python y facilita el uso de este lenguaje y la instalación de multitud de librerías.
 		
-		Sera necesario tenerlo instalado en la carpeta principal de nuestro usuario C:\textbackslash Users\textbackslash NombreTuUsuario
+		Sera necesario tenerlo instalado en la carpeta principal de nuestro usuario \textrm{C:\textbackslash Users\textbackslash NombreTuUsuario}
 	\end{itemize}
 	
 	\item Tener el proyecto descargado o clonado con los fuentes:
@@ -27,30 +27,30 @@ Para que un usuario pueda ejecutar y usar nuestra aplicación, deberá tener ins
 
 \section{Instalación}
 
-Una vez que tengamos Miniconda para Python 3.5 y el proyecto descargado o clonado podremos proceder a la instalación del mismo, siguiendo los pasos descritos a continuación:
+Una vez que tengamos Miniconda para Python 3.5 y el proyecto descargado o clonado, podremos proceder a la instalación del mismo, siguiendo los pasos descritos a continuación:
 
 \begin{itemize}
-	\item Primero si hemos descargado el proyecto lo tendremos en formato .zip deberemos descomprimirlo en la carpeta deseada.
+	\item Primero, si hemos descargado el proyecto lo tendremos en formato .zip deberemos descomprimirlo en la carpeta deseada.
 	
-	\item Una vez descomprimido dentro del fichero del proyecto estará ubicado un ejecutable para Windows .bat llamado <<EjecutarGui.bat>>.
+	\item Una vez descomprimido dentro del directorio del proyecto estará ubicado un ejecutable para Windows .bat llamado <<\textrm{EjecutarGui.bat}>>.
 	
-	Procederemos a hacer doble clic sobre este fichero ejecutable y se abrirá una terminal, la primera vez que lo hagamos este proceso tardara un rato, porque descarga las librerías necesarias para la ejecución del mismo.
+	Procederemos a hacer doble clic sobre este fichero ejecutable y se abrirá una terminal, la primera vez que lo hagamos, tardará un rato, porque descarga las librerías necesarias para la ejecución del mismo.
 	
 	\item Una vez terminado el proceso anterior, se abrirá la aplicación.
 \end{itemize}
 
-\subsection{Cuando algo falla}
-En caso de que al instalar o descargar los paquetes salta algún error esto se deberá a que se habrá perdido la conexión a Internet y no puede descargar los paquetes necesarios.
-Para solucionarlo volvemos a ejecutar y comenzara donde se quedo al caerse la red. No perdemos el tiempo usado hasta ese momento.
+\subsection{Posibles errores}
+En caso de que al instalar o descargar los paquetes salte algún error esto, puede deberse a que se ha perdido la conexión a Internet y no puede descargar los paquetes necesarios.
+Para solucionarlo volvemos a ejecutar y comenzará donde se quedó al caerse la red. No perdemos el tiempo usado hasta ese momento.
 
-Otro fallo común es que no se haya instalado la distribución de Miniconda sobre el directorio indicado: C:\textbackslash Users\textbackslash NombreTuUsuario.
+Otro fallo común es que no se haya instalado la distribución de Miniconda sobre el directorio indicado: \textrm{C:\textbackslash Users\textbackslash NombreTuUsuario}.
 Para solucionar este problema deberemos instalarlo sobre este directorio.
 
-En caso de que surja algún otro problema contactar con el desarrollador a través del siguiente EMAIL: itg0001\makeatletter @ alu.ubu.es 
+En caso de que surja algún otro problema contactar con el desarrollador a través del siguiente e-mail: \textrm{itg0001\makeatletter @ alu.ubu.es}
 
 \section{Manual del usuario}
 
-Una vez tengamos todo bien configurado y la aplicación ejecute correctamente deberíamos tener esta ventana inicial.
+Una vez tengamos todo bien configurado y la aplicación se ejecute correctamente, deberíamos tener esta ventana inicial, como se ve en la figura \ref{fig:E.1}.
 
 \begin{figure}[h]
 \centering
@@ -58,19 +58,17 @@ Una vez tengamos todo bien configurado y la aplicación ejecute correctamente de
 \caption{Ventana inicial de la aplicación}
 \label{fig:E.1}
 \end{figure}
-Una vez llegados a este punto tendremos varias opciones para editar o calculas las estrías de una imagen, dependiendo si esta en blanco o ya pintada tendremos las siguientes opciones:
+Una vez llegados a este punto tendremos varias opciones para editar o calculas las estrías de una imagen, dependiendo, si la imagen esta en blanco o si las estrías ya están pintadas sobre ella, tendremos las siguientes opciones:
 
 \begin{itemize}
 	\item Abrir imagen \ref{modo:1}:
-
 	\item Cargar proyecto \ref{modo:2}:
-	
 \end{itemize}
 
-
-\label{modo:1}
 \subsection{Abrir imagen}
-En esta sección se explicara como cargar una imagen en nuestra aplicación, para empezar un proyecto desde cero.
+\label{modo:1}
+
+En esta sección se explicará como cargar una imagen en nuestra aplicación, para empezar un proyecto desde cero.
 
 Deberemos seleccionar la opción de Archivo  $>$ Nuevo Proyecto. Como se puede ver en la imagen \ref{fig:abrirPro}
 
@@ -81,7 +79,7 @@ Deberemos seleccionar la opción de Archivo  $>$ Nuevo Proyecto. Como se puede v
 \label{fig:abrirPro}
 \end{figure}
 
-Una vez que clicamos en este punto se nos muestra una ventana de elegir ficheros en el cual debemos explorar hasta la carpeta donde estén las imágenes que queremos analizar. Como podemos observar en la figura \ref{fig:abrirPaso2}
+Una vez que hagamos click en este punto, se nos muestra una ventana para elegir ficheros, en el cual debemos explorar hasta la carpeta donde estén las imágenes que queremos analizar. Como podemos observar en la figura \ref{fig:abrirPaso2}
 
 \begin{figure}[h]
 \centering
@@ -91,26 +89,29 @@ Una vez que clicamos en este punto se nos muestra una ventana de elegir ficheros
 \end{figure}
 
 Una vez seleccionado deberemos dar a aceptar si hemos seleccionado la imagen que queremos evaluar.
-Dependiendo de la imagen que hemos abierto pueden pasar dos cosas, uno \ref{fig:opcion1}, que la imagen abierta este pintada, dos \ref{fig:opcion2}, que la imagen abierta no este pintada. Dependiendo de esto tendremos estas dos ventanas, como se muestra en la figura.
+Dependiendo de la imagen que hemos abierto pueden pasar dos cosas: uno \ref{fig:opcion1}, que la imagen abierta este pintada, dos \ref{fig:opcion2}, que la imagen abierta no este pintada. Dependiendo de esto tendremos estas dos ventanas, como se muestra en la figura \ref{fig:figuraTipos}.
 
 
 \begin{figure}
-	\begin{subfigure}[c]{.5\linewidth}
+	\begin{subfigure}[c]{.55\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{opcion1}
 	\caption{Opcion con lineas pintadas.}\label{fig:opcion1}
 	\end{subfigure}%
-	\begin{subfigure}[c]{.5\linewidth}
+	\begin{subfigure}[c]{.55\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{opcion2}
 	\caption{Opcion con lineas sin pintar.}\label{fig:opcion2}
 	\end{subfigure}%
+	\label{fig:figuraTipos}
+	\caption{Opciones de apertura de imagen.}
 \end{figure}
 
 
 
 
-\label{modo:2}
 \subsection{Cargar proyecto}
-En esta sección se explicara como cargar un proyecto en nuestra aplicación, para continuar un proyecto ya empezado.
+\label{modo:2}
+
+En esta sección se explicará como cargar un proyecto en nuestra aplicación, para continuar un proyecto ya empezado.
 
 Deberemos seleccionar la opción de Archivo  $>$ Abrir Proyecto. Como se puede ver en la figura \ref{fig:cargarPro}
 
@@ -122,7 +123,7 @@ Deberemos seleccionar la opción de Archivo  $>$ Abrir Proyecto. Como se puede v
 \label{fig:cargarPro}
 \end{figure}
 
-Una vez que hacemos clic sobre la opción anteriormente mencionada ahora debemos seleccionar la carpeta donde estará contenido todos los ficheros del proyecto, como podemos observar en la siguiente figura \ref{fig:selecCargarPro}. y una vez seleccionado el directorio que contiene los ficheros del proyecto damos a <<Abrir carpeta>> para cargar el proyecto. 
+Una vez que hacemos clic sobre la opción de abrir proyecto, ahora debemos explorar, como podemos observar en la siguiente figura \ref{fig:selecCargarPro}, hasta el directorio que contiene los ficheros que se generan al guardar un proyecto \textrm{<<Pintada.jpg, Original.jpg, Proyecto.xml, Salida-Estadisticas.csv, Salida-Lineas.csv y Tabla.tex>>}  y una vez seleccionado el directorio que contiene los ficheros del proyecto, damos a \textrm{<<Abrir carpeta>>} para cargar el proyecto. 
 
 
 
@@ -133,7 +134,7 @@ Una vez que hacemos clic sobre la opción anteriormente mencionada ahora debemos
 \label{fig:selecCargarPro}
 \end{figure}
 
-Una vez abierto el proyecto tendremos la imagen en blanco y negro junto con sus estrías guardadas que estarán pintadas sobre la imagen, como podemos observar en la figura \ref{fig:proyectoAbierto}.
+Una vez abierto el proyecto tendremos la imagen junto con sus estrías guardadas que estarán pintadas sobre la imagen, como podemos observar en la figura \ref{fig:proyectoAbierto}.
 
 
 \begin{figure}[h]
@@ -143,9 +144,12 @@ Una vez abierto el proyecto tendremos la imagen en blanco y negro junto con sus 
 \label{fig:proyectoAbierto}
 \end{figure}
 
-\label{modo:idioma}
 \subsection{Cambiar idioma}
-Para cambiar el idioma de la aplicación deberemos seleccionar en el menú principal Idioma $>$ Una de las dos opciones, como podemos observar en la figura \ref{fig:camb}, hemos optado por cambiar el idioma de la aplicación y que perduren los cambios realizados en el fichero de configuración por lo que nos va a pedir reiniciar la aplicación, si tenemos algo abierto nos preguntara si queremos guardar los cambios o no.
+\label{modo:idioma}
+
+Para cambiar el idioma de la aplicación, deberemos seleccionar en el menú principal, <<Idioma $>$ Una de las dos opciones>> como podemos observar en la figura \ref{fig:camb}.
+
+Hemos optado por cambiar el idioma de la aplicación para que perduren los cambios en futuras ejecuciones, para realizar esto, debemos reiniciar la aplicación. Si tenemos datos sin guardar, nos preguntará si queremos guardar los cambios o no antes de cerrar la aplicación.
 
 \begin{figure}[h]
 \centering
@@ -163,11 +167,11 @@ Este modo solamente podrá ser usado cuando dispongamos de una imagen que tenga 
 \begin{figure}[h]
 \centering
 \includegraphics[width=.99\textwidth]{semiAutoCorrecto}
-\caption{Imagen valida para detección de estrías modo semiautomático.}
+\caption{Imagen válida para detección de estrías modo semiautomático.}
 \label{fig:semiAutoCorrecto}
 \end{figure}
 
-Una vez que tengamos una imagen con las estrías pintadas cargada y valida como mostramos en la figura, procederemos a seleccionar su orientación, como muestra en la siguiente figura \ref{fig:selOrientacion}.
+Una vez que tengamos una imagen con las estrías pintadas cargada y válida como mostramos en la figura, procederemos a seleccionar su orientación, como muestra en la figura \ref{fig:selOrientacion}.
 
 \begin{figure}[h]
 \centering
@@ -176,7 +180,7 @@ Una vez que tengamos una imagen con las estrías pintadas cargada y valida como 
 \label{fig:selOrientacion}
 \end{figure}
 
-A continuación deberemos seleccionar tanto el numero de repeticiones del algoritmo para la obtención de los segmentos pintados <<Cuanto mayor número de ellos mas tiempo tardara>>, la longitud mínima que debe ignorar el algoritmo para no detectar segmentos muy pequeños. Como podemos observar en la figura \ref{fig:opcionesAlg}.
+A continuación deberemos seleccionar tanto el número de repeticiones del algoritmo para la obtención de los segmentos pintados <<Cuanto mayor número de ellos mas tiempo tardara>>, la longitud mínima que debe ignorar el algoritmo para no detectar segmentos muy pequeños. Como podemos observar en la figura \ref{fig:opcionesAlg}.
 
 \begin{figure}[h]
 \centering
@@ -185,9 +189,9 @@ A continuación deberemos seleccionar tanto el numero de repeticiones del algori
 \label{fig:opcionesAlg}
 \end{figure}
 
-Finalmente para nos quedaría la opción mas importante que sin ella el algoritmo no podrá ser ejecutado. Es seleccionar el color del que estén pintadas las lineas, para ello deberemos clicar sobre el botón <<Seleccionar color>>, como podemos observar en la figura \ref{fig:selecionarColorP1} y después de clicar sobre el este se desactivara como podemos observar en la figura \ref{fig:selecionarColorP2}.
-Las estrías pintadas aveces pueden ser muy finas y no seremos capaces de clicar sobre esos pixeles por lo que en este caso deberemos ampliar la imagen en una región que contenga estrías pintadas, para ampliar debemos seleccionar el botón de ampliar y dibujar un rectángulo sobre la imagen con el clic derecho pulsado,como podemos observar en la figura \ref{fig:selecionarColorP3}.
-Una vez seleccionado el color correctamente este pintada el label de color actual y también se activara el botón de calcular las lineas, como podemos observar en la figura \ref{fig:selecionarColorP4}.
+Finalmente, nos quedaría la opción mas importante que sin ella el algoritmo no podrá ser ejecutado. Es seleccionar el color del que estén pintadas las lineas, para ello deberemos hacer click sobre el botón <<Seleccionar color>>, como podemos observar en la figura \ref{fig:selecionarColorP1} y después de hacer click sobre el, este se desactivará, como podemos observar en la figura \ref{fig:selecionarColorP2}.
+Las estrías pintadas a veces pueden ser muy finas y no seremos capaces de clicar sobre esos pixeles, por lo que en este caso deberemos ampliar la imagen en una región que contenga estrías pintadas. Para ampliar debemos seleccionar el botón de ampliar y dibujar un rectángulo sobre la imagen con el clic derecho pulsado, como podemos observar en la figura \ref{fig:selecionarColorP3}.
+Una vez seleccionado el color correctamente, cuando este pintado el label de color actual con el color de las estrías pintadas, se activará el botón de calcular las lineas, como podemos observar en la figura \ref{fig:selecionarColorP4}.
 
 
 
@@ -198,7 +202,7 @@ Una vez seleccionado el color correctamente este pintada el label de color actua
 	\end{subfigure}%
 	\begin{subfigure}[c]{.5\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{selecionarColorP2}
-	\caption{Después de clicar sobre el.}
+	\caption{Después de hacer click sobre él.}
 	\label{fig:selecionarColorP2}
 	\end{subfigure}%
 	
@@ -212,20 +216,22 @@ Una vez seleccionado el color correctamente este pintada el label de color actua
 	\caption{Después de seleccionar correctamente el color.}
 	\label{fig:selecionarColorP4}
 	\end{subfigure}%
+	\label{fig:pasosColor}
+	\caption{Pasos para seleccionar el color correctamente.}
 \end{figure}
 
-Para finalizar una vez que cliquemos en el botón de calcular lineas ya podremos añadir estrías nuevas, eliminar algunos segmentos, borrar todos o guardar los datos del proyecto para calcular las estadísticas de las estrías.
+Para finalizar, una vez que hagamos click en el botón de calcular lineas ya podremos añadir estrías nuevas, eliminar algunos segmentos, borrar todos o guardar los datos del proyecto para calcular las estadísticas de las estrías.
 
 
 \subsection{Modo manual}
-Después de cargar una imagen ya sea pintada o sin pintar deberemos abrir una imagen como indica el apartado \ref{modo:1} o abrir un proyecto tal y como indican el apartado \ref{modo:2}.
+Después de cargar una imagen. Ya sea pintada o sin pintar. Deberemos abrir una imagen como indica el apartado \ref{modo:1} o abrir un proyecto tal y como indican el apartado \ref{modo:2}.
 Una vez que tengamos la imagen o el proyecto cargado podremos pintar nuevas estrías en la imagen siguiendo los siguientes pasos.
 
 \begin{itemize}
-\item Pulsaremos el botón de corregir lineas, como muestra la siguiente figura \ref{fig:CorregirPaso1}.
+\item Pulsaremos el botón de corregir lineas, como muestra la figura \ref{fig:CorregirPaso1}.
 
-\item Una vez pulsado deberemos seleccionar dos puntos, uno el inicio y el segundo, el final del segmento que queremos añadir. 
-Dentro del recuadro de la región factible que esta delimitada por un recuadro negro, como se muestra en las figuras \ref{fig:punto1} y \ref{fig:punto2}, ahora solo nos quedara añadir el segmento a la tabla como muestra la figura \ref{fig:anadirsegment}.
+\item Una vez pulsado deberemos seleccionar dos puntos: inicio y final del segmento que queremos añadir. 
+Dentro del recuadro de la región pintable que esta delimitada por un recuadro negro, como se muestra en las figuras \ref{fig:punto1} y \ref{fig:punto2}, ahora solo nos quedara añadir el segmento a la tabla como muestra la figura \ref{fig:anadirsegment}.
 \end{itemize}
 
 \begin{figure}
@@ -246,6 +252,7 @@ Dentro del recuadro de la región factible que esta delimitada por un recuadro n
 	\centering\large \includegraphics[width=.9\textwidth]{anadirsegment}
 	\caption{Añadir segmento.}\label{fig:anadirsegment}
 	\end{subfigure}%
+	\caption{Pasos para añadir un segmentos manualmente.}
 \end{figure}
 
 	
@@ -254,7 +261,7 @@ Para los demás pasos no hace falta explicación ya que sus respectivos botones 
 \subsection{Modo automático}
 Después de cargar una imagen sin pintar deberemos abrir una imagen como indica el apartado \ref{modo:1} o abrir un proyecto tal y como indica el apartado \ref{modo:2}.
 
-Una vez que tengamos la imagen o el proyecto cargado, podremos configurar el modo automático, lo primero sera asignar la orientación de la imagen, como podemos ver en la figura \ref{fig:selOrientacion}, también deberemos seleccionar la longitud mínima de corte que ignorara el algoritmo automático, como podemos observar en la figura \ref{fig:selTam}.
+Una vez que tengamos la imagen o el proyecto cargado, podremos configurar el modo automático, lo primero será asignar la orientación de la imagen, como podemos ver en la figura \ref{fig:selOrientacion}, también deberemos seleccionar la longitud mínima de corte que ignorará el algoritmo automático, como podemos observar en la figura \ref{fig:selTam}.
 
 \begin{figure}[h]
 \centering
@@ -263,7 +270,7 @@ Una vez que tengamos la imagen o el proyecto cargado, podremos configurar el mod
 \label{fig:selTam}
 \end{figure}
 
-Una vez seleccionado el tamaño mínimo de corte podremos ejecutar el algoritmo clicando el botón de calar automático obteniendo el resultado mostrado en la figura \ref{fig:CalculadasAuto} y podremos mover el recuadro del área con el que nos queremos quedar a la región de interés que consideremos apropiada.
+Una vez seleccionado el tamaño mínimo de corte podremos ejecutar el algoritmo haremos click sobre el botón de calcular automático, obteniendo el resultado mostrado en la figura \ref{fig:CalculadasAuto} y podremos mover el recuadro del área con el que nos queremos quedar a la región de interés que consideremos apropiada.
 
 \begin{figure}[h]
 \centering
@@ -272,7 +279,7 @@ Una vez seleccionado el tamaño mínimo de corte podremos ejecutar el algoritmo 
 \label{fig:CalculadasAuto}
 \end{figure}
 
-una vez que la situemos donde mayor densidad de estrías haya detectado, la fijaremos e ignorara las que se queden por fuera de la región, como podemos observar en la figura \ref{fig:automati}.
+Una vez que la situemos donde mayor densidad de estrías haya detectado, la fijaremos e ignorará las que se queden por fuera de la región, como podemos observar en la figura \ref{fig:automati}.
 
 \begin{figure}[h]
 \centering
@@ -281,22 +288,23 @@ una vez que la situemos donde mayor densidad de estrías haya detectado, la fija
 \label{fig:automati}
 \end{figure}
 
-Pasado este punto en la pestaña de corregir lineas quedaran añadidas todas aquellas que ha detectado el algoritmo y hemos encuadrado en la región factible, de estas lineas podremos obtener tanto estadísticas como un proyecto para editar mas adelante. Guardando el proyecto con el botón para dicha función.
+Pasado este punto, en la pestaña de corregir lineas quedarán añadidas todas aquellas que ha detectado el algoritmo y hemos encuadrado en la región factible, de estas lineas podremos obtener tanto estadísticas como un proyecto para editar mas adelante. Guardando el proyecto con el botón para dicha función.
 
 \subsection{Guardar proyecto}
 
 En este apartado vamos a explicar como guardar un proyecto una vez que hayamos abierto o cargado una imagen, calculado las estrías con el modo semiautomático o por el automático, y la tabla este rellenada con estas. 
-Si el proyecto es cargado de uno ya existente, no tener abiertas las estadísticas en Excel porque sino no funcionara la operación de guardar, esto sera transparente al usuario porque dejara los ficheros como estaban antes, no los modificara, e informara al usuario de que no han sido guardados. 
+Si el proyecto es cargado a partir de uno ya existente, no tener abiertas las estadísticas en Excel o cualquier otro editor, porque sino no funcionará la operación de guardar. Esto sera transparente al usuario porque dejara los ficheros como estaban antes, no los modificará, e informará al usuario de que no han sido guardados. 
 
-Podemos usar tanto el botón de guardar que aparece en la pestaña dos \ref{fig:BotonGuarPesta} como el botón del menú principal que aparece en la figura \ref{fig:BotonGuar}
+Podemos usar tanto el botón de guardar que aparece en la pestaña dos, la pestaña de corregir lineas, \ref{fig:BotonGuarPesta} como el botón del menú principal que aparece en la figura \ref{fig:BotonGuar}
 
 \begin{figure}
 	\begin{subfigure}[c]{.5\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{BotonGuarPesta}
-	\caption{Boton de guardar en la pestaña dos.}\label{fig:BotonGuarPesta}
+	\caption{Boton de guardar en la pestaña, corregir lineas.}\label{fig:BotonGuarPesta}
 	\end{subfigure}%
 	\begin{subfigure}[c]{.5\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{BotonGuar}
 	\caption{Boton de guardar en el menu principal.}\label{fig:BotonGuar}
 	\end{subfigure}%
+	\caption{Opciones para guardar tabla.}
 \end{figure}

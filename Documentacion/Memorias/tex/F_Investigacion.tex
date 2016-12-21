@@ -1,6 +1,6 @@
 \apendice{Procesado automático de la imagen}
-
-\section{introducción}
+\label{anexo:F}
+\section{Introducción}
 En este apartado vamos a explicar lo que hemos investigado sobre la detección de bordes para el modo automático.
 
 Esto lo vamos afrontar desde dos puntos de vista, el primero será por el procesado de imágenes, esto consistirá en binarizar la imagen usando un kernel conocido y observar si los resultados nos muestran algún resultado factible.
@@ -89,7 +89,7 @@ Como podemos ver en las figuras~\ref{F_k6_1},~\ref{F_k6_2},~\ref{F_k6_3} y~\ref{
 		\centering
 		\caption{Kernel g1}
 		\label{F_k6_1}
-		\begin{tabular}{|l|l|l|}
+		\begin{tabular}{|r|r|r|}
 			\hline
 			5  & 5  & 5  \\ \hline
 			-3 & 0  & -3 \\ \hline
@@ -100,7 +100,7 @@ Como podemos ver en las figuras~\ref{F_k6_1},~\ref{F_k6_2},~\ref{F_k6_3} y~\ref{
 		\centering
 		\caption{Kernel g2}
 		\label{F_k6_2}
-		\begin{tabular}{|l|l|l|}
+		\begin{tabular}{|r|r|r|}
 			\hline
 			5  & 5  & -3  \\ \hline
 			5 & 0  & -3 \\ \hline
@@ -113,7 +113,7 @@ Como podemos ver en las figuras~\ref{F_k6_1},~\ref{F_k6_2},~\ref{F_k6_3} y~\ref{
 		\centering
 		\caption{Kernel g3}
 		\label{F_k6_3}
-		\begin{tabular}{|l|l|l|}
+		\begin{tabular}{|r|r|r|}
 			\hline
 			5  & -3 & -3  \\ \hline
 			5 & 0  & -3 \\ \hline
@@ -124,7 +124,7 @@ Como podemos ver en las figuras~\ref{F_k6_1},~\ref{F_k6_2},~\ref{F_k6_3} y~\ref{
 		\centering
 		\caption{Kernel g4}
 		\label{F_k6_4}
-		\begin{tabular}{|l|l|l|}
+		\begin{tabular}{|r|r|r|}
 			\hline
 			-3  & -3 & -3  \\ \hline
 			5 & 0  & -3 \\ \hline
@@ -146,7 +146,7 @@ No obstante de los métodos hasta ahora usados es en el que mas aprecian.
 		\centering
 		\caption{Kernel Laplace}
 		\label{F_k1}
-		\begin{tabular}{|l|l|l|}
+		\begin{tabular}{|r|r|r|}
 			\hline
 			0 & 1  & 0 \\ \hline
 			1 & -4 & 1 \\ \hline
@@ -157,7 +157,7 @@ No obstante de los métodos hasta ahora usados es en el que mas aprecian.
 		\centering
 		\caption{Kernel Prewitt}
 		\label{F_k2}
-		\begin{tabular}{|l|l|l|}
+		\begin{tabular}{|r|r|r|}
 			\hline
 			1  & 1   & 1 \\ \hline
 			0  & 0   & 0 \\ \hline
@@ -169,7 +169,7 @@ No obstante de los métodos hasta ahora usados es en el que mas aprecian.
 		\centering
 		\caption{Kernel HScharr}
 		\label{F_k3}
-		\begin{tabular}{|l|l|l|}
+		\begin{tabular}{|r|r|r|}
 			\hline
 			3  & 10  & 3 \\ \hline
 			0  & 0   & 0 \\ \hline
@@ -180,7 +180,7 @@ No obstante de los métodos hasta ahora usados es en el que mas aprecian.
 		\centering
 		\caption{Kernel HSobel}
 		\label{F_k4}
-		\begin{tabular}{|l|l|l|}
+		\begin{tabular}{|r|r|r|}
 			\hline
 			1  & 2  & 1 \\ \hline
 			0  & 0  & 0 \\ \hline

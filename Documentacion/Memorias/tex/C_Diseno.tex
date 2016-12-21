@@ -12,7 +12,6 @@ Primero, hemos planeado un prototipo de diseño de cada una de las clases, como 
 
 \section{Diseño de datos}
 
-\subsection{Introducción}
 En este punto vamos a hacer el diseño inicial de las clases de la aplicación y del diseño de paquetes en el que estarán contenidas.
 
 \begin{figure}[h]
@@ -23,8 +22,8 @@ En este punto vamos a hacer el diseño inicial de las clases de la aplicación y
 \end{figure}
  
 
-
-\subsection{Clases}
+\subsection{Diseño inicial}
+\subsubsection{Clases}
 En esta parte vamos a hacer una breve descripción del contenido de cada clase y su función.
 
 \begin{itemize}
@@ -51,12 +50,13 @@ Esta clase contendrá el cálculo de los datos estadísticos y la clasificación
 \end{itemize}
 
 
+\subsection{Diseño Final}
 
 
 
 \subsection{Diseño de la Interfaz}
 
-\subsection{Primera versión}
+\subsubsection{Primera versión}
 
 Para el desarrollo de la interfaz gráfica pensé en una planificación espacial acorde con los elementos que esta contendría.
 Un layout que seria muy adecuado podría ser un border layout pero como no existe en PyQt4 lo he tenido que simular gracias a apilar layouts de otros tipos.
@@ -69,7 +69,7 @@ Consiguiendo tener una botonería arriba del todo y dos columnas debajo claramen
 \label{fig:5.8}
 \end{figure}
 
-\subsection{Versión a evaluar}
+\subsubsection{Versión a evaluar}
 
 En otro Sprint del proyecto lo que he usado han sido pestañas para así tener en la zona de funcionalidades los modos de trabajo de la aplicación claramente separados, como podemos observar en la figura \ref{fig:5.9}.
 
@@ -86,7 +86,8 @@ En otro Sprint del proyecto lo que he usado han sido pestañas para así tener e
 \caption{Diseño de la interfaz de usuario}
 \label{fig:5.9}
 \end{figure}
-\subsubsection{Barra de herramientas}
+
+\textbf{Barra de herramientas}
 Es una sección de la interfaz que nos va permitir de momento la carga de imágenes para su procesado \ref{fig:5.10}.
 \begin{figure}[h]
 \centering
@@ -95,7 +96,7 @@ Es una sección de la interfaz que nos va permitir de momento la carga de imáge
 \label{fig:5.10}
 \end{figure}
 
-\subsubsection{Barra de herramientas de la imagen}
+\textbf{Barra de herramientas de la imagen}
 Es una sección de la interfaz que nos permitirá manipular la imagen para realizar estas acciones,como podemos observar en la figura \ref{fig:5.11}.
 
 \begin{itemize}
@@ -118,7 +119,7 @@ Es una sección de la interfaz que nos permitirá manipular la imagen para reali
 \end{figure}
 
 
-\subsubsection{FigureCanvas de la imagen}
+\textbf{FigureCanvas de la imagen}
 Es la región donde se muestra la imagen que va a ser ligeramente mas grande que la parte de las pestañas \ref{fig:5.12}.
 \begin{figure}[h]
 \centering
@@ -128,7 +129,7 @@ Es la región donde se muestra la imagen que va a ser ligeramente mas grande que
 \end{figure}
 
 
-\subsubsection{Pestañas}
+\textbf{Pestañas}
 Sección de la imagen donde estarán implementadas las funcionalidades para visualizar las líneas que son detectadas por el algoritmo. se ilustra en la figura \ref{fig:5.13}.
 \begin{itemize}
 \item El modo primero es la detección de los surcos en rojo en los dientes 
@@ -182,7 +183,7 @@ La finalidad de este modo de trabajo en nuestra aplicación, servirá para detec
 
 En esta sección del anexo de diseño, vamos a explicar y mostrar de forma general como esta diseñado el proyecto, en cuanto a la distribución de paquetes y los patrones de diseño que hemos aplicado.
 
-\subsection{Diseño de paquetes}
+\subsection{Diseño de paquetes inicial}
 
 En este punto vamos a hacer una breve descripción de cada paquete y de su contenido dentro de la aplicación.
 
@@ -210,6 +211,8 @@ Este paquete contendrá todos los elementos gráficos de la aplicación y todos 
 	\caption{Diagrama de paquetes inicial}
 	\label{fig:C.1.2}
 \end{figure}
+
+\subsection{Diseño de paquetes Final}
 
 
 \subsection{Patrones de diseño}

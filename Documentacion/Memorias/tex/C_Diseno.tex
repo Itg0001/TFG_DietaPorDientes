@@ -21,8 +21,8 @@ En este punto vamos a hacer el diseño inicial de las clases de la aplicación y
 	\label{fig:C.1.1}
 \end{figure}
  
-
 \subsection{Diseño inicial}
+Esta parte se va a corresponder con un diagrama inicial que hemos realizado pero seguramente va a sufrir cambios para ser mas acordes al diseño y cumplir los requisitos que esto conlleva. 
 \subsubsection{Clases}
 En esta parte vamos a hacer una breve descripción del contenido de cada clase y su función.
 
@@ -51,10 +51,40 @@ Esta clase contendrá el cálculo de los datos estadísticos y la clasificación
 
 
 \subsection{Diseño Final}
+Este apartado va a consistir en mostrar los diagramas de clases finales que han salido pero los vamos a dividir en dos partes ya que sino sera un diagrama demasiado grande y así facilitar el entendimiento de ello.
 
 
+\subsubsection{Clases}
+Los diagramas los podemos visualizar en las figuras \ref{fig:finalP1} y \ref{fig:finalP2}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.99\textwidth]{DiagramaClasesFinalP1}
+	\caption{Diagrama de clases final parte uno.}
+	\label{fig:finalP1}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.99\textwidth]{DiagramaClasesFinalP2}
+	\caption{Diagrama de clases final parte dos.}
+	\label{fig:finalP2}
+\end{figure}
+
+Las clases que hemos mantenido desde el primer diseño pueden ser encontradas en la sección Diseño inicial.
+Las clases que hemos añadido nuevas para facilitar el diseño las podemos vamos a explicar a continuación.
+
+\begin{itemize}
+	\item VisorHTML: Esta clase va a servir para mostrar la ayuda en formato HTML ya que la herramienta para implementar la ayuda no estaba disponible para PyQt solo estaba para Qt.
+	\item PintarRectangulo: Esta clase servirá para mostrar el triangulo por la ventana donde queremos evaluar las estrías que aun no están pintadas dentro de la imagen.
+	\item ProcesadoAutomatico: Esta clase sera la encargada de hacer el procesado para las imágenes que estén sin pintar y se corresponde con el nuevo modo que hemos añadido como extra a la aplicación.
+	\item FachadaBotonesAndLayout: Esta clase va a contener las declaraciones e inicializaciones de la botonería y los layout correspondientes al panel de pestañas.
+	\item FachadaEntradaSalida: Esta clase se va a encargar de comunicar los procedimientos de entrada y salida para crear y gestionar los resultados que vamos a guardar en el fichero de proyecto generado por la aplicación.
+	\item ConfiguracionToXML: Esta clase se va a encargar de guardar las configuraciones que hemos aplicado a las imágenes para obtener los resultados que hemos conseguido.
+\end{itemize}
 
 \subsection{Diseño de la Interfaz}
+Este apartado se va a corresponder con el diseño de la interfaz gráfica que hemos optado desde el primer momento.
 
 \subsubsection{Primera versión}
 
@@ -143,7 +173,25 @@ Sección de la imagen donde estarán implementadas las funcionalidades para visu
 \caption{Pestañas}
 \label{fig:5.13}
 \end{figure}
+\subsection{Diseño salida CSV}
+Para las salida de datos en formato CSV hemos optado por usar los siguientes formatos.
+\begin{itemize}
+	\item Estadisticas: 
+		\begin{itemize}
+			\item Tipo: Nos indica la orientación de la estría.	
+			\item Numero: Nos indica cuantas estrías de esa orientación hay.
+			\item MediaLon: Nos indica la media de las estrías de esa orientación.
+			\item DesviacionTip Nos indica la desviación típica de las estrías con dicha orientación.
+		\end{itemize}
+	\item Salida Estrias:
+		\begin{itemize}
+			\item Línea: Aparecerán las coordenadas de los dos puntos que forman el segmento.
+			\item Ángulo: Aparecerá el ángulo que forma la estría con el eje x.
+			\item Tamaño: Aparecerá	la longitud de la estría.
+			\item Tipo: Aparecerá la orientación de la estría
+		\end{itemize}			
 
+\end{itemize}
 \section{Diseño procedimental}
 En este apartado se van a explicar los pasos que siguen los distintos modos de la aplicación.
 
@@ -211,9 +259,32 @@ Este paquete contendrá todos los elementos gráficos de la aplicación y todos 
 	\caption{Diagrama de paquetes inicial}
 	\label{fig:C.1.2}
 \end{figure}
+Los paquetes que ya hayan sido explicados en el diagrama inicial no van a aparecer su explicación en este diagrama.
+\textbf{Src}
+\begin{itemize}
+		\item Proyecto: Este paquete contendrá todos los fuentes del proyecto menos los main.
+	\begin{itemize}
+			\item Analisis:
+			\begin{itemize}
+				\item Diccionario: Este paquete tendrá las clases para poder internacionalizar la aplicación.
+			\end{itemize}
+			\item GUI: Contendrá los elementos que componen la interfaz.
+	\end{itemize}
+		\item Test: Este paquete contendrá los test que hemos realizado sobre el código.
+		\begin{itemize}
+			\item Calidad: Contendrá los fuentes que testan la calidad de la detección en una imagen.
+		\end{itemize}
+\end{itemize}
 
 \subsection{Diseño de paquetes Final}
+Este apartado se va a corresponder con la descripcion de los paquetes que han cambiado desde el diseño inicial de la aplicacion, tambien mostraremos el diagrama actualizado con los paquetes que hemos incluido. Como podemos observar en la figura \ref{fig:PaquetesFinal}
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.99\textwidth]{DiagramaPaquetesV2}
+	\caption{Diagrama de paquetes inicial}
+	\label{fig:PaquetesFinal}
+\end{figure}
 
 \subsection{Patrones de diseño}
 En este apartado vamos a usar de los patrones de diseño que hemos utilizado en nuestra aplicaron.

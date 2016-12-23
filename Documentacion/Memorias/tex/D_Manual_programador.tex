@@ -174,3 +174,200 @@ Otra opción para ejecutar los test es dar doble clic sobre el ejecutable Ejecut
 
 Aparte de los datos proporcionados en la ejecución hemos puesto una salida informativa para cada test y las partes que comprueba.
  
+\subsection{Test de calidad}
+En este apartado vamos a mostrar las medidas que vamos a usar para conseguir la calidad de las imágenes y explicar las formulas. 
+
+\begin{itemize}
+\item True positive rate (TPR): Mide la proporción de los elementos que se han considerado como positivos y son positivos.
+\[TPR=\frac{TP}{TP+FN}\]
+
+\item True negative rate (TNR):Mide la proporción de los elementos que se han considerado como negativos y son negativos. 
+\[TNR=\frac{TN}{FP+TN}\]
+
+\item Positive predictive value (PPV): Mide la proporción de elementos clasificados como verdaderos positivos entre los positivos.
+\[PPV=\frac{TP}{TP+FP}\]
+
+
+\item Negative predictive value (NPV): Mide la proporción de elementos clasificados como verdaderos negativos entre los negativos.  
+\[NPV=\frac{TN}{TN+FN}\]
+
+
+\item False positive rate (FPR):
+Mide la proporción de los elementos que se han considerado como falsos positivos entre los que son negativos reales.
+ \[FPR=1-TNR\]
+
+\item False discovery rate (FDR):
+Mide la proporción de los elementos que se han considerado como falsos positivos entre los que son positivos de verdad.
+\[FDR=1-PPV\]
+
+\item Miss rate or false negative rate (FNR):
+Mide la proporción de los elementos que se han considerado como falsos negativos entre los que son  positivos. \[FNR=1-TPR\]
+
+\item Accuracy (ACC): Mide el error observable.
+\[ACC=\frac{TP+TN}{P+N}\]
+
+\item Valor F1: Este valor muestra la media armónica entre la precision y la sensibilidad del modelo.
+\[F1=\frac{2TP}{2TP+FP+FN}\]
+
+\item Matthews correlation coefficient (MCC):
+Esta medida se usa en Maching Learning para medir la calidad de la clasificación en dos clases.
+ \[F1=\frac{TP*TN-FP*FN}{\sqrt{(TP+FP)*(TP+FN)*(TN+FP)*(TN+FN)}}\]
+ 
+\item Informedness or Bookmaker Informedness (BM):
+Esta medida informa de la generalización de un problema multi-clases y estima la probabilidad de decisión.
+ \[BM=TPR+TNR-1\]
+
+\item Markedness (MK):
+Esta es la medida de cuando una variable es marcada como predictoir o causa posible de otra.
+ \[MK=PPV+NPV-1\]
+
+
+\end{itemize}
+
+
+
+\subsubsection{Pruebas}
+Aquí van a aparecer una muestra de las pruebas que hemos realizado sobre la aplicación para medir la calidad de la detección.
+
+
+Para las pruebas vamos a optar por construir una matriz de confusion sobre los resultados, la tabla mostrada a continuación, sera el modelo que vamos a seguir \ref{tab:ConfMatrix}.
+
+\begin{table}
+  \begin{center}
+    \begin{tabular}{c l c c}
+                 &                & \multicolumn{2}{c}{\cellcolor{brown!25}Predicted condition}   \\
+                 &                & \cellcolor{brown!15}Positive prediction & \cellcolor{brown!45}Negative prediction \\
+       \cellcolor{blue!15}True      & \cellcolor{blue!10}Positive class & \cellcolor{green!25}True positive (TP)  & \cellcolor{red!25}False negative (FN) \\
+       \cellcolor{blue!15}Condition & \cellcolor{blue!30}Negative class & \cellcolor{red!25}False positive (FP) & \cellcolor{green!25}True negative (TN)  \\
+    \end{tabular}
+  \end{center}
+  \caption{Estructura de la matriz de confusion.}
+  \label{tab:ConfMatrix}
+\end{table}
+
+
+
+Prueba 1: La matriz de confusión obtenida para esta prueba la podemos obserbar en la tabla \ref{tab:pruebas}.
+Las imagenes original, como muestra la figura \ref{fig:orip1}, y calculada,como muestra la figura \ref{fig:calcp1}, las podemos observar en la figura \ref{fig:p1}.
+Los resultados de las medidas de calidad se muestran en las tablas \ref{tab:parte1} y \ref{tab:parte2}.
+
+Prueba 2:La matriz de confusión obtenida para esta prueba la podemos obserbar en la tabla \ref{tab:pruebas}.
+Las imagenes original, como muestra la figura \ref{fig:orip2}, y calculada,como muestra la figura \ref{fig:calcp2}, las podemos observar en la figura \ref{fig:p2}.
+Los resultados de las medidas de calidad se muestran en las tablas \ref{tab:parte1} y \ref{tab:parte2}.
+
+Prueba 3:La matriz de confusión obtenida para esta prueba la podemos obserbar en la tabla \ref{tab:pruebas}.
+Las imagenes original, como muestra la figura \ref{fig:orip3}, y calculada,como muestra la figura \ref{fig:calcp3}, las podemos observar en la figura \ref{fig:p3}.
+Los resultados de las medidas de calidad se muestran en las tablas \ref{tab:parte1} y \ref{tab:parte2}.
+
+Prueba 4:La matriz de confusión obtenida para esta prueba la podemos obserbar en la tabla \ref{tab:pruebas}.
+Las imagenes original, como muestra la figura \ref{fig:orip4}, y calculada,como muestra la figura \ref{fig:calcp4}, las podemos observar en la figura \ref{fig:p4}.
+Los resultados de las medidas de calidad se muestran en las tablas \ref{tab:parte1} y \ref{tab:parte2}.
+
+
+
+
+\begin{table}[]
+\centering
+\caption{Tabla de resultados matriz de confusión}
+\label{tab:pruebas}
+\begin{tabular}{@{} lcccc @{}}
+\hline
+Prueba                & True positive & False negative & False positive & True negative \\ \hline
+Figura \ref{fig:p1} & 36136         & 3840           & 3685           & 1185139       \\ \hline
+Figura \ref{fig:p2} & 31670         & 844            & 6514           & 1189772       \\ \hline
+Figura \ref{fig:p3} & 23114         & 8238           & 7103           & 1190345       \\ \hline
+Figura \ref{fig:p4} & 30284         & 1773           & 14753          & 1181990       \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{Resultados parte uno.}
+\label{tab:parte1}
+\begin{tabular}{@{} lllllll @{}}
+\hline
+Prueba                & TPR  & TNR  & PPV  & NPV  & FPR   & FDR  \\ \hline
+Figura \ref{fig:p1} & 0.90 & 0.99 & 0.99 & 0.99 & 0.003 & 0.09 \\ \hline
+Figura \ref{fig:p2} & 0.97 & 0.99 & 0.83 & 0.99 & 0.17  & 0.17 \\ \hline
+Figura \ref{fig:p3} & 0.74 & 0.99 & 0.76 & 0.99 & 0.01  & 0.24 \\ \hline
+Figura \ref{fig:p4} & 0.94 & 0.99 & 0.67 & 0.99 & 0.01  & 0.33 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{Resultados parte dos.}
+\label{tab:parte2}
+\begin{tabular}{@{} lllllll @{}}
+\hline
+Prueba                & FNR  & ACC  & F1   & MCC  & BM   & MK   \\ \hline
+Figura \ref{fig:p1} & 0.09 & 0.99 & 0.91 & 0.90 & 0.9  & 0.90 \\ \hline
+Figura \ref{fig:p2} & 0.02 & 0.99 & 0.90 & 0.90 & 0.83 & 0.82 \\ \hline
+Figura \ref{fig:p3} & 0.26 & 0.99 & 0.75 & 0.74 & 0.73 & 0.76 \\ \hline
+Figura \ref{fig:p4} & 0.05 & 0.99 & 0.78 & 0.79 & 0.93 & 0.67 \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+
+
+\begin{figure}
+	\begin{subfigure}[c]{.5\linewidth}
+	\centering\large \includegraphics[width=.9\textwidth]{prueba1Ori}
+	\caption{Imagen original prueba 1.}\label{fig:orip1}
+	\end{subfigure}%
+	\begin{subfigure}[c]{.5\linewidth}
+	\centering\large \includegraphics[width=.9\textwidth]{prueba1Detec}
+	\caption{Imagen calculada prueba 1.}\label{fig:calcp1}
+	\end{subfigure}%
+	\caption{Imágenes prueba 1}
+	\label{fig:p1}
+\end{figure}
+
+
+
+\begin{figure}
+	\begin{subfigure}[c]{.5\linewidth}
+	\centering\large \includegraphics[width=.99\textwidth]{prueba2Ori}
+	\caption{Imagen original prueba 2.}\label{fig:orip2}
+	\end{subfigure}%
+	\begin{subfigure}[c]{.5\linewidth}
+	\centering\large \includegraphics[width=.99\textwidth]{prueba2Detec}
+	\caption{Imagen calculada prueba 2.}\label{fig:calcp2}
+	\end{subfigure}%
+	\caption{Imágenes prueba 2}
+	\label{fig:p2}
+
+\end{figure}
+
+
+\begin{figure}
+	\begin{subfigure}[c]{.5\linewidth}
+	\centering\large \includegraphics[width=.9\textwidth]{prueba3Ori}
+	\caption{Imagen original prueba 3.}\label{fig:orip3}
+	\end{subfigure}%
+	\begin{subfigure}[c]{.5\linewidth}
+	\centering\large \includegraphics[width=.9\textwidth]{prueba3Detec}
+	\caption{Imagen calculada prueba 3.}\label{fig:calcp3}
+	\end{subfigure}%
+	\caption{Imágenes prueba 3}
+	\label{fig:p3}
+
+\end{figure}
+
+
+
+\begin{figure}
+	\begin{subfigure}[c]{.5\linewidth}
+	\centering\large \includegraphics[width=.9\textwidth]{prueba4Ori}
+	\caption{Imagen original prueba 4.}\label{fig:orip4} 
+	\end{subfigure}%
+	\begin{subfigure}[c]{.5\linewidth}
+	\centering\large \includegraphics[width=.9\textwidth]{prueba4Detec}
+	\caption{Imagen calculada prueba 4.}\label{fig:calcp4}
+	\end{subfigure}%
+	\caption{Imágenes prueba 4}
+	\label{fig:p4}
+
+\end{figure}

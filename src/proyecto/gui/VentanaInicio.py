@@ -3,8 +3,8 @@ from PyQt5 import QtGui
 from PyQt5 import QtCore
 import sys
 import logging
-from proyecto.diccionario import DiccionarioING
-from proyecto.diccionario import Diccionario
+from proyecto.analisis.diccionario import DiccionarioING
+from proyecto.analisis.diccionario import Diccionario
 import xml.etree.cElementTree as ET
 import xml.etree.ElementTree as ET2
 from proyecto.gui.VisorHtml import VisorHtml
@@ -155,6 +155,10 @@ class VentanaInicio(QtWidgets.QMainWindow):
         self.setCentralWidget(central_widget)
     
     def clickables(self,widget):
+        """
+        Metodo que habilita a la pantalla de inicio a dar funcionalidad
+        a los labels que nos indican abrir o cargar proyectos.
+        """
 
         class Filter(QtCore.QObject):
         
@@ -162,9 +166,7 @@ class VentanaInicio(QtWidgets.QMainWindow):
             
             def eventFilter(self, obj, event):
             
-                if obj == widget:
-                    if event.type() == QtCore.QEvent.MouseButtonRelease:
-                        if obj.rect().contains(event.pos()):
+                if obj == widget and event.type() == QtCore.QEvent.MouseButtonRelease and obj.rect().contains(event.pos()):
                             self.clicked.emit()
                             # The developer can opt for .emit(obj) to get the object within the slot.
                             return True
@@ -177,6 +179,10 @@ class VentanaInicio(QtWidgets.QMainWindow):
     
      
     def mensage_reinicia(self):
+        """
+        Mensage popup que se mostrara siempre que cambiemos el idioma
+        de la aplicacion.
+        """
         self.msg_reini = QtWidgets.QMessageBox()
         self.msg_reini.adjustSize()
         self.msg_reini.setText(self.dic.info_msg)
@@ -185,21 +191,32 @@ class VentanaInicio(QtWidgets.QMainWindow):
         self.cerrar() 
           
     def guarda_ingles(self):
+        """
+        Mensage para guardar la aplicacion en idioma ingles.
+        """
         self.mensage_reinicia()
         self.guarda_idioma(self.idioma_path,"ING")
         
     def guarda_espannol(self):
+
         self.mensage_reinicia()
         self.guarda_idioma(self.idioma_path,"ESP")
      
     @classmethod  
-    def guarda_idioma(self,idioma,idiom):    
-            proyect = ET.Element("proyect")
-            ET.SubElement(proyect,"docu0", idioma=str(idiom))
-            tree = ET.ElementTree(proyect)
-            tree.write(idioma + "/Conf.xml", encoding="UTF-8", xml_declaration=True)
+    def guarda_idioma(self,idioma,idiom): 
+        """
+        Metodo que guardara el idioma de la aplicacion en el fichero de configuracion.
+        """   
+        proyect = ET.Element("proyect")
+        ET.SubElement(proyect,"docu0", idioma=str(idiom))
+        tree = ET.ElementTree(proyect)
+        tree.write(idioma + "/Conf.xml", encoding="UTF-8", xml_declaration=True)
+        
     @classmethod  
     def carga_idioma(self,idioma):
+        """
+        Metodo necesario para la carga del lenguage en la aplicacion.
+        """
         tree = ET2.parse(idioma + "/Conf.xml")
         root = tree.getroot()
         for child in root:
@@ -208,6 +225,9 @@ class VentanaInicio(QtWidgets.QMainWindow):
         return idiom
     
     def inicializa_mensages(self):
+        """
+        Metodo que inicializara los mensajes en la aplicacion.
+        """
         self.msg = QtWidgets.QMessageBox()
         self.msg.adjustSize()
         self.msg.setIcon(QtWidgets.QMessageBox.Warning)    
@@ -254,7 +274,6 @@ class VentanaInicio(QtWidgets.QMainWindow):
         Metodo que implementara la ayuda.
         """
         import os
-        print()
         main = VisorHtml("file:///"+os.getcwd() + "/proyecto/gui/ayuda.html")
         
         main.exec_()

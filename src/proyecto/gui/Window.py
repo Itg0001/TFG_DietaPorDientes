@@ -3,7 +3,7 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
 from matplotlib.figure import Figure
 from proyecto.gui.PanelDePestannas import PanelDePestannas
-from proyecto.gui.Mediadores import MediadorVentana
+from proyecto.analisis.MediadorVentana import MediadorVentana
 
 
 class Window(QtWidgets.QWidget):
@@ -73,7 +73,11 @@ class Window(QtWidgets.QWidget):
         y establecer el area que podremos pintar.
         """   
         self.mediador_ventana.detectar_cuadrado()
+        
     def fijar_cuadrado_auto(self):
+        """
+        Metodo para fijar el cuadrado en la forma automatica de la aplicacion.
+        """
         self.mediador_ventana.fijar_cuadrado_auto()
 
     def inicializa_figura_y_widgets(self):
@@ -108,6 +112,9 @@ class Window(QtWidgets.QWidget):
         self.canvas.draw()
         
     def calcular_automatic(self):
+        """
+        Metodo que calculara las lineas de forma automatica en la aplicacion.
+        """
         self.mediador_ventana.calcular_automatic()
         self.canvas.draw()
 

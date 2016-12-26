@@ -1,26 +1,34 @@
 import sys
 sys.path.append("C:/Users/Tobar/Desktop/Workespace/TFG2/src")
 
-from proyecto.codigo.estadisticas import Estadistica
-from proyecto.codigo.informes import Informe
-from proyecto.codigo.informes import DatosToCsv
-from proyecto.codigo.informes import InGuardarDatos
-from proyecto.codigo.informes import ConfiguracionToXML
-from proyecto.codigo.procesado import ProcesadoDeImagen
-from proyecto.codigo.procesado import ProcesadoDeLineas
-from proyecto.codigo.procesado import ProcesadoAutomatico
-
-from proyecto.gui.Window import Window
-from proyecto.gui.VentanaInicio import VentanaInicio
 from proyecto.gui.PanelDePestannas import PanelDePestannas
-from proyecto.gui.Mediadores.MediadorVentana import MediadorVentana
-from proyecto.gui.Mediadores.MediadorPestannas import MediadorPestannas
-from proyecto.diccionario.Diccionario import Diccionario
+from proyecto.gui.VentanaInicio import VentanaInicio
+from proyecto.gui.VisorHtml import VisorHtml
+from proyecto.gui.Window import Window
+from proyecto.gui.PintarRectangulo import PintarRectangulo
 
+from proyecto.analisis.procesado.ProcesadoDeLineas import ProcesadoDeLineas
+from proyecto.analisis.procesado.ProcesadoDeImagen import ProcesadoDeImagen
+from proyecto.analisis.procesado.ProcesadoAutomatico import ProcesadoAutomatico
 
 from Test.codigo.procesado import TestProcesadoDeImagen
 from Test.codigo.procesado import TestProcesadoDeLineas
 from Test.codigo.estadisticas import TestEstadistica
+
+from proyecto.analisis.informes.Informe import Informe
+from proyecto.analisis.informes.DatosToCsv import DatosToCsv
+from proyecto.analisis.informes.InGuardarDatos import InGuardarDatos
+from proyecto.analisis.informes.ConfiguracionToXML import ConfiguracionToXML
+
+from proyecto.analisis.estadisticas.Estadistica import Estadistica
+
+from proyecto.analisis.diccionario.Diccionario import Diccionario
+from proyecto.analisis.diccionario.DiccionarioING import DiccionarioING
+
+from proyecto.analisis.FachadaBotonesAndLayaout import FachadaBotonesAndLayaout
+from proyecto.analisis.FachadaEntradaSalida import FachadaEntradaSalida
+from proyecto.analisis.MediadorVentana import MediadorVentana
+from proyecto.analisis.MediadorPestannas import MediadorPestannas
 
 from Test.codigo.informes.TestInforme import TestInforme
 from Test.codigo.informes.TestDatosToCsv import TestDatosToCsv

@@ -1,5 +1,5 @@
 import unittest,os
-from proyecto.codigo.informes.DatosToCsv import DatosToCsv
+from proyecto.analisis.informes.DatosToCsv import DatosToCsv
 
 class TestDatosToCsv(unittest.TestCase):
     

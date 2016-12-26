@@ -1,14 +1,28 @@
 from matplotlib.patches import Rectangle
-from proyecto.diccionario import DiccionarioING
+from proyecto.analisis.diccionario import DiccionarioING
 
 
 class PintarRectangulo:
+    """
+    Clase encargada de pintar, mostrar y desplazar la region que queremos evlauar
+    sobre la imagen cargada o abierta.
+    
+    @author: Ismael Tobar Garcia
+    @version: 1.0
+    """
     def __init__(self, ax):
+        """
+        Metodo para inicializar los funcionalidades de la clase.
+        """
         self.press = None
         self.r = Rectangle((7.,7.), 745., 745., edgecolor='black', facecolor='none',lw=4)
         self.rect = ax.add_patch(self.r)
         self.dic=DiccionarioING()
+        
     def connect(self):
+        """
+        Metodo apra conectar los eventos al boton correspondiente.
+        """
         self.cidpress = self.rect.figure.canvas.mpl_connect(
             self.dic.detect_event_press, self.on_press)
         self.cidrelease = self.rect.figure.canvas.mpl_connect(

@@ -249,19 +249,19 @@ Para las pruebas vamos a optar por construir una matriz de confusion sobre los r
 
 Prueba 1: La matriz de confusión obtenida para esta prueba la podemos obserbar en la tabla \ref{tab:pruebas}.
 Las imagenes original, como muestra la figura \ref{fig:orip1}, y calculada,como muestra la figura \ref{fig:calcp1}, las podemos observar en la figura \ref{fig:p1}.
-Los resultados de las medidas de calidad se muestran en las tablas \ref{tab:parte1} y \ref{tab:parte2}.
+Los resultados de las medidas de calidad se muestran en la tabla \ref{tab:parte}.
 
 Prueba 2:La matriz de confusión obtenida para esta prueba la podemos obserbar en la tabla \ref{tab:pruebas}.
 Las imagenes original, como muestra la figura \ref{fig:orip2}, y calculada,como muestra la figura \ref{fig:calcp2}, las podemos observar en la figura \ref{fig:p2}.
-Los resultados de las medidas de calidad se muestran en las tablas \ref{tab:parte1} y \ref{tab:parte2}.
+Los resultados de las medidas de calidad se muestran en la tabla \ref{tab:parte}.
 
 Prueba 3:La matriz de confusión obtenida para esta prueba la podemos obserbar en la tabla \ref{tab:pruebas}.
 Las imagenes original, como muestra la figura \ref{fig:orip3}, y calculada,como muestra la figura \ref{fig:calcp3}, las podemos observar en la figura \ref{fig:p3}.
-Los resultados de las medidas de calidad se muestran en las tablas \ref{tab:parte1} y \ref{tab:parte2}.
+Los resultados de las medidas de calidad se muestran en la tabla \ref{tab:parte}.
 
 Prueba 4:La matriz de confusión obtenida para esta prueba la podemos obserbar en la tabla \ref{tab:pruebas}.
 Las imagenes original, como muestra la figura \ref{fig:orip4}, y calculada,como muestra la figura \ref{fig:calcp4}, las podemos observar en la figura \ref{fig:p4}.
-Los resultados de las medidas de calidad se muestran en las tablas \ref{tab:parte1} y \ref{tab:parte2}.
+Los resultados de las medidas de calidad se muestran en la tabla \ref{tab:parte}.
 
 
 
@@ -280,35 +280,23 @@ Figura \ref{fig:p4} & 30284         & 1773           & 14753          & 1181990 
 \end{tabular}
 \end{table}
 
-\begin{table}[]
-\centering
-\caption{Resultados parte uno.}
-\label{tab:parte1}
-\begin{tabular}{@{} lllllll @{}}
-\hline
-Prueba                & TPR  & TNR  & PPV  & NPV  & FPR   & FDR  \\ \hline
-Figura \ref{fig:p1} & 0.90 & 0.99 & 0.99 & 0.99 & 0.003 & 0.09 \\ \hline
-Figura \ref{fig:p2} & 0.97 & 0.99 & 0.83 & 0.99 & 0.17  & 0.17 \\ \hline
-Figura \ref{fig:p3} & 0.74 & 0.99 & 0.76 & 0.99 & 0.01  & 0.24 \\ \hline
-Figura \ref{fig:p4} & 0.94 & 0.99 & 0.67 & 0.99 & 0.01  & 0.33 \\ \hline
-\end{tabular}
-\end{table}
+
 
 \begin{table}[]
 \centering
-\caption{Resultados parte dos.}
-\label{tab:parte2}
-\begin{tabular}{@{} lllllll @{}}
+\caption{Resultados medidas de calidad}
+\label{tab:parte}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{@{} lllllllllllll @{}}
 \hline
-Prueba                & FNR  & ACC  & F1   & MCC  & BM   & MK   \\ \hline
-Figura \ref{fig:p1} & 0.09 & 0.99 & 0.91 & 0.90 & 0.9  & 0.90 \\ \hline
-Figura \ref{fig:p2} & 0.02 & 0.99 & 0.90 & 0.90 & 0.83 & 0.82 \\ \hline
-Figura \ref{fig:p3} & 0.26 & 0.99 & 0.75 & 0.74 & 0.73 & 0.76 \\ \hline
-Figura \ref{fig:p4} & 0.05 & 0.99 & 0.78 & 0.79 & 0.93 & 0.67 \\ \hline
+Prueba                & TPR  & TNR  & PPV  & NPV  & FPR   & FDR  & FNR  & ACC  & F1   & MCC  & BM   & MK   \\ \hline
+Figura \ref{fig:p1} & 0.90 & 0.99 & 0.99 & 0.99 & 0.003 & 0.09 & 0.09 & 0.99 & 0.91 & 0.90 & 0.9  & 0.90 \\ \hline
+Figura \ref{fig:p2} & 0.97 & 0.99 & 0.83 & 0.99 & 0.17  & 0.17 & 0.02 & 0.99 & 0.90 & 0.90 & 0.83 & 0.82 \\ \hline
+Figura \ref{fig:p3} & 0.74 & 0.99 & 0.76 & 0.99 & 0.01  & 0.24 & 0.26 & 0.99 & 0.75 & 0.74 & 0.73 & 0.76 \\ \hline
+Figura \ref{fig:p4} & 0.94 & 0.99 & 0.67 & 0.99 & 0.01  & 0.33 & 0.05 & 0.99 & 0.78 & 0.79 & 0.93 & 0.67 \\ \hline
 \end{tabular}
+}
 \end{table}
-
-
 
 
 

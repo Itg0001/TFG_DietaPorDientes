@@ -1,5 +1,5 @@
 import unittest,os
-from proyecto.codigo.informes.ConfiguracionToXML import ConfiguracionToXML
+from proyecto.analisis.informes.ConfiguracionToXML import ConfiguracionToXML
 
 class TestConfiguracionToXML(unittest.TestCase):
     

@@ -1,7 +1,7 @@
 import unittest
 import os
 import numpy as np
-from proyecto.codigo.procesado.ProcesadoDeImagen import ProcesadoDeImagen
+from proyecto.analisis.procesado.ProcesadoDeImagen import ProcesadoDeImagen
 from skimage import io
 class TestProcesadoDeImagen(unittest.TestCase):
 

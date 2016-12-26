@@ -3,8 +3,8 @@ Created on 18 dic. 2016
 
 @author: Tobar
 '''
-from proyecto.codigo.procesado.ProcesadoDeImagen import ProcesadoDeImagen
-from proyecto.codigo.procesado.ProcesadoDeLineas import ProcesadoDeLineas
+from proyecto.analisis.procesado.ProcesadoDeImagen import ProcesadoDeImagen
+from proyecto.analisis.procesado.ProcesadoDeLineas import ProcesadoDeLineas
 import os
 from skimage.color import rgb2lab
 from skimage.filters import threshold_otsu
@@ -22,25 +22,25 @@ class TestCalidad(unittest.TestCase):
         procesado_de_imagen=ProcesadoDeImagen()
         procesado_de_lineas=ProcesadoDeLineas
         img=procesado_de_imagen.leer_imagen(actual+"/Test/codigo/calidad/imagenesPrueba/1-350-7547 1.jpg")
-        l,a,b=self.pixelRGB2LAB([255, 8, 0])        
+        l,a,b=self.pixel_rgb_2lab([255, 8, 0])        
         lab=rgb2lab(img)
         distance=abs(lab - [l,a,b]).mean(axis=2)
         im=self.binarizar(distance) 
 #         tru_positive_inicial,tru_negative_inicial,false_positive_inicial,false_negative_inicial = self.inicial_test(im,img)
 #         print(tru_positive_inicial,tru_negative_inicial)
 #         print(false_positive_inicial,false_negative_inicial)         
-        sinRuido=procesado_de_imagen.reducir_grosor(im)
-        lines=procesado_de_imagen.pro_hough(10,5,11,sinRuido) 
+        sin_ruido=procesado_de_imagen.reducir_grosor(im)
+        lines=procesado_de_imagen.pro_hough(10,5,11,sin_ruido) 
         G=nx.Graph()
-        G=procesado_de_lineas.combina(8,4,lines,G)
+        G=procesado_de_lineas.combina2(4,8,4,1,lines,G)
         k_components = apxa.k_components(G)
-        segmentosDeVerdad=procesado_de_lineas.segmentos_verdad(k_components,lines)
+        segmentos_de_verdad=procesado_de_lineas.segmentos_verdad(k_components,lines)
         
         
         pathh=actual+"/Test/codigo/calidad/imagenesPrueba/1-350-7547 1SinPintar.jpg"
         temp=actual+"/Test/codigo/calidad/imagenesPrueba/"
     
-        self.guardar_y_pintar( pathh, temp, segmentosDeVerdad)
+        self.guardar_y_pintar( pathh, temp, segmentos_de_verdad)
     
         img_pintada=procesado_de_imagen.leer_imagen(actual+"/Test/codigo/calidad/imagenesPrueba/calculada.jpg")
 
@@ -85,19 +85,35 @@ class TestCalidad(unittest.TestCase):
         self.assertGreater(BM, 0.6)
         
         MK=PPV+NPV-1
-        self.assertGreater(MK, 0.6)        
-    def pixelRGB2LAB(self,pixel):
+        self.assertGreater(MK, 0.6)  
+        
+     
+        print("TP",TP,"TN",TN,"FP",FP,"FN",FN)
+        print("TPR", TPR, "TNR" ,TNR ,"PPV ",PPV )
+        print("NPV ",NPV,"FPR ",FPR, "FDR ",FDR )
+        print("FNR ",FNR, "ACC ",ACC ,"F1 ",F1)
+        print("N",N,"P",P,"MCC",MCC,"MK",MK,"BM",BM)
+        
+        
+        
+        
+        
+        
+        
+        print()
+    @classmethod      
+    def pixel_rgb_2lab(self,pixel):
         r,g,b = pixel
         return rgb2lab([[[r/255,g/255,b/255]]])[0][0]
 
-    
+    @classmethod      
     def binarizar(self,distance_red):
         threshold_global_otsu = threshold_otsu(distance_red)
-        imgBin = distance_red <= threshold_global_otsu
-        return imgBin    
+        img_bin = distance_red <= threshold_global_otsu
+        return img_bin    
     
 
-    
+    @classmethod      
     def es_rojo(self,l):
         r,g,b=l
         if r > 130 and g <90 and b < 85:
@@ -125,7 +141,7 @@ class TestCalidad(unittest.TestCase):
     
  
     
-    
+    @classmethod      
     def guardar_y_pintar(self, path, temp, segmentos):
         """
         Metodo que se encargara de guardar y pintar los segmentos pasados 

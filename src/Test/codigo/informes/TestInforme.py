@@ -1,5 +1,5 @@
 import unittest,os
-from proyecto.codigo.informes.Informe import Informe
+from proyecto.analisis.informes.Informe import Informe
 
 class TestInforme(unittest.TestCase):
     
@@ -8,8 +8,8 @@ class TestInforme(unittest.TestCase):
         actual = os.getcwd()
         infor=Informe(variables,actual+'/Test')
         template=infor.cargar_plantilla()
-        print("ESTO ES LO QUE IMPORTA",str(template))
-        self.assertEqual(str(template),'<Template \'proyecto/codigo/informes/jinja-test.tex\'>')
+        #print("ESTO ES LO QUE IMPORTA",str(template))
+        self.assertEqual(str(template),'<Template \'proyecto/analisis/informes/jinja-test.tex\'>')
 
         print("OK,test_cargar_plantilla")
     

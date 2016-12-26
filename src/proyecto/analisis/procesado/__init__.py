@@ -1,0 +1,3 @@
+from proyecto.analisis.procesado.ProcesadoDeLineas import ProcesadoDeLineas
+from proyecto.analisis.procesado.ProcesadoDeImagen import ProcesadoDeImagen
+from proyecto.analisis.procesado.ProcesadoAutomatico import ProcesadoAutomatico

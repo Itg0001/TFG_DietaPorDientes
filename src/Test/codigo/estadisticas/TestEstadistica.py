@@ -1,4 +1,4 @@
-from proyecto.codigo.estadisticas.Estadistica import Estadistica
+from proyecto.analisis.estadisticas.Estadistica import Estadistica
 import unittest
 
 class TestEstadistica(unittest.TestCase):

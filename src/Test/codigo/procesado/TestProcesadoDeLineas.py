@@ -1,5 +1,5 @@
 import unittest
-from proyecto.codigo.procesado.ProcesadoDeLineas import ProcesadoDeLineas
+from proyecto.analisis.procesado.ProcesadoDeLineas import ProcesadoDeLineas
 import networkx as nx
 from networkx.algorithms import approximation as apxa
 

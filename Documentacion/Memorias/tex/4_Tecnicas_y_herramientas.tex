@@ -400,3 +400,16 @@ Viene por defecto instalado en la distribución de anaconda y para ejecutarlo si
 
 
 para mas información podemos acceder a la pagina desde este enlace \url{http://jupyter.org/}
+
+\section{SonarQube}
+Esta herramienta, conocida antes como Sonar la podemos encontrar a traves de este enlace \url{https://www.sonarqube.org/}, esta destinada a evaluar código fuente, escrito en mas de 20 lenguajes, gracias a ella podemos obtener métricas que evalúan la calidad y ayudan a mejorarla.
+
+Aspectos que evalúa SonarQube:
+\begin{itemize}
+	\item Complejidad: La complejidad es evaluada por esta herramienta midiendo los cambios de flujo que sufre el código, es decir cuando entran en condiciones de salto if, while, for, cases, catch, throw y return. Todo método como mínimo va a tener una complejidad de 1 ya que la propia llamada también aumenta en 1.
+	\item Líneas de código: Es otro estadístico que nos muestra cuantas lineas hemos escrito en cada fichero de nuestra aplicación.
+	\item Estructura: En este apartado nos muestra la estructura del programa como numero de clases, directorios, ficheros, funciones, líneas y declaraciones de código.
+	\item Technical Debt: Esta sección quizá es las mas importante de la herramienta ya que te indica aspectos o métricas que no habíamos tenido en cuenta desde el principio y otros que muestran la claridad del código.
+	En lo referente a este apartado comentar, la gran utilidad que destaca, ya que te indica donde has cometido la falta de estilo o donde has añadido demasiado complejidad o si has roto algún estándar de los aplicables a tu lenguaje.
+	\item Otros: En esta herramienta podemos añadir Plugins o componentes extra para customizar o evaluar otros aspectos mas del código.
+\end{itemize}

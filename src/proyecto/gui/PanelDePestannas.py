@@ -1,7 +1,7 @@
 from PyQt5 import QtWidgets
-from proyecto.gui.Mediadores import MediadorPestannas
-from proyecto.diccionario import DiccionarioING
-from proyecto.diccionario import Diccionario
+from proyecto.analisis.MediadorPestannas import MediadorPestannas
+from proyecto.analisis.diccionario import DiccionarioING
+from proyecto.analisis.diccionario import Diccionario
 
 
 class PanelDePestannas(QtWidgets.QTabWidget):

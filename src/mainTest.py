@@ -6,6 +6,7 @@ from Test.codigo.informes.TestConfiguracionToXML import TestConfiguracionToXML
 from Test.codigo.informes.TestDatosToCsv import TestDatosToCsv
 from Test.codigo.informes.TestInforme import TestInforme
 from Test.codigo.calidad.TestCalidad import TestCalidad
+
 def test_estadisticas():
     test_stadistica = TestEstadistica()
     test_stadistica.test_clasificar()
@@ -56,9 +57,9 @@ def test_informe():
     test_infor.test_sustituir()
     
     print("OK,TEST_INFORME")
-def test_Calidad():
-    test_Calida=TestCalidad()
-    test_Calida.iniciar_test()
+def test_calidad():
+    test_calida=TestCalidad()
+    test_calida.iniciar_test()
     print("OK,TEST_CALIDAD")
 
 if __name__ == '__main__':
@@ -74,5 +75,5 @@ if __name__ == '__main__':
     print()
     test_informe()
     print()
-    test_Calidad()
+    test_calidad()
     print("OK,todos")

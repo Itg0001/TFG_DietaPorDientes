@@ -1,28 +1,28 @@
 \capitulo{2}{Objetivos del proyecto}
 
-Este apartado explica de forma precisa y concisa cuales son los objetivos que se persiguen con la realización del proyecto. Se puede distinguir entre los objetivos marcados por los requisitos del software a construir y los objetivos de carácter técnico que plantea a la hora de llevar a la práctica el proyecto.
+Este apartado explica de forma precisa y concisa cuales son los objetivos que se persiguen con la realización del proyecto. Se puede distinguir entre los objetivos marcados por los requisitos del software a construir y los objetivos de carácter técnico que se plantean a la hora de llevar a la práctica el proyecto.
 
 \section{Objetivos}
-Esta parte se corresponde con el esquema de todos los puntos.
+A continuación se mostrara el esquema con todos los puntos a tratar en este proyecto.
 \begin{itemize}
 \item Analizar el problema planteado por Rebeca, nuestra colaboradora del Laboratorio de Evolución Humana, y buscar una solución:
 	\begin{itemize}
 		\item Primero tenemos que documentarnos y saber que son las líneas a detectar.
 		\item Buscar una solución para detectar dichas estrías pintadas, de forma automática, ya que hasta ahora era un problema manual que tenían que medir a mano.
-		\item Permitir que se pinten através de la aplicación para futuras imágenes.
+		\item Permitir que se pinten a través de la aplicación para futuras imágenes.
 		\item Iniciar la forma de detección completamente automática.
 	\end{itemize}
 \item Crear un notebook para el procesado:
 	\begin{itemize}
-		\item Crear un prototipo interactivo atrevés de los notebooks de jupyter.
-		\item Procesar la imagen para obtener la mascara o imagen binarizada con las líneas.
+		\item Crear un prototipo interactivo a través de los notebooks de jupyter.
+		\item Procesar la imagen para obtener la máscara o imagen binarizada con las líneas.
 		\item Detectar los segmentos que se corresponden con las líneas.
 		\item Juntar los segmentos para obtener líneas reales.
 	\end{itemize}
 \item Crear la aplicación:
 	\begin{description}
-		\item Crear una interfaz gráfica con la imagen, y botonería.
-		\item [Modo 1] Modo semi-automátic, detección, conteo y análisis de estrías.
+		\item Crear una interfaz gráfica con la imagen y botonería.
+		\item [Modo 1] Modo semi-automático, detección, conteo y análisis de estrías.
 		\item [Modo 2] Permitir pintar estrías y corrección de segmentos.
 		\item [Modo 3] Completamente automático.
 	\end{description}
@@ -30,7 +30,7 @@ Esta parte se corresponde con el esquema de todos los puntos.
 
 \section{Resumen}
 
-El problema va a consistir en detectar las líneas que tienen ya pintadas y detectar desde cero las sin pintar, en las imágenes, para poder automatizar dicho proceso, ya que los pasos anteriores eran:
+El problema va a consistir en detectar las líneas que tienen ya pintadas y detectar desde cero las no pintadas, en las imágenes, para poder automatizar dicho proceso, ya que los pasos anteriores eran:
 \begin{itemize}
 \item Pintar las estrías encima de la imagen.
 \item Obtener de las estrías, de forma manual, su tamaño, ángulo, dirección.
@@ -40,14 +40,15 @@ Y los pasos a través de nuestra aplicación son:
 \item Abrir la imagen y seleccionar el color de las líneas
 \item Dar al botón de calcular las líneas y guardarlo: Tendíamos el CSV con los estadísticos y atributos de ellas.
 \end{itemize}
-Como podemos observar, nuestros pasos nos devuelven las estrías de forma mucho mas cómoda y mas rápida que buscándolas a mano.
+Como puede intuirse, nuestros pasos nos devuelven las estrías de forma mucho mas cómoda y mas rápida que buscándolas a mano.
 
 \subsection{Crear un prototipo} 
-En esta parte hemos pensado que sería mas cómodo, antes de ponernos a diseñar o implementar, comprobar que lo que tenemos pensado para resolver el problema que funcione.
+En esta parte hemos pensado que sería mas cómodo, antes de ponernos a diseñar o implementar, comprobar que lo que tenemos pensado para resolver el problema funcione.
 
-Crear un Notebook de Jupyter \ref{notebook:jupiter} no nos exige que programemos nada de la GUI, al ser interactivo, se va a implementar todos los pasos necesarios para resolver el problema y una vez conseguido. Como producto tenemos el núcleo de cálculo y pasamos a hacer el diseño.
+Crear un Notebook de Jupyter (ver sección \ref{notebook:jupiter}), no nos exige programar nada de la GUI, al ser interactivo, vamos a implementar todos los pasos necesarios para resolver el problema. 
+Una vez conseguido, como producto tenemos el núcleo de cálculo y pasaremos a hacer el diseño.
 
 \subsection{Crear la aplicación}
 Llegados a este punto ya tendremos todo lo necesario para hacer nuestras clases y nuestra aplicación.
 
-Así que ya tenemos todo lo necesario y solo queda el producto entregable que sera la aplicación enlazada con la GUI junto con, la creación de botones, pestañas, ventanas con sus respectivas implementaciones y funcionalidades.
+Así que ya tenemos todo lo necesario y solo queda el producto entregable que sera la aplicación enlazada con la GUI junto con la creación de botones, pestañas, ventanas con sus respectivas implementaciones y funcionalidades.

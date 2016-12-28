@@ -1,8 +1,8 @@
 \capitulo{4}{Técnicas y herramientas}
 
 \section{Introducción}
-En esta sección vamos a hablar, de las distintas técnicas y herramientas que hemos usado y analizado, con sus comparativas y que nos ha influenciado en tomar la decisión de usarlo.
-Dada la gran cantidad de herramientas y técnicas para resolver los subproblemas de nuestra aplicación hemos ido escogiendo varias de las herramientas disponibles y hemos cogido lo que mejor se ajustaba a nosotros.
+En esta sección vamos a hablar de las distintas técnicas y herramientas que hemos usado y analizado, mostrando las razones que nos han influenciado en tomar la decisión de usarlo.
+Dada la gran cantidad de herramientas y técnicas para resolver los subproblemas de nuestra aplicación, hemos ido escogiendo varias de las herramientas disponibles y hemos cogido lo que mejor se ajustaba a nosotros.
 
 En algunos casos las decisiones han estado muy claras, pero en otros no, así que aveces nos hemos decantado por lo conocido y otras por lo que mas sencillo era.
 
@@ -42,6 +42,9 @@ Podemos acceder a él a través del siguiente enlace:
 
 \begin{itemize}
 \item Podemos incluir código, por lo que es mas completo que otras herramientas de gestión de tareas.
+\item incluye diversos gráficos que muestran el avance del proyecto de forma muy visual.
+\item Esta pensado y muy recomendado para metodologías ágiles.
+\item Facilita la clasificación de tareas, bugs y otros tipos de eventos de metodologías ágiles a la perfección.
 \end{itemize}
 
 \textbf{Desventajas:}
@@ -75,10 +78,10 @@ Podemos Acceder a el a través del siguiente enlace:
 
 \section{Gestores de versiones:}
 \subsection{GitHub}
-Es un repositorio de versiones donde el código queda organizado por tareas (issues) y las versiones cada vez que hacemos un commit se actualiza las clases de código mostrando lo que ha cambiado.
+Es un repositorio de versiones donde el código queda organizado por tareas (issues y ramas), las versiones cada vez que hacemos un commit, se actualizan las clases de código mostrando lo que ha cambiado.
 El software esta escrito en Ruby usando el framework Ruby on Rails.
 
-Podemos Acceder a el a través del siguiente enlace: 
+Podemos Acceder a él a través del siguiente enlace: 
 \url{https://github.com/}
 
 
@@ -86,7 +89,7 @@ Podemos Acceder a el a través del siguiente enlace:
 \textbf{Ventajas:}
 
 \begin{itemize}
-\item Es de los repositorios mas usados y esta basado en Git.
+\item Es de los repositorios mas usados y está basado en Git.
 
 \item El código es público y cualquiera que le interese te puede proponer cambios en el mismo, seguirte y ver el proyecto.
 
@@ -97,10 +100,8 @@ Podemos Acceder a el a través del siguiente enlace:
 
 \begin{itemize}
 \item También puedes tener proyectos privados solo con el modo de pago pero al no influir sobre este proyecto no pasa nada.
-
-\item Nos hemos decidido por este repositorio porque es uno de los mas usados y como se basa en Git al igual que muchos de sus competidores guarda mucha similitud con ellos.
-Al utilizar dicho repositorio de forma apropiada no deberíamos tener problemas si el día de mañana queremos usar otro.
 \end{itemize}
+
 
 \subsection{Bitbucket}
 Este repositorio web también guarda nuestro código y nuestras iteraciones sobre el proyecto para así tener una visión mas completa sobre nuestro trabajo.
@@ -125,9 +126,11 @@ Podemos acceder a el a través del siguiente enlace:
 \item No se puede incluir mas de 5 personas en los proyectos gratuitos.
 \end{itemize}
 
+Nos hemos decidido por el repositorio GitHub porque es uno de los mas usados y como se basa en Git al igual que muchos de sus competidores, guarda mucha similitud con ellos.
+Al utilizar dicho repositorio de forma apropiada no deberíamos tener problemas si el día de mañana queremos usar otro.
 
 
-\section{Interfaz gráfica de usuario:}
+\section{Interfaz gráfica de usuario}
 \subsection{Tkinter}
 Es una librería que proporciona el diseño y visualización de interfaces de usuario en Python. Esta a su vez, esta basada en librerías de TK/TCL que están incluidas por en la propia instalación.
 
@@ -135,14 +138,16 @@ Es una librería que proporciona el diseño y visualización de interfaces de us
 \begin{itemize}
 \item Es fácil de usar y es recomendable para el aprendizaje del lenguaje.
 
-\item Viene preinstalado con la distribución por lo que su uso es inmediato
+\item Viene preinstalado con la distribución anaconda, por lo que su uso es inmediato
 
 \item Al servir para aprendices y venir preinstalado podemos encontrar multitud de tutoriales y de documentación sobre ello.
 \end{itemize}
 
 \subsubsection{Desventajas:}
 \begin{itemize}
-\item Pocos elementos gráficos. Escaso control de las ventanas y bastante lento.
+\item Pocos elementos gráficos.
+\item Escaso control de las ventanas.
+\item Bastante lento en ejecución.
 \end{itemize}
 
 \subsection{WxPython}
@@ -207,7 +212,7 @@ En estos tipos de lenguaje no se puede aplicar lógica de aplicación simplement
 
 \subsubsection{Desventajas:}
 \begin{itemize}
-\item Carece de ejemplos o tutoriales de cómo usarlo con \LaTeX  en su versión de Python.
+\item Carece de ejemplos o tutoriales de cómo usarlo con \LaTeX{} en su versión de Python.
 \end{itemize}
 
 
@@ -222,8 +227,7 @@ Es una librería para escribir plantillas, para Python, funciona con las última
 \begin{itemize}
 \item Viene preinstalado con Anaconda ya que es uno de los más utilizados.
 \item Fácil de usar y de pasar los parámetros.
-\item Fue creada para Python2 pero también funciona en Python3
-\end{itemize}
+\item Fue creada para Python2 pero también funciona en Python3.\end{itemize}
 
 \subsubsection{Desventajas:}
 \begin{itemize}
@@ -231,7 +235,7 @@ Es una librería para escribir plantillas, para Python, funciona con las última
 \end{itemize}
 
 \subsection{Comparación de las herramientas}
-Esta comparación son dos filas, como se observa en la Tabla \ref{tb:1} sacada de la tabla comparativa de herramientas obtenida en wikipedia \cite{Template:table}.
+Esta comparación son dos filas, como se observa en la Tabla \ref{tb:1} sacada de la tabla comparativa de herramientas obtenida en Wikipedia \cite{Template:table}.
 
 
 \begin{table}[]
@@ -247,10 +251,11 @@ Mustache   & +30      & MIT      & SI        & SI        & SI      & SI         
 \end{tabular}
 }
 \end{table}
-\section{IDE:}
-Un IDE es una aplicación para poder desarrollar código y ejecutar pero facilita la navegabilidad de por los paquetes y poder debugear de forma mas eficiente que sin él.
+\section{IDE}
+Un IDE es una aplicación para poder desarrollar código y ejecutarlo, facilita la navegabilidad por los paquetes y puedes hacer ejecuciones controladas del código con puntos de rotura, donde mostrar los valores temporales de las variables.
+En el argot de la informática estas herramientas son conocidas como <<debugers>>, dan mas eficiencia porque es mas sencillo corregir fallos que sin ellas.
 
-Es una herramienta indispensable para el desarrollo de software, un IDE se compone normalmente de un editor de código fuente, un depurador, la mayoría de ellos tienen también autocompletado, compilador, indentador de código e interprete.
+Es una herramienta que facilita mucho el trabajo, para el desarrollo de software, un IDE se compone normalmente de un editor de código fuente, un depurador, la mayoría de ellos tienen también autocompletado, compilador, indentador de código e intérprete.
 
 \subsubsection{Ventajas:}
 \begin{itemize}
@@ -295,7 +300,7 @@ Podríamos hacerlos dibujando pero es mas preciso y mas profesional usar una her
 Podemos encontrar la herramienta a través del siguiente enlace  
 \url{http://astah.net/}.
 
-\subsection{XML}
+\section{XML}
 Para guardar los nombres de los ficheros que se generan al guardar un proyecto, vamos a usar un archivo XML \cite{Wiki:xml}, que contenga los nombres de los ficheros que se generan.
 
 XML significa Extensible Marking Language, también otra de sus propiedades es que es un lenguaje sencillo que estructura el contenido por medio de:
@@ -348,24 +353,24 @@ Lo potente de esta librería es que si tus necesidades fuesen otras, podrías re
 \section{Logger}
 Es una herramienta que crea un fichero de registro, el cual almacena los mensajes de error que aparecen en la aplicación, facilitando el mantenimiento de esta.
 
-Es una herramienta muy útil, ya que controlar todas las posibles excepciones es muy complicado, porque no sabemos por donde podría romper el código, de esta forma sabemos donde ha roto o que lo ha causado.
+Es una herramienta muy útil, ya que controlar todas las posibles excepciones es muy complicado, porque no sabemos por donde podría romper el código, de esta forma sabemos dónde ha roto o que lo ha causado.
 
 \subsection{Logging}
-Es la implementacion de un logger para python \cite{python:logger} en este logger como en casi todos, podemos clasificar los mensajes de error en función de su gravedad en distintos niveles.
+Es la implementacion de un logger para Python \cite{python:logger} en este logger como en casi todos, podemos clasificar los mensajes de error en función de su gravedad en distintos niveles.
 
 \begin{itemize}
 \item Info: Para mensajes importante de información.
 \item Warning: Para niveles que son avisos de que no se ha hecho lo que se quería pero no son graves.
-\item Error: Para errores que han echo un mal funcionamiento del programa.
+\item Error: Para errores que han provocado un mal funcionamiento del programa.
 \item Critical: Para mensajes que son críticos en nuestro programa.
 \end{itemize}
 
 \section{Ejecutable}
 Para distribuir el software, deberíamos poder ser capaces de crear un .exe, pero no lo hemos sido.
-Después de probar todas las herramientas que hacen dicha función,  por que han salido las ultimas versiones hace relativamente poco tiempo, estas que hay disponibles quedan muy desactualizadas, hemos tenido que resolver el problema de otra forma. 
+Después de probar todas las herramientas que hemos encontrado para hacer dicha función. Por incompatibilidades de versiones, que han salido hace escaso tiempo, las únicas que había disponibles quedan muy des-actualizadas, hemos tenido que resolver el problema de otra forma. 
 
 \subsection{Py2exe}
-Esta herramienta \cite{p2exe}, es una extension que se encarga de empaquetar un script de Python en un ejecutable .exe, para poder distribuir la aplicación de forma que solo necesitemos el .exe para ejecutar todo, sin necesidad de tener Python instalado.
+Esta herramienta \cite{p2exe}, es una extensión que se encarga de empaquetar un script de Python en un ejecutable .exe, para poder distribuir la aplicación de forma que solo necesitemos el .exe para ejecutar todo, sin necesidad de tener Python instalado.
 
 No la hemos podido usar ya que su última actualización es para Python 2.7.
 
@@ -377,9 +382,8 @@ No la hemos podido usar ya que el cliente no va a usar MAC OS.
 \subsection{Pyinstaller}
 Esta herramienta \cite{Pyinstaller}, si que hemos podido ser capaces de usarla, pero su última version esta disponible para Python 3.4.
 
-Indican que para Python 3.5 podría funcionar pero no es así,
-al ejecutarlo salían errores pero buscándolos uno a uno, en su repositorio de GitHub, los podíamos corregir, después de sucesivos errores terminamos en un bucle, corregíamos uno y salia el anterior y así sucesivamente de forma recursiva. 
-Finalmente algunos de los que salían, no se pudieron corregir, 
+Indican que para Python 3.5 podría funcionar pero no es así. Al ejecutarlo salían errores pero buscándolos uno a uno, en su repositorio de GitHub, los podíamos corregir, después de sucesivos errores terminamos en un bucle, corregíamos uno y salía el anterior y así sucesivamente de forma recursiva. 
+Finalmente algunos de los que salían, no se pudieron corregir: 
 no la hemos usado y no hemos sido capaces de solucionarlos.
 
 Porque según lo investigado y visto en todo tipo de foros, llegamos a la conclusión que con 3.5 no le funciona a nadie.
@@ -390,16 +394,18 @@ Esta herramienta, es muy parecida a la de Py2exe, pero su última versión sigue
 Si buscamos mas en su repositorio vemos que menciona una version 3.5, pero no funciona ya que directamente no lo instala, y no solo a mi, encontré mas gente en la misma situación.
 
 \subsection{Conclusión}
-Pero en este periodo temporal nos hemos encontrado que empezar un proyecto en Python 2.7, puede suponer que en el futuro las librerías no estén soportadas, por dicha razón no lo hemos realizado en Python 2.7, pero hacerlo en Python 3.5 supone que no todas las herramientas son completamente compatibles.
+El problema anteriormente mencionado se podría haber corregido si hubiésemos hecho la aplicación en Python 2.7, pero cabe suponer que en el futuro las librerías no estén soportadas para esta versión, por dicha razón no lo hemos realizado en Python 2.7.
+Hacerlo en Python 3.5, supone que no todas las herramientas son completamente compatibles para la generación del ejecutable.
 
 \section{Jupyter Notebook}
 \label{notebook:jupiter}
-Esta herramienta, nos ha resultado muy útil, simula un editor y sin necesidad de programar interfaces, podemos ver gráficas e imágenes con los resultados obtenidos.
+
+Esta herramienta simula un editor y sin necesidad de programar interfaces, podemos ver gráficas e imágenes con los resultados obtenidos, por esto nos ha resultado mu útil.
 
 Viene por defecto instalado en la distribución de anaconda y para ejecutarlo simplemente debemos escribir en una terminal, Jupyter Notebook, y nos lanzara una ventana en el explorador, donde cargar el fichero ipnb que contendrá el código del notebook guardando los datos de ejecuciones pasadas.
 
 
-para mas información podemos acceder a la pagina desde este enlace \url{http://jupyter.org/}
+Para mas información podemos acceder a la pagina desde este enlace \url{http://jupyter.org/}
 
 \section{SonarQube}
 Esta herramienta, conocida antes como Sonar la podemos encontrar a traves de este enlace \url{https://www.sonarqube.org/}, esta destinada a evaluar código fuente, escrito en mas de 20 lenguajes, gracias a ella podemos obtener métricas que evalúan la calidad y ayudan a mejorarla.
@@ -407,9 +413,9 @@ Esta herramienta, conocida antes como Sonar la podemos encontrar a traves de est
 Aspectos que evalúa SonarQube:
 \begin{itemize}
 	\item Complejidad: La complejidad es evaluada por esta herramienta midiendo los cambios de flujo que sufre el código, es decir cuando entran en condiciones de salto if, while, for, cases, catch, throw y return. Todo método como mínimo va a tener una complejidad de 1 ya que la propia llamada también aumenta en 1.
-	\item Líneas de código: Es otro estadístico que nos muestra cuantas lineas hemos escrito en cada fichero de nuestra aplicación.
+	\item Líneas de código: Es otro estadístico que nos muestra cuantas líneas hemos escrito en cada fichero de nuestra aplicación.
 	\item Estructura: En este apartado nos muestra la estructura del programa como numero de clases, directorios, ficheros, funciones, líneas y declaraciones de código.
 	\item Technical Debt: Esta sección quizá es las mas importante de la herramienta ya que te indica aspectos o métricas que no habíamos tenido en cuenta desde el principio y otros que muestran la claridad del código.
-	En lo referente a este apartado comentar, la gran utilidad que destaca, ya que te indica donde has cometido la falta de estilo o donde has añadido demasiado complejidad o si has roto algún estándar de los aplicables a tu lenguaje.
+	En lo referente a este apartado comentar que lo hemos encontrado de gran utilidad: Ya que te indica donde has cometido la falta de estilo o donde has añadido demasiado complejidad o si has roto algún estándar de los aplicables a tu lenguaje.
 	\item Otros: En esta herramienta podemos añadir Plugins o componentes extra para customizar o evaluar otros aspectos mas del código.
 \end{itemize}

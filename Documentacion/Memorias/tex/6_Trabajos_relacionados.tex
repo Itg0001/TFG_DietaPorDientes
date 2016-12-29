@@ -3,18 +3,23 @@
 En esta sección, vamos a hablar de otros trabajos que están relacionados, tanto en la resolución del problema nuestro en particular, como resolver el problema de las detecciones de otro tipo de estrías o información.
 
 \section{Artículo de Alejandro Pérez Pérez}
-El articulo \cite{perez:perez}, es en que se basan en todos los artículos que hay hasta el momento, para resolver el problema de deducir la dieta a partir de las marcas dentales, lo mencionamos por su importancia.
+El artículo \cite{Lalueza:perez}, es en el que se basan todos los artículos que hay hasta el momento, para resolver el problema de deducir la dieta a partir de las marcas dentales, lo mencionamos por su importancia.
 
-A partir de las micro estrías bucales, observadas al microscopio. Podemos ver los distintos patrones que estas crean, dependiendo de la dieta que se llevara.
-Una vez analizadas, medidas y clasificadas mediante las formulas que proponen podemos obtener un resultado que las caracteriza y encuadra en un plano donde figuran las distintas áreas que cada uno de las clasificaciones genera.
+Tras un análisis de diversas poblaciones con alimentaciones distintas, ha agrupado en diversos conjuntos cada una de ellas. De este modo se pude saber si un individuo fue, recolector y cazador de climas tropicales, recolector y cazador de climas aridos, agricultor o recolector y cazador carnívoro.
+Esto lo estimas mediante unas funciones propuestas por ellos.
 
 \section{Artículo de Rebeca García González}
-El articulo \cite{Rebeca:garcia} de nuestro cliente nos muestra como basandose en el articulo \cite{perez:perez} de Pérez Pérez y Lalueza, que hicieron el análisis para 10 individuos, hace lo mismo para clasificar un individuo obtenido de la cueva <<El Mirón>>, esta situada en la comunidad autónoma de Cantabria, España.
+El articulo \cite{Rebeca:garcia} de nuestro cliente nos muestra como basandose en el articulo \cite{Lalueza:perez} de Pérez Pérez, hace lo mismo para clasificar un individuo obtenido de la cueva <<El Mirón>>, esta situada en la comunidad autónoma de Cantabria, España.
 
 A la muestra anteriormente mencionada se le aplicara el análisis de las estrías de dieta, sobre una imagen del premolar de abajo a la izquierda, P4 de la dentadura. 
-Pero en la gráfica la segunda función que se usa para evaluar, da un valor muy alto, por lo que la función lo sitúa fuera de las elipses de cada región.
-Pero otro modo de análisis lo sitúa en el grupo de los carnívoros y por lo tanto da un resultado similar a la prueba de isotopos.
+Una vez que hacen este artículo, encuentran interesante el proponer una herramienta que a partir de las imágenes que ya tienen pintadas, pudiera automatizar el trabajo repetitivo, obteniendo las estrías y calculando las estadísticas para nuevos individuos.
 
 \section{Trabajo fin de grado: Sergio Chico Carrancio}
 Podemos acceder al proyecto de Sergio en : \url{https://github.com/Serux/perikymata}.
-En este proyecto se centraron en detectar estrías, pero no eran las mismas que nosotros queremos detectar, sino unas estrías llamadas perykimatas, estas muestran el crecimiento del diente. Pero muchas de las funcionalidades y partes del programa, son parecidas a las nuestras, aunque solucionado de formas distintas.
+En este proyecto se centraron en detectar estrías en las piezas dentales, pero no eran las mismas que nosotros queremos detectar, sino unas estrías llamadas perykimata, estas muestran el crecimiento del diente. Pero muchas de las funcionalidades y partes del programa, son parecidas a las nuestras, aunque solucionado de formas distintas.
+Sergio uso OpenCv, es una librería de funciones para tratamiento de imágenes, para java para detectar las perykimata y su aplicación seguía esta serie de pasos:
+\begin{itemize}
+\item Unir las imágenes: El no tenia la imagen completa sino porciones de imágenes que debía unir antes para poder empezar.
+\item Aplicar filtros: Sobre la imagen ya unida aplica filtros para resaltar sobre el fondo negro las perikymata.
+\item Para finalizar: El usuario debe marcar una línea sobre la imagen, tratando de que pase por encima del mayor numero de perikymata, una vez hecho esto las perikymata detectadas, se marcan automáticamente permitiendo modificar o corregir errores en el proceso.
+\end{itemize}

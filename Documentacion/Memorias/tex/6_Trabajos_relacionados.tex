@@ -1,25 +1,26 @@
 \capitulo{6}{Trabajos relacionados}
 
-En esta sección, vamos a hablar de otros trabajos que están relacionados, tanto en la resolución del problema nuestro en particular, como resolver el problema de las detecciones de otro tipo de estrías o información.
+En esta sección, vamos a hablar de otros trabajos que están relacionados, tanto en la resolución del problema nuestro en particular, como en resolver el problema de las detecciones de otro tipo de estrías o información.
 
 \section{Artículo de Alejandro Pérez Pérez}
-El artículo \cite{Lalueza:perez}, es en el que se basan todos los artículos que hay hasta el momento, para resolver el problema de deducir la dieta a partir de las marcas dentales, lo mencionamos por su importancia.
+El artículo \cite{Lalueza:perez}, es en el que se basan todos los artículos que hay hasta el momento para resolver el problema de deducir la dieta a partir de las marcas dentales, lo mencionamos por su importancia.
 
-Tras un análisis de diversas poblaciones con alimentaciones distintas, ha agrupado en diversos conjuntos cada una de ellas. De este modo se pude saber si un individuo fue, recolector y cazador de climas tropicales, recolector y cazador de climas aridos, agricultor o recolector y cazador carnívoro.
-Esto lo estimas mediante unas funciones propuestas por ellos.
+Tras un análisis de diversas poblaciones con alimentaciones distintas, ha agrupado en diversos conjuntos cada una de ellas. De este modo se pude saber si un individuo es, recolector y cazador de climas tropicales, recolector y cazador de climas áridos, agricultor o recolector y cazador carnívoro.
+Esto lo estimas mediante unas funciones propuestas por los autores del artículo.
 
 \section{Artículo de Rebeca García González}
-El articulo \cite{Rebeca:garcia} de nuestro cliente nos muestra como basandose en el articulo \cite{Lalueza:perez} de Pérez Pérez, hace lo mismo para clasificar un individuo obtenido de la cueva <<El Mirón>>, esta situada en la comunidad autónoma de Cantabria, España.
+El articulo \cite{garcia2015dietary} de nuestro cliente nos muestra cómo, basándose en el artículo de Pérez Pérez \cite{Lalueza:perez}, hace lo mismo para clasificar un individuo cuyos fósiles se encontraron en la cueva <<El Mirón>>, esta situada en la comunidad autónoma de Cantabria, España.
 
-A la muestra anteriormente mencionada se le aplicara el análisis de las estrías de dieta, sobre una imagen del premolar de abajo a la izquierda, P4 de la dentadura. 
-Una vez que hacen este artículo, encuentran interesante el proponer una herramienta que a partir de las imágenes que ya tienen pintadas, pudiera automatizar el trabajo repetitivo, obteniendo las estrías y calculando las estadísticas para nuevos individuos.
+Para poder realizar el estudio prpuesto por Pérez Pérez, el equipo de García GOnzález identificaron y midieron las estrías para estimar su dieta. En concreto se realizó sobre la imagen de un premolar denominado, P4 de la dentadura. 
+Una vez que hacen este artículo, encuentran interesante el disponer de una herramienta que, a partir de las imágenes que ya tienen pintadas, pudiera automatizar el tedioso trabajo de identificar y medir las estrías. La aplicación que necesitan es la que se ha realizado en el presente trabajo.
 
 \section{Trabajo fin de grado: Sergio Chico Carrancio}
-Podemos acceder al proyecto de Sergio en : \url{https://github.com/Serux/perikymata}.
-En este proyecto se centraron en detectar estrías en las piezas dentales, pero no eran las mismas que nosotros queremos detectar, sino unas estrías llamadas perykimata, estas muestran el crecimiento del diente. Pero muchas de las funcionalidades y partes del programa, son parecidas a las nuestras, aunque solucionado de formas distintas.
-Sergio uso OpenCv, es una librería de funciones para tratamiento de imágenes, para java para detectar las perykimata y su aplicación seguía esta serie de pasos:
+En este proyecto se centraron en detectar estrías en las piezas dentales, pero no eran las mismas que nosotros queremos detectar, sino unas estrías llamadas perykimata, las cuales muestran el crecimiento del diente. Pero muchas de las funcionalidades, son parecidas a las nuestras, aunque solucionado de formas distintas.
+Sergio usó OpenCv \cite{opencv:wiki}, es una librería de funciones para tratamiento de imágenes para java. Para detectar las perykimata y su aplicación seguía esta serie de pasos:
 \begin{itemize}
-\item Unir las imágenes: El no tenia la imagen completa sino porciones de imágenes que debía unir antes para poder empezar.
-\item Aplicar filtros: Sobre la imagen ya unida aplica filtros para resaltar sobre el fondo negro las perikymata.
-\item Para finalizar: El usuario debe marcar una línea sobre la imagen, tratando de que pase por encima del mayor numero de perikymata, una vez hecho esto las perikymata detectadas, se marcan automáticamente permitiendo modificar o corregir errores en el proceso.
+\item Unir las imágenes: Él no tenía la imagen completa, sino porciones de imágenes que debía unir antes para poder empezar.
+\item Aplicar filtros: Sobre la imagen ya unida, aplica filtros para resaltar sobre el fondo negro las perikymata.
+\item Para finalizar: El usuario debe marcar una línea sobre la imagen, tratando de que pase por encima del mayor numero de perikymata. Una vez hecho esto, las perikymata detectadas se marcan automáticamente permitiendo modificar o corregir errores en el proceso.
 \end{itemize}
+
+Podemos acceder al proyecto de Sergio en : \url{https://github.com/Serux/perikymata}.

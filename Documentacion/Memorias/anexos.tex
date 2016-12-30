@@ -9,6 +9,9 @@
 \usepackage{subcaption}
 \usepackage[linesnumbered,ruled,vlined,spanish]{algorithm2e}
 \usepackage{eurosym} % para el euro
+\DeclareRobustCommand{\officialeuro}{%
+\ifmmode\expandafter\text\fi
+{\fontencoding{U}\fontfamily{eurosym}\selectfont e}}
 
 \RequirePackage{booktabs}
 \RequirePackage[table]{xcolor}

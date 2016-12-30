@@ -517,7 +517,7 @@ En este proyecto el personal ha estado compuesto por un programado que ha estado
 Como las horas han sido detalladas en la herramienta ZenHub podemos estimar que a día de hoy el proyecto consta de 480 Horas a 10\euro{} la hora:
 
 \[10{\euro{}} /Hora*480Horas=4800{\euro{}} \]
-A esta cuantia debemos añadirle el valor que se deberia llevar la Seguridad Social que equivaldria a:
+A esta cuantía debemos añadirle el valor que se debería llevar la Seguridad Social que equivaldría a:
 \begin{itemize}
 \item 23,6\%: Por Seguridad Social.
 \item 5,5\%: Por desempleo.
@@ -527,13 +527,34 @@ A esta cuantia debemos añadirle el valor que se deberia llevar la Seguridad Soc
 \end{itemize}
 Y esto equivale a: 
 \[4800\euro{}*0.299=1435.2\euro{}\]
+\subsubsection{Costes de material}
+Por software no tenemos costes algunos ya que todos lo que usamos no necesita licencias de pago.
+Por el hardware yo he usado mi propio equipo que tiene un valor de 1065\euro{} se considera que la amortización de un equipo ronda los 5 años y nosotros lo hemos usado 4 meses y medio por lo tanto el coste en hardware ha sido: 
+\[\frac{1065\euro{}}{(12Meses*5Periodos)}*4.5MesesDeUso=79.9\euro{}\]
+\subsubsection{Costes totales}
+Como costes totales sumaremos todos los anteriores, como se puede observar en la tabla \ref{tab:costes}.
+
+\begin{table}[]
+\centering
+\caption{Tabla de los costes totales}
+\label{tab:costes}
+\resizebox{0.5\textwidth}{!}{
+\begin{tabular}{@{} ll @{}}
+\toprule
+Costes de personal         & 4800   \\ \midrule
+Costes de seguridad social & 1435.2 \\ \midrule
+Costes de material         & 79.9   \\ \midrule
+Costes totales             & 6315.1 \\ \bottomrule
+\end{tabular}
+}
+\end{table}
 
 \subsection{Viabilidad legal}
 En este punto, lo que vamos a hacer es analizar las librerías que hemos usado, en nuestro proyecto. Buscar los tipos de licencias que tienen cada uno, luego analizar, dependiendo de las compatibilidades, que tipos de licencia podemos aplicar nuestro proyecto y seleccionar uno de ellos.
 
 \begin{table}[]
 	\centering
-	\caption{Tabla de librerias y sus licencias}
+	\caption{Tabla de librerías y sus licencias}
 	\label{tabla:Licencias}
 	\begin{tabular}{@{}l l l l@{}}
 	\toprule
@@ -551,5 +572,4 @@ En este punto, lo que vamos a hacer es analizar las librerías que hemos usado, 
 \end{table}
 
 
-BSD de tres clausulas es compatible con GPL (esto esta en construcción)
-
+BSD de tres clausulas es compatible con GPL, pero la licencia mas restrictiva es la GPL, por lo que nuestro software deberá llevar dicha licencia.

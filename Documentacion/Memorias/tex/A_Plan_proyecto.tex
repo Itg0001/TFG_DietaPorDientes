@@ -20,7 +20,7 @@ En esta sección vamos a entrar en detalle de lo que se ha hablado tanto en los 
 \subsection{Sprint 0 (9/9/2016 - 16/9/2016)}
 Se ha especificado a grandes rasgos en que consiste el problema a resolver y unas recomendaciones, por parte de los tutores, para enfrentarnos a dicho problema.
 
-Se va a hacer un mini prototipo para evaluar las herramientas, librerías y algoritmos necesarios. Posteriormente a la reunión con el cliente (Rebeca Garcia \cite{Rebeca:garcia})\footnote{ Dra. Rebeca García González \cite{ubu:Rebe},  que estudia paleobiología y paleoecología de homínidos en la Universidad de Burgos} se decidirá el lenguaje y librerías a utilizar.
+Se va a hacer un mini prototipo para evaluar las herramientas, librerías y algoritmos necesarios. Posteriormente a la reunión con el cliente (Rebeca García \cite{Rebeca:garcia})\footnote{ Dra. Rebeca García González \cite{ubu:Rebe},  que estudia paleobiología y paleoecología de homínidos en la Universidad de Burgos} se decidirá el lenguaje y librerías a utilizar.
 
 En esta primera iteración se ha hablado de evaluar las distintas herramientas de gestión, documentación y de programación y las tareas son:
 
@@ -167,7 +167,7 @@ En esta semana vamos a abarcar el diseño software de la aplicación así como s
 \end{itemize}
 \subsubsection{Cumplido:}
 Hemos finalizado los objetivos del sprint.
-En paralelo hemos implementado el diseño y el código a medida que teníamos una parte del diseño, de forma incremental, por lo que no se queda del todo reflejado cuando cerramos las tareas.\\
+En paralelo hemos implementado el diseño y el código a medida que teníamos una parte del diseño, de forma incremental, por lo que no se queda del todo reflejado cuando cerramos las tareas.
 
 Hemos elegido Eclipse como IDE junto con su plugin PyDev para Python.
 
@@ -175,7 +175,7 @@ La división en clases hemos conseguido tener una primera estimación de como es
 Respecto a la herramienta SonarQube hemos corregido todos los errores y defectos que salían, a mencionar que no había código repetido ni errores graves.
 
 También detectamos un Bug y fue corregido:
-Al mostrar las imágenes, tenia un fallo, consistía en que la imagen estaba como si viéramos su reflejo en un espejo, porque el eje de las << $y$ >> debe ir inverso a como lo conocemos, en vez de << $0-tam-Image$ >> debía ir de << $tam-Imagen-0$ >>.
+Al mostrar las imágenes, tenia un fallo, consistía en que la imagen estaba como si viéramos su reflejo en un espejo, porque el eje de las <<$y$>> debe ir inverso a como lo conocemos, en vez de <<$0-tam-Image$>> debía ir de <<$tam-Imagen-0$>>.
 
 En la figura~\ref{fig:A.2.4} se muestra el gráfico del Sprint 4.
 
@@ -327,7 +327,7 @@ Esta semana, va a consistir en investigar sobre el modo automático, dar valor a
 			\end{itemize}					
 		\item Investigación detección de bordes por Deep Learning \cite{wiki:deep} \footnote{Conjunto de algoritmos de aprendizaje que modela abstracciones en datos, usando transformaciones no lineales}.
 			\begin{itemize}
-				\item StrudturedForest.
+				\item StructuredForest.
 				\item Retina-Unet. 
 			\end{itemize}
 \end{itemize}
@@ -509,14 +509,18 @@ En la figura~\ref{fig:A.2.14} se muestra el gráfico del Sprint 14.
 \subsection{Sprint 15 (23/12/2016 - 30/12/2016)}
 
 \section{Estudio de viabilidad}
-
+En esta sección vamos a realizar un estudio de viabilidad económica y otro de viabilidad legal, ya que son los dos aspectos mas relevantes vista a llevar a cabo el proyecto.
 \subsection{Viabilidad económica}
-En este punto, vamos a hacer es un estudio de viabilidad económica del proyecto, vamos a analizar los gastos que hubiera supuesto, si fuese un proyecto real, para una empresa, en cuanto a tiempo de programación e infraestructura necesaria para ello.
+En este punto, vamos a hacer es un estudio de viabilidad económica del proyecto. Vamos a analizar los gastos que hubiera supuesto, si fuese un proyecto real, para una empresa, en cuanto a tiempo de programación e infraestructura necesaria para ello.
 \subsubsection{Costes de personal}
-En este proyecto el personal ha estado compuesto por un programado que ha estado durante 4 meses y medio trabajando en sacar adelante el proyecto.
+En este proyecto el personal ha estado compuesto por un programador que ha estado durante 4 meses y medio trabajando en sacar adelante el proyecto.
 Como las horas han sido detalladas en la herramienta ZenHub podemos estimar que a día de hoy el proyecto consta de 480 Horas a 10\euro{} la hora:
 
 \[10{\euro{}} /Hora*480Horas=4800{\euro{}} \]
+
+Por otro lado tambien vamos a incluir las horas de reuniones semanales con nuestro equipo de proyecto, los tutores, este aspecto serian 16 horas extra en reuniones y otras 10 horas aproximadamente en consultas con ellos.
+\[10{\euro{}} /Hora*26Horas=260{\euro{}} \]
+
 A esta cuantía debemos añadirle el valor que se debería llevar la Seguridad Social que equivaldría a:
 \begin{itemize}
 \item 23,6\%: Por Seguridad Social.
@@ -526,7 +530,7 @@ A esta cuantía debemos añadirle el valor que se debería llevar la Seguridad S
 \item Total: 29,9\% 
 \end{itemize}
 Y esto equivale a: 
-\[4800\euro{}*0.299=1435.2\euro{}\]
+\[5060\euro{}*0.299=1513\euro{}\]
 \subsubsection{Costes de material}
 Por software no tenemos costes algunos ya que todos lo que usamos no necesita licencias de pago.
 Por el hardware yo he usado mi propio equipo que tiene un valor de 1065\euro{} se considera que la amortización de un equipo ronda los 5 años y nosotros lo hemos usado 4 meses y medio por lo tanto el coste en hardware ha sido: 
@@ -541,16 +545,16 @@ Como costes totales sumaremos todos los anteriores, como se puede observar en la
 \resizebox{0.5\textwidth}{!}{
 \begin{tabular}{@{} ll @{}}
 \toprule
-Costes de personal         & 4800   \\ \midrule
-Costes de seguridad social & 1435.2 \\ \midrule
-Costes de material         & 79.9   \\ \midrule
-Costes totales             & 6315.1 \\ \bottomrule
+Costes de personal         & 5060 \euro{}   \\ \midrule
+Costes de seguridad social & 1513\euro{} \\ \midrule
+Costes de material         & 79.9\euro{}   \\ \midrule
+Costes totales             & 6713\euro{} \\ \bottomrule
 \end{tabular}
 }
 \end{table}
 
 \subsection{Viabilidad legal}
-En este punto, lo que vamos a hacer es analizar las librerías que hemos usado, en nuestro proyecto. Buscar los tipos de licencias que tienen cada uno, luego analizar, dependiendo de las compatibilidades, que tipos de licencia podemos aplicar nuestro proyecto y seleccionar uno de ellos.
+En este punto lo que vamos a hacer es analizar las librerías que hemos usado en nuestro proyecto. Buscar los tipos de licencias que tienen cada uno, luego analizar, dependiendo de las compatibilidades, que tipos de licencia podemos aplicar nuestro proyecto y seleccionar uno de ellos.
 
 \begin{table}[]
 	\centering

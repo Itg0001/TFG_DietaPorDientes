@@ -15,7 +15,7 @@ Gracias a estos widgets podemos dar valores e ir viendo como cambia la salida de
 \label{fig:5.1}
 \end{figure}
 
-\item Su rápida visualización sin tener grandes conocimientos de interfaz gráfica ha sido un gran apoyo para poder visualizar desde el principio las imágenes procesadas y como quedaban. Como podemos observar en la imagen \ref{fig:5.2}. 
+\item Su rápida visualización sin tener grandes conocimientos de interfaz gráfica ha sido un gran apoyo para poder visualizar desde el principio las imágenes procesadas y cómo quedaban. Lo que podemos observar en la imagen \ref{fig:5.2}. 
 
 \begin{figure}
 \begin{subfigure}[b]{.5\linewidth}
@@ -39,18 +39,18 @@ Gracias a estos widgets podemos dar valores e ir viendo como cambia la salida de
 \label{fig:5.3}
 \end{figure}
 
-\item Multitud de librerías y funciones que en entornos parecidos como Matlab serian de pago y aquí al ser software libre el ejemplo anterior lo resume en una librería Numpy \cite{Numpy}.
+\item Multitud de librerías y funciones que en entornos parecidos como Matlab serían de pago y aquí al ser software libre el ejemplo anterior lo resume en una librería Numpy \cite{Numpy}.
 \end{itemize}
 
 \section{Procesado imagen}
 Para llegar a conseguir calcular las líneas que había pintadas en las imágenes, tube que realizar una serie de pasos que vamos a resumir en tres etapas.
 \subsection{Binarización}
-Partiendo de una imagen que solo tenía líneas, en cualquier color, pintadas encima de las estrías producidas por el desgaste y lo demás de la imagen en escala de grises. Lo primero fue leer la imagen a través de las funciones ya programadas en la librería de Scikit-Image (skimage) \cite{scik:skeleton}.
+Hemos partido de una imagen que solo tenía líneas, en cualquier color, pintadas encima de las estrías producidas por el desgaste y lo demás de la imagen en escala de grises. Lo primero que hicimos fue leer la imagen a través de las funciones ya programadas en la librería de Scikit-Image (skimage) \cite{scik:skeleton}.
 Una vez que tenemos la imagen guardada en el espacio de color RGB podemos empezar el procesado, transformando la imagen al espacio de color CIELAB, partiendo de este espacio calcularemos la distancia de los pixeles al color seleccionado por el usuario.
 
-Calculamos la distancia de cada pixel de la imagen al color deseado, pasamos la imagen de distancias a blanco y negro y así tendremos un valor entre 0 y 256 en cada pixel correspondiente a la distancia al color. Cuanto mas alejado mas negro y los que sean del color, en blanco.
+Calculamos la distancia de cada pixel de la imagen al color deseado, pasamos la imagen de distancias a blanco y negro y así tendremos un valor entre 0 y 256 en cada pixel correspondiente a la distancia al color. Cuanto mas alejado, mas negro y los que sean del color, en blanco.
 
-Para que la diferencia sea blanco o negro binarizamos, la imagen con un valor umbral así los valores de la distancia que sean mayores que el umbral pasaran a valer máximo y los que no consigan pasar el umbral serán los bordes blancos, como podemos observar en la figura \ref{fig:5.4}.
+Para que la diferencia sea blanco o negro binarizamos la imagen con un valor umbral. Así los valores de la distancia que sean mayores que el umbral pasaran a valer máximo y los que no consigan pasar el umbral serán los bordes blancos, como podemos observar en la figura \ref{fig:5.4}.
 
 
 \begin{figure}
@@ -71,8 +71,8 @@ Para que la diferencia sea blanco o negro binarizamos, la imagen con un valor um
 
 
 \subsection{Obtener segmentos}
-Partimos de la imagen binarizada y lo primero es reducir el grosor de las líneas detectadas a un pixel, eso lo conseguimos llamando a la función skeletonize que nos devuelve la imagen con las líneas de un pixel (así no acumulamos errores y es mas rápida la búsqueda de rectas).\\
-Seguidamente llamamos a la función <<probabilistic hough line>> que nos va a encontrar segmentos que formaran las líneas el funcionamiento ha sido explicado en el apartado (conceptos teóricos). Como podemos observar en la figura \ref{fig:5.5}.
+Partimos de la imagen binarizada y lo primero es reducir el grosor de las líneas detectadas a un pixel. Eso lo conseguimos llamando a la función skeletonize que nos devuelve la imagen con las líneas de un pixel (así no acumulamos errores y es mas rápida la búsqueda de rectas).\\
+Seguidamente llamamos a la función <<probabilistic hough line>> que nos va a encontrar segmentos que formaran las líneas. El funcionamiento ha sido explicado en el apartado (conceptos teóricos), como podemos observar en la figura \ref{fig:5.5}.
 
 
 \begin{figure}
@@ -96,9 +96,9 @@ Llegados a este punto, lo que tenemos son:
 \begin{itemize}
 \item Muchos segmentos que forman las líneas reales y tenemos que unirlos. Para ello vamos a usar la teoría de grafos añadiendo los segmentos a un grafo.
 
-\item Para unir dos segmentos tiene que cumplirse que la distancia mínima entre sus extremos sea menor que un umbral y si pasa este punto comprobaremos que el angulo que forman entre ellas sea menor a otro umbral.
+\item Para unir dos segmentos tiene que cumplirse que la distancia mínima entre sus extremos sea menor que un umbral, y si pasa este punto comprobaremos que el ángulo que forman entre ellas sea menor a otro umbral.
 
-\item Si cumplen las dos condiciones añadiremos un camino al grafo desde la recta uno a la recta dos, como se ve en la figura \ref{fig:5.6}.
+\item Si cumplen las dos condiciones anteriores, añadiremos un camino al grafo desde la recta uno a la recta dos, como se ve en la figura \ref{fig:5.6}.
 \end{itemize}
 
 
@@ -115,9 +115,9 @@ Llegados a este punto, lo que tenemos son:
 \end{figure}
 
 \subsection{Recuperación de líneas}
-Ahora lo que tenemos es un grafo con clusters, ya que cada cluster se identifica con únicamente una recta y tendremos tantos como rectas.
+Ahora lo que tenemos es un grafo con clusters, ya que cada cluster se identifica con únicamente una recta, y tendremos tantos como rectas.
 Un problema de grafos es el problema de las k-componentes pero a nosotros solo nos interesan las 1-componentes del grafo ya que cada grupo de estos segmentos cercanos se corresponde con una recta real.
-Devolvemos la combinación de los segmentos mas relevantes de cada cluster y estos se convierten en nuestra buscada linea real, como podemos observar en la figura \ref{fig:5.7}.
+Devolvemos la combinación de los segmentos mas relevantes de cada cluster y estos se convierten en nuestra buscada línea real, como podemos observar en la figura \ref{fig:5.7}.
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.65\textwidth]{ResultanteDelGrafo}
@@ -135,16 +135,15 @@ Devolvemos la combinación de los segmentos mas relevantes de cada cluster y est
 \end{itemize}
 
 \section{Interfaz}
-La programación de interfaces en Python ha sido bastante sencillo, y muy intuitivo, por lo que lo recomendamos para futuras ocasiones.
+La programación de interfaces en Python ha sido bastante sencillo, y muy intuitivo, por lo que lo recomendamos para futuras ocasiones en este tipo de trabajo.
 
-En grandes rasgos estoy bastante contento con PyQt5 me ha resultado muy útil y la librería de Matplotlib también ya que con ellas he conseguido resolver todos los problemas planteados.
+En grandes rasgos estoy bastante contento con PyQt5 porque me ha resultado muy útil, y la librería de Matplotlib también, ya que con ellas he conseguido resolver todos los problemas planteados.
 
 \section{Internacionalización}
 
-En nuestra aplicación, hemos implementado una funcionalidad para traducirla a los dos idiomas, que hemos considerado mas apropiados para el usuario, ya que los usuarios publicaran los artículos en Ingles.
+En nuestra aplicación hemos implementado una funcionalidad para traducirla a los dos idiomas que hemos considerado mas apropiados para el usuario, ya que los usuarios publicarán los artículos en inglés.
 
-La forma de implementarlo ha sido mediante una clase, donde se guardan los string correspondientes a los textos en inglés y otra en español. Mediante un fichero de configuración, se guarda el idioma usado, en el fichero y así una vez cambiado quedara como configuración. Para futuras ejecuciones sin necesidad de cambiar cada vez el idioma, si lo queremos volver a cambiar este fichero quedara también cambiado.
+La forma de implementarlo ha sido mediante una clase, donde se guardan los string correspondientes a los textos en inglés y otra en español. Mediante un fichero de configuración, se guarda el idioma usado en el fichero, y así, una vez cambiado quedara como configuración. Para futuras ejecuciones sin necesidad de cambiar cada vez el idioma. Si lo queremos volver a cambiar, este fichero quedara también cambiado.
 
 \section{Publicaciones}
-Partiendo de este proyecto, se va a realizar una articulo para una revista científica. Pese a que no está decidido todavía la revista, si que se desea publicitar a la comunidad científica la herramienta fruto de este proyecto de fin de grado.
-
+Partiendo de este proyecto, se va a realizar una artículo para una revista científica. Todavía no está decido qué revista lo recogerá pero se desea publicitar a la comunidad científica la herramienta, fruto de este proyecto de fin de grado.

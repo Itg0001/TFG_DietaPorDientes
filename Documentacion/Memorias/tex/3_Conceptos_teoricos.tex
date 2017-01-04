@@ -18,7 +18,7 @@ Una vez que tengamos la máscara sobre la que detectar las características que 
 	\begin{itemize}
 	\item Transformada de Hough: Es un procedimiento matemático para buscar segmentos dentro de las imágenes binarizadas, dado que es complejo, es necesario explicar por que funciona y en qué consiste.
 
-	\item Grafos: Gracias a la teoría de grafos podemos procesar muchos segmentos similares en uno solo, de forma sencilla y eficiente, por lo que precisa explicación.
+	\item Grafos: Gracias a la teoría de grafos podemos combinar varios fragmentos en un único segmento, de forma sencilla y eficiente, por lo que precisa explicación.
 	\end{itemize}
 
 \end{itemize}
@@ -109,12 +109,34 @@ Ventajas:
 \item La pérdida es mínima al cambiar a otro espacio de color.
 \end{itemize}
 
-El uso de este espacio de color viene dado por la necesidad de calcular la distancia a otros colores, que en este caso la diferencia. Caracteriza mejor que los demás espacios y por esto vamos a usar este espacio.
-\section{Transformada de Hough }
+El uso de este espacio de color viene dado por la necesidad de calcular la distancia a otros colores, que en este caso es la diferencia. Caracteriza mejor que los demás espacios y por esto lo vamos a usar.
+Para segmentar las líneas pintadas sobre el fondo, se usara la distancia, mencionada anteriormente, al color que elija el usuario.
 
+\section{Reducción de grosor: Skeletonize}
+Tal y como se explica en \cite{scik:skeleton}, dentro del pre-procesado de la imagen, uno de los puntos clave, como se explica en el párrafo siguiente, para que nuestro método funcione.
+
+Después de su binarización y la detección de los bordes de la imagen a procesar, debemos reducir la región sobre la que aplicar la transformada de Hough, así conseguiremos que esta sea mas rápida, y detecte menor número de líneas imaginarias por cada línea real.
+
+Esto lo conseguiremos usando una función de esqueletonizado que nos devuelve lo que su nombre indica: el esqueleto de los bordes de la imagen reducidos a un pixel. Como podemos observar en la imagen \ref{fig:3.6}.
+
+
+\begin{figure}
+\begin{subfigure}[b]{.5\linewidth}
+\centering\large \includegraphics[width=.9\textwidth]{skeletonizeA}
+\caption{Original}
+\end{subfigure}%
+\begin{subfigure}[b]{.5\linewidth}
+\centering\large \includegraphics[width=.9\textwidth]{skeletonizeB}
+\caption{Skeletonizada}
+\end{subfigure}
+\caption{Ejemplo de eskeletonize.}\label{fig:3.6}
+\end{figure}
+
+\section{Transformada de Hough }
 Uno de los puntos relevantes del proyecto es la detección de las líneas pintadas o detectadas por el algoritmo (modo automático) y para ello vamos a usar una técnica que sirve para detectar formas, expresadas de forma matemática, dentro de imágenes.
 
-Esta técnica fue inventada por Richard Duda y Peter Hart, en 1972 pero diez años antes, Paul Hough propuso y patentó \cite{pat:patHough} la idea inicial de detectar líneas en la imagen. Más tarde se generalizó para detectar cualquier figura.
+Esta técnica fue desarrollada por Richard Duda y Peter Hart, en 1972 pero diez años antes, Paul Hough \cite{pat:patHough} propuso y patentó aunque no la implemento la idea inicial de detectar líneas en la imagen.
+Más tarde se generalizó para detectar cualquier figura.
 
 \subsection{Teoría}
 
@@ -165,25 +187,6 @@ Pero este método penaliza a los puntos que se encuentran aleatoriamente por tod
 Un exceso de ruido en la imagen también haría este método inservible, pero para pequeñas cantidades lo hacen mas preciso que el método normal.
 Otra ventaja es que con este método obtenemos el segmento que necesitamos, no la prolongación de él hasta el infinito.
 
-\section{Reducción de grosor: Skeletonize}
-Tal y como se explica en \cite{scik:skeleton}, dentro del pre-procesado de la imagen, uno de los puntos clave, como se explica en el párrafo siguiente, para que nuestro método funcione.
-
-Después de su binarización y la detección de los bordes de la imagen a procesar, debemos reducir la región sobre la que aplicar la transformada de Hough, así conseguiremos que esta sea mas rápida, y detecte menor número de líneas imaginarias por cada línea real.
-
-Esto lo conseguiremos usando una función de esqueletonizado que nos devuelve lo que su nombre indica: el esqueleto de los bordes de la imagen reducidos a un pixel. Como podemos observar en la imagen \ref{fig:3.6}.
-
-
-\begin{figure}
-\begin{subfigure}[b]{.5\linewidth}
-\centering\large \includegraphics[width=.9\textwidth]{skeletonizeA}
-\caption{Original}
-\end{subfigure}%
-\begin{subfigure}[b]{.5\linewidth}
-\centering\large \includegraphics[width=.9\textwidth]{skeletonizeB}
-\caption{Skeletonizada}
-\end{subfigure}
-\caption{Ejemplo de eskeletonize.}\label{fig:3.6}
-\end{figure}
 
 
 \section{Grafos}	
@@ -207,6 +210,8 @@ Es una de las propiedades del grafo con sus componentes, nos indica cómo de fue
 Gracias a esta teoría, aprovechamos para afirmar, que un grafo esta dividido en clusters que son, agrupaciones fuertemente conexas de una porción de sus vértices.
 Por el problema de los k-componentes, podemos saber qué conjuntos de vértices forman los clusters, aplicado a nuestro problema.
 Los vértices que tengan aristas que los comuniquen, pertenecerán a las mismas rectas y de cada conjunto de vértices, sacaremos una recta.
+
+Ver apartado <<Procesado de imagen en la sección aspectos relevantes del desarrollo del proyecto>> para observar el resultado de aplicar los k-componentes para la combinación de segmentos.
 
 \section{Bordes}
 En lo que nos estamos basando para poder resolver el problema,

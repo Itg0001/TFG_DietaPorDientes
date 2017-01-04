@@ -18,7 +18,8 @@
 % Links
 \usepackage[colorlinks]{hyperref}
 \hypersetup{
-	allcolors = {red}
+	allcolors = {red},
+	urlcolor ={black}%solo para la version de imprimir
 }
 
 % Ecuaciones
@@ -357,7 +358,7 @@
 \newcommand{\nombre}{Ismael Tobar García} %%% cambio de comando
 
 % Datos de portada
-\title{Dieta por Dientes}
+\title{Estimación de la dieta por análisis de marcas dentales}
 \author{\nombre}
 \tutor{D. Álvar Arnaiz González y Dr. José Francisco Diez Pastor}
 \date{\today}
@@ -382,7 +383,7 @@
 
 \noindent Expone:
 
-\noindent Que el alumno D. \nombre, con DNI 71286542-C, ha realizado el Trabajo final de Grado en Ingeniería Informática titulado Dieta por Dientes. 
+\noindent Que el alumno D. \nombre, con DNI 71286542-C, ha realizado el Trabajo final de Grado en Ingeniería Informática titulado Estimación de la dieta por análisis de marcas dentales. 
 
 \noindent Y que dicho trabajo ha sido realizado por el alumno bajo la dirección del que suscribe, en virtud de lo cual se autoriza su presentación y defensa.
 
@@ -431,8 +432,11 @@ Dr. Jóse Francisco Diez Pastor
 La paleontología es una ciencia natural de investigación, que se encarga del estudio de restos fósiles, para conseguir tanto una reconstrucción a nivel físico y tangible, de los restos encontrados, como una reconstrucción a nivel de comportamiento, a partir de las marcas, imperfecciones y otros aspectos que se determinen, que no son naturales de dichos restos. Todo ello lleva la finalidad de determinar y reconstruir tanto el individuo u organismo como su comportamiento.
 Este área, en Burgos, es de particular importancia porque tenemos algunos yacimientos muy importantes, como los localizados en la Sierra de Atapuerca \cite{wiki:atapuerca}.
 
-En la antropología, se estudia el comportamiento de los individuos y animales, en este caso nos centraremos en los individuos humanos, concretamente  su forma de vida.
+En la antropología, se estudia el comportamiento de los individuos humanos modernos y otros homínidos. 
+En este caso nos centraremos en los individuos humanos, concretamente  su forma de vida.
 Uno de los datos que podemos extraer del análisis de los restos humanos es su alimentación. Los distintos alimentos producen distintas erosiones en la superficie de los dientes y, el análisis de estas erosiones, permite estimar la dieta.
+
+El análisis de estas erosiones se realiza media el conteo, medición y clasificación de estrías, que es un proceso tedioso y repetitivo
 
 Los procesos repetitivos son susceptibles de sufrir fallos debido al cansancio o la falta de concentración. La tecnología permite minimizar estos fallos y automatizarlos ya que un ordenador o una maquina no se cansa y puede trabajar mas rápido que nosotros. Esto hace que nos planteemos usar los recursos hoy en día disponibles, como es la tecnología, para ayudar a avanzar y a facilitar el trabajo a los investigadores de estos campos, ya que con herramientas como esta, reducimos el tiempo de hacer trabajos repetitivos porque reducimos la tarea más costosa que es el trabajo manual.
 
@@ -444,7 +448,7 @@ En resumen, este proyecto va a consistir en detectar las marcas que se produjero
 
 \renewcommand*\abstractname{Descriptores}
 \begin{abstract}
-Python, Procesamiento de imágenes, aprendizaje automático, paleontología, dieta.  \ldots
+Python, Procesamiento de imágenes, aprendizaje automático, paleontología, dieta.
 \end{abstract}
 
 \clearpage
@@ -455,8 +459,10 @@ Python, Procesamiento de imágenes, aprendizaje automático, paleontología, die
 Paleontology is a natural science of research, which is responsible for the study of fossils remains, to achieve, physical and tangible reconstruction of the remains found, as the behavior of the organisms. All this has the purpose of determining and rebuilding the individual or organism as well as its behavior.
 This area in Burgos is of particular importance because it has a very important archaeological sites, such as those located in the Sierra de Atapuerca~\cite{wiki:atapuerca}.
 
-In anthropology, as stated above, we also study the behavior of individuals and animals, in this case we will focus on hominid remains, specifically the way of life of these populations.
+In anthropology, as stated above, we also study the behavior of human individuals and hominids, in this case we will focus on hominid remains, specifically the way of life of these populations.
 One of the data that can be extracted from the analysis of the human remains is their nutrition. Different foods produce different erosions on the surface of the teeth and, the analysis of these erosions, allows us to estimate the diet.
+
+The analysis of these erosions is performed through the counting, measurement and classification of stretch marks, which is a tedious and repetitive process
 
 Repetitive processes are susceptible to failures due to fatigue or lack of concentration, technology allows us to minimize these problems and automate them. The benefit is that a computers or machines do not get tired and can work faster than us. This makes us to consider the use of the resources available today, such as technology, to help and facilitate the work of researchers in these fields. The use of tools like this, reduces the time of doing repetitive work.
 

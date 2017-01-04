@@ -65,9 +65,9 @@ Esta carpeta corresponde todos los ficheros de código fuente del proyecto, todo
 \subsubsection{Tesseract:}
 Esta carpeta contiene el ejecutable del OCR junto con sus ficheros de configuración para poderlo ejecutar.
 
-\subsection{Test:}
+\subsubsection{Test:}
 Esta carpeta contiene los test del código para comprobar que funcionan correctamente.
-\subsubsection{Codigo:}
+\textbf{Codigo:}
 \begin{itemize}
 	\item Estadísticas:
 		\begin{itemize}
@@ -357,3 +357,33 @@ Desviación & 0.10 & 0 & 0.13 & 0 & 0.08  & 0.10 & 0.10 & 0 & 0.08 & 0.08 & 0.08
 	\label{fig:p4}
 
 \end{figure}
+
+\subsection{Test t de Student}
+En este apartado vamos a hacer pruebas con los resultados obtenidos a mano por nuestros testers de la aplicación y los resultados obtenidos por nuestra aplicación, para ello vamos a hacer <<el test t de Student \cite{wiki:testStude}>>
+
+Dicho test consiste en a partir de dos muestras comprar cuanta varia una de otra obteniendo un resultado entre 0 y 1. El resultado obtenido se puede evaluar de dos modos:
+\begin{itemize}
+\item Normal: Si el resultado obtenido es mayor de 0,05 significa que las muestras son parecidas y que pasan el test de Student menos estricto.
+\item Estricto: Si el resultado obtenido es mayor o igual a 0.1 quiere decir que las dos muestras de población son prácticamente la misma ya que ha pasado el test de Student estricto.
+\end{itemize} 
+
+\begin{table}[]
+\centering
+\caption{Prueba t de Student}
+\label{tab:estud}
+\begin{tabular}{@{} lrrrrr @{}}
+\toprule
+\multirow{2}{*}{\textbf{Diente}} & \multicolumn{2}{l}{\textbf{Numero de estrías}} & \multicolumn{2}{l}{\textbf{Longitud promedio}} & \multirow{2}{*}{\textbf{Prueba T}} \\ \cline{2-5}
+                                 & \textbf{Automático}      & \textbf{Manual}     & \textbf{Automático}      & \textbf{Manual}     &                                    \\ \midrule
+\textbf{7506-1}                  & 85,00                    & 80,00               & 339,76                   & 275,88              & 0,19                               \\ \midrule
+\textbf{7506-2}                  & 50,00                    & 55,00               & 269,17                   & 271,00              & 0,96                               \\ \midrule
+\textbf{7547-1}                  & 23,00                    & 21,00               & 300,00                   & 327,00              & 0,77                               \\ \midrule
+\textbf{7547-3}                  & 24,00                    & 24,00               & 263,70                   & 260,00              & 0,94                               \\ \midrule
+\textbf{7672-1}                  & 83,00                    & 75,00               & 202,77                   & 230,57              & 0,21                               \\ \midrule
+\textbf{7672-3}                  & 56,00                    & 52,00               & 211,93                   & 231,00              & 0,64                               \\ \midrule
+\textbf{7672B-1}                 & 65,00                    & 66,00               & 221,66                   & 233,00              & 0,64                               \\ \midrule
+\textbf{7672B-2}                 & 71,00                    & 69,00               & 215,86                   & 244,26              & 0,34                               \\ \midrule
+\textbf{7711-1}                  & 93,00                    & 76,00               & 195,07                   & 269,00              & 0,10                               \\ \midrule
+\textbf{7711-3}                  & 88,00                    & 80,00               & 188,71                   & 237,00              & 0,09                               \\ \bottomrule
+\end{tabular}
+\end{table}

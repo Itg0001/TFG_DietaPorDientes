@@ -4,7 +4,7 @@
 
 En este apartado vamos a explicar que hemos usado para la resolución del problema en cuanto a herramientas de diseño.
 
-Para la elaboración de los diagramas de paquetes y de clases hemos usado UML como metodología y el programa Astah para implementar los diagramas de clases.
+Para la elaboración de los diagramas de paquetes y de clases hemos usado UML como lenguaje de modelado y el programa Astah para implementar los diagramas de clases.
 
 Primero, hemos planeado un prototipo de diseño de cada una de las clases, como podemos observar en la figura~\ref{fig:C.1.1} el diagrama de clases inicial, a medida que las implementábamos las hemos ido completando, para que se correspondieran en lo que finalmente va a quedar.
 
@@ -31,9 +31,9 @@ En esta parte vamos a hacer una breve descripción del contenido de cada clase y
 Esta clase simplemente hará de fachada entre la ejecución y el acceso a la aplicación real cuando hayamos elegido una imagen que procesar
 	\item Window:
 Esta clase contendrá la ventana principal, menús, el panel de pestañas y la imagen sobre la que dibujar.
-	\item PanelDePestannas:
+	\item PanelDePestañas:
 Esta clase contendrá la botonería y la interacción con la imagen a evaluar.
-	\item MediadorPestannas:
+	\item MediadorPestañas:
 Esta clase va a ser un mediador para las pestañas para deslocalizar código y complejidad.
 	\item MediadorVentana:
 En esta clase va ser un mediador entre la ventana principal y sus métodos para así reducir complejidad en la clase de ventana.
@@ -127,7 +127,7 @@ Es una sección de la interfaz que nos va permitir de momento la carga de imáge
 \end{figure}
 
 \textbf{Barra de herramientas de la imagen}
-Es una sección de la interfaz que nos permitirá manipular la imagen para realizar estas acciones,como podemos observar en la figura \ref{fig:5.11}.
+Es una sección de la interfaz que nos permitirá manipular la imagen para realizar estas acciones, como podemos observar en la figura \ref{fig:5.11}.
 
 \begin{itemize}
 \item Volver al principio. 

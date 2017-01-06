@@ -72,6 +72,16 @@ En esta sección se explicará como cargar una imagen en nuestra aplicación, pa
 
 Deberemos seleccionar la opción de Archivo  $>$ Nuevo Proyecto. Como se puede ver en la imagen \ref{fig:abrirPro}
 
+Un proyecto estará compuesto por:
+\begin{itemize}
+\item Original.jpg: Se corresponde con la imagen original antes de detectar o pintar estrías sobre ella.
+\item Pintada.jpg: Se corresponde con la imagen resultante con las estrías detectadas pintadas sobre ella.
+\item Proyecto.xml: Este fichero contendrá la configuración del proyecto y los valores que hemos asignado para los cálculos de nuestra ejecución.
+\item Salida Estadísticas.csv: Este fichero contendrá las estadísticas de las estrías que hemos detectado medias, desviación típica y calculo del punto en las elipses de dieta.
+\item Salida Lineas.csv: Este fichero contendrá la información de longitud, ángulo, inicio y final de cada una de las estrías detectadas.
+\item Tabla.tex: Este fichero contendrá la tabla para exportar a documentos latex y crear informes con las estadísticas de las estrías detectadas.
+\end{itemize}
+
 \begin{figure}[h]
 \centering
 \includegraphics[width=.50\textwidth]{AbrirImagen}

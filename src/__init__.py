@@ -14,6 +14,7 @@ from proyecto.analisis.procesado.ProcesadoAutomatico import ProcesadoAutomatico
 from Test.codigo.procesado import TestProcesadoDeImagen
 from Test.codigo.procesado import TestProcesadoDeLineas
 from Test.codigo.estadisticas import TestEstadistica
+from Test.codigo.calidad.TestCalidad import TestCalidad
 
 from proyecto.analisis.informes.Informe import Informe
 from proyecto.analisis.informes.DatosToCsv import DatosToCsv

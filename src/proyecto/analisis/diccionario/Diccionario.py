@@ -14,10 +14,10 @@ class Diccionario():
         self.dm='dm'
         self.totales='totales'
         self.proyec="proyect"
-        self.idioma="Ingles"
+        self.idioma="Inglés"
         self.idioma_esp="Español"
         self.idioma_selec="Idioma"
-        self.info_msg="Reinicializar para aplicar cambios \n La aplicacion se va a cerrar"
+        self.info_msg="Reinicializar para aplicar cambios \n La aplicación se va a cerrar"
         self.warnn="AVISO"
         
         self.docu3="docu3"
@@ -35,7 +35,7 @@ class Diccionario():
         self.utf='UTF-8'
         self.repeti="repeti"
         self.long="long"
-        self.direccion="direccion"
+        self.direccion="dirección"
         self.path="path"
         self.tex='tex'
         self.tab='/Tabla.tex'
@@ -78,24 +78,24 @@ class Diccionario():
         #MediadorPestannas
         self.md_pe_automati="calcula Auto"
         self.md_pe_fijar="Fijar cuadrado"
-        self.md_pe_corregir="Corregir lineas"
+        self.md_pe_corregir="Corregir líneas"
         self.md_pe_tablas="Tabla"
         self.md_pe_lineas_pintadas="Detectar Pintadas"
-        self.md_pe_automatico="Automatico"
+        self.md_pe_automatico="Automático"
         
         self.md_pe_lin_pin=""
-        self.md_pe_calc='Calcular Lineas'
+        self.md_pe_calc='Calcular líneas'
         self.md_pe_param = "Guardar parametros" 
         self.md_pe_repe = "Repeticiones:" 
         self.md_pe_long_min = "Ignorar menores de:" 
-        self.md_pe_direccion = "Direccion de imagen" 
+        self.md_pe_direccion = "Dirección de imagen" 
         self.sel_col="Selecionar color"  
         self.md_pe_col="Color: "
         self.md_pe_no_sel="No seleccionado"
         
-        self.md_pe_corre="Corregir lineas"
-        self.md_pe_auto="Automatico"
-        self.md_pe_corre='Corregir Lineas'
+        self.md_pe_corre="Corregir líneas"
+        self.md_pe_auto="Automático"
+        self.md_pe_corre='Corregir líneas'
         self.md_pe_anadir_p='Anadir punto'
         self.md_pe_anadir_seg='Anadir segmentos'
         self.md_pe_borrar='Borrar seleccionado'
@@ -131,7 +131,7 @@ class Diccionario():
         self.md_pe_msg_gur="No se han guardado los cambios."
         self.md_pe_direc=["Derecha","Izquierda"]
         self.md_pe_puntos_cuadrado=["-","-","-","-"]
-        self.md_pe_orien="Orientacion del diente"
+        self.md_pe_orien="Orientación del diente"
         #mediadorVentana
         self.md_v_ori='nearest'
         self.md_v_up='upper'
@@ -183,20 +183,20 @@ class Diccionario():
         self.detect_event_motion='motion_notify_event'
         
         self.md_pe_lin_pin="Detectores"
-        self.md_pe_calc='Calcular Lineas'
+        self.md_pe_calc='Calcular líneas'
         self.md_pe_param = "Guardar parametros" 
         self.md_pe_repe = "Repeticiones:" 
 
         self.md_pe_long_min = "Ignorar menores de:" 
-        self.md_pe_direccion = "Direccion de imagen" 
+        self.md_pe_direccion = "Dirección de imagen" 
         self.sel_col="Selecionar color"  
         self.md_pe_col="Color: "
         self.md_pe_no_sel="No seleccionado"
         self.md_pe_direc=["Derecha","Izquierda"]
 
-        self.md_pe_corre="Corregir lineas"
-        self.md_pe_auto="Automatico"
-        self.md_pe_corre='Corregir Lineas'
+        self.md_pe_corre="Corregir líneas"
+        self.md_pe_auto="Automático"
+        self.md_pe_corre='Corregir líneas'
         self.md_pe_anadir_p='Anadir punto'
         self.md_pe_anadir_seg='Anadir segmentos'
         self.md_pe_borrar='Borrar seleccionado'

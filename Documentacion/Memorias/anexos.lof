@@ -1,0 +1,61 @@
+\select@language {spanish}
+\select@language {spanish}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Burndown del sprint 1\relax }}{4}{figure.caption.7}
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Burndown del sprint 2\relax }}{5}{figure.caption.10}
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Burndown del sprint 3\relax }}{6}{figure.caption.13}
+\contentsline {figure}{\numberline {A.4}{\ignorespaces Burndown del sprint 4\relax }}{7}{figure.caption.16}
+\contentsline {figure}{\numberline {A.5}{\ignorespaces Burndown del sprint 5\relax }}{8}{figure.caption.19}
+\contentsline {figure}{\numberline {A.6}{\ignorespaces Burndown del sprint 6\relax }}{10}{figure.caption.22}
+\contentsline {figure}{\numberline {A.7}{\ignorespaces Burndown del sprint 7\relax }}{11}{figure.caption.25}
+\contentsline {figure}{\numberline {A.8}{\ignorespaces Burndown del sprint 8\relax }}{13}{figure.caption.28}
+\contentsline {figure}{\numberline {A.9}{\ignorespaces Burndown del sprint 9\relax }}{14}{figure.caption.31}
+\contentsline {figure}{\numberline {A.10}{\ignorespaces Burndown del sprint 10\relax }}{15}{figure.caption.34}
+\contentsline {figure}{\numberline {A.11}{\ignorespaces Burndown del sprint 11\relax }}{16}{figure.caption.37}
+\contentsline {figure}{\numberline {A.12}{\ignorespaces Burndown del sprint 12\relax }}{17}{figure.caption.40}
+\contentsline {figure}{\numberline {A.13}{\ignorespaces Burndown del sprint 13\relax }}{18}{figure.caption.43}
+\contentsline {figure}{\numberline {A.14}{\ignorespaces Burndown del sprint 14\relax }}{19}{figure.caption.46}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Diagrama general de casos de uso.\relax }}{26}{figure.caption.56}
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Diagrama de casos de uso extendido.\relax }}{26}{figure.caption.57}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Diagrama de clases inicial\relax }}{35}{figure.caption.65}
+\contentsline {figure}{\numberline {C.2}{\ignorespaces Diagrama de clases final parte uno.\relax }}{36}{figure.caption.70}
+\contentsline {figure}{\numberline {C.3}{\ignorespaces Diagrama de clases final parte dos.\relax }}{37}{figure.caption.71}
+\contentsline {figure}{\numberline {C.4}{\ignorespaces Dise\IeC {\~n}o de la interfaz de usuario\relax }}{38}{figure.caption.74}
+\contentsline {figure}{\numberline {C.5}{\ignorespaces Dise\IeC {\~n}o de la interfaz de usuario\relax }}{39}{figure.caption.76}
+\contentsline {figure}{\numberline {C.6}{\ignorespaces Barra de herramientas de la aplicaci\IeC {\'o}n\relax }}{39}{figure.caption.77}
+\contentsline {figure}{\numberline {C.7}{\ignorespaces Barra de herramientas de la imagen\relax }}{40}{figure.caption.78}
+\contentsline {figure}{\numberline {C.8}{\ignorespaces FigureCanvas de la imagen\relax }}{40}{figure.caption.79}
+\contentsline {figure}{\numberline {C.9}{\ignorespaces Pesta\IeC {\~n}as\relax }}{41}{figure.caption.80}
+\contentsline {figure}{\numberline {C.10}{\ignorespaces Diagrama de paquetes inicial\relax }}{44}{figure.caption.83}
+\contentsline {figure}{\numberline {C.11}{\ignorespaces Diagrama de paquetes inicial\relax }}{45}{figure.caption.85}
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {E.1}{\ignorespaces Ventana inicial de la aplicaci\IeC {\'o}n\relax }}{55}{figure.caption.101}
+\contentsline {figure}{\numberline {E.2}{\ignorespaces Opci\IeC {\'o}n para cargar una imagen\relax }}{56}{figure.caption.103}
+\contentsline {figure}{\numberline {E.3}{\ignorespaces Seleccionador de ficheros\relax }}{56}{figure.caption.104}
+\contentsline {figure}{\numberline {E.4}{\ignorespaces Opciones de apertura de imagen.\relax }}{57}{figure.caption.105}
+\contentsline {figure}{\numberline {E.5}{\ignorespaces Opci\IeC {\'o}n para abrir un proyecto.\relax }}{57}{figure.caption.107}
+\contentsline {figure}{\numberline {E.6}{\ignorespaces Opci\IeC {\'o}n para abrir un proyecto.\relax }}{58}{figure.caption.108}
+\contentsline {figure}{\numberline {E.7}{\ignorespaces Como se muestra un proyecto cargado o abierto.\relax }}{59}{figure.caption.109}
+\contentsline {figure}{\numberline {E.8}{\ignorespaces Como cambiar el idioma.\relax }}{59}{figure.caption.111}
+\contentsline {figure}{\numberline {E.9}{\ignorespaces Imagen v\IeC {\'a}lida para detecci\IeC {\'o}n de estr\IeC {\'\i }as modo semiautom\IeC {\'a}tico.\relax }}{60}{figure.caption.113}
+\contentsline {figure}{\numberline {E.10}{\ignorespaces Selecci\IeC {\'o}n de la orientaci\IeC {\'o}n de la imagen.\relax }}{60}{figure.caption.114}
+\contentsline {figure}{\numberline {E.11}{\ignorespaces Selecci\IeC {\'o}n de las opciones disponibles para este modo.\relax }}{61}{figure.caption.115}
+\contentsline {figure}{\numberline {E.12}{\ignorespaces Pasos para seleccionar el color correctamente.\relax }}{61}{figure.caption.116}
+\contentsline {figure}{\numberline {E.13}{\ignorespaces Pasos para a\IeC {\~n}adir un segmentos manualmente.\relax }}{62}{figure.caption.118}
+\contentsline {figure}{\numberline {E.14}{\ignorespaces Selecci\IeC {\'o}n de la longitud m\IeC {\'\i }nima de corte.\relax }}{63}{figure.caption.120}
+\contentsline {figure}{\numberline {E.15}{\ignorespaces Segmentos calculados por el modo autom\IeC {\'a}tico.\relax }}{63}{figure.caption.121}
+\contentsline {figure}{\numberline {E.16}{\ignorespaces Segmentos englobados en el cuadrado.\relax }}{64}{figure.caption.122}
+\contentsline {figure}{\numberline {E.17}{\ignorespaces Opciones para guardar tabla.\relax }}{65}{figure.caption.124}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {F.1}{\ignorespaces Resumen visual filtros usados.\relax }}{73}{figure.caption.140}
+\contentsline {figure}{\numberline {F.2}{\ignorespaces Pasos del procesado parte uno.\relax }}{74}{figure.caption.141}
+\contentsline {figure}{\numberline {F.3}{\ignorespaces Pasos del procesado parte dos.\relax }}{75}{figure.caption.142}
+\contentsline {figure}{\numberline {F.4}{\ignorespaces Pasos del procesado parte tres.\relax }}{76}{figure.caption.143}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {G.1}{\ignorespaces Im\IeC {\'a}genes prueba 1\relax }}{81}{figure.caption.148}
+\contentsline {figure}{\numberline {G.2}{\ignorespaces Im\IeC {\'a}genes prueba 2\relax }}{81}{figure.caption.149}
+\contentsline {figure}{\numberline {G.3}{\ignorespaces Im\IeC {\'a}genes prueba 3\relax }}{82}{figure.caption.150}
+\contentsline {figure}{\numberline {G.4}{\ignorespaces Im\IeC {\'a}genes prueba 4\relax }}{82}{figure.caption.151}

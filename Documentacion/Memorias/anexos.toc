@@ -1,0 +1,119 @@
+\select@language {spanish}
+\select@language {spanish}
+\contentsline {chapter}{\'{I}ndice general}{\es@scroman {i}}{section*.1}
+\contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {ii}}{section*.2}
+\contentsline {appendix}{\chapternumberline {A}Planificaci\IeC {\'o}n}{1}{appendix.Alph1}
+\contentsline {section}{\numberline {A.1}Introducci\IeC {\'o}n}{1}{section.Alph1.1}
+\contentsline {section}{\numberline {A.2}Planificaci\IeC {\'o}n temporal}{2}{section.Alph1.2}
+\contentsline {subsection}{Sprint 0 (9/9/2016 - 16/9/2016)}{2}{section*.3}
+\contentsline {subsubsection}{Cumplido:}{2}{section*.4}
+\contentsline {subsection}{Sprint 1 (16/9/2016 - 22/9/2016)}{3}{section*.5}
+\contentsline {subsubsection}{Cumplido:}{3}{section*.6}
+\contentsline {subsection}{Sprint 2 (22/9/2016 - 30/9/2016)}{3}{section*.8}
+\contentsline {subsubsection}{Cumplido:}{4}{section*.9}
+\contentsline {subsection}{Sprint 3 (30/9/2016 - 7/10/2016)}{5}{section*.11}
+\contentsline {subsubsection}{Cumplido:}{5}{section*.12}
+\contentsline {subsection}{Sprint 4 (7/10/2016 - 14/10/2016)}{6}{section*.14}
+\contentsline {subsubsection}{Cumplido:}{7}{section*.15}
+\contentsline {subsection}{Sprint 5 (13/10/2016 - 22/10/2016)}{7}{section*.17}
+\contentsline {subsubsection}{Cumplido:}{8}{section*.18}
+\contentsline {subsection}{Sprint 6 (22/10/2016 - 28/10/2016)}{8}{section*.20}
+\contentsline {subsubsection}{Cumplido:}{9}{section*.21}
+\contentsline {subsection}{Sprint 7 (28/10/2016 - 04/11/2016)}{9}{section*.23}
+\contentsline {subsubsection}{Cumplido:}{10}{section*.24}
+\contentsline {subsection}{Sprint 8 (04/11/2016 - 11/11/2016)}{11}{section*.26}
+\contentsline {subsubsection}{Cumplido:}{12}{section*.27}
+\contentsline {subsection}{Sprint 9 (04/11/2016 - 11/11/2016)}{12}{section*.29}
+\contentsline {subsubsection}{Cumplido:}{13}{section*.30}
+\contentsline {subsection}{Sprint 10 (18/11/2016 - 25/11/2016)}{14}{section*.32}
+\contentsline {subsubsection}{Cumplido:}{15}{section*.33}
+\contentsline {subsection}{Sprint 11 (25/11/2016 - 02/12/2016)}{15}{section*.35}
+\contentsline {subsubsection}{Cumplido:}{15}{section*.36}
+\contentsline {subsection}{Sprint 12 (02/12/2016 - 09/12/2016)}{16}{section*.38}
+\contentsline {subsubsection}{Cumplido:}{16}{section*.39}
+\contentsline {subsection}{Sprint 13 (09/12/2016 - 16/12/2016)}{17}{section*.41}
+\contentsline {subsubsection}{Cumplido:}{17}{section*.42}
+\contentsline {subsection}{Sprint 14 (16/12/2016 - 23/12/2016)}{18}{section*.44}
+\contentsline {subsubsection}{Cumplido:}{18}{section*.45}
+\contentsline {subsection}{Sprint 15 (23/12/2016 - 30/12/2016)}{18}{section*.47}
+\contentsline {section}{\numberline {A.3}Estudio de viabilidad}{18}{section.Alph1.3}
+\contentsline {subsection}{Viabilidad econ\IeC {\'o}mica}{19}{section*.48}
+\contentsline {subsubsection}{Costes de personal}{19}{section*.49}
+\contentsline {subsubsection}{Costes de material}{20}{section*.50}
+\contentsline {subsubsection}{Costes totales}{20}{section*.51}
+\contentsline {subsection}{Viabilidad legal}{20}{section*.53}
+\contentsline {appendix}{\chapternumberline {B}Especificaci\IeC {\'o}n de Requisitos}{22}{appendix.Alph2}
+\contentsline {section}{\numberline {B.1}Introducci\IeC {\'o}n}{22}{section.Alph2.1}
+\contentsline {section}{\numberline {B.2}Objetivos generales}{22}{section.Alph2.2}
+\contentsline {section}{\numberline {B.3}Catalogo de requisitos}{23}{section.Alph2.3}
+\contentsline {section}{\numberline {B.4}Especificaci\IeC {\'o}n de requisitos}{24}{section.Alph2.4}
+\contentsline {subsection}{Diagrama de casos de uso}{25}{section*.55}
+\contentsline {appendix}{\chapternumberline {C}Especificaci\IeC {\'o}n de dise\IeC {\~n}o}{34}{appendix.Alph3}
+\contentsline {section}{\numberline {C.1}Introducci\IeC {\'o}n}{34}{section.Alph3.1}
+\contentsline {section}{\numberline {C.2}Dise\IeC {\~n}o de datos}{34}{section.Alph3.2}
+\contentsline {subsection}{Dise\IeC {\~n}o inicial}{34}{section*.66}
+\contentsline {subsubsection}{Clases}{34}{section*.67}
+\contentsline {subsection}{Dise\IeC {\~n}o Final}{36}{section*.68}
+\contentsline {subsubsection}{Clases}{36}{section*.69}
+\contentsline {subsection}{Dise\IeC {\~n}o de la Interfaz}{38}{section*.72}
+\contentsline {subsubsection}{Primera versi\IeC {\'o}n}{38}{section*.73}
+\contentsline {subsubsection}{Versi\IeC {\'o}n a evaluar}{38}{section*.75}
+\contentsline {subsection}{Dise\IeC {\~n}o salida CSV}{41}{section*.81}
+\contentsline {section}{\numberline {C.3}Dise\IeC {\~n}o procedimental}{41}{section.Alph3.3}
+\contentsline {section}{\numberline {C.4}Dise\IeC {\~n}o arquitect\IeC {\'o}nico}{43}{section.Alph3.4}
+\contentsline {subsection}{Dise\IeC {\~n}o de paquetes inicial}{43}{section*.82}
+\contentsline {subsection}{Dise\IeC {\~n}o de paquetes Final}{45}{section*.84}
+\contentsline {subsection}{Patrones de dise\IeC {\~n}o}{45}{section*.86}
+\contentsline {appendix}{\chapternumberline {D}Documentaci\IeC {\'o}n t\IeC {\'e}cnica de programaci\IeC {\'o}n}{47}{appendix.Alph4}
+\contentsline {section}{\numberline {D.1}Introducci\IeC {\'o}n}{47}{section.Alph4.1}
+\contentsline {section}{\numberline {D.2}Estructura de directorios}{47}{section.Alph4.2}
+\contentsline {subsection}{Ejecutables:}{47}{section*.87}
+\contentsline {subsection}{Documentaci\IeC {\'o}n:}{47}{section*.88}
+\contentsline {subsection}{Src:}{48}{section*.89}
+\contentsline {subsubsection}{Proyecto:}{48}{section*.90}
+\contentsline {subsubsection}{Tesseract:}{49}{section*.91}
+\contentsline {subsubsection}{Test:}{49}{section*.92}
+\contentsline {section}{\numberline {D.3}Manual del programador}{49}{section.Alph4.3}
+\contentsline {subsection}{Procesado}{49}{section*.93}
+\contentsline {subsection}{GUI}{50}{section*.94}
+\contentsline {section}{\numberline {D.4}Compilaci\IeC {\'o}n, instalaci\IeC {\'o}n y ejecuci\IeC {\'o}n del proyecto}{51}{section.Alph4.4}
+\contentsline {subsection}{Compilaci\IeC {\'o}n:}{51}{section*.95}
+\contentsline {subsection}{Instalaci\IeC {\'o}n:}{51}{section*.96}
+\contentsline {subsection}{Ejecuci\IeC {\'o}n del proyecto:}{51}{section*.97}
+\contentsline {subsection}{Conclusiones:}{52}{section*.98}
+\contentsline {section}{\numberline {D.5}Pruebas del sistema}{52}{section.Alph4.5}
+\contentsline {subsection}{Test Python:}{52}{section*.99}
+\contentsline {appendix}{\chapternumberline {E}Documentaci\IeC {\'o}n de usuario}{53}{appendix.Alph5}
+\contentsline {section}{\numberline {E.1}Introducci\IeC {\'o}n}{53}{section.Alph5.1}
+\contentsline {section}{\numberline {E.2}Requisitos de usuarios}{53}{section.Alph5.2}
+\contentsline {section}{\numberline {E.3}Instalaci\IeC {\'o}n}{54}{section.Alph5.3}
+\contentsline {subsection}{Posibles errores}{54}{section*.100}
+\contentsline {section}{\numberline {E.4}Manual del usuario}{54}{section.Alph5.4}
+\contentsline {subsection}{Abrir imagen}{55}{section*.102}
+\contentsline {subsection}{Cargar proyecto}{57}{section*.106}
+\contentsline {subsection}{Cambiar idioma}{58}{section*.110}
+\contentsline {subsection}{Modo semi-autom\IeC {\'a}tico para lineas pintadas}{58}{section*.112}
+\contentsline {subsection}{Modo manual}{61}{section*.117}
+\contentsline {subsection}{Modo autom\IeC {\'a}tico}{62}{section*.119}
+\contentsline {subsection}{Guardar proyecto}{63}{section*.123}
+\contentsline {appendix}{\chapternumberline {F}Procesado autom\IeC {\'a}tico de la imagen}{66}{appendix.Alph6}
+\contentsline {section}{\numberline {F.1}Introducci\IeC {\'o}n}{66}{section.Alph6.1}
+\contentsline {section}{\numberline {F.2}Extracci\IeC {\'o}n de bordes mediante procesado de imagen}{66}{section.Alph6.2}
+\contentsline {subsection}{Laplace:}{67}{section*.125}
+\contentsline {subsection}{Prewitt:}{67}{section*.126}
+\contentsline {subsection}{Scharr:}{67}{section*.127}
+\contentsline {subsection}{Sobel:}{68}{section*.128}
+\contentsline {subsection}{Roberts:}{68}{section*.129}
+\contentsline {subsection}{Kirsch:}{68}{section*.130}
+\contentsline {subsection}{Autovectores matriz Hessiana:}{69}{section*.133}
+\contentsline {subsection}{Canny:}{69}{section*.134}
+\contentsline {subsubsection}{Eliminando ruido:}{69}{section*.135}
+\contentsline {subsubsection}{Modificando par\IeC {\'a}metros Canny:}{70}{section*.136}
+\contentsline {subsection}{Gabor:}{70}{section*.137}
+\contentsline {subsection}{Comparativa Filtros}{70}{section*.138}
+\contentsline {subsection}{Procesado:}{71}{section*.139}
+\contentsline {section}{\numberline {F.3}Extracci\IeC {\'o}n de bordes mediante Deep Learning}{72}{section.Alph6.3}
+\contentsline {appendix}{\chapternumberline {G}Validaci\IeC {\'o}n experimental}{78}{appendix.Alph7}
+\contentsline {section}{\numberline {G.1}Test de calidad mediante matriz de confusi\IeC {\'o}n}{78}{section.Alph7.1}
+\contentsline {subsection}{Pruebas}{80}{section*.144}
+\contentsline {section}{\numberline {G.2}Test t de Student sobre las propiedades de las lineas extra\IeC {\'\i }das.}{82}{section.Alph7.2}

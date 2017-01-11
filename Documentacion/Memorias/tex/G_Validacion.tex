@@ -1,13 +1,13 @@
-\apendice{validación experimental}
+\apendice{Validación experimental}
 
-Está sección va a tener 2 tipos de test.
-Uno primero evalua la calidad del procesado y análisis en términos  de líneas extraidas y como se corresponden estás con las líneas reales.
-Y un según test más avanzado va a comparar las propiedades de las lineas extraidas por la aplicación con las extraidas manualmente.
+Esta sección va a tener 2 tipos de test.
+Uno primero evalúa la calidad del procesado y análisis en términos  de líneas extraídas y como se corresponden estás con las líneas reales en cuento al número de pixels .
+Y un segundo test más avanzado va a comparar las propiedades de las lineas extraidas por la aplicación con las extraidas manualmente.
 
-\section{Test de calidad}
+\section{Test de calidad mediante matriz de confusión}
 
 En esta parte vamos a evaluar la calidad del proceso de binarización, esqueletizado, extracción de lineas y combinación de segmentos en términos de medidas obtenidas a partir de la matriz de confusión.
-En dicha matriz un pixel representado como línea es un positivo y el fondo es negativo. Hay por lo tanto cuatro opciones: <<TP, FP, TN, FN>> como podemos observar en la tabla \ref{tab:ConfMatrix}.
+En dicha matriz un pixel representado como línea es un positivo y el fondo es negativo. Hay por lo tanto cuatro opciones: <<True Positive (TP),False Positive (FP), True Negative (TN), False Negative (FN)>> como podemos observar en la tabla \ref{tab:ConfMatrix}.
 
 En este apartado vamos a mostrar las medidas que vamos a usar para conseguir la calidad de las imágenes y explicar las formulas obtenidas de \cite{wiki:confMatrix}.
 
@@ -132,7 +132,7 @@ Figura \ref{fig:p4} & 30284         & 1773           & 14753          & 1181990 
 \resizebox{\textwidth}{!}{
 \begin{tabular}{@{} lllllllllllllll @{}}
 \hline
-Prueba                & TPR  & TNR  & PPV  & NPV  & FPR   & FDR  & FNR  & ACC  & F1   & MCC  & BM   & MK   \\ \hline
+Prueba                & TPR$\uparrow$  & TNR$\uparrow$  & PPV$\uparrow$  & NPV$\uparrow$  & FPR$\downarrow$   & FDR$\downarrow$  & FNR$\downarrow$  & ACC$\uparrow$  & F1$\uparrow$   & MCC$\uparrow$  & BM$\uparrow$   & MK$\uparrow$   \\ \hline
 Figura \ref{fig:p1} & 0.90 & 0.99 & 0.99 & 0.99 & 0.003 & 0.09 & 0.09 & 0.99 & 0.91 & 0.90 & 0.9  & 0.90 \\ \hline
 Figura \ref{fig:p2} & 0.97 & 0.99 & 0.83 & 0.99 & 0.17  & 0.17 & 0.02 & 0.99 & 0.90 & 0.90 & 0.83 & 0.82 \\ \hline
 Figura \ref{fig:p3} & 0.74 & 0.99 & 0.76 & 0.99 & 0.01  & 0.24 & 0.26 & 0.99 & 0.75 & 0.74 & 0.73 & 0.76 \\ \hline
@@ -205,8 +205,12 @@ Desviación & 0.10 & 0 & 0.13 & 0 & 0.08  & 0.10 & 0.10 & 0 & 0.08 & 0.08 & 0.08
 
 \end{figure}
 
-\section{Test t de Student}
-En este apartado vamos a hacer pruebas con los resultados obtenidos a mano por nuestros testers de la aplicación y los resultados obtenidos por nuestra aplicación, para ello vamos a hacer <<el test t de Student \cite{wiki:testStude}>>
+\section{Test t de Student sobre las propiedades de las lineas extraídas.}
+
+Puede ocurrir que el solapamiento entre los segmentos detectados por la aplicación y las estrías dibujadas por el investigador sea muy alto, pero el número de lineas y su longitud media varié. Esto sucede cuando una misma estría aparece detectada mediante dos segmentos en la aplicación o dos estrías diferentes aparecen detectadas mediante un único segmento.
+
+Este nuevo test nos va ayudar a detectar esos casos porque vamos a hacer pruebas con los resultados obtenidos a mano por nuestros testers de la aplicación y los resultados obtenidos por nuestra aplicación, para ello vamos a hacer <<el test t de Student \cite{wiki:testStude}>>
+Hay dos tipos de test t de student. El apareado o parejado y el despareado o de muestras independientes. El usado es el segundo.
 
 Dicho test consiste en a partir de dos muestras comprar cuanta varia una de otra obteniendo un resultado entre 0 y 1. El resultado obtenido se puede evaluar de dos modos:
 \begin{itemize}
@@ -216,7 +220,7 @@ Dicho test consiste en a partir de dos muestras comprar cuanta varia una de otra
 
 \begin{table}[]
 \centering
-\caption{Prueba t de Student}
+\caption{Prueba t de Student realizada por \cite{Rebeca:garcia} y corregido por mi.}
 \label{tab:estud}
 \begin{tabular}{@{} lrrrrr @{}}
 \toprule
@@ -234,3 +238,4 @@ Dicho test consiste en a partir de dos muestras comprar cuanta varia una de otra
 \textbf{7711-3}                  & 88,00                    & 80,00               & 188,71                   & 237,00              & 0,09                               \\ \bottomrule
 \end{tabular}
 \end{table}
+Estos resultados se pueden encontrar los ficheros Excel originales en la carpeta <<Documentación-Archivos-Test de student>>

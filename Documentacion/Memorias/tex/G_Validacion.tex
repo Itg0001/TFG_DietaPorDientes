@@ -15,47 +15,48 @@ Este primer test evalúa que las lineas reales se correspondan con líneas extra
 
 \begin{itemize}
 \item True positive rate (TPR): Mide la proporción de los elementos que se han considerado como positivos y son positivos.
-\[TPR=\frac{TP}{TP+FN}\]
+\[\mathit{TPR}=\frac{\mathit{TP}}{\mathit{TP}+\mathit{FN}}\]
 
 \item True negative rate (TNR):Mide la proporción de los elementos que se han considerado como negativos y son negativos. 
-\[TNR=\frac{TN}{FP+TN}\]
+\[\mathit{TNR}=\frac{\mathit{TN}}{\mathit{FP}+\mathit{TN}}\]
 
 \item Positive predictive value (PPV): Mide la proporción de elementos clasificados como verdaderos positivos entre los positivos.
-\[PPV=\frac{TP}{TP+FP}\]
+\[\mathit{PPV}=\frac{\mathit{TP}}{\mathit{TP}+\mathit{FP}}\]
 
 
 \item Negative predictive value (NPV): Mide la proporción de elementos clasificados como verdaderos negativos entre los negativos.  
-\[NPV=\frac{TN}{TN+FN}\]
+\[\mathit{NPV}=\frac{\mathit{TN}}{\mathit{TN}+\mathit{FN}}\]
 
 
 \item False positive rate (FPR):
 Mide la proporción de los elementos que se han considerado como falsos positivos entre los que son negativos reales.
- \[FPR=1-TNR\]
+ \[\mathit{FPR}=1-\mathit{TNR}\]
 
 \item False discovery rate (FDR):
 Mide la proporción de los elementos que se han considerado como falsos positivos entre los que son positivos de verdad.
-\[FDR=1-PPV\]
+\[\mathit{FDR}=1-\mathit{PPV}\]
 
 \item Miss rate or false negative rate (FNR):
-Mide la proporción de los elementos que se han considerado como falsos negativos entre los que son  positivos. \[FNR=1-TPR\]
+Mide la proporción de los elementos que se han considerado como falsos negativos entre los que son  positivos.
+\[\mathit{FNR}=1-\mathit{TPR}\]
 
 \item Accuracy (ACC): Mide el error observable.
-\[ACC=\frac{TP+TN}{P+N}\]
+\[\mathit{\mathit{ACC}}=\frac{\mathit{TP}+\mathit{TN}}{P+N}\]
 
 \item Valor F1: Este valor muestra la media armónica entre la precision y la sensibilidad del modelo.
-\[F1=\frac{2TP}{2TP+FP+FN}\]
+\[\mathit{F1}=\frac{2\mathit{TP}}{2\mathit{TP}+\mathit{FP}+\mathit{FN}}\]
 
 \item Matthews correlation coefficient (MCC):
 Esta medida se usa en Maching Learning para medir la calidad de la clasificación en dos clases \cite{wiki:machineMCC}.
- \[MCC=\frac{TP*TN-FP*FN}{\sqrt{(TP+FP)*(TP+FN)*(TN+FP)*(TN+FN)}}\]
+ \[\mathit{MCC}=\frac{\mathit{TP}*\mathit{TN}-\mathit{FP}*\mathit{FN}}{\sqrt{(\mathit{TP}+\mathit{FP})*(\mathit{TP}+\mathit{FN})*(\mathit{TN}+\mathit{FP})*(\mathit{TN}+\mathit{FN})}}\]
  
 \item Informedness or Bookmaker Informedness (BM):
 Esta medida informa de la generalización de un problema multi-clases y estima la probabilidad de decisión.
- \[BM=TPR+TNR-1\]
+ \[\mathit{BM}=\mathit{TPR}+\mathit{TNR}-1\]
 
 \item Markedness (MK):
 Esta es la medida de cuando una variable es marcada como predicción o causa posible de otra.
- \[MK=PPV+NPV-1\]
+ \[\mathit{MK}=\mathit{PPV}+\mathit{NPV}-1\]
 
 
 \end{itemize}
@@ -113,13 +114,14 @@ Los resultados de las medidas de calidad se muestran en la tabla \ref{tab:parte}
 \centering
 \caption{Tabla de resultados matriz de confusión}
 \label{tab:pruebas}
-\begin{tabular}{@{} lrrrr @{}}
-\hline
-Prueba                & True positive & False negative & False positive & True negative \\ \hline
-Figura \ref{fig:p1} & 36136         & 3840           & 3685           & 1185139       \\ \hline
-Figura \ref{fig:p2} & 31670         & 844            & 6514           & 1189772       \\ \hline
-Figura \ref{fig:p3} & 23114         & 8238           & 7103           & 1190345       \\ \hline
-Figura \ref{fig:p4} & 30284         & 1773           & 14753          & 1181990       \\ \hline
+\rowcolors {2}{gray!35}{}
+\begin{tabular}{ lrrrr }
+\toprule
+Prueba                & True positive & False negative & False positive & True negative \\ \midrule
+Figura \ref{fig:p1} & 36\,136         & 3\,840           & 3\,685           & 1\,185\,139       \\ 
+Figura \ref{fig:p2} & 31\,670         & 844            & 6\,514           & 1\,189\,772       \\ 
+Figura \ref{fig:p3} & 23\,114         & 8\,238           & 7\,103           & 1\,190\,345       \\ 
+Figura \ref{fig:p4} & 30\,284         & 1\,773           & 14\,753          & 1\,181\,990       \\ \bottomrule
 \end{tabular}
 \end{table}
 
@@ -129,16 +131,17 @@ Figura \ref{fig:p4} & 30284         & 1773           & 14753          & 1181990 
 \centering
 \caption{Resultados medidas de calidad}
 \label{tab:parte}
+\rowcolors {2}{gray!35}{}
 \resizebox{\textwidth}{!}{
-\begin{tabular}{@{} lllllllllllllll @{}}
-\hline
-Prueba                & TPR$\uparrow$  & TNR$\uparrow$  & PPV$\uparrow$  & NPV$\uparrow$  & FPR$\downarrow$   & FDR$\downarrow$  & FNR$\downarrow$  & ACC$\uparrow$  & F1$\uparrow$   & MCC$\uparrow$  & BM$\uparrow$   & MK$\uparrow$   \\ \hline
-Figura \ref{fig:p1} & 0.90 & 0.99 & 0.99 & 0.99 & 0.003 & 0.09 & 0.09 & 0.99 & 0.91 & 0.90 & 0.9  & 0.90 \\ \hline
-Figura \ref{fig:p2} & 0.97 & 0.99 & 0.83 & 0.99 & 0.17  & 0.17 & 0.02 & 0.99 & 0.90 & 0.90 & 0.83 & 0.82 \\ \hline
-Figura \ref{fig:p3} & 0.74 & 0.99 & 0.76 & 0.99 & 0.01  & 0.24 & 0.26 & 0.99 & 0.75 & 0.74 & 0.73 & 0.76 \\ \hline
-Figura \ref{fig:p4} & 0.94 & 0.99 & 0.67 & 0.99 & 0.01  & 0.33 & 0.05 & 0.99 & 0.78 & 0.79 & 0.93 & 0.67 \\ \hline
-Media & 0.88 & 0.99 & 0.81 & 0.99 & 0.04  & 0.20 & 0.11 & 0.99 & 0.84 & 0.83 & 0.85 & 0.78 \\ \hline
-Desviación & 0.10 & 0 & 0.13 & 0 & 0.08  & 0.10 & 0.10 & 0 & 0.08 & 0.08 & 0.08 & 0.09 \\ \hline
+\begin{tabular}{ lllllllllllllll }
+\toprule
+Prueba                & TPR$\uparrow$  & TNR$\uparrow$  & PPV$\uparrow$  & NPV$\uparrow$  & FPR$\downarrow$   & FDR$\downarrow$  & FNR$\downarrow$  & ACC$\uparrow$  & F1$\uparrow$   & MCC$\uparrow$  & BM$\uparrow$   & MK$\uparrow$   \\ \midrule
+Figura \ref{fig:p1} & 0.90 & 0.99 & 0.99 & 0.99 & 0.003 & 0.09 & 0.09 & 0.99 & 0.91 & 0.90 & 0.9  & 0.90 \\ 
+Figura \ref{fig:p2} & 0.97 & 0.99 & 0.83 & 0.99 & 0.17  & 0.17 & 0.02 & 0.99 & 0.90 & 0.90 & 0.83 & 0.82 \\ 
+Figura \ref{fig:p3} & 0.74 & 0.99 & 0.76 & 0.99 & 0.01  & 0.24 & 0.26 & 0.99 & 0.75 & 0.74 & 0.73 & 0.76 \\ 
+Figura \ref{fig:p4} & 0.94 & 0.99 & 0.67 & 0.99 & 0.01  & 0.33 & 0.05 & 0.99 & 0.78 & 0.79 & 0.93 & 0.67 \\ 
+Media & 0.88 & 0.99 & 0.81 & 0.99 & 0.04  & 0.20 & 0.11 & 0.99 & 0.84 & 0.83 & 0.85 & 0.78 \\ 
+Desviación & 0.10 & 0 & 0.13 & 0 & 0.08  & 0.10 & 0.10 & 0 & 0.08 & 0.08 & 0.08 & 0.09 \\ \bottomrule
 \end{tabular}
 }
 \end{table}
@@ -148,11 +151,11 @@ Desviación & 0.10 & 0 & 0.13 & 0 & 0.08  & 0.10 & 0.10 & 0 & 0.08 & 0.08 & 0.08
 \begin{figure}
 	\begin{subfigure}[c]{.5\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{prueba1Ori}
-	\caption{Estrías pintadas por el usuario prueba 1.}\label{fig:orip1}
+	\caption{Estrías pintadas por el usuario.}\label{fig:orip1}
 	\end{subfigure}%
 	\begin{subfigure}[c]{.5\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{prueba1Detec}
-	\caption{Estrías pintadas por la aplicacion prueba 1.}\label{fig:calcp1}
+	\caption{Estrías pintadas por la aplicacion.}\label{fig:calcp1}
 	\end{subfigure}%
 	\caption{Imágenes prueba 1}
 	\label{fig:p1}
@@ -163,11 +166,11 @@ Desviación & 0.10 & 0 & 0.13 & 0 & 0.08  & 0.10 & 0.10 & 0 & 0.08 & 0.08 & 0.08
 \begin{figure}
 	\begin{subfigure}[c]{.5\linewidth}
 	\centering\large \includegraphics[width=.99\textwidth]{prueba2Ori}
-	\caption{Estrías pintadas por el usuario prueba 2.}\label{fig:orip2}
+	\caption{Estrías pintadas por el usuario.}\label{fig:orip2}
 	\end{subfigure}%
 	\begin{subfigure}[c]{.5\linewidth}
 	\centering\large \includegraphics[width=.99\textwidth]{prueba2Detec}
-	\caption{Estrías pintadas por la aplicacion prueba 2.}\label{fig:calcp2}
+	\caption{Estrías pintadas por la aplicacion.}\label{fig:calcp2}
 	\end{subfigure}%
 	\caption{Imágenes prueba 2}
 	\label{fig:p2}
@@ -178,11 +181,11 @@ Desviación & 0.10 & 0 & 0.13 & 0 & 0.08  & 0.10 & 0.10 & 0 & 0.08 & 0.08 & 0.08
 \begin{figure}
 	\begin{subfigure}[c]{.5\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{prueba3Ori}
-	\caption{Estrías pintadas por el usuario prueba 3.}\label{fig:orip3}
+	\caption{Estrías pintadas por el usuario.}\label{fig:orip3}
 	\end{subfigure}%
 	\begin{subfigure}[c]{.5\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{prueba3Detec}
-	\caption{Estrías pintadas por la aplicacion prueba 3.}\label{fig:calcp3}
+	\caption{Estrías pintadas por la aplicacion.}\label{fig:calcp3}
 	\end{subfigure}%
 	\caption{Imágenes prueba 3}
 	\label{fig:p3}
@@ -194,11 +197,11 @@ Desviación & 0.10 & 0 & 0.13 & 0 & 0.08  & 0.10 & 0.10 & 0 & 0.08 & 0.08 & 0.08
 \begin{figure}
 	\begin{subfigure}[c]{.5\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{prueba4Ori}
-	\caption{Estrías pintadas por el usuario prueba 4.}\label{fig:orip4} 
+	\caption{Estrías pintadas por el usuario.}\label{fig:orip4} 
 	\end{subfigure}%
 	\begin{subfigure}[c]{.5\linewidth}
 	\centering\large \includegraphics[width=.9\textwidth]{prueba4Detec}
-	\caption{Estrías pintadas por la aplicacion prueba 4.}\label{fig:calcp4}
+	\caption{Estrías pintadas por la aplicacion.}\label{fig:calcp4}
 	\end{subfigure}%
 	\caption{Imágenes prueba 4}
 	\label{fig:p4}
@@ -222,19 +225,20 @@ Dicho test consiste en a partir de dos muestras comprar cuanta varia una de otra
 \centering
 \caption{Prueba t de Student realizada por Rebeca García \cite{Rebeca:garcia} y corregido por mi.}
 \label{tab:estud}
+\rowcolors {4}{gray!35}{}
 \begin{tabular}{@{} lrrrrr @{}}
 \toprule
-\multirow{2}{*}{\textbf{Diente}} & \multicolumn{2}{l}{\textbf{Numero de estrías}} & \multicolumn{2}{l}{\textbf{Longitud promedio}} & \multirow{2}{*}{\textbf{Prueba T}} \\ \cline{2-5}
+\multirow{2}{*}{\textbf{Diente}} & \multicolumn{2}{l}{\textbf{Numero de estrías}} & \multicolumn{2}{l}{\textbf{Longitud promedio}} & \multirow{2}{*}{\textbf{Prueba \textit{t}}} \\ \cline{2-5}
                                  & \textbf{Automático}      & \textbf{Manual}     & \textbf{Automático}      & \textbf{Manual}     &                                    \\ \midrule
-\textbf{7506-1}                  & 85,00                    & 80,00               & 339,76                   & 275,88              & 0,19                               \\ \midrule
-\textbf{7506-2}                  & 50,00                    & 55,00               & 269,17                   & 271,00              & 0,96                               \\ \midrule
-\textbf{7547-1}                  & 23,00                    & 21,00               & 300,00                   & 327,00              & 0,77                               \\ \midrule
-\textbf{7547-3}                  & 24,00                    & 24,00               & 263,70                   & 260,00              & 0,94                               \\ \midrule
-\textbf{7672-1}                  & 83,00                    & 75,00               & 202,77                   & 230,57              & 0,21                               \\ \midrule
-\textbf{7672-3}                  & 56,00                    & 52,00               & 211,93                   & 231,00              & 0,64                               \\ \midrule
-\textbf{7672B-1}                 & 65,00                    & 66,00               & 221,66                   & 233,00              & 0,64                               \\ \midrule
-\textbf{7672B-2}                 & 71,00                    & 69,00               & 215,86                   & 244,26              & 0,34                               \\ \midrule
-\textbf{7711-1}                  & 93,00                    & 76,00               & 195,07                   & 269,00              & 0,10                               \\ \midrule
+\textbf{7506-1}                  & 85,00                    & 80,00               & 339,76                   & 275,88              & 0,19                               \\ 
+\textbf{7506-2}                  & 50,00                    & 55,00               & 269,17                   & 271,00              & 0,96                               \\ 
+\textbf{7547-1}                  & 23,00                    & 21,00               & 300,00                   & 327,00              & 0,77                               \\ 
+\textbf{7547-3}                  & 24,00                    & 24,00               & 263,70                   & 260,00              & 0,94                               \\ 
+\textbf{7672-1}                  & 83,00                    & 75,00               & 202,77                   & 230,57              & 0,21                               \\ 
+\textbf{7672-3}                  & 56,00                    & 52,00               & 211,93                   & 231,00              & 0,64                               \\ 
+\textbf{7672B-1}                 & 65,00                    & 66,00               & 221,66                   & 233,00              & 0,64                               \\ 
+\textbf{7672B-2}                 & 71,00                    & 69,00               & 215,86                   & 244,26              & 0,34                               \\ 
+\textbf{7711-1}                  & 93,00                    & 76,00               & 195,07                   & 269,00              & 0,10                               \\ 
 \textbf{7711-3}                  & 88,00                    & 80,00               & 188,71                   & 237,00              & 0,09                               \\ \bottomrule
 \end{tabular}
 \end{table}

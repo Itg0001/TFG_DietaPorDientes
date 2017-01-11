@@ -609,15 +609,17 @@ Como costes totales sumaremos todos los anteriores, como se puede observar en la
 \centering
 \caption{Tabla de los costes totales}
 \label{tab:costes}
-\resizebox{0.5\textwidth}{!}{
-\begin{tabular}{@{} ll @{}}
+\rowcolors {2}{gray!35}{}
+%\resizebox{0.5\textwidth}{!}{
+\begin{tabular}{p{4cm} p{2cm}}
 \toprule
-Costes de personal         & 5060 \euro{}   \\ \midrule
-Costes de seguridad social & 1513\euro{} \\ \midrule
-Costes de material         & 79.9\euro{}   \\ \midrule
-Costes totales             & 6713\euro{} \\ \bottomrule
+Costes & Importe \\ \midrule
+Personal         & 5\,060 \euro{}   \\ 
+Seguridad Social & 1\,513\euro{} \\ 
+Material         & 79.9\euro{}   \\ 
+Totales             & 6\,713\euro{} \\ \bottomrule
 \end{tabular}
-}
+%}
 \end{table}
 
 \subsection{Viabilidad legal}
@@ -627,7 +629,8 @@ En este punto lo que vamos a hacer es analizar las librerías que hemos usado en
 	\centering
 	\caption{Tabla de librerías y sus licencias}
 	\label{tabla:Licencias}
-	\begin{tabular}{@{}l l l l@{}}
+	\rowcolors {2}{gray!35}{}
+	\begin{tabular}{l l l l}
 	\toprule
 	Librería     & Versión & Descripción                                                     & Licencia                \\ 	\midrule
 	Jinja2       & 2.8     &  \begin{tabular}[c]{@{}l@{}}Un motor de plantillas escrito\\ en Python. \end{tabular}               & BSD                     \\ 	

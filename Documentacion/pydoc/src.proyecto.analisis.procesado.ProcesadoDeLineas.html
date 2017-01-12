@@ -1,14 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head><title>Python: module src.codigo.procesado.ProcesadoDeLineas</title>
+<html><head><title>Python: module src.proyecto.analisis.procesado.ProcesadoDeLineas</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head><body bgcolor="#f0f0f8">
 
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
 <tr bgcolor="#7799ee">
 <td valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="src.html"><font color="#ffffff">src</font></a>.<a href="src.codigo.html"><font color="#ffffff">codigo</font></a>.<a href="src.codigo.procesado.html"><font color="#ffffff">procesado</font></a>.ProcesadoDeLineas</strong></big></big></font></td
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="src.html"><font color="#ffffff">src</font></a>.<a href="src.proyecto.html"><font color="#ffffff">proyecto</font></a>.<a href="src.proyecto.analisis.html"><font color="#ffffff">analisis</font></a>.<a href="src.proyecto.analisis.procesado.html"><font color="#ffffff">procesado</font></a>.ProcesadoDeLineas</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ctobar%5Cdesktop%5Cworkespace%5Ctfg2%5Csrc%5Ccodigo%5Cprocesado%5Cprocesadodelineas.py">c:\users\tobar\desktop\workespace\tfg2\src\codigo\procesado\procesadodelineas.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ctobar%5Cdesktop%5Ctfg_dietapordientes%5Ctfg_dietapordientes%5Csrc%5Cproyecto%5Canalisis%5Cprocesado%5Cprocesadodelineas.py">c:\users\tobar\desktop\tfg_dietapordientes\tfg_dietapordientes\src\proyecto\analisis\procesado\procesadodelineas.py</a></font></td></tr></table>
     <p></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -30,7 +30,7 @@
 <dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
 </font></dt><dd>
 <dl>
-<dt><font face="helvetica, arial"><a href="src.codigo.procesado.ProcesadoDeLineas.html#ProcesadoDeLineas">ProcesadoDeLineas</a>
+<dt><font face="helvetica, arial"><a href="src.proyecto.analisis.procesado.ProcesadoDeLineas.html#ProcesadoDeLineas">ProcesadoDeLineas</a>
 </font></dt></dl>
 </dd>
 </dl>
@@ -62,6 +62,28 @@ de&nbsp;hough&nbsp;que&nbsp;cumplen&nbsp;ciertos&nbsp;parametros&nbsp;y&nbsp;las
 &nbsp;<br>
 @return:&nbsp;devolvemos&nbsp;el&nbsp;Grafo&nbsp;completo&nbsp;donde&nbsp;estan&nbsp;los&nbsp;nodos&nbsp;que&nbsp;hemso&nbsp;fusionado.</tt></dd></dl>
 
+<dl><dt><a name="ProcesadoDeLineas-combina2"><strong>combina2</strong></a>(distancia1, distancia2, diff_orientacion, longcorto, lines, g)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Funcion&nbsp;que&nbsp;combina&nbsp;las&nbsp;lineas&nbsp;cercanas&nbsp;producidas&nbsp;por&nbsp;la&nbsp;Transformada&nbsp;probabilistica<br>
+de&nbsp;hough&nbsp;que&nbsp;cumplen&nbsp;ciertos&nbsp;parametros&nbsp;y&nbsp;las&nbsp;anade&nbsp;a&nbsp;un&nbsp;grafo.<br>
+&nbsp;<br>
+@param&nbsp;distancia1:&nbsp;Distancia&nbsp;que&nbsp;si&nbsp;superan&nbsp;dos&nbsp;rectas&nbsp;no&nbsp;une<br>
+@param&nbsp;distancia2:&nbsp;Angulo&nbsp;que&nbsp;si&nbsp;superan&nbsp;dos&nbsp;rectas&nbsp;no&nbsp;une<br>
+@param&nbsp;diff_orientacion:&nbsp;diferencia&nbsp;maxima&nbsp;de&nbsp;orientacion&nbsp;para&nbsp;evitar&nbsp;uniones&nbsp;innecesarias.<br>
+@param&nbsp;longcorto:&nbsp;longitud&nbsp;maxima&nbsp;que&nbsp;pondremos&nbsp;como&nbsp;prametro&nbsp;para&nbsp;la&nbsp;union.<br>
+@param&nbsp;lines:&nbsp;Lineas&nbsp;producidas&nbsp;al&nbsp;aplicar&nbsp;la&nbsp;transformada<br>
+@param&nbsp;g:&nbsp;Grafo&nbsp;donde&nbsp;anadir&nbsp;los&nbsp;nodos&nbsp;que&nbsp;tengamso&nbsp;que&nbsp;unir<br>
+&nbsp;<br>
+@return:&nbsp;devolvemos&nbsp;el&nbsp;Grafo&nbsp;completo&nbsp;donde&nbsp;estan&nbsp;los&nbsp;nodos&nbsp;que&nbsp;hemso&nbsp;fusionado.</tt></dd></dl>
+
+<dl><dt><a name="ProcesadoDeLineas-combina_2_compro"><strong>combina_2_compro</strong></a>(d, lines, i, j, diff_orientacion, g)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Metodo&nbsp;que&nbsp;comprueba&nbsp;si&nbsp;hay&nbsp;que&nbsp;añadirlo&nbsp;al&nbsp;grafo&nbsp;o&nbsp;no.<br>
+&nbsp;<br>
+@param&nbsp;d:&nbsp;Conjunto&nbsp;de&nbsp;variables&nbsp;necesarias&nbsp;para&nbsp;la&nbsp;ejecucion.<br>
+@param&nbsp;lines:&nbsp;Lineas&nbsp;detectadas&nbsp;en&nbsp;bruto&nbsp;por&nbsp;hough.<br>
+@param&nbsp;i:&nbsp;variable&nbsp;i&nbsp;del&nbsp;bucle.<br>
+@param&nbsp;j:&nbsp;variable&nbsp;j&nbsp;del&nbsp;bucle.<br>
+@param&nbsp;diff_orientacion:&nbsp;diferencia&nbsp;de&nbsp;orientacion&nbsp;que&nbsp;si&nbsp;superan&nbsp;<br>
+dos&nbsp;rectas&nbsp;no&nbsp;une.<br>
+@param&nbsp;g:&nbsp;grafo&nbsp;donde&nbsp;estan&nbsp;las&nbsp;lineas.</tt></dd></dl>
+
 <dl><dt><a name="ProcesadoDeLineas-combina_segmentos"><strong>combina_segmentos</strong></a>(segmentos_list)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Lista&nbsp;con&nbsp;los&nbsp;segmentos&nbsp;combinados&nbsp;que&nbsp;calculamos&nbsp;con&nbsp;la&nbsp;teoria&nbsp;de&nbsp;grafos.<br>
 &nbsp;<br>
 @param&nbsp;segmentosList:&nbsp;lista&nbsp;con&nbsp;todos&nbsp;los&nbsp;segmentos&nbsp;a&nbsp;combinar<br>
@@ -85,6 +107,43 @@ mas&nbsp;la&nbsp;multiplicacion&nbsp;de&nbsp;las&nbsp;coordenadas&nbsp;y&nbsp;de
 @return:&nbsp;la&nbsp;multiplicacion&nbsp;de&nbsp;las&nbsp;coordenadas&nbsp;x&nbsp;de&nbsp;los&nbsp;dos&nbsp;puntos&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mas&nbsp;la&nbsp;multiplicacion&nbsp;de&nbsp;las&nbsp;coordenadas&nbsp;y&nbsp;de&nbsp;los&nbsp;dos&nbsp;puntos.</tt></dd></dl>
 
+<dl><dt><a name="ProcesadoDeLineas-filtra_contenidas"><strong>filtra_contenidas</strong></a>(lineas, x_min, x_max, y_min, y_max, lon_min)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Funcion&nbsp;auxiliar&nbsp;que&nbsp;filtra&nbsp;los&nbsp;segmentos&nbsp;contenidos&nbsp;en&nbsp;el&nbsp;cuadrado&nbsp;del&nbsp;area.<br>
+@return:&nbsp;Segmentos&nbsp;que&nbsp;hay&nbsp;qeu&nbsp;pitnar&nbsp;dentro&nbsp;del&nbsp;area&nbsp;seleccioanda.</tt></dd></dl>
+
+<dl><dt><a name="ProcesadoDeLineas-filtra_intersec"><strong>filtra_intersec</strong></a>(lineas, cuadr, variables, lon_min)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Metodo&nbsp;que&nbsp;filtra&nbsp;las&nbsp;lineas&nbsp;que&nbsp;se&nbsp;interseccionan&nbsp;con&nbsp;el&nbsp;cuadrado&nbsp;de&nbsp;<br>
+area&nbsp;delimitada&nbsp;de&nbsp;la&nbsp;aplicacion&nbsp;sobre&nbsp;las&nbsp;uqe&nbsp;evaluar&nbsp;los&nbsp;segmentos&nbsp;calculados.<br>
+&nbsp;<br>
+@return:&nbsp;Devuelve&nbsp;la&nbsp;lista&nbsp;con&nbsp;las&nbsp;lineas&nbsp;que&nbsp;hay&nbsp;contenidas&nbsp;dentro&nbsp;del&nbsp;cudrado.</tt></dd></dl>
+
+<dl><dt><a name="ProcesadoDeLineas-longitud_linea"><strong>longitud_linea</strong></a>(p, valor=100)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Funcion&nbsp;que&nbsp;calcula&nbsp;la&nbsp;longitud&nbsp;de&nbsp;un&nbsp;segmento.<br>
+&nbsp;<br>
+@param&nbsp;p:&nbsp;segmento&nbsp;del&nbsp;que&nbsp;calcular&nbsp;su&nbsp;distancia.<br>
+&nbsp;<br>
+@Return&nbsp;distancia&nbsp;del&nbsp;segmento</tt></dd></dl>
+
+<dl><dt><a name="ProcesadoDeLineas-modulo"><strong>modulo</strong></a>(linea)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Metodo&nbsp;que&nbsp;se&nbsp;encargara&nbsp;de&nbsp;hacer&nbsp;el&nbsp;modulo&nbsp;a&nbsp;unsegmeneto&nbsp;pasado&nbsp;como&nbsp;<br>
+parametro&nbsp;a&nbsp;nuestra&nbsp;funcion.<br>
+&nbsp;<br>
+@param&nbsp;linea:&nbsp;Segmento&nbsp;a&nbsp;linia&nbsp;sobre&nbsp;la&nbsp;que&nbsp;calcular&nbsp;el&nbsp;modulo.<br>
+@return:&nbsp;Modulo&nbsp;del&nbsp;segmento&nbsp;pasado&nbsp;como&nbsp;parametro.</tt></dd></dl>
+
+<dl><dt><a name="ProcesadoDeLineas-perp"><strong>perp</strong></a>(a)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Funcionque&nbsp;calcula&nbsp;la&nbsp;perpendicular&nbsp;de&nbsp;iun&nbsp;punto&nbsp;dado.<br>
+@return:&nbsp;punto&nbsp;b</tt></dd></dl>
+
+<dl><dt><a name="ProcesadoDeLineas-pertenece_o_no"><strong>pertenece_o_no</strong></a>(x, y, x_min, x_max, y_min, y_max)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>En&nbsp;este&nbsp;metodo&nbsp;dado&nbsp;un&nbsp;punto&nbsp;y&nbsp;los&nbsp;4&nbsp;vertices&nbsp;del&nbsp;cuadrado&nbsp;comprobaremos<br>
+si&nbsp;las&nbsp;coordenadas&nbsp;del&nbsp;punto&nbsp;pertenecen&nbsp;al&nbsp;area&nbsp;pintable.<br>
+@param&nbsp;x:&nbsp;coordenada&nbsp;x&nbsp;del&nbsp;punto&nbsp;a&nbsp;comprobar.<br>
+@param&nbsp;y:&nbsp;coordenada&nbsp;y&nbsp;del&nbsp;punto&nbsp;a&nbsp;comprobar.<br>
+@param&nbsp;x_min:&nbsp;coordenada&nbsp;x&nbsp;minima&nbsp;del&nbsp;cuadrado<br>
+@param&nbsp;x_max:&nbsp;coordenada&nbsp;x&nbsp;macima&nbsp;del&nbsp;cuadrado.<br>
+@param&nbsp;y_min:&nbsp;coodenada&nbsp;y&nbsp;minima&nbsp;del&nbsp;cuadrado.<br>
+@param&nbsp;y_max:&nbsp;coordenada&nbsp;y&nbsp;maxima&nbsp;del&nbsp;cuadrado.<br>
+@return:&nbsp;true/false&nbsp;dependiendo&nbsp;si&nbsp;pertenece&nbsp;a&nbsp;esa&nbsp;region&nbsp;o&nbsp;no.</tt></dd></dl>
+
+<dl><dt><a name="ProcesadoDeLineas-point_distance"><strong>point_distance</strong></a>(p1, p2)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>distance&nbsp;between&nbsp;two&nbsp;segments&nbsp;in&nbsp;the&nbsp;plane:<br>
+one&nbsp;segment&nbsp;is&nbsp;(x11,&nbsp;y11)&nbsp;to&nbsp;(x12,&nbsp;y12)<br>
+the&nbsp;other&nbsp;is&nbsp;&nbsp;&nbsp;(x21,&nbsp;y21)&nbsp;to&nbsp;(x22,&nbsp;y22)</tt></dd></dl>
+
 <dl><dt><a name="ProcesadoDeLineas-point_segment_distance"><strong>point_segment_distance</strong></a>(px, py, x1, y1, x2, y2)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Funcion&nbsp;que&nbsp;calcula&nbsp;la&nbsp;distancia&nbsp;desde&nbsp;un&nbsp;punto&nbsp;dado&nbsp;a&nbsp;un&nbsp;segmento.<br>
 @param&nbsp;px:&nbsp;Punto&nbsp;coordenada&nbsp;x&nbsp;<br>
 @param&nbsp;py:&nbsp;Punto&nbsp;coordenada&nbsp;y<br>
@@ -94,6 +153,16 @@ mas&nbsp;la&nbsp;multiplicacion&nbsp;de&nbsp;las&nbsp;coordenadas&nbsp;y&nbsp;de
 @param&nbsp;y2:&nbsp;Punto&nbsp;2&nbsp;coordenada&nbsp;y<br>
 &nbsp;<br>
 @return:&nbsp;Distancia&nbsp;desde&nbsp;el&nbsp;punto&nbsp;al&nbsp;segmento.</tt></dd></dl>
+
+<dl><dt><a name="ProcesadoDeLineas-prueba_point2"><strong>prueba_point2</strong></a>(existe_punto2, marc, un, i, j, dos)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Fauncion&nbsp;que&nbsp;prueba&nbsp;si&nbsp;eciste&nbsp;un&nbsp;punto&nbsp;dos.<br>
+return&nbsp;atributos&nbsp;necesarios&nbsp;para&nbsp;la&nbsp;ejecucion&nbsp;de&nbsp;la&nbsp;funcion&nbsp;global.</tt></dd></dl>
+
+<dl><dt><a name="ProcesadoDeLineas-seg_intersect"><strong>seg_intersect</strong></a>(segment1, segment2)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Metodo&nbsp;que&nbsp;calcula&nbsp;los&nbsp;pntos&nbsp;de&nbsp;interseccion&nbsp;entree&nbsp;dos&nbsp;segmentos.<br>
+@return:&nbsp;Puntos&nbsp;de&nbsp;interseccion&nbsp;en&nbsp;forma&nbsp;de&nbsp;lista.</tt></dd></dl>
+
+<dl><dt><a name="ProcesadoDeLineas-segment_points_distance"><strong>segment_points_distance</strong></a>(seg1, seg2)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>distance&nbsp;between&nbsp;two&nbsp;segments&nbsp;in&nbsp;the&nbsp;plane:<br>
+one&nbsp;segment&nbsp;is&nbsp;(x11,&nbsp;y11)&nbsp;to&nbsp;(x12,&nbsp;y12)<br>
+the&nbsp;other&nbsp;is&nbsp;&nbsp;&nbsp;(x21,&nbsp;y21)&nbsp;to&nbsp;(x22,&nbsp;y22)</tt></dd></dl>
 
 <dl><dt><a name="ProcesadoDeLineas-segmentos_verdad"><strong>segmentos_verdad</strong></a>(k_components, lines)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Funcion&nbsp;que&nbsp;dadas&nbsp;las&nbsp;lineas&nbsp;calculadas&nbsp;y&nbsp;las&nbsp;que&nbsp;nos&nbsp;marca&nbsp;el&nbsp;grafo&nbsp;que&nbsp;tenemso&nbsp;que&nbsp;unir<br>
 devuelve&nbsp;lso&nbsp;segmentos&nbsp;que&nbsp;de&nbsp;verdad&nbsp;ha&nbsp;detectado&nbsp;el&nbsp;algoritmo.<br>

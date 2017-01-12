@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="src.html"><font color="#ffffff">src</font></a>.<a href="src.proyecto.html"><font color="#ffffff">proyecto</font></a>.<a href="src.proyecto.gui.html"><font color="#ffffff">gui</font></a>.VentanaInicio</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ctobar%5Cdesktop%5Cworkespace%5Ctfg2%5Csrc%5Cproyecto%5Cgui%5Cventanainicio.py">c:\users\tobar\desktop\workespace\tfg2\src\proyecto\gui\ventanainicio.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ctobar%5Cdesktop%5Ctfg_dietapordientes%5Ctfg_dietapordientes%5Csrc%5Cproyecto%5Cgui%5Cventanainicio.py">c:\users\tobar\desktop\tfg_dietapordientes\tfg_dietapordientes\src\proyecto\gui\ventanainicio.py</a></font></td></tr></table>
     <p></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -17,12 +17,14 @@
 <font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="PyQt5.QtCore.html">PyQt5.QtCore</a><br>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="xml.etree.cElementTree.html">xml.etree.cElementTree</a><br>
+<a href="xml.etree.ElementTree.html">xml.etree.ElementTree</a><br>
+</td><td width="25%" valign=top><a href="PyQt5.QtCore.html">PyQt5.QtCore</a><br>
 <a href="PyQt5.QtGui.html">PyQt5.QtGui</a><br>
 </td><td width="25%" valign=top><a href="PyQt5.QtWidgets.html">PyQt5.QtWidgets</a><br>
 <a href="logging.html">logging</a><br>
 </td><td width="25%" valign=top><a href="sys.html">sys</a><br>
-</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+</td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -65,12 +67,10 @@ componentes.<br>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="VentanaInicio-__init__"><strong>__init__</strong></a>(self, parent=None)</dt><dd><tt>Constructor&nbsp;de&nbsp;la&nbsp;clase&nbsp;ventana&nbsp;de&nbsp;inicio&nbsp;en&nbsp;el&nbsp;cual&nbsp;<br>
+<dl><dt><a name="VentanaInicio-__init__"><strong>__init__</strong></a>(self, idioma_path, parent=None)</dt><dd><tt>Constructor&nbsp;de&nbsp;la&nbsp;clase&nbsp;ventana&nbsp;de&nbsp;inicio&nbsp;en&nbsp;el&nbsp;cual&nbsp;<br>
 inicializaremos&nbsp;las&nbsp;variabel&nbsp;snecsarias&nbsp;para&nbsp;sus&nbsp;futuros&nbsp;usos.<br>
 &nbsp;<br>
 @param&nbsp;parent:&nbsp;padre&nbsp;que&nbsp;llama&nbsp;al&nbsp;panel&nbsp;de&nbsp;pestannas</tt></dd></dl>
-
-<dl><dt><a name="VentanaInicio-ayuda"><strong>ayuda</strong></a>(self)</dt><dd><tt>Metodo&nbsp;que&nbsp;implementara&nbsp;la&nbsp;ayuda.</tt></dd></dl>
 
 <dl><dt><a name="VentanaInicio-cargar_inicializacion"><strong>cargar_inicializacion</strong></a>(self)</dt><dd><tt>Metodo&nbsp;que&nbsp;va&nbsp;a&nbsp;mostrar&nbsp;la&nbsp;pantalla&nbsp;de&nbsp;dialogo&nbsp;para&nbsp;elegir&nbsp;al&nbsp;cargar&nbsp;<br>
 un&nbsp;proyecto.</tt></dd></dl>
@@ -81,6 +81,9 @@ a&nbsp;abrir.</tt></dd></dl>
 <dl><dt><a name="VentanaInicio-cerrar"><strong>cerrar</strong></a>(self)</dt><dd><tt>Metodo&nbsp;para&nbsp;cerrar&nbsp;la&nbsp;aplicacion&nbsp;de&nbsp;forma&nbsp;apropiada,&nbsp;si&nbsp;no&nbsp;tenemos&nbsp;cambios&nbsp;en&nbsp;caso&nbsp;<br>
 de&nbsp;detectar&nbsp;cambios&nbsp;preguntara&nbsp;si&nbsp;queremos&nbsp;guardar&nbsp;o&nbsp;no.</tt></dd></dl>
 
+<dl><dt><a name="VentanaInicio-clickables"><strong>clickables</strong></a>(self, widget)</dt><dd><tt>Metodo&nbsp;que&nbsp;habilita&nbsp;a&nbsp;la&nbsp;pantalla&nbsp;de&nbsp;inicio&nbsp;a&nbsp;dar&nbsp;funcionalidad<br>
+a&nbsp;los&nbsp;labels&nbsp;que&nbsp;nos&nbsp;indican&nbsp;abrir&nbsp;o&nbsp;cargar&nbsp;proyectos.</tt></dd></dl>
+
 <dl><dt><a name="VentanaInicio-file_cargar"><strong>file_cargar</strong></a>(self)</dt><dd><tt>Metodo&nbsp;correspondiente&nbsp;al&nbsp;boton&nbsp;de&nbsp;cargar&nbsp;un&nbsp;proyecto&nbsp;existente&nbsp;para&nbsp;poder&nbsp;editar&nbsp;las&nbsp;<br>
 lineas&nbsp;que&nbsp;hemos&nbsp;abierto&nbsp;y&nbsp;previamente&nbsp;guardadas&nbsp;en&nbsp;otro&nbsp;proyecto.</tt></dd></dl>
 
@@ -90,6 +93,15 @@ este&nbsp;pintadas&nbsp;sus&nbsp;lineas&nbsp;en&nbsp;tojo.</tt></dd></dl>
 
 <dl><dt><a name="VentanaInicio-file_save"><strong>file_save</strong></a>(self)</dt><dd><tt>Metodo&nbsp;correspondiente&nbsp;al&nbsp;boton&nbsp;de&nbsp;guardar&nbsp;los&nbsp;cambios&nbsp;echos&nbsp;en&nbsp;nuestra&nbsp;aplicacion&nbsp;<br>
 en&nbsp;un&nbsp;proyecto&nbsp;nuevo.</tt></dd></dl>
+
+<dl><dt><a name="VentanaInicio-guarda_espannol"><strong>guarda_espannol</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="VentanaInicio-guarda_ingles"><strong>guarda_ingles</strong></a>(self)</dt><dd><tt>Mensage&nbsp;para&nbsp;guardar&nbsp;la&nbsp;aplicacion&nbsp;en&nbsp;idioma&nbsp;ingles.</tt></dd></dl>
+
+<dl><dt><a name="VentanaInicio-inicializa_mensages"><strong>inicializa_mensages</strong></a>(self)</dt><dd><tt>Metodo&nbsp;que&nbsp;inicializara&nbsp;los&nbsp;mensajes&nbsp;en&nbsp;la&nbsp;aplicacion.</tt></dd></dl>
+
+<dl><dt><a name="VentanaInicio-mensage_reinicia"><strong>mensage_reinicia</strong></a>(self)</dt><dd><tt>Mensage&nbsp;popup&nbsp;que&nbsp;se&nbsp;mostrara&nbsp;siempre&nbsp;que&nbsp;cambiemos&nbsp;el&nbsp;idioma<br>
+de&nbsp;la&nbsp;aplicacion.</tt></dd></dl>
 
 <dl><dt><a name="VentanaInicio-msgbtn"><strong>msgbtn</strong></a>(self, i)</dt><dd><tt>Metodo&nbsp;auxiliar&nbsp;para&nbsp;poder&nbsp;guardar&nbsp;la&nbsp;eleccion&nbsp;que&nbsp;seleccionamos&nbsp;del&nbsp;popap&nbsp;que&nbsp;nos&nbsp;<br>
 indica&nbsp;si&nbsp;queremos&nbsp;guardar&nbsp;o&nbsp;no.<br>
@@ -106,6 +118,14 @@ los&nbsp;cambios.</tt></dd></dl>
 <hr>
 Class methods defined here:<br>
 <dl><dt><a name="VentanaInicio-acerca_de"><strong>acerca_de</strong></a>()<font color="#909090"><font face="helvetica, arial"> from <a href="PyQt5.QtCore.html#pyqtWrapperType">PyQt5.QtCore.pyqtWrapperType</a></font></font></dt><dd><tt>Metodo&nbsp;que&nbsp;nos&nbsp;mostrara&nbsp;el&nbsp;acerca&nbsp;de&nbsp;como&nbsp;cuadro&nbsp;de&nbsp;dialogo.</tt></dd></dl>
+
+<dl><dt><a name="VentanaInicio-ayuda"><strong>ayuda</strong></a>()<font color="#909090"><font face="helvetica, arial"> from <a href="PyQt5.QtCore.html#pyqtWrapperType">PyQt5.QtCore.pyqtWrapperType</a></font></font></dt><dd><tt>Metodo&nbsp;que&nbsp;implementara&nbsp;la&nbsp;ayuda.</tt></dd></dl>
+
+<dl><dt><a name="VentanaInicio-carga_acerca"><strong>carga_acerca</strong></a>(dic)<font color="#909090"><font face="helvetica, arial"> from <a href="PyQt5.QtCore.html#pyqtWrapperType">PyQt5.QtCore.pyqtWrapperType</a></font></font></dt><dd><tt>Metodo&nbsp;que&nbsp;nos&nbsp;mostrara&nbsp;el&nbsp;acerca&nbsp;de&nbsp;como&nbsp;cuadro&nbsp;de&nbsp;dialogo.</tt></dd></dl>
+
+<dl><dt><a name="VentanaInicio-carga_idioma"><strong>carga_idioma</strong></a>(idioma)<font color="#909090"><font face="helvetica, arial"> from <a href="PyQt5.QtCore.html#pyqtWrapperType">PyQt5.QtCore.pyqtWrapperType</a></font></font></dt><dd><tt>Metodo&nbsp;necesario&nbsp;para&nbsp;la&nbsp;carga&nbsp;del&nbsp;lenguage&nbsp;en&nbsp;la&nbsp;aplicacion.</tt></dd></dl>
+
+<dl><dt><a name="VentanaInicio-guarda_idioma"><strong>guarda_idioma</strong></a>(idioma, idiom)<font color="#909090"><font face="helvetica, arial"> from <a href="PyQt5.QtCore.html#pyqtWrapperType">PyQt5.QtCore.pyqtWrapperType</a></font></font></dt><dd><tt>Metodo&nbsp;que&nbsp;guardara&nbsp;el&nbsp;idioma&nbsp;de&nbsp;la&nbsp;aplicacion&nbsp;en&nbsp;el&nbsp;fichero&nbsp;de&nbsp;configuracion.</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="PyQt5.QtWidgets.html#QMainWindow">PyQt5.QtWidgets.QMainWindow</a>:<br>

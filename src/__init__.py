@@ -1,5 +1,5 @@
-import sys
-sys.path.append("C:/Users/Tobar/Desktop/Workespace/TFG2/src")
+import sys,os
+sys.path.append(os.getcwd()+"/src")
 
 from proyecto.gui.PanelDePestannas import PanelDePestannas
 from proyecto.gui.VentanaInicio import VentanaInicio

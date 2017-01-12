@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module src.proyecto.analisis.FachadaEntradaSalida</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="src.html"><font color="#ffffff">src</font></a>.<a href="src.proyecto.html"><font color="#ffffff">proyecto</font></a>.<a href="src.proyecto.analisis.html"><font color="#ffffff">analisis</font></a>.FachadaEntradaSalida</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ctobar%5Cdesktop%5Ctfg_dietapordientes%5Ctfg_dietapordientes%5Csrc%5Cproyecto%5Canalisis%5Cfachadaentradasalida.py">c:\users\tobar\desktop\tfg_dietapordientes\tfg_dietapordientes\src\proyecto\analisis\fachadaentradasalida.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="PyQt5.QtWidgets.html">PyQt5.QtWidgets</a><br>
+<a href="logging.html">logging</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+<a href="shutil.html">shutil</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="src.proyecto.analisis.FachadaEntradaSalida.html#FachadaEntradaSalida">FachadaEntradaSalida</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="FachadaEntradaSalida">class <strong>FachadaEntradaSalida</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Clase&nbsp;fachada&nbsp;para&nbsp;el&nbsp;mediador&nbsp;que&nbsp;se&nbsp;encargara&nbsp;de&nbsp;la&nbsp;entrada&nbsp;salida&nbsp;por&nbsp;ficheros.<br>
+@var&nbsp;mediador:&nbsp;Instancia&nbsp;del&nbsp;mediador&nbsp;de&nbsp;pestañas&nbsp;que&nbsp;crea&nbsp;dicha&nbsp;fachada.<br>
+@var&nbsp;escribecsv:&nbsp;Instancia&nbsp;de&nbsp;la&nbsp;clase&nbsp;que&nbsp;pasa&nbsp;a&nbsp;csv&nbsp;los&nbsp;datos&nbsp;o&nbsp;los&nbsp;lee&nbsp;de&nbsp;dicho&nbsp;fichero.<br>
+@var&nbsp;dic:&nbsp;Diccionario&nbsp;de&nbsp;datos&nbsp;donde&nbsp;estalocalizado&nbsp;los&nbsp;string&nbsp;del&nbsp;codigo.<br>
+@var&nbsp;configuraciontoxml:&nbsp;Instancia&nbsp;de&nbsp;la&nbsp;clase&nbsp;que&nbsp;lee&nbsp;y&nbsp;escribe&nbsp;los&nbsp;xml.<br>
+@var&nbsp;estad:&nbsp;Instancia&nbsp;de&nbsp;la&nbsp;clase&nbsp;que&nbsp;se&nbsp;encarga&nbsp;de&nbsp;lasestadisticas.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="FachadaEntradaSalida-__init__"><strong>__init__</strong></a>(self, mediador, idioma)</dt><dd><tt>Constructor&nbsp;de&nbsp;la&nbsp;clase&nbsp;<a href="#FachadaEntradaSalida">FachadaEntradaSalida</a>&nbsp;que&nbsp;inicializa&nbsp;y&nbsp;prepara&nbsp;todos<br>
+los&nbsp;objetos&nbsp;que&nbsp;tendremos&nbsp;que&nbsp;usar&nbsp;mas&nbsp;adelante&nbsp;en&nbsp;la&nbsp;clase.</tt></dd></dl>
+
+<dl><dt><a name="FachadaEntradaSalida-cargar_proyec"><strong>cargar_proyec</strong></a>(self, path, table)</dt><dd><tt>Metodo&nbsp;para&nbsp;a&nbsp;partir&nbsp;de&nbsp;un&nbsp;proyecto&nbsp;ecistente&nbsp;carge&nbsp;los&nbsp;ficheros&nbsp;con&nbsp;las&nbsp;lineas&nbsp;calculadas<br>
+dentro&nbsp;de&nbsp;nuestra&nbsp;aplicacion&nbsp;para&nbsp;poder&nbsp;hacer&nbsp;mas&nbsp;o&nbsp;borrar&nbsp;algunas&nbsp;es&nbsp;decir&nbsp;para&nbsp;poder&nbsp;<br>
+editar&nbsp;los&nbsp;cambios&nbsp;necesarios.<br>
+&nbsp;<br>
+@param&nbsp;path:&nbsp;Camino&nbsp;hasta&nbsp;donde&nbsp;esta&nbsp;nuestro&nbsp;proyecto&nbsp;en&nbsp;custion.</tt></dd></dl>
+
+<dl><dt><a name="FachadaEntradaSalida-escribe_proyecto"><strong>escribe_proyecto</strong></a>(self, variables_tabla, lista, segmentos, nombres, procesado, caminos)</dt><dd><tt>Metodo&nbsp;auxiliar&nbsp;para&nbsp;guardar&nbsp;lso&nbsp;entregables&nbsp;delega&nbsp;en&nbsp;el&nbsp;la&nbsp;tarea&nbsp;de&nbsp;escribirlos&nbsp;en&nbsp;la&nbsp;carpeta&nbsp;nueva.<br>
+@param&nbsp;variables_tabla:&nbsp;variables&nbsp;que&nbsp;contiene&nbsp;la&nbsp;tabla.<br>
+@param&nbsp;temp:&nbsp;ruta&nbsp;al&nbsp;fichero&nbsp;temporal.<br>
+@param&nbsp;temp2:&nbsp;ruta&nbsp;al&nbsp;segundo&nbsp;fichero&nbsp;temporal<br>
+@param&nbsp;lista:&nbsp;lista&nbsp;con&nbsp;las&nbsp;variables&nbsp;que&nbsp;escribiremos&nbsp;al&nbsp;csv.<br>
+@param&nbsp;path:Camino&nbsp;donde&nbsp;guardar&nbsp;el&nbsp;Proyecto.<br>
+@param&nbsp;segmentos:&nbsp;segmentos&nbsp;que&nbsp;vamos&nbsp;a&nbsp;pintar&nbsp;y&nbsp;guardar.</tt></dd></dl>
+
+<dl><dt><a name="FachadaEntradaSalida-guardar_tabla"><strong>guardar_tabla</strong></a>(self, table, ref_numeros, nombres, procesado, caminos)</dt><dd><tt>Metodo&nbsp;que&nbsp;sirve&nbsp;para&nbsp;guardar&nbsp;los&nbsp;cambios&nbsp;&nbsp;dentro&nbsp;de&nbsp;la&nbsp;tabla&nbsp;en&nbsp;distintos&nbsp;<br>
+entregables&nbsp;como&nbsp;por&nbsp;ejemplo&nbsp;un&nbsp;fichero&nbsp;con&nbsp;los&nbsp;estadisticos,&nbsp;otro&nbsp;con&nbsp;la&nbsp;tabla,&nbsp;<br>
+otro&nbsp;con&nbsp;las&nbsp;lineas&nbsp;detectadas&nbsp;y&nbsp;las&nbsp;dos&nbsp;imagenes&nbsp;original&nbsp;y&nbsp;pintada&nbsp;despues&nbsp;del&nbsp;<br>
+procesado.</tt></dd></dl>
+
+<dl><dt><a name="FachadaEntradaSalida-undo"><strong>undo</strong></a>(self, temp2, path)</dt><dd><tt>Funcion&nbsp;auxiliar&nbsp;para&nbsp;hacer&nbsp;el&nbsp;undo&nbsp;si&nbsp;algo&nbsp;va&nbsp;mal&nbsp;y&nbsp;poder&nbsp;tener&nbsp;todo&nbsp;tal<br>
+tal&nbsp;cual&nbsp;estaba&nbsp;antes&nbsp;de&nbsp;hacer&nbsp;nada.<br>
+@param&nbsp;temp2:&nbsp;Directorio&nbsp;temporal&nbsp;donde&nbsp;se&nbsp;guardan&nbsp;las&nbsp;copias&nbsp;para&nbsp;hacer&nbsp;el&nbsp;undo.<br>
+@param&nbsp;path:&nbsp;Ruta&nbsp;al&nbsp;directorio&nbsp;donde&nbsp;guardar&nbsp;los&nbsp;archivos.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

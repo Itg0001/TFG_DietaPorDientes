@@ -1,14 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html><head><title>Python: module src.codigo.procesado.ProcesadoDeImagen</title>
+<html><head><title>Python: module src.proyecto.analisis.procesado.ProcesadoDeImagen</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head><body bgcolor="#f0f0f8">
 
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
 <tr bgcolor="#7799ee">
 <td valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="src.html"><font color="#ffffff">src</font></a>.<a href="src.codigo.html"><font color="#ffffff">codigo</font></a>.<a href="src.codigo.procesado.html"><font color="#ffffff">procesado</font></a>.ProcesadoDeImagen</strong></big></big></font></td
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="src.html"><font color="#ffffff">src</font></a>.<a href="src.proyecto.html"><font color="#ffffff">proyecto</font></a>.<a href="src.proyecto.analisis.html"><font color="#ffffff">analisis</font></a>.<a href="src.proyecto.analisis.procesado.html"><font color="#ffffff">procesado</font></a>.ProcesadoDeImagen</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ctobar%5Cdesktop%5Cworkespace%5Ctfg2%5Csrc%5Ccodigo%5Cprocesado%5Cprocesadodeimagen.py">c:\users\tobar\desktop\workespace\tfg2\src\codigo\procesado\procesadodeimagen.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ctobar%5Cdesktop%5Ctfg_dietapordientes%5Ctfg_dietapordientes%5Csrc%5Cproyecto%5Canalisis%5Cprocesado%5Cprocesadodeimagen.py">c:\users\tobar\desktop\tfg_dietapordientes\tfg_dietapordientes\src\proyecto\analisis\procesado\procesadodeimagen.py</a></font></td></tr></table>
     <p></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -18,9 +18,13 @@
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="PIL.Image.html">PIL.Image</a><br>
-</td><td width="25%" valign=top><a href="PIL.ImageDraw.html">PIL.ImageDraw</a><br>
+<a href="PIL.ImageDraw.html">PIL.ImageDraw</a><br>
 </td><td width="25%" valign=top><a href="skimage.io.html">skimage.io</a><br>
-</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+<a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+<a href="shutil.html">shutil</a><br>
+</td><td width="25%" valign=top><a href="tempfile.html">tempfile</a><br>
+<a href="warnings.html">warnings</a><br>
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
@@ -32,7 +36,7 @@
 <dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
 </font></dt><dd>
 <dl>
-<dt><font face="helvetica, arial"><a href="src.codigo.procesado.ProcesadoDeImagen.html#ProcesadoDeImagen">ProcesadoDeImagen</a>
+<dt><font face="helvetica, arial"><a href="src.proyecto.analisis.procesado.ProcesadoDeImagen.html#ProcesadoDeImagen">ProcesadoDeImagen</a>
 </font></dt></dl>
 </dd>
 </dl>
@@ -58,6 +62,13 @@ el&nbsp;fondo&nbsp;y&nbsp;las&nbsp;lineas&nbsp;que&nbsp;queremos&nbsp;detectar.<
 &nbsp;<br>
 @return:&nbsp;imgBin:&nbsp;imagen&nbsp;binarizada.</tt></dd></dl>
 
+<dl><dt><a name="ProcesadoDeImagen-binarizar_para_cuadrado"><strong>binarizar_para_cuadrado</strong></a>(img)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Este&nbsp;metodo&nbsp;va&nbsp;a&nbsp;consistir&nbsp;en&nbsp;que&nbsp;a&nbsp;partir&nbsp;de&nbsp;la&nbsp;imagen&nbsp;que&nbsp;hemos&nbsp;abierto<br>
+nos&nbsp;la&nbsp;va&nbsp;a&nbsp;binarizar&nbsp;resaltando&nbsp;unicamente&nbsp;los&nbsp;bordes&nbsp;del&nbsp;cuadrado&nbsp;donde<br>
+detectar&nbsp;las&nbsp;lineas&nbsp;<br>
+@param&nbsp;img:&nbsp;imagen&nbsp;que&nbsp;hemos&nbsp;leido.<br>
+&nbsp;<br>
+@return:&nbsp;imagen&nbsp;binarizada&nbsp;resaltando&nbsp;bordes.</tt></dd></dl>
+
 <dl><dt><a name="ProcesadoDeImagen-crop_img"><strong>crop_img</strong></a>(img_bin, img)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Metodo&nbsp;para&nbsp;la&nbsp;imagen&nbsp;no&nbsp;hay&nbsp;qeu&nbsp;procesarla&nbsp;completa&nbsp;porque&nbsp;solo&nbsp;tiene&nbsp;una&nbsp;region<br>
 marcada&nbsp;con&nbsp;lineas&nbsp;tenemos&nbsp;qque&nbsp;recortarla<br>
 &nbsp;<br>
@@ -67,7 +78,7 @@ marcada&nbsp;con&nbsp;lineas&nbsp;tenemos&nbsp;qque&nbsp;recortarla<br>
 @return:&nbsp;imgBinCrop:&nbsp;Es&nbsp;la&nbsp;imagen&nbsp;binarizada&nbsp;recortada&nbsp;a&nbsp;la&nbsp;region&nbsp;que&nbsp;queremos.<br>
 @return:&nbsp;imgCrop:&nbsp;Es&nbsp;la&nbsp;imagen&nbsp;original&nbsp;recortada&nbsp;a&nbsp;la&nbsp;region&nbsp;que&nbsp;queremos.</tt></dd></dl>
 
-<dl><dt><a name="ProcesadoDeImagen-distancia_al_rojo"><strong>distancia_al_rojo</strong></a>(img)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Metodo&nbsp;para:<br>
+<dl><dt><a name="ProcesadoDeImagen-distancia_al_rojo"><strong>distancia_al_rojo</strong></a>(img, pixel)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Metodo&nbsp;para:<br>
 Pasamos&nbsp;la&nbsp;imagen&nbsp;al&nbsp;espacio&nbsp;de&nbsp;color&nbsp;RGB&nbsp;y&nbsp;nos&nbsp;quedamos&nbsp;con&nbsp;el&nbsp;canal&nbsp;rojo<br>
 Pasamos&nbsp;la&nbsp;imagen&nbsp;al&nbsp;espacio&nbsp;de&nbsp;color&nbsp;HSV<br>
 Normalizamos&nbsp;la&nbsp;imagen&nbsp;del&nbsp;espacio&nbsp;de&nbsp;color&nbsp;HSV&nbsp;para&nbsp;utilizar&nbsp;que&nbsp;distancia&nbsp;<br>
@@ -77,7 +88,7 @@ al&nbsp;rojo&nbsp;tenemos&nbsp;y&nbsp;poder&nbsp;hacer&nbsp;el&nbsp;theshold.<br
 &nbsp;<br>
 @return:&nbsp;distance_red:&nbsp;distancia&nbsp;de&nbsp;cada&nbsp;pixel&nbsp;al&nbsp;rojo&nbsp;apra&nbsp;luego&nbsp;hacer&nbsp;el&nbsp;threshold.</tt></dd></dl>
 
-<dl><dt><a name="ProcesadoDeImagen-guardar_y_pintar"><strong>guardar_y_pintar</strong></a>(path, temp, segmentos)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Metodo&nbsp;que&nbsp;se&nbsp;encargara&nbsp;de&nbsp;guardar&nbsp;y&nbsp;pintar&nbsp;los&nbsp;segmentos&nbsp;pasados&nbsp;<br>
+<dl><dt><a name="ProcesadoDeImagen-guardar_y_pintar"><strong>guardar_y_pintar</strong></a>(path, temp, segmentos, cuadrado)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Metodo&nbsp;que&nbsp;se&nbsp;encargara&nbsp;de&nbsp;guardar&nbsp;y&nbsp;pintar&nbsp;los&nbsp;segmentos&nbsp;pasados&nbsp;<br>
 en&nbsp;la&nbsp;imagen&nbsp;para&nbsp;asi&nbsp;poder&nbsp;usarla&nbsp;para&nbsp;informes.<br>
 &nbsp;<br>
 @param&nbsp;path:&nbsp;Camino&nbsp;donde&nbsp;guardar&nbsp;la&nbsp;imagen&nbsp;con&nbsp;las&nbsp;lineas&nbsp;nuevas&nbsp;pintadas.&nbsp;<br>
@@ -88,6 +99,34 @@ en&nbsp;la&nbsp;imagen&nbsp;para&nbsp;asi&nbsp;poder&nbsp;usarla&nbsp;para&nbsp;
 dandole&nbsp;el&nbsp;path&nbsp;de&nbsp;la&nbsp;imagen.<br>
 @param&nbsp;path_img:&nbsp;camino&nbsp;hasta&nbsp;la&nbsp;imagen.<br>
 @retrun&nbsp;Img:&nbsp;imagen&nbsp;leida.</tt></dd></dl>
+
+<dl><dt><a name="ProcesadoDeImagen-obtener_max_y_min"><strong>obtener_max_y_min</strong></a>(lines)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>En&nbsp;este&nbsp;metodo&nbsp;vamos&nbsp;a&nbsp;calcular&nbsp;las&nbsp;xmax,&nbsp;xmin&nbsp;ymax&nbsp;e&nbsp;ymin&nbsp;de&nbsp;neustro&nbsp;cuadrado<br>
+es&nbsp;decir&nbsp;los&nbsp;4&nbsp;vertices&nbsp;que&nbsp;componen&nbsp;el&nbsp;cuadrado<br>
+@param&nbsp;lines:&nbsp;lista&nbsp;de&nbsp;puntos&nbsp;que&nbsp;forman&nbsp;las&nbsp;lineas&nbsp;del&nbsp;cuadrado.<br>
+@return:&nbsp;4&nbsp;vertices&nbsp;del&nbsp;cuadrado.</tt></dd></dl>
+
+<dl><dt><a name="ProcesadoDeImagen-obtener_numeros"><strong>obtener_numeros</strong></a>(img)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Metodo&nbsp;que&nbsp;se&nbsp;va&nbsp;a&nbsp;encargar&nbsp;de&nbsp;obtener&nbsp;los&nbsp;numero&nbsp;que&nbsp;componen<br>
+la&nbsp;referencia.<br>
+@param&nbsp;img:&nbsp;imagen&nbsp;de&nbsp;la&nbsp;que&nbsp;obtener&nbsp;la&nbsp;referencia.&nbsp;<br>
+@return:&nbsp;devolvemos&nbsp;el&nbsp;valor&nbsp;leido&nbsp;de&nbsp;la&nbsp;imagen&nbsp;que&nbsp;sera&nbsp;la&nbsp;referencia.</tt></dd></dl>
+
+<dl><dt><a name="ProcesadoDeImagen-pertenece_o_no"><strong>pertenece_o_no</strong></a>(x, y, x_min, x_max, y_min, y_max)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>En&nbsp;este&nbsp;metodo&nbsp;dado&nbsp;un&nbsp;punto&nbsp;y&nbsp;los&nbsp;4&nbsp;vertices&nbsp;del&nbsp;cuadrado&nbsp;comprobaremos<br>
+si&nbsp;las&nbsp;coordenadas&nbsp;del&nbsp;punto&nbsp;pertenecen&nbsp;al&nbsp;area&nbsp;pintable.<br>
+@param&nbsp;x:&nbsp;coordenada&nbsp;x&nbsp;del&nbsp;punto&nbsp;a&nbsp;comprobar.<br>
+@param&nbsp;y:&nbsp;coordenada&nbsp;y&nbsp;del&nbsp;punto&nbsp;a&nbsp;comprobar.<br>
+@param&nbsp;x_min:&nbsp;coordenada&nbsp;x&nbsp;minima&nbsp;del&nbsp;cuadrado<br>
+@param&nbsp;x_max:&nbsp;coordenada&nbsp;x&nbsp;macima&nbsp;del&nbsp;cuadrado.<br>
+@param&nbsp;y_min:&nbsp;coodenada&nbsp;y&nbsp;minima&nbsp;del&nbsp;cuadrado.<br>
+@param&nbsp;y_max:&nbsp;coordenada&nbsp;y&nbsp;maxima&nbsp;del&nbsp;cuadrado.<br>
+@return:&nbsp;true/false&nbsp;dependiendo&nbsp;si&nbsp;pertenece&nbsp;a&nbsp;esa&nbsp;region&nbsp;o&nbsp;no.</tt></dd></dl>
+
+<dl><dt><a name="ProcesadoDeImagen-pixel_rgb_2_lab"><strong>pixel_rgb_2_lab</strong></a>(pixel)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Esta&nbsp;funcion&nbsp;se&nbsp;encargara&nbsp;de&nbsp;pasar&nbsp;un&nbsp;pixel&nbsp;de&nbsp;rgb&nbsp;a&nbsp;lab.<br>
+@param&nbsp;pixel:&nbsp;pixel&nbsp;que&nbsp;pasar&nbsp;a&nbsp;espacio&nbsp;de&nbsp;color&nbsp;lab.<br>
+@return:&nbsp;pixel&nbsp;en&nbsp;espacio&nbsp;de&nbsp;color&nbsp;lab.</tt></dd></dl>
+
+<dl><dt><a name="ProcesadoDeImagen-pixelrgb_2_hsv"><strong>pixelrgb_2_hsv</strong></a>(pixel)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Esta&nbsp;funcion&nbsp;se&nbsp;encargara&nbsp;de&nbsp;pasar&nbsp;un&nbsp;pixel&nbsp;de&nbsp;rgb&nbsp;a&nbsp;hsv.<br>
+@param&nbsp;pixel:&nbsp;pixel&nbsp;que&nbsp;pasar&nbsp;a&nbsp;espacio&nbsp;de&nbsp;color&nbsp;hsv.<br>
+@return:&nbsp;pixel&nbsp;en&nbsp;espacio&nbsp;de&nbsp;color&nbsp;hsv.</tt></dd></dl>
 
 <dl><dt><a name="ProcesadoDeImagen-pro_hough"><strong>pro_hough</strong></a>(threshold, line_length, line_gap, sin_ruido)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Este&nbsp;metodo&nbsp;lo&nbsp;que&nbsp;va&nbsp;a&nbsp;hacer&nbsp;es&nbsp;calcular&nbsp;los&nbsp;segmentos(ORIGEN"Ox,Oy"&nbsp;Y&nbsp;FIN&nbsp;"FX,FY")&nbsp;<br>
 de&nbsp;cada&nbsp;una&nbsp;de&nbsp;las&nbsp;lineas&nbsp;que&nbsp;se&nbsp;han&nbsp;detectado&nbsp;en&nbsp;la&nbsp;imagen&nbsp;binarizada&nbsp;atraves&nbsp;de&nbsp;la&nbsp;<br>

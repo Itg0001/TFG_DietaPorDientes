@@ -35,7 +35,7 @@ class Diccionario():
         self.utf='UTF-8'
         self.repeti="repeti"
         self.long="long"
-        self.direccion="dirección"
+        self.direccion="direccion"
         self.path="path"
         self.tex='tex'
         self.tab='/Tabla.tex'

@@ -15,5 +15,4 @@ from proyecto.analisis.diccionario.DiccionarioING import DiccionarioING
 from proyecto.analisis.FachadaBotonesAndLayaout import FachadaBotonesAndLayaout
 from proyecto.analisis.FachadaEntradaSalida import FachadaEntradaSalida
 from proyecto.analisis.MediadorVentana import MediadorVentana
-
 from proyecto.analisis.MediadorPestannas import MediadorPestannas

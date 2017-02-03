@@ -108,11 +108,11 @@ class FachadaEntradaSalida():
         
         @param path: Camino hasta donde esta nuestro proyecto en custion.
         """       
+
         self.cargado = True
         nombres,repeticiones,long,dire,xmin,xmax=self.conf_to_xml.leer_xml(path)      
         segmentos = self.escribeCSV.leer(path + nombres[self.dic.docu3])
         segmentos_procesa = []
-
         segmentos_pintar = []
         for i in segmentos:
             i = i.replace(' ', '')
@@ -121,6 +121,7 @@ class FachadaEntradaSalida():
             i = i.replace(',', ' ')
             segmentos_procesa.append(i.split())
         row = table.rowCount()
+
         if len(segmentos_procesa) != 0:
             for i in segmentos_procesa:
                 l1, l2 = 0, 0 

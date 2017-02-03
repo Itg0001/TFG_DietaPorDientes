@@ -1,4 +1,7 @@
 # TFG_DietaPorDientes
+
+
+
 # Requisitos de usuarios
 Para que un usuario pueda ejecutar y usar nuestra aplicación, deberá tener instalado Python 3.5 en su máquina, aunque para facilitar al usuario no tener que saber como descargar las librerías o dependencias, hemos implementado un script que funcionará teniendo instalado Miniconda para Python 3.5, explicaremos su uso en la instalación.
 
@@ -35,3 +38,7 @@ Para solucionar este problema deberemos instalarlo sobre este directorio.
 En caso de que surja algún otro problema contactar con el desarrollador a través del siguiente e-mail: itg0001@alu.ubu.es
 # Uso de la aplicación
 Para mas informacion ver la ayuda de la aplicación.
+
+# Autores
+Autor: Ismael Tobar García.
+Tutores: Álvar Arnaiz González y José Francisco Diez Pastor.
